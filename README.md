@@ -1,4 +1,4 @@
 fca_teamproject
 ===============
 
-Teamprojekt Merkmalsextraktion für Formale Begriffsanalyse
+Teamprojekt: Merkmalsextraktion für Formale Begriffsanalyse
