@@ -4,9 +4,9 @@ Bericht Teamprojekt
 Einführungsteil
 ---------------
 
-1. Motivation
-2. Idee (SimuLLda, FCA)
-3. Erste Überlegungen
+1. A multilingual Dictionary of Ophthalmology (Aufbau und Umfang des Dictionarys, was bisher daran genacht wurde)
+2. Ideen und Zielsetzung (SimuLLda, FCA, lexical gap)
+3. Erste Überlegungen zur Umsetzung
 
 Berichtsteil
 ------------
