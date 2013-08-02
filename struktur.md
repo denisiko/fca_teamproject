@@ -29,8 +29,6 @@ Berichtsteil
 
 ### Bilden der Begriffsverbände und Visualisierung
 
-### Probleme und Erreichtes
-
 Schlußteil
 ----------
 
@@ -38,7 +36,5 @@ Schlußteil
 
 ### Diskussion der Probleme
 
-### Verbesserungs- und Erweiterungsvorschläge
-
-### Schlußbemerkungen
+### Ausblick
 
