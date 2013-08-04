@@ -4,24 +4,33 @@ Bericht Teamprojekt
 Einführungsteil
 ---------------
 
-1. A multilingual Dictionary of Ophthalmology (Aufbau und Umfang des Dictionarys, was bisher daran genacht wurde)
-2. Ideen und Zielsetzung (SimuLLda, FCA, lexical gap)
-3. Erste Überlegungen zur Umsetzung
+### A multilingual Dictionary of Ophthalmology (Aufbau und Umfang des Dictionarys, was bisher daran genacht wurde)
+### Ideen und Zielsetzung (SimuLLda, FCA, lexical gap)
+### Erste Überlegungen zur Umsetzung
+
+FCA-Teil
+--------
+
+### Einführung (z.B. Kreuztabellen, Merkmalexploration)
+
+### (Hasse-)Diagramme
+
+### Grenzen (keine direkte Hierarchie möglich, nur binäre Zuweisungen von Merkmalen möglich)
+
+### Chancen (einfache Struktur, Exploration des Begriffsverbandes)
 
 Berichtsteil
 ------------
 
-### Überlegungen zur maschinellen Merkmalsextraktion allgemein
+### Automatisierter Aufbau einer Wissensdatenbank (Extraktion allgemein)
 
-### ICD-10 und verwandte Ansätze
+### ICD-10 als Wissensquelle
 
-### Wikipedia 1 und 2
+### Wortmuster als Merkmalsidentifizierer
 
-### Anderes (?)
+### Wikipedia als Wissensquelle
 
-### Bilden der Begriffsverbände
-
-### Visualisierung
+### Bilden der Begriffsverbände und Visualisierung (unser Script)
 
 Schlußteil
 ----------
@@ -30,7 +39,7 @@ Schlußteil
 
 ### Diskussion der Probleme
 
-### Verbesserungs- und Erweiterungsvorschläge
+### Ausblick
 
-### Schlußbemerkungen
+### Schlussbemerkungen
 
