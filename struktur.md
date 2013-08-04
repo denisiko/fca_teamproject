@@ -39,7 +39,7 @@ Schlußteil
 
 ### Diskussion der Probleme
 
-### Ausblick
+### Ausblick (SNOMED, Merkmalsmenge einschränken)
 
 ### Schlussbemerkungen
 
