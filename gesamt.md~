@@ -160,22 +160,25 @@ Die resultierende Liste von n-Grammen je Artikel, wurde zusammen mit dem Artikel
 Da sowohl das Wiki-Markup, als auch Schriftzeichen anderer Sprachen (insbesondere Altgriechisch, Arabisch und Indisch) herausgefiltert werden mussten, zum Teil mit manuellem Eingriff und Korrektur
 (auch hier gilt, was an anderer Stelle schon bemerkt wurde: manche der manuell ausgeführten Arbeiten sind prinzipiell automatisierbar, allerdings erschien zum relevanten Zeitpunkt der Aufwand dafür, gegeben dass es sich um eine einmalige Aufgabe handelte, als nicht geboten. In jedem Fall wurde aber darauf geachtet, die Schritte so zu wählen, dass sie automatisierbar sein können).
 2. Shell-Skript für den Einsatz des Porter-Stemmers und anschließendes Speichern. Dieser Schritt geht vollautomatisch und ohne Bedarf weiterer Überprüfung oder Korrektur.
+3. PHP-Skripte für den Import der XML-Daten in die Datenbank.
+4. Zuweisung der Merkmale, sowie Matching der Artikeltitel und der Synsetbezeichnungen via SQL.
 
 ### Ergebnisse
 
-Das Ergebnis zeigte sich bezüglich der Ausbeute an Merkmalen und der Anzahl an Zuweisungen je Begriff als unbefriedigend (Weiteres von @Denis hier).
+Das Ergebnis zeigte sich bezüglich der Ausbeute an Merkmalen und der Anzahl an Zuweisungen je Begriff als unbefriedigend. Zwar wurden insgesamt ca. 5000 Merkmale produziert, jedoch befindet sich darunter jede Menge Ballast in Form von irrelevanten oder aus dem Kontext heraus falsch extrahierten Daten (z.B. is_a als Merkmal, da als Wikipedia-Eintrag vorhanden). Zudem ist bei insgesamt ca. 7000 Merkmalszuweisungen jedes Merkmal im Schnitt 1,4 mal zugewiesen worden, was extrem wenig ist. Es gibt nur ca. 500 Merkmale, die öfters als 3 mal zugewiesen wurden. Auch das Matching der Artikelnamen auf die Synsets bleibt mit einem Wert von 266 erkannten Synsets bei 626 Lexikonartikeln hinter den Erwartungen zurück.
 
 Daher wurde ein zweiter Durchlauf der selben Daten allerdings nach vorheriger Bereinigung um Stoppworte durchgeführt.
-Die Quellen der verwendeten Stoppwortlisten, sind im Anhang aufgeführt.
+Die Quellen der verwendeten Stoppwortlisten sind im Anhang aufgeführt.
 
-Auch hier blieb das Ergebnis hinter den Erwartungen zurück (@Denis).
+Auch hier blieb das Ergebnis hinter den Erwartungen zurück. Die Merkmalsanzahl blieb nahezu unverändert, Zuweisungen haben sich gut um 1000 reduziert. Dank großzügigerem Matching mit Nichtbeachtung von Groß- und Kleinschreibung konnten ca. 30 Synsets mehr auf Artikel abgebildet werden, aber auch das ändert die Einschätzung des Endresultates nicht. Positiv herauszustellen ist jedoch die Erzeugung eines etwas bereinigteren Begriffsverbandes, da Merkmale wie is_a nicht mehr zustande kommen aufgrund der Stoppwortfilterung.
+
 
 Inhalte der Wikipedia via dem API
 =================================
 
 ### Vorüberlegungen
 
-Der Gründe aus dem der Dump der Wikipedia-Abstracts verwendet worden waren sind
+Die Gründe aus dem der Dump der Wikipedia-Abstracts verwendet worden waren sind
 
 * es musste kein 'Crawler' geschrieben werden, der immer wieder neu auf die Seiten losgelassen wurde
 * es war anfangs auch nicht zu überblicken, ob und welche Kategorien noch hinzugenommen werden sollten
@@ -267,6 +270,12 @@ A scleral lens
 Dadurch, dass bei der Verarbeitung in Schritt 3 die Bestandteile des Artikelnamens 'scleral' und 'lens' herausgefiltert werden, bleibt nicht mehr viel nützliches übrig.
 Zu überlegen ist, ob man bei einer Unterschreitung einer Anzahl Ergebniszeilen, den oder die Begriffe aus denen sich der Artikel zusammensetzt, hinzunimmt.
 Allerdings geben die beiden Kategorien hinreichend Information um 'scleral lens' zumindest einordnen zu können.
+
+### Ergebnisse
+
+Insgesamt wurden 1379 Wikipedia-Abstracts analysiert, aus denen 2439 Merkmale extrahiert werden konnten, die 9797 mal entsprechenden Artikeln zugeordnet wurden. Nach Matching der Artikelnamen auf Synsets aus dem Wörterbuch kommt man auf (nur) 335 gematchte Synsets, auf die insgesamt 931 Merkmale 2582 mal zugewiesen wurden. Im Gegensatz zu den ersten Durchläufen der Wikipedia-Extraktion ist die Ausbeute an Merkmalen damit deutlich geringer, dafür konnten aber mehr Synsets identifiziert und die Vernetzung der Merkmalszuweisungen deutlich erhöht werden (ungefähr um den Faktor 2). Zudem ist der resultierende Begriffsverband deutlich bereinigter als zuvor.
+
+Damit kann konstantiert werden, dass diese Methode allein keinen hinreichend aussagekräftigen Begriffsverband für das Wörterbuch generiert hat, jedoch als sinnvolle Ergänzung zu den bereits angewandten Methoden gesehen werden kann.
 
 ### Bilden der Begriffsverbände und Visualisierung (unser Script)
 
