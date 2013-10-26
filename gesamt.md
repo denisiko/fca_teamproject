@@ -55,13 +55,20 @@ Der erste Schritt vor der Durchführung von formaler Begriffsanalyse ist im Fall
 <!-- 
 'Wörterbuch der Augenheilkunde' verwendet statt 'Augenheilkundewörterbuch'
 
+Antwort: OK
+
 Satzvorschlag:
 Um mit der formalen Begriffsanalyse beginnen zu können, wurde zunächst eine Menge von Merkmalen benötigt, die den Begriffen im Wörterbuch der Augenheilkunde zugewiesen werden konnten.
 
 Frage zu Synsets: Was sind bei uns Synsets? Ist eine Menge Begriffe, die sich die selben Merkmale vollständig teilen ein Synset?
 
+Antwort: Synset = Menge aller von Dr. Zeitz als synonym bestimmte Wörterbucheinträge (anhand derselben ID), also auch übersetzte Einträge
+
 Frage zur Fragestellung: Wenn obiges zutrifft: war das unsere Fragestellung? Synsets identifizieren? Sind die nachfolgend genannten 20000+ Einträge repräsentiert durch 2500 Synsets? Ist die Idee also gewesen unter Ausnutzung der Synonymie alle oder die meisten Einträge zu treffen?
 Vorschlag: hier vielleicht noch präziser werden.
+
+Antwort: nicht Synsets identifizieren, die haben wir ja schon, sondern erschließen (geschieht durch Merkmale, also quasi Tagging), und ja, es waren zu dem Zeitpunkt 2500 Synsets;
+Der Begriff des Synsets wird noch im allerersten Kapitel erläutert. Muss ich noch machen. Auf das Thema, was die Fragestellung war, wird ja auch im Einleitungsteil eingegangen (bzw. soll noch)
 -->
 
 Ein Begriffsverband als Ergebnis der formalen Begriffsanalyse stellt die Menge an Begriffen in Bezug zu einer so vordefinierten Menge an Merkmalen. 
@@ -73,6 +80,8 @@ Stattdessen warten annähernd 2500 Synsets, die sich auf etwa 20000 Einträge de
 Der Umfang der im Wörterbuch zu erschließenden Synsets [?] belief sich auf 2500 verteilt auf etwa 20000 Wörterbucheinträge.
 
 Vorschlag: spätestens hier präzisieren was 'verteilt' bedeutet: als Teilmenge der 20000, oder die 20000 repräsentierend.
+
+Antwort: stimmt, das wäre angebracht. Formulierung ist von dir besser (die 20000 repräsentierend).
 -->
  
 Eine derart große Menge an Konzepten lässt sich nur mit großem intellektuellen Aufwand erschließen, zumal hierzu ein hohes Maß an vertieftem Domänenwissen innerhalb des Bereichs der Augenheilkunde nötig wäre. 
@@ -83,6 +92,8 @@ Aus diesem Grund erschien die Automatisierung dieses Schrittes als die einzig vi
 [...] die wichtigste Zielsetzung für das Projekt darstellt
 
 Sonst stellt sich unmittelbar die Frage wieder: was waren denn die anderen Zielsetzungen?
+
+Antwort: aber ist dafür nicht das Kapitel "Ideen und Zielsetzung" da?
 
 -->
 
@@ -103,6 +114,8 @@ Diese Methode erschien am leichtesten umsetzbar und ist vergleichbar mit dem aut
 <!-- Satzvorschlag
 
 Kurz: was ist automatisches Tagging? -> (automatisierte Zuweisung von Schlagwörtern, die auf unterschiedliche Arten zuvor erschlossen wurden)?
+
+Antwort: Satzvorschag: [...] und ist vergleichbar mit der Methode des Taggings, bei dem ...
 
 -->
 
@@ -147,6 +160,8 @@ Mithilfe der offen gestalteten Notation soll dann anschließend jedem Synset, de
 
 Was bedeutet 'offen gestaltete Notation'?
 
+Antwort: mies formuliert von mir, besser: mithilfe der aus den Notationen erkannten Klassenbezeichnern ...
+
 -->
 
 Beispielsweise sollen dem Synset für primäres Weitwinkelglaukom (H40.1) alle Merkmale des Synsets Glaukom (H40), sowie das Merkmal Glaukom selbst zugewiesen werden, ausgehend von der Notation. 
@@ -157,6 +172,8 @@ In der Praxis scheiterte dieser Ansatz beim Vergleich der Titel der ICD-10-Eintr
 <!-- Satzvorschlag:
 
 Statt 'Benamung' was glaube ich kein deutsches Wort ist, vielleicht 'Bezeichnung'?
+
+Antwort: OK
 
 -->
  
@@ -174,6 +191,8 @@ Diese wurde anhand von Wortteilmustern und ihrer Bedeutung als Affix, Wortwurzel
 
 Kürzer, m.E. klarer
 
+Antwort: neues Kapitel nicht mit "im Unterschied dazu" beginnen, ansonsten OK
+
 -->
 
 Als sehr effizient erwies sich die Durchführung einer (semi-)automatisierten Merkmalsextraktion bzw. -zuweisung anhand von Wortteilmustern und ihrer Bedeutung als Affix, Wortwurzel bzw. Teil eines Kompositums oder Derivats. 
@@ -183,6 +202,8 @@ Diese kommen gehäuft in den verschiedenen medizinischen Fachbegriffen vor - auf
 
 Was bedeutet 'konstante sprachliche Struktur'?
 Vielleicht einfach: Viele medizinische Begriffe beinhalten Wortteile aus dem Lateinischen oder Altgriechischen oder sind fast vollständig Lehnwörter daraus.
+
+Antwort: konstant bedeutet hier, dass die Sprachstruktur sich immer wieder wiederholt, also fortgeführt wird (itis, de-, ab, usw.)
 
 -->
 
@@ -223,6 +244,8 @@ Welche englische Begriffsliste?
 Welche erwähnte Methode?
 Unvollständig im Hinblick auf die Abdeckung?
 
+Antwort: Stimmt.
+
 -->
 
 Eine Abdeckung von 20% der Menge an Synsets gilt zudem immer noch nicht als ausreichend für den Aufbau eines formalen Kontextes. 
@@ -245,11 +268,14 @@ Aus dieser Überlegung entstand die Idee bereits im Vorhinein [...]
 
 Hinweis: später taucht wieder 'benamung' auf.
 Frage: was bedeutet 'mit semantischem Inhalt'?
+Antwort: was ist hier nicht klar? Synonyme: bedeutsam, Bedeutung enthaltend, sinnhafte
 Frage: welche 'angewandte Methode'?
 
 Ich will nicht picky sein, ok? Ich finde es an solchen Stellen aber nützlich, Dinge einfach zu wiederholen, statt mit quasi-anaphorischen Konstruktionen zu arbeiten. Die setzen dann immer voraus, dass alles in einem Rutsch gelesen wurde und gleichzeitig präsent ist, wovon gerade geredet wurde.
 
 Ein Vorteil beim Explizieren ist außerdem: die Sätze und Absätzen bauen nicht so stark aufeinander auf und man kann sie verschieben im Text. Andernfalls müsste man vorverlegte Absätze immer daraufhin überprüfen, ob dort Wendungen wie 'die angewandte Methode" stehen, die wurde aber noch gar nicht eingeführt.
+
+Antwort: Stimmt.
 
 -->
 
@@ -266,6 +292,8 @@ Satzvorschlag:
 
 [...] eine nach Häufigkeiten der vorkommenden n-Gramme sortierte Liste [...]
 
+Antowrt: jop, geb ich dir voll recht.
+
 -->
 
 
@@ -278,6 +306,8 @@ Hier wird nicht getastet! ;)
 
 Durch Versuche mit n-Grammen unterschiedlicher Länge zeigte sich, dass unterhalb dieser Grenze kaum noch brauchbare Wortteilmuster identifiziert werden konnten
 
+Antwort: OK, klingt besser (und wissenschaftlicher)
+
 -->
 
 Im späteren Verlauf wurden diese 3-Gramme der Vollständigkeit halber trotzdem mit ausgewertet (vier an der Zahl). 
@@ -287,6 +317,8 @@ Im späteren Verlauf wurden diese 3-Gramme der Vollständigkeit halber trotzdem 
 Das verstehe ich nicht: es wurden Trigramme erhoben und heraus kamen nur vier brauchbare Wortteilmuster?
 
 Wenn das so ist, warum wurde das gemacht? Wirklich nur aus Vollständigkeit oder gab es spezifischere Gründe?
+
+Antwort: jo, so wars. Die meisten Trigramme, die Sinn gemacht hätten, waren viel zu uneindeutig (kommen also in mehreren Kontexten vor, leider hab ich hierfür kein Beispiel mehr)
 
 Satzvorschlag:
 
@@ -301,6 +333,9 @@ Anschließend wurde die Liste ausgehend vom am häufigsten vorkommenden n-Gramm 
 <!-- Frage: 
 
 Was bedeuten 'semantischer Inhalt', 'semantische Eindeutigkeit'?
+
+Antwort: für semantischen Inhalt s.o., semantische Eindeutigkeit = Bedeutung ist (in einem gegebenen Kontext) eindeutig;
+aber du hast recht, Ausführen schadet hier wohl nicht
 
 -->
 
@@ -537,7 +572,7 @@ Allerdings geben die beiden Kategorien hinreichend Information um 'scleral lens'
 
 Insgesamt wurden 1379 Wikipedia-Abstracts analysiert, aus denen 2439 Merkmale extrahiert werden konnten, die 9797 mal entsprechenden Artikeln zugeordnet wurden. 
 Nach Matching der Artikelnamen auf Synsets aus dem Wörterbuch kommt man auf (nur) 335 gematchte Synsets, auf die insgesamt 931 Merkmale 2582 mal zugewiesen wurden. 
-Im Gegensatz zu den ersten Durchläufen der Wikipedia-Extraktion ist die Ausbeute an Merkmalen damit deutlich geringer, dafür konnten aber mehr Synsets identifiziert und die Vernetzung der Merkmalszuweisungen deutlich erhöht werden (ungefähr um den Faktor 2). 
+Im Gegensatz zu den ersten Durchläufen der Wikipedia-Extraktion ist die Ausbeute an Merkmalen damit deutlich geringer, dafür konnten aber mehr Synsets identifiziert und die Wiederverwendungsrate der Merkmalszuweisungen deutlich erhöht werden (ungefähr um den Faktor 2). 
 Zudem ist der resultierende Begriffsverband deutlich kohärenter als zuvor.
 
 Damit kann festgehalten werden, dass diese Methode allein keinen hinreichend aussagekräftigen Begriffsverband für das Wörterbuch generiert hat, jedoch als sinnvolle Ergänzung zu den bereits angewandten Methoden gesehen werden kann.
