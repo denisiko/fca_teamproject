@@ -33,8 +33,42 @@ Dieses *lexical gap* genannte Phänomen kann umso ausgeprägter werden, je spezi
 
 ### Erste Überlegungen zur Umsetzung
 
-formale Begriffsanalyse-Teil
---------
+#### Begriffe der formalen Begriffsanalyse
+
+Die formale Begriffsanalyse ist ein Teil der mathematischen Ordnungslehre. 
+Sie wurde in den 1980er Jahre von Rudolf Wille, Bernhard Ganter und Peter Burmeister entwickelt.
+
+In der formalen Begriffsanalyse setzt sich ein Begriff zusammen aus dem Begriffsumfang und dem Begriffsinhalt.
+Ein formaler Begriff $(A,B)$ hat einen Kontext $(G,M,I)$ bestehend aus einer Menge von Gegenständen $G$, einer Menge von Merkmalen $M$ und einer Inzidenzrelation $I$ als Gegenstand-Merkmal-Beziehung (Ganter \& Wille, 1996, S.58).
+Diese lässt sich in Form einer Kreuztabelle genannten Darstellung, typischerweise mit den Merkmalen als Spalten und den Gegenständen als Zeilen, anschaulich beschreiben.
+Die Kreuze in den Zellen dieser Tabelle bedeuten dann das Vorhandensein des Merkmals für den jeweiligen Gegenstand.
+Für eine beliebige Menge $A$ von Gegenständen aus einem formalen Kontext ist ihre Ableitung $A'$ die Menge der gemeinsamen Merkmale der Gegenstände aus $A$.
+
+$A' := \lbrace m \in M \vert gIm \forall g \in A \rbrace$
+
+Für eine beliebige Menge $B$ von Merkmalen aus einem formalen Kontext ist ihre Ableitung $B'$ die Menge der gemeinsamen Gegenstände der Merkmale aus $B$.
+
+$B' := \lbrace g \in G \vert gIm \forall m \in B \rbrace$
+
+Ist $A$ Umfang und $B$ Inhalt, so heißt $(A,B)$ formaler Begriff des Kontextes $(G,M,I)$ wenn 
+
+* $A$ eine echte Teilmenge von $G$ ist $A \subset G$, und 
+* $B$ eine echte Teilmenge von $M$ ist $B \subset M$, und 
+* die Menge $A'$ der gemeinsamen Merkmale der Gegenstände aus $A$ gleich $B$ ist $A'=B$, und 
+* die Menge $B'$ der gemeinsamen Gegenstände der Merkmale aus $B$ gleich $A$ ist $B'=A$.
+
+Die Menge der Begriffe eines Kontextes sind damit alle Begriffe, die sich auf oben beschriebene Weise aus dem Kontext ermitteln lassen.
+
+Ein Unterbegriff ist dann ein Begriff, welcher alle Merkmale eines gegebenen Begriffs teilt und mindestens ein weiteres Merkmal hat.
+
+Damit definiert sich eine Ordnung auf die Menge der Begriffe eines gegebenen Kontextes. Dies zusammen nennt man Begriffsverband zu dem Kontext.
+
+<!-- Hinweis:
+
+Es folgt eine kleine Kreuztabelle, entweder aus Janssen, 2002 oder aus den Folien von Wiebke
+
+-->
+
 
 ### Einführung (z.B. 
 Kreuztabellen, Merkmalexploration)
