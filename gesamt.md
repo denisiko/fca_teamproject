@@ -84,50 +84,55 @@ Berichtsteil
 
 ### Automatisierter Aufbau einer Wissensdatenbank (Extraktion allgemein)
 
+Um mit der formalen Begriffsanalyse beginnen zu können, wurde zunächst eine Menge von Merkmalen benötigt, die den Begriffen im Wörterbuch der Augenheilkunde zugewiesen werden konnten.
+
+<!-- Satzvorschlag: ÜBERNOMMEN
+
+Alter Satz:
 Der erste Schritt vor der Durchführung von formaler Begriffsanalyse ist im Fall des Wörterbuchs der Augenheilkunde der Erschließungsprozess der zu analysierenden Begriffe, also der Synsets.
 
-<!-- 
-'Wörterbuch der Augenheilkunde' verwendet statt 'Augenheilkundewörterbuch'
-
-Antwort: OK
-
-Satzvorschlag:
-Um mit der formalen Begriffsanalyse beginnen zu können, wurde zunächst eine Menge von Merkmalen benötigt, die den Begriffen im Wörterbuch der Augenheilkunde zugewiesen werden konnten.
+--------------------------------------------------------------------------------
+ERLEDIGT:
 
 Frage zu Synsets: Was sind bei uns Synsets? Ist eine Menge Begriffe, die sich die selben Merkmale vollständig teilen ein Synset?
 
 Antwort: Synset = Menge aller von Dr. Zeitz als synonym bestimmte Wörterbucheinträge (anhand derselben ID), also auch übersetzte Einträge
+
+Antwort: ok
+
+--------------------------------------------------------------------------------
+ERLEDIGT:
 
 Frage zur Fragestellung: Wenn obiges zutrifft: war das unsere Fragestellung? Synsets identifizieren? Sind die nachfolgend genannten 20000+ Einträge repräsentiert durch 2500 Synsets? Ist die Idee also gewesen unter Ausnutzung der Synonymie alle oder die meisten Einträge zu treffen?
 Vorschlag: hier vielleicht noch präziser werden.
 
 Antwort: nicht Synsets identifizieren, die haben wir ja schon, sondern erschließen (geschieht durch Merkmale, also quasi Tagging), und ja, es waren zu dem Zeitpunkt 2500 Synsets;
 Der Begriff des Synsets wird noch im allerersten Kapitel erläutert. Muss ich noch machen. Auf das Thema, was die Fragestellung war, wird ja auch im Einleitungsteil eingegangen (bzw. soll noch)
+
+Antwort: ok
+
 -->
 
 Ein Begriffsverband als Ergebnis der formalen Begriffsanalyse stellt die Menge an Begriffen in Bezug zu einer so vordefinierten Menge an Merkmalen. 
-Die Ausgangslage des Projekts gab jedoch keine Merkmale vor, die man zur formale Begriffsanalyse heranziehen konnte. 
-Stattdessen warten annähernd 2500 Synsets, die sich auf etwa 20000 Einträge des Wörterbuchs verteilen darauf, inhaltlich erschlossen und anschließend analysiert zu werden.
+Im Wörterbuch der Augenheilkunde befanden sich zu diesem Zeitpunkt 20000 Einträge repräsentiert durch 2500 Synsets.
+Ein gegebenes Synset ist dabei die Menge aller im Vorhinein als synonym bestimmte Wörterbucheinträge, insbesondere auch über Sprachen hinweg.
+Zu Beginn stand keine Quelle zur Verfügung aus der sich geeignete Merkmale hätten entlehnen lassen.
 
-<!-- Satzvorschlag:
-
-Der Umfang der im Wörterbuch zu erschließenden Synsets [?] belief sich auf 2500 verteilt auf etwa 20000 Wörterbucheinträge.
-
-Vorschlag: spätestens hier präzisieren was 'verteilt' bedeutet: als Teilmenge der 20000, oder die 20000 repräsentierend.
-
-Antwort: stimmt, das wäre angebracht. Formulierung ist von dir besser (die 20000 repräsentierend).
--->
- 
 Eine derart große Menge an Konzepten lässt sich nur mit großem intellektuellen Aufwand erschließen, zumal hierzu ein hohes Maß an vertieftem Domänenwissen innerhalb des Bereichs der Augenheilkunde nötig wäre. 
-Aus diesem Grund erschien die Automatisierung dieses Schrittes als die einzig vielversprechende Methode, Merkmale für formale Begriffsverbände aus den Synsets des Wörterbuchs zu generieren, weshalb diese auch eine der ersten Zielsetzungen für das Projekt darstellt. 
+Aus diesem Grund erschien die Automatisierung dieses Schrittes als die einzig vielversprechende Methode, Merkmale für formale Begriffsverbände aus den Synsets des Wörterbuchs zu generieren, weshalb diese auch eine der ersten Zielsetzungen für das Projekt darstellte.
 
-<!-- Satzvorschlag
+<!-- Satzvorschlag.
+
+--------------------------------------------------------------------------------
+ERLEDIGT
 
 [...] die wichtigste Zielsetzung für das Projekt darstellt
 
 Sonst stellt sich unmittelbar die Frage wieder: was waren denn die anderen Zielsetzungen?
 
 Antwort: aber ist dafür nicht das Kapitel "Ideen und Zielsetzung" da?
+
+Antwort: ok.
 
 -->
 
@@ -143,9 +148,12 @@ Binär heißt, dass ein Merkmal einem Begriff entweder zugewiesen werden kann (a
 Diese Beziehung zwischen den beiden Mengen bildet die Grundlage der Analyse.
 
 Die Merkmalszuweisung wird im Zuge der automatisierten Merkmalsextraktion vollzogen, da die untersuchten Synsets ausschließlich auf Eigenschaften hin untersucht werden, die auf zutreffende Merkmale schließen lassen, also auf solche, die für das untersuchte Synset mit dem Wert 1 versehen werden können. 
-Diese Methode erschien am leichtesten umsetzbar und ist vergleichbar mit dem automatischem Tagging, bei dem wissensrelevanten Elementen entsprechende Keywords zugewiesen werden, die dieses Element beschreiben.
+Diese Methode erschien am leichtesten umsetzbar und ist vergleichbar mit Tagging, bei dem wissensrelevanten Elementen entsprechende Schlagworte zugewiesen werden, die dieses Element beschreiben.
 
 <!-- Satzvorschlag
+
+--------------------------------------------------------------------------------
+ERLEDIGT:
 
 Kurz: was ist automatisches Tagging? -> (automatisierte Zuweisung von Schlagwörtern, die auf unterschiedliche Arten zuvor erschlossen wurden)?
 
@@ -174,10 +182,6 @@ Ausgehend von dieser Überlegung wurde zunächst die deutsche Ausgabe der 'Inter
 Die Tatsache, dass die komplette Klassifikation online in HTML-Form zugänglich ist und Einträge der Klassifikation hierarchisch nach anatomischer Lage geordnet sind, lässt die ICD-10 als ideale Wissensquelle für unsere Zwecke erscheinen.
 Die dennoch dabei aufgetretenen Probleme werden nachfolgend geschildert.
 
-<!-- Hinweis:
-
-Nachfolgender Absatz stark verändert.
-
 Die automatisierte Merkmalsextraktion setzt am Aufbau der ICD-Notationen an. 
 Diese sind nach einem strikt hierarchischen Klassensystem aufgebaut.
 So steht beispielsweise die Klasse H40 für ein Glaukom, während H40.1 konkret für ein primäres Weitwinkelglaukom steht. 
@@ -186,11 +190,11 @@ Dies geschah durch Zeichenkettenvergleich von Wörterbuchsynonym und Überschrif
 Die Klassen der Notation wiederum wurden auf entsprechende Merkmale abgebildet, beispielsweise: 'Glaukom' für 'H40'. 
 Identifiziert wurden einzelne Einträge der Klassifikation, einschließlich der Überschrift und der Notation, mittels regulärer Ausdrücken, welche einzelne Abschnitte der ICD-10 automatisch erkennen und extrahieren.
 
--->
-
-Mithilfe der offen gestalteten Notation soll dann anschließend jedem Synset, dem eine spezifische Notation zugeteilt wurde, zusätzlich alle Merkmale zugewiesen werden, die auch dem Synset der Oberklasse zugeteilt wurden. 
+Mithilfe der aus den Notationen erkannten Klassenbezeichnungen sollten dann anschließend jedem Synset, dem eine spezifische Notation zugeteilt wurde, zusätzlich alle Merkmale zugewiesen werden, die auch dem Synset der Oberklasse zugeteilt wurden. 
 
 <!-- Frage zum Satz:
+--------------------------------------------------------------------------------
+ERLEDIGT:
 
 Was bedeutet 'offen gestaltete Notation'?
 
@@ -201,9 +205,11 @@ Antwort: mies formuliert von mir, besser: mithilfe der aus den Notationen erkann
 Beispielsweise sollen dem Synset für primäres Weitwinkelglaukom (H40.1) alle Merkmale des Synsets Glaukom (H40), sowie das Merkmal Glaukom selbst zugewiesen werden, ausgehend von der Notation. 
 Zusätzlich kann jedem Synset, dem eine Notation als Merkmal zugeordnet wurde, auch das Merkmal 'Krankheit' zugewiesen werden.
 
-In der Praxis scheiterte dieser Ansatz beim Vergleich der Titel der ICD-10-Einträge mit den Benamungen der Wörterbucheinträge.
+In der Praxis scheiterte dieser Ansatz beim Vergleich der Titel der ICD-10-Einträge mit den Bezeichnungen der Wörterbucheinträge.
 
 <!-- Satzvorschlag:
+--------------------------------------------------------------------------------
+ERLEDIGT:
 
 Statt 'Benamung' was glaube ich kein deutsches Wort ist, vielleicht 'Bezeichnung'?
 
@@ -218,38 +224,25 @@ Folglich ist dieses Ergebnis als Grundlage für aussagekräftige formale Verbän
 
 ### Wortmuster als Merkmalsidentifizierer
 
-<!-- Satzvorschlag:
+<!-- ACHTUNG: Stark überarbeiteter Teil folgt:
 
-Im Unterschied dazu erwies sich die Durchführung einer (teilweise) automatisierten Merkmalsextraktion und -zuweisung als sehr wirksam.
-Diese wurde anhand von Wortteilmustern und ihrer Bedeutung als Affix, Wortwurzel bzw. Teil eines Kompositums oder Derivats erzielt.
+Im Einzelnen:
 
-Kürzer, m.E. klarer
-
-Antwort: neues Kapitel nicht mit "im Unterschied dazu" beginnen, ansonsten OK
-
--->
-
-Als sehr effizient erwies sich die Durchführung einer (semi-)automatisierten Merkmalsextraktion bzw. -zuweisung anhand von Wortteilmustern und ihrer Bedeutung als Affix, Wortwurzel bzw. Teil eines Kompositums oder Derivats. 
-Diese kommen gehäuft in den verschiedenen medizinischen Fachbegriffen vor - aufgrund der konstanten sprachlichen Struktur, die auf dem Einfluss des Lateinischen und dem Altgriechischen beruht. 
-
-<!-- Satzvorschlag:
-
-Was bedeutet 'konstante sprachliche Struktur'?
-Vielleicht einfach: Viele medizinische Begriffe beinhalten Wortteile aus dem Lateinischen oder Altgriechischen oder sind fast vollständig Lehnwörter daraus.
-
-Antwort: konstant bedeutet hier, dass die Sprachstruktur sich immer wieder wiederholt, also fortgeführt wird (itis, de-, ab, usw.)
+* ersten Satz verändert und Deine Korrektur einen Absatz nich 'mit Unterschied dazu' zu beginnen, übernommen
+* zweiten Satz wie vorgeschlagen geändert
+* dritter Satz wie vorgeschlagen ergänzt
+* vierten Satz erweitert um die Ausführungen in der Klammer
+* im vierten Satz korrigiert, dass 'oplasty' nicht griechisch ist, sondern englisch aus dem griechischen entlehnt. Im Deutschen hieße die Chose 'oplastie'
+* daher im vierten Satz in der Klammer noch ein 'reines' griechisches Beispiel aufgenommen, obwohl es gleich noch mal in der Liste kommt
+* fünften Satz wie vorgeschlagen geändert
 
 -->
 
-Immer wieder auftretende Affixe des Lateinischen und des Griechischen (z.B. das Suffix "oplasty" = rekonstruktiver Eingriff) deuten meist auf ein so eindeutig gekennzeichnetes semantisches Konzept hin, dass dieses 1:1 auf entsprechend äquivalente Merkmale übertragen werden kann. 
-
-Semi-automatisiert bedeutet hier, dass die Merkmalsfindung manuell im Gegensatz zur Merkmalszuweisung stattfindet.
-
-<!-- Satzvorschlag:
-
-Ergänzend zu oben dann: Die Merkmalsextraktion findet hierbei manuell statt, die Merkmalszuweisung automatisch.
-
--->
+Die Durchführung einer (teilweise) automatisierten Merkmalsextraktion und -zuweisung, erwies sich als sehr wirksam.
+Diese wurde anhand von Wortteilmustern und ihrer Bedeutung als Affix, Wortwurzel bzw. Teil eines Kompositums oder Derivats erzielt, wie sie gehäuft in medizinischen Fachbegriffen vorkommen.
+Viele dieser Fachbegriffe beinhalten Wortteile aus dem Lateinischen oder Altgriechischen oder sind fast vollständig Lehnwörter daraus.
+Immer wieder auftretende Affixe des Lateinischen und des Altgriechischen (Beispielhaft: die englische Endung 'oplasty', die einen rekonstruktiven Eingriff bezeichnet, stammt aus dem griechischen und bedeutet 'formen'. Die griechische Endung 'itis' wiederum bezeichnet meist eine entzündliche Krankheit) deuten meist auf einen hinreichend eindeutig gekennzeichneten Umstand hin, so dass dieser auf entsprechend äquivalente Merkmale übertragen werden kann. 
+Die Merkmalsextraktion findet hierbei manuell statt, die Merkmalszuweisung automatisch.
 
 Einen großen Mehrwert erhält man zudem durch Berücksichtigung der semantischen Beziehungen zwischen den zugewiesenen Merkmalen. 
 Beispielsweise kann jedem Synset, dem das Merkmal 'Entzündung' zugewiesen wurde, auch das Merkmal 'Krankheit' als Oberbegriff zugewiesen werden. 
@@ -288,35 +281,28 @@ Es wurde daraufhin darüber nachgedacht, wie weitere Wortteilmuster, die sich f�
 <!-- Satzvorschlag:
 
 Letzter Satz fällt weg. Vor nächstem Satz kommt:
-Eine Verbesserung der Abdeckung könnte zu erreichen sein, indem weitere geeignete Worrteilmuster anhand ihrer [relativen|absoluten]? Häufigkeit identifiziert werden.
+Eine Verbesserung der Abdeckung könnte zu erreichen sein, indem weitere geeignete Wortteilmuster anhand ihrer [relativen|absoluten]? Häufigkeit identifiziert werden.
 
 -->
 
-Aus dieser Überlegung entstand die Idee, die Wahl solcher Muster nicht dem Zufall zu überlassen, sondern im Vorhinein eine Frequenzliste aller existierenden n-Gramme aus der Menge an Begriffsbenamungen der Synsets zu generieren, anhand derer geeignete Wortmuster mit semantischem Inhalt gewählt und dann für die angewandte Methode der Merkmalsextraktion berücksichtigt werden.
+Aus dieser Überlegung entstand die Idee bereits im Vorhinei eine Frequenzliste aller existierenden n-Gramme aus der Menge der Wörter in den Synsets zu generieren, anhand derer geeignete Wortmuster mit semantischem Inhalt gewählt und dann für die angewandte Methode der Merkmalsextraktion berücksichtigt werden.
 
-<!-- Satzvorschlag:
+<!-- Frage:
 
-[...], die Wahl solcher Muster nicht dem Zufall zu überlassen [...] fällt weg, stattdessen:
+--------------------------------------------------------------------------------
+OFFEN:
 
-Aus dieser Überlegung entstand die Idee bereits im Vorhinein [...]
-
-Hinweis: später taucht wieder 'benamung' auf.
-Frage: was bedeutet 'mit semantischem Inhalt'?
-Antwort: was ist hier nicht klar? Synonyme: bedeutsam, Bedeutung enthaltend, sinnhafte
-Frage: welche 'angewandte Methode'?
-
-Ich will nicht picky sein, ok? Ich finde es an solchen Stellen aber nützlich, Dinge einfach zu wiederholen, statt mit quasi-anaphorischen Konstruktionen zu arbeiten. Die setzen dann immer voraus, dass alles in einem Rutsch gelesen wurde und gleichzeitig präsent ist, wovon gerade geredet wurde.
-
-Ein Vorteil beim Explizieren ist außerdem: die Sätze und Absätzen bauen nicht so stark aufeinander auf und man kann sie verschieben im Text. Andernfalls müsste man vorverlegte Absätze immer daraufhin überprüfen, ob dort Wendungen wie 'die angewandte Methode" stehen, die wurde aber noch gar nicht eingeführt.
-
-Antwort: Stimmt.
+explizieren von 'angewandte Methode'
 
 -->
 
 
-Hierfür musste zunächst eine nach Häufigkeit sortierte Frequenzliste aller n-Gramme automatisiert erstellt werden. 
+Hierfür musste eine nach Häufigkeiten der vorkommenden n-Gramme sortierte Liste automatisiert erstellt werden. 
 
 <!-- Hinweis:
+
+--------------------------------------------------------------------------------
+ERLEDIGT:
 
 Ein nach Frequenzliste ist eine Liste der Häufigkeiten.
 
@@ -332,9 +318,11 @@ Antowrt: jop, geb ich dir voll recht.
 
 
 Als untere Grenze der Zeichenlänge der n-Gramme wurde  $n > 3$ gewählt, d.h. Gramme der Länge 3 und kleiner wurden nicht erstellt. 
-Grund hierfür sind Ergebnisse manuellen Herantastens, bei dem bei einer Grammlänge von n=3 kaum signifikante Wortteilmuster erkannt werden konnten, die eindeutig oder ergiebig genug wären. 
+Durch Versuche mit n-Grammen unterschiedlicher Länge zeigte sich, dass unterhalb dieser Grenze kaum noch brauchbare Wortteilmuster identifiziert werden konnten.
 
 <!-- Satzvorschlag:
+--------------------------------------------------------------------------------
+ERLEDIGT:
 
 Hier wird nicht getastet! ;)
 
@@ -344,9 +332,11 @@ Antwort: OK, klingt besser (und wissenschaftlicher)
 
 -->
 
-Im späteren Verlauf wurden diese 3-Gramme der Vollständigkeit halber trotzdem mit ausgewertet (vier an der Zahl). 
+Im späteren Verlauf wurden trotzdem noch die Trigramme berücksichtigt, die geeignete Worteilmuster darstellten (insgesamt vier Stück).
 
 <!-- Frage:
+--------------------------------------------------------------------------------
+ERLEDIGT:
 
 Das verstehe ich nicht: es wurden Trigramme erhoben und heraus kamen nur vier brauchbare Wortteilmuster?
 
@@ -365,6 +355,8 @@ Anschließend wurde die Liste ausgehend vom am häufigsten vorkommenden n-Gramm 
 
 
 <!-- Frage: 
+--------------------------------------------------------------------------------
+OFFEN:
 
 Was bedeuten 'semantischer Inhalt', 'semantische Eindeutigkeit'?
 
