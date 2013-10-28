@@ -52,10 +52,10 @@ $B' := \lbrace g \in G \vert gIm \forall m \in B \rbrace$
 
 Ist $A$ Umfang und $B$ Inhalt, so heißt $(A,B)$ formaler Begriff des Kontextes $(G,M,I)$ wenn 
 
-* $A$ eine echte Teilmenge von $G$ ist $A \subset G$, und 
-* $B$ eine echte Teilmenge von $M$ ist $B \subset M$, und 
-* die Menge $A'$ der gemeinsamen Merkmale der Gegenstände aus $A$ gleich $B$ ist $A'=B$, und 
-* die Menge $B'$ der gemeinsamen Gegenstände der Merkmale aus $B$ gleich $A$ ist $B'=A$.
+* $A$ eine echte Teilmenge von $G$, und 
+* $B$ eine echte Teilmenge von $M$ ist $B, und 
+* die Menge $A'$ der gemeinsamen Merkmale der Gegenstände aus $A$ gleich $B$, und 
+* die Menge $B'$ der gemeinsamen Gegenstände der Merkmale aus $B$ gleich $A$.
 
 Die Menge der Begriffe eines Kontextes sind damit alle Begriffe, die sich auf oben beschriebene Weise aus dem Kontext ermitteln lassen.
 
@@ -170,12 +170,12 @@ Somit existiert in einem formalen Kontext kein einziges Merkmal, das keinem der 
 Das Wörterbuch der Augenheilkunde umfasst Begriffe aus vielen Bereichen der Medizin ab.
 Wir konnten während unserer Arbeit am Wörterbuch folgende Kategorien identifizieren:
 
-a) Anatomie (Aufbau des Auges)
-b) Pathologie (Erkrankungen des Auges)
-c) externe Schädigungen des Auges
-d) Behandlungs- und diagnostische Verfahren
-e) Instrumente und Apparate in der Augenheilkunde
-f) Arzneimittel
+1. Anatomie (Aufbau des Auges)
+2. Pathologie (Erkrankungen des Auges)
+3. externe Schädigungen des Auges
+4. Behandlungs- und diagnostische Verfahren
+5. Instrumente und Apparate in der Augenheilkunde
+6. Arzneimittel
 
 Da vor allem Erkrankungen des Auges einen Großteil der Synsets ausmachen, schien es vielversprechend entsprechende externe Quellen nach Merkmalen zu durchsuchen. 
 Ausgehend von dieser Überlegung wurde zunächst die deutsche Ausgabe der 'Internationalen Klassifikation für Krankheiten' (vollständig: International Statistical Classification of Diseases and Related Health Problem, nachfolgend ICD-10) in der Version des Jahres 2011 zur Merkmalsextraktion herangezogen. 
@@ -422,7 +422,7 @@ Dieser Schritt wurde noch manuell unter Verwendung des Kategorie-Browsers auf de
 3. Extraktion der Abstracts durch Suche nach den Artikelnamen.
 Da es sich um ein XML-Dokument handelt wurde versucht mittels XSLT (Extensible Stylesheet Language Transformation, einer Sprache u.a. zur Extraktion von Teilbäumen eines XML-Dokuments) und regulären Ausdrücken, die Abstracts zu gewinnen.
 Verwendet wurde dazu das Kommandozeilenprogramm 'xsltproc'.
-Der Aufwand damit eine fehlerfreie Menge an Abstracts zu extrahieren zeigte sich aber als zu groß, insbesondere aufgrund der spärlichen Dokumentation (abgesehen von der technischen Dokumentation des W3C).
+Der Aufwand damit eine fehlerfreie Menge an Abstracts zu extrahieren zeigte sich aber als zu groß, insbesondere aufgrund der spärlichen Dokumentation (abgesehen von der technischen Dokumentation des W3C), aber auch weil die Abstracts keine vollkommen einheitliche Struktur hatten, und die XSL-Templates immer wieder angepasst werden mussten um die Treffermenge zu erhöhen.
 Daher wurde die Extraktion mit den üblichen dafür geeigneten Programmen der Unix-Shell (grep, sed, awk) und etwas Perl bewerkstelligt.
 Für wiederholte Aufgaben dieser Art, ist eine Einarbeitung in XSLT aber zu empfehlen weil die Verarbeitung sehr großer Dateien, selbst im Vergleich zu den eben genannten Programmen, noch einmal erheblich schneller ist und auch dem eigentlichen Zweck der Verwendung von XML zur Datenauszeichnung entspricht.
 4. In den Abstracts befinden sich die Kategorie-Tags, die wiederum dem Artikelnamen zugewiesen werden.
@@ -430,7 +430,7 @@ Allerdings fanden sich auch mehrere hundert Kategorien, die lediglich der Verwal
 Ein allgemeines Beispiel dafür ist die Kategorie 'Articles needing attention', die selbst wiederum mehrere hundert Unterkategorien enthält (unter anderem zu der Zeit 'Medical Articles needing attention').
 Außerdem gibt es Sammelkategorien der Art 'Accuracy disputes from August 2009'.
 Je nachdem wie lange der Dissens bezüglich eines Themas schwelt, sind genau so viele Kategorien dieses Typs einem Artikel zugewiesen, wie Monate vergangen sind.
-Obwohl vieler dieser Kategorien, einmal identifiziert, durch reguläre Ausdrücke gut zu filtern waren, war es doch ein erheblicher manueller Aufwand, der aber  Wiederholungsfall automatisierbar ist.
+Obwohl viele dieser Kategorien, einmal identifiziert, durch reguläre Ausdrücke gut zu filtern waren, war es doch ein erheblicher manueller Aufwand, der aber im Wiederholungsfall automatisierbar ist.
 
 ### Ergebnisse
 
@@ -460,17 +460,17 @@ Der Grund aus dem die ersten beiden Sätze und nicht nur der erste Satz herangez
 Die Zerlegung in Wort-n-Gramme, im Unterschied zu Zeichen-n-Grammen, befreit allerdings nicht von typischen Problemen bei dieser Art Aufgabe, die entstehen durch Unterschiede in Genus, Numerus, Kasus, Tempus usw. bei gleichem Wortstamm.
 Aus diesem Grund wurden die Abstracts vorher mit Stemming auf ihren Wortstamm zurückgeführt (im Rahmen der Möglichkeiten des verwendeten Stemmers).
 Hierzu wurde die ANSI-C-Implementation des Porter-Stemmers verwendet, jeweils in Standardeinstellung für die englische Sprache und mit angepassten Mustern für die deutsche Sprache (die angepassten Muster sind Teil des Programms).
-Die resultierende Liste von n-Grammen je Artikel, wurde zusammen mit dem Artikelnamen in einer Pseudo-XML-Notation: die n-Gramme wurden in Tags namens <bigram></bigram> und <trigram></trigram> gespeichert ohne sich weiter mit einer geeigneten Document Type Definition aufzuhalten. 
-Die Ketten sollten aus der Datei nur gut extrahierbar sein gespeichert.
+Die resultierende Liste von n-Grammen je Artikel, wurde zusammen mit dem Artikelnamen in einer Pseudo-XML-Notation abgespeichert: die n-Gramme wurden in Tags namens <bigram></bigram> und <trigram></trigram> gespeichert ohne sich weiter mit einer geeigneten Document Type Definition aufzuhalten. 
+Die Ketten sollten aus der Datei nur gut extrahierbar sein.
 
 ### Vorgehensweise
 
-1. Unix Shell-Skripte (vor allem *sed*, *awk*, *Perl*) zur Extraktion der ersten beiden Sätze.
+1. Unix Shell-Skripte (vor allem mit *sed*, *awk*, *Perl*) zur Extraktion der ersten beiden Sätze.
 Da sowohl das Wiki-Markup, als auch Schriftzeichen anderer Sprachen (insbesondere Altgriechisch, Arabisch und Indisch) herausgefiltert werden mussten, zum Teil mit manuellem Eingriff und Korrektur
 (auch hier gilt, was an anderer Stelle schon bemerkt wurde: manche der manuell ausgeführten Arbeiten sind prinzipiell automatisierbar, allerdings erschien zum relevanten Zeitpunkt der Aufwand dafür, gegeben dass es sich um eine einmalige Aufgabe handelte, als nicht geboten. 
 In jedem Fall wurde aber darauf geachtet, die Schritte so zu wählen, dass sie automatisierbar sein können).
 2. Shell-Skript für den Einsatz des Porter-Stemmers und anschließendes Speichern. 
-Dieser Schritt geht vollautomatisch und ohne Bedarf weiterer Überprüfung oder Korrektur.
+Dieser Schritt geht vollautomatisch und bedarf keiner weiteren Überprüfung oder Korrektur.
 3. PHP-Skripte für den Import der XML-Daten in die Datenbank.
 4. Zuweisung der Merkmale, sowie Matching der Artikeltitel und der Synsetbezeichnungen via SQL.
 
@@ -528,8 +528,8 @@ Ein Beispiel dafür ist der erste Satz des Artikels *Hornhaut*:
 Hornhaut
   :    Die Hornhaut (lateinisch Cornea, eingedeutscht auch Kornea, griechisch keratos) ist der glasklare, von Tränenflüssigkeit benetzte, gewölbte vordere Teil der äußeren Augenhaut.
 
-Da es mit einem Part-of-Speech-Tagger vergleichsweise einfach ist, die entsprechenden Teile zu extrahieren, sollte der Versuch unternommen werden dem Merkmalscharakter möglichst nahe zu kommen, indem einfach die Wörter, die unmittelbar verwendet werden, um den in Frage stehenden Begriff zu beschreiben, als Merkmale verwendet werden.
-Die Wahrscheinlichkeit einerseits möglichst treffende Begriffe zu finden und andererseits nicht zu viele nicht in unmittelbaren Zusammenhang stehende Wörter zuzuweisen, schien mit durch die Beschränkung auf den ersten Satz eines enzyklpädischen Artikels maximal.
+Da es mit einem Part-of-Speech-Tagger vergleichsweise einfach ist, die entsprechenden Teile zu extrahieren, sollte der Versuch unternommen werden dem Merkmalscharakter möglichst nahe zu kommen, indem einfach die Wörter, die unmittelbar verwendet werden um den in Frage stehenden Begriff zu beschreiben, auch als Merkmale zu verwenden.
+Die Wahrscheinlichkeit, einerseits möglichst treffende Begriffe zu finden und andererseits nicht zu viele, nicht in unmittelbaren Zusammenhang stehende Wörter zuzuweisen, erschien durch die Beschränkung auf den ersten Satz eines enzyklpädischen Artikels als maximal.
 
 ### Vorgehensweise
 
@@ -590,8 +590,8 @@ A scleral lens
     185,Scleral lens,*contact lenses*
     185,Scleral lens,*corrective lenses*
 
-Dadurch, dass bei der Verarbeitung in Schritt 3 die Bestandteile des Artikelnamens 'scleral' und 'lens' herausgefiltert werden, bleibt nicht mehr viel nützliches übrig.
-Zu überlegen ist, ob man bei einer Unterschreitung einer Anzahl Ergebniszeilen, den oder die Begriffe aus denen sich der Artikel zusammensetzt, hinzunimmt.
+Dadurch, dass bei der Verarbeitung in Schritt 3 die Bestandteile des Artikelnamens 'scleral' und 'lens' herausgefiltert werden, bleibt nicht mehr viel Nützliches übrig.
+Zu Überlegen ist, ob man bei einer Unterschreitung einer Anzahl Ergebniszeilen, den oder die Begriffe aus denen sich der Artikel zusammensetzt, hinzunimmt.
 Allerdings geben die beiden Kategorien hinreichend Information um 'scleral lens' zumindest einordnen zu können.
 
 ### Ergebnisse
