@@ -33,6 +33,8 @@ Dieses *lexical gap* genannte Phänomen kann umso ausgeprägter werden, je spezi
 
 ### Erste Überlegungen zur Umsetzung
 
+Teil der Aufgabenstellung war es, die formale Begriffsanalyse einzusetzen, um eine Zwischensprache aus Konzepten zu entwickeln, über welche wiederum die im Wörterbuch der Augenheilkunde vorhandenen Wörter unterschiedlicher Sprachen miteinander verbunden werden konnten.
+
 #### Begriffe der formalen Begriffsanalyse
 
 Die formale Begriffsanalyse ist ein Teil der mathematischen Ordnungslehre. 
@@ -68,6 +70,17 @@ Damit definiert sich eine Ordnung auf die Menge der Begriffe eines gegebenen Kon
 Es folgt eine kleine Kreuztabelle, entweder aus Janssen, 2002 oder aus den Folien von Wiebke
 
 -->
+
+#### SIMuLLDA
+
+Die Structured Interlingua MultiLingual Lexical Database Application (SIMuLLDA) ist im Rahmen der Dissertation von Maarten Janssen aus dem Jahr 2002 entstanden. 
+Statt von einer Sprache direkt in eine gegebene andere Sprache zu übersetzen, verwendet dieser Ansatz eine Zwischensprache. 
+Die natürlichen Sprachen sind repräsentiert durch ihre Worte (Lexeme).
+Grundlage der Zwischensprache sind Kreuztabellen, wie sie unter BDFBA vorgestellt wurden.
+Aus den daraus gebildeten Begriffsverbänden sind die Lexeme der jeweiligen Sprachen mit den entsprechenden formalen Begriffen verbunden.
+Immer dann wenn einem formalen Begriff eine Bedeutung in beiden Sprachen zukommt, können die entsprechenden Lexeme verbunden werden.
+Auf diese Weise kann überbrückt werden, wenn es kein entsprechendes Lexem in der zu übersetzenden Sprache gibt, weil die Bezeichnungen der Merkmale in der zu übersetzenden Sprache trotzdem existieren.
+
 
 
 ### Einführung (z.B. 
@@ -615,4 +628,55 @@ Schlußteil
 ### Ausblick (SNOMED, Merkmalsmenge einschränken)
 
 ### Schlussbemerkungen
+
+
+Anhang
+--------------------------------------------------------------------------------
+
+### Beispiel für die Verarbeitung der Extrakte aus der Wikipedia
+
+Basierend auf den Kategorien, wurden alle Artikel, denen ein gegebenes Kategorie-Tag zugewiesen war geholt (genaueres, siehe XXX).
+
+~~~~~~~~~
+
+<?xml version="1.0"?>
+<api>
+<query>
+<pages>
+<page pageid="3055944" ns="0" title="Parinaud&#039;s syndrome">
+<categories>
+<cl ns="14" title="Category:Diseases of the eye and adnexa" />
+<cl ns="14" title="Category:Medical signs" />
+</categories>
+<extract xml:space="preserve">Parinaud's Syndrome, also known as dorsal midbrain syndrome is a group of abnormalities of eye movement and pupil dysfunction. </extract>
+</page>
+</pages>
+</query>
+</api>
+
+~~~~~~~~~
+
+Von Interesse sind hier der eigentliche Titel des Dokuments, die Kategorien und das Extrakt selbst.
+Die Kategorien wurden extrahiert, um hinterher kontrollieren zu können, dass alle Artikel geholt wurden (die Artikel wurden ja aufgrund ihrer Kategoriezugehörigkeit ausgewählt).
+Dabei gab es keine Abweichungen, der Schritt ist daher in Zukunft vermeidbar.
+
+Um den Titel in einem Ausdruck ohne das Markup zu holen, wurde folgender Ausdruck verwendet:
+
+~~~~~~~~~
+
+sed -n 's/<page.*title="\([^"]*\)".*$/\1/p' Parinaud-s_syndrome.xml
+
+~~~~~~~~~
+
+
+Um das Extrakt in einem Ausdruck ohne das Markup zu holen, wurde folgender Ausdruck verwendet:
+
+~~~~~~~~~
+
+sed -n 's/<extract.*>\([^<]*\)\([<$ ].*\)/\1/p' Parinaud-s_syndrome.xml
+
+~~~~~~~~~
+
+HTML-Entities (wie &#ß39;) wurden gesammelt und in der Ergebnisdatei in einem Durchgang ersetzt.
+
 
