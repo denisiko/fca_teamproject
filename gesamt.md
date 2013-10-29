@@ -5,6 +5,15 @@ Einführungsteil
 ---------------
 
 ### A multilingual Dictionary of Ophthalmology (Aufbau und Umfang des Dictionarys, was bisher daran gemacht wurde)
+
+Gegenstand dieser Arbeit ist das [digitale multilinguale Wörterbuch der Augenheilkunde](http://www.zeitzfrankozeitz.de/index.php/fachwoerterbuch.html) des Düsseldorfer Augenarztes Dr. Phillipp Franko Zeitz, das seit 2010 existiert und online auf der Webpräsenz der Augenklinik Zeitz Franko Zeitz zugänglich ist.
+
+<!-- Hinweis:
+
+Arbeite ich noch dran (Aufbau, Anzahl Einträge, Synsets, Sprachunterstützung etc.)
+
+-->
+
 ### Ideen und Zielsetzung (SimuLLda, formale Begriffsanalyse, lexical gap)
 
 Ziel des nachfolgend vorgestellten Teamprojekts war es, aufbauend auf das oben erwähnte *Dictionary of Ophthalmology*, [XXXX, Arztbriefe, XXXX].
@@ -262,9 +271,11 @@ Durch automatischen Abgleich der Synonyme in der Datenbank mit den erkannten Tei
 Einsatz einer N-Gramm-Frequenzliste
 -----------------------------------
 
-Die Wahl geeigneter Wortmuster durch manuelle Untersuchung der englischen Begriffsliste ist als zu unvollständig einzustufen, da unter Umständen Wortmuster übersehen werden, die für die erwähnte Methode gute Resultate erzielen können. 
+Die Wahl geeigneter Wortmuster durch manuelle Untersuchung der englischen Begriffsliste - d.h. der Menge aller englischsprachigen Einträge des Wörterbuchs - ist als zu unvollständig bezüglich der Abdeckung der 2500 Synsets einzustufen, wie die bisherigen Ergebnisse der Wortmusteranalyse zeigen.
 
 <!-- Fragen:
+
+ERLEDIGT:
 
 Vieleicht sollte hier etwas mehr ausgeführt werden. Mir stellen sich unmittelbar folgende Fragen:
 Welche englische Begriffsliste?
@@ -275,22 +286,23 @@ Antwort: Stimmt.
 
 -->
 
-Eine Abdeckung von 20% der Menge an Synsets gilt zudem immer noch nicht als ausreichend für den Aufbau eines formalen Kontextes. 
-Es wurde daraufhin darüber nachgedacht, wie weitere Wortteilmuster, die sich für die Merkmalszuweisung qualifizieren, automatisch identifiziert werden können, anhand der Anzahl ihres Vorkommens.
+Eine Verbesserung der Abdeckung könnte zu erreichen sein, indem weitere geeignete Wortteilmuster anhand ihrer absoluten Häufigkeit identifiziert werden.
 
 <!-- Satzvorschlag:
+
+ERLEDIGT:
 
 Letzter Satz fällt weg. Vor nächstem Satz kommt:
 Eine Verbesserung der Abdeckung könnte zu erreichen sein, indem weitere geeignete Wortteilmuster anhand ihrer [relativen|absoluten]? Häufigkeit identifiziert werden.
 
 -->
 
-Aus dieser Überlegung entstand die Idee bereits im Vorhinei eine Frequenzliste aller existierenden n-Gramme aus der Menge der Wörter in den Synsets zu generieren, anhand derer geeignete Wortmuster mit semantischem Inhalt gewählt und dann für die angewandte Methode der Merkmalsextraktion berücksichtigt werden.
+Aus dieser Überlegung entstand die Idee bereits im Vorhinein eine Frequenzliste aller existierenden Zeichen-n-Gramme aus der Menge der Wörter in den Synsets zu generieren, anhand derer geeignete Wortmuster mit semantischem Inhalt gewählt und dann in einem weiteren Durchlauf der Wortmusteranalyse berücksichtigt werden.
 
 <!-- Frage:
 
 --------------------------------------------------------------------------------
-OFFEN:
+ERLEDIGT:
 
 explizieren von 'angewandte Methode'
 
@@ -351,12 +363,12 @@ Im späteren Verlauf wurden trotzdem noch die Trigramme berücksichtigt, die gee
 -->
 
 
-Anschließend wurde die Liste ausgehend vom am häufigsten vorkommenden n-Gramm bis zu einer vorher festgelegten Grenze (bis zu einer Häufigkeit von 6) manuell abgearbeitet und jedes Gramm jeweils nach semantischem Inhalt sowie semantischer Eindeutigkeit überprüft.
+Anschließend wurde die Liste ausgehend vom am häufigsten vorkommenden n-Gramm bis zu einer vorher festgelegten Grenze (bis zu einer Häufigkeit von 6) manuell abgearbeitet und jedes Gramm jeweils nach semantischem Inhalt sowie semantischer Eindeutigkeit überprüft, d.h. im medizinischen Kontext muss die Bedeutung des vorliegenden Gramms nicht nur offentsichtlich, sondern innerhalb dieses Kontextes auch eindeutig sein, also keine Mehrdeutigkeiten aufweisen.
 
 
 <!-- Frage: 
 --------------------------------------------------------------------------------
-OFFEN:
+ERLEDIGT:
 
 Was bedeuten 'semantischer Inhalt', 'semantische Eindeutigkeit'?
 
@@ -365,7 +377,7 @@ aber du hast recht, Ausführen schadet hier wohl nicht
 
 -->
 
-Auf diese Weise ausgesuchte Gramme qualifizieren sich als Wortteilmuster und werden mit den zugehörigen Merkmalen, die sich aus der Semantik des Musters ergeben, gekennzeichnet. 
+Auf diese Weise ausgesuchte Gramme qualifizieren sich als Wortteilmuster und werden mit den zugehörigen Merkmalen, die sich aus der Semantik des Musters ergeben, gekennzeichnet.
 Dies muss manuell geschehen, da hierbei Domänenwissen absolut notwendig ist. 
 Ursprung dieses Wissens sind fachbezogene Quellen und die Wikipedia-Enzyklopädie, aber insbesondere der englische Wikipedia-Artikel  [List of medical roots, suffixes and prefixes](http://en.wikipedia.org/wiki/List_of_medical_roots,_suffixes_and_prefixes). 
 Synsets, die eine oder mehrere Synonymbezeichnungen besitzen, welche das gekennzeichnete n-Gramm als Teilzeichenkette enthalten, werden mit den zugewiesenen Merkmalen versehen 
