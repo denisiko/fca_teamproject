@@ -1,10 +1,12 @@
-Bericht Teamprojekt
-===================
+% Bericht Teamprojekt
+% Denis Anuschewski; Pascal Chave
+% \today
 
 Einführungsteil
----------------
+================================================================================
 
-### A multilingual Dictionary of Ophthalmology (Aufbau und Umfang des Dictionarys, was bisher daran gemacht wurde)
+A multilingual Dictionary of Ophthalmology (Aufbau und Umfang des Dictionarys, was bisher daran gemacht wurde)
+--------------------------------------------------------------------------------
 
 Gegenstand dieser Arbeit ist das [digitale multilinguale Wörterbuch der Augenheilkunde](http://www.zeitzfrankozeitz.de/index.php/fachwoerterbuch.html) des Augenarztes Dr. Philipp Franko Zeitz, das seit 2010 existiert und online auf der Webpräsenz der Düsseldorfer Augenklinik Zeitz Franko Zeitz zugänglich ist.
 
@@ -16,7 +18,8 @@ Die Einträge des Wörterbuchs verteilten sich zum Zeitpunkt des Projektbeginns 
 
 -->
 
-### Ideen und Zielsetzung (SimuLLda, formale Begriffsanalyse, lexical gap)
+Ideen und Zielsetzung (SimuLLda, formale Begriffsanalyse, lexical gap)
+--------------------------------------------------------------------------------
 
 Ziel des nachfolgend vorgestellten Teamprojekts war es, aufbauend auf das oben erwähnte *Dictionary of Ophthalmology*, [XXXX, Arztbriefe, XXXX].
 
@@ -27,7 +30,7 @@ Arbeite ich noch dran
 -->
 
 
-#### Probleme der Homonymie, Synonymie und [der|die]? 'lexical gap'
+### Probleme der Homonymie, Synonymie und [der|die]? 'lexical gap'
 
 <!-- Hinweis:
 
@@ -42,7 +45,8 @@ Auch ist nicht zwingend jede Bezeichnung, die für ein und denselben Begriff ste
 Weiterhin gibt es nicht in jeder Sprache für jeden Begriff eine eigene Bezeichnung. 
 Dieses *lexical gap* genannte Phänomen kann umso ausgeprägter werden, je spezifischer die Domäne ist, so wie beispielsweise die Augenheilkunde.
 
-### Erste Überlegungen zur Umsetzung
+Erste Überlegungen zur Umsetzung
+--------------------------------------------------------------------------------
 
 Teil der Aufgabenstellung war es, die formale Begriffsanalyse einzusetzen, um eine Zwischensprache aus Konzepten zu entwickeln, über welche wiederum die im Wörterbuch der Augenheilkunde vorhandenen Wörter unterschiedlicher Sprachen miteinander verbunden werden konnten.
 
@@ -53,6 +57,7 @@ Zusätzlich hierzu: Man spricht hierbei von einer Interlingua, deren Konzepte al
 -->
 
 #### Begriffe der formalen Begriffsanalyse
+=======
 
 Die formale Begriffsanalyse ist ein Teil der mathematischen Ordnungslehre. 
 Sie wurde in den 1980er Jahre von Rudolf Wille, Bernhard Ganter und Peter Burmeister entwickelt.
@@ -88,7 +93,7 @@ Es folgt eine kleine Kreuztabelle, entweder aus Janssen, 2002 oder aus den Folie
 
 -->
 
-#### SIMuLLDA
+### SIMuLLDA
 
 Die Structured Interlingua MultiLingual Lexical Database Application (SIMuLLDA) ist im Rahmen der Dissertation von Maarten Janssen aus dem Jahr 2002 entstanden. 
 Statt von einer Sprache direkt in eine gegebene andere Sprache zu übersetzen, verwendet dieser Ansatz eine Zwischensprache. 
@@ -99,49 +104,49 @@ Immer dann wenn einem formalen Begriff eine Bedeutung in beiden Sprachen zukommt
 Auf diese Weise kann überbrückt werden, wenn es kein entsprechendes Lexem in der zu übersetzenden Sprache gibt, weil die Bezeichnungen der Merkmale in der zu übersetzenden Sprache trotzdem existieren.
 Der Ansatz der Arbeit von Janssen diente unserem Projekt als Ausgangspunkt mit Hilfe der formalen Begriffsanalyse Zuweisungen innerhalb des Wörterbuchs der Augenheilkunde bewerkstelligen zu können.
 
+### Einführung (z.B. Kreuztabellen, Merkmalexploration)
 
-### Einführung (z.B. 
-Kreuztabellen, Merkmalexploration)
+<!-- HINWEIS:
+
+Kreuztabellen kommen jetzt ja schon bei FBA. Ist also erledigt.
+
+-->
 
 ### (Hasse-)Diagramme
 
+<!-- HINWEIS:
+
+Liniendiagramme (bzw. 1) kommt bei Simullda, ggf. passe ich da noch eines aus dem Tilburg-Vortrag an. 
+Da geht es ja auch nur darum kurz zu zeigen, was das ist, und dass das ein Schaltkasten sein kann, für Übersetzung.
+
+-->
+
 ### Grenzen (keine direkte Hierarchie möglich, nur binäre Zuweisungen von Merkmalen möglich)
+
+<!-- HINWEIS:
+
+Schreib hier ein paar Sätze dazu. 
+Bestenfalls 5-7, nur kurz erklären. 
+Dieser ganze Teil kann vielleicht auch direkt an FBA dran?
+
+-->
 
 ### Chancen (einfache Struktur, Exploration des Begriffsverbandes)
 
-Berichtsteil
-------------
+<!-- HINWEIS:
 
-### Automatisierter Aufbau einer Wissensdatenbank (Extraktion allgemein)
-
-Um mit der formalen Begriffsanalyse beginnen zu können, wurde zunächst eine Menge von Merkmalen benötigt, die den Begriffen im Wörterbuch der Augenheilkunde zugewiesen werden konnten.
-
-<!-- Satzvorschlag: ÜBERNOMMEN
-
-Alter Satz:
-Der erste Schritt vor der Durchführung von formaler Begriffsanalyse ist im Fall des Wörterbuchs der Augenheilkunde der Erschließungsprozess der zu analysierenden Begriffe, also der Synsets.
-
---------------------------------------------------------------------------------
-ERLEDIGT:
-
-Frage zu Synsets: Was sind bei uns Synsets? Ist eine Menge Begriffe, die sich die selben Merkmale vollständig teilen ein Synset?
-
-Antwort: Synset = Menge aller von Dr. Zeitz als synonym bestimmte Wörterbucheinträge (anhand derselben ID), also auch übersetzte Einträge
-
-Antwort: ok
-
---------------------------------------------------------------------------------
-ERLEDIGT:
-
-Frage zur Fragestellung: Wenn obiges zutrifft: war das unsere Fragestellung? Synsets identifizieren? Sind die nachfolgend genannten 20000+ Einträge repräsentiert durch 2500 Synsets? Ist die Idee also gewesen unter Ausnutzung der Synonymie alle oder die meisten Einträge zu treffen?
-Vorschlag: hier vielleicht noch präziser werden.
-
-Antwort: nicht Synsets identifizieren, die haben wir ja schon, sondern erschließen (geschieht durch Merkmale, also quasi Tagging), und ja, es waren zu dem Zeitpunkt 2500 Synsets;
-Der Begriff des Synsets wird noch im allerersten Kapitel erläutert. Muss ich noch machen. Auf das Thema, was die Fragestellung war, wird ja auch im Einleitungsteil eingegangen (bzw. soll noch)
-
-Antwort: ok
+Hier auch nur ein paar Sätze, vielleicht sogar nur ein 'Paar'.
+Wir kommen ja nochmal drauf zurück..
 
 -->
+
+Berichtsteil
+================================================================================
+
+Automatisierter Aufbau einer Wissensdatenbank (Extraktion allgemein)
+--------------------------------------------------------------------------------
+
+Um mit der formalen Begriffsanalyse beginnen zu können, wurde zunächst eine Menge von Merkmalen benötigt, die den Begriffen im Wörterbuch der Augenheilkunde zugewiesen werden konnten.
 
 Ein Begriffsverband als Ergebnis der formalen Begriffsanalyse stellt die Menge an Begriffen in Bezug zu einer so vordefinierten Menge an Merkmalen. 
 Im Wörterbuch der Augenheilkunde befanden sich zu diesem Zeitpunkt 20000 Einträge repräsentiert durch 2500 Synsets.
@@ -150,21 +155,6 @@ Zu Beginn stand keine Quelle zur Verfügung aus der sich geeignete Merkmale hät
 
 Eine derart große Menge an Konzepten lässt sich nur mit großem intellektuellen Aufwand erschließen, zumal hierzu ein hohes Maß an vertieftem Domänenwissen innerhalb des Bereichs der Augenheilkunde nötig wäre. 
 Aus diesem Grund erschien die Automatisierung dieses Schrittes als die einzig vielversprechende Methode, Merkmale für formale Begriffsverbände aus den Synsets des Wörterbuchs zu generieren, weshalb diese auch eine der ersten Zielsetzungen für das Projekt darstellte.
-
-<!-- Satzvorschlag.
-
---------------------------------------------------------------------------------
-ERLEDIGT
-
-[...] die wichtigste Zielsetzung für das Projekt darstellt
-
-Sonst stellt sich unmittelbar die Frage wieder: was waren denn die anderen Zielsetzungen?
-
-Antwort: aber ist dafür nicht das Kapitel "Ideen und Zielsetzung" da?
-
-Antwort: ok.
-
--->
 
 Gerade im Hinblick auf zukünftige Projekte, die sich mit der Anwendung formaler Begriffsanalyse auf große Begriffsmengen befassen, schätzen wir die Erkenntnisse, die bei der Merkmalsextraktion gewonnen wurden, als wertvoll ein.
 
@@ -179,17 +169,6 @@ Diese Beziehung zwischen den beiden Mengen bildet die Grundlage der Analyse.
 
 Die Merkmalszuweisung wird im Zuge der automatisierten Merkmalsextraktion vollzogen, da die untersuchten Synsets ausschließlich auf Eigenschaften hin untersucht werden, die auf zutreffende Merkmale schließen lassen, also auf solche, die für das untersuchte Synset mit dem Wert 1 versehen werden können. 
 Diese Methode erschien am leichtesten umsetzbar und ist vergleichbar mit Tagging, bei dem wissensrelevanten Elementen entsprechende Schlagworte zugewiesen werden, die dieses Element beschreiben.
-
-<!-- Satzvorschlag
-
---------------------------------------------------------------------------------
-ERLEDIGT:
-
-Kurz: was ist automatisches Tagging? -> (automatisierte Zuweisung von Schlagwörtern, die auf unterschiedliche Arten zuvor erschlossen wurden)?
-
-Antwort: Satzvorschag: [...] und ist vergleichbar mit der Methode des Taggings, bei dem ...
-
--->
 
 Ein formaler Kontext für eine gegebene Menge an Synsets besteht dementsprechend aus der Menge dieser Synsets, der Vereinigungsmenge der zugewiesenen Merkmale aller betrachteten Synsets, sowie die daraus resultierende Zuweisungsrelation zwischen beiden Mengen (ist ein Merkmal aus der Menge einem Synset nicht zugewiesen, so hat das Synset für dieses Merkmal den Wert 0, sonst 1). 
 Die Menge an Merkmalen ergibt sich nach dieser Methode also nicht aus vordefinierten Überlegungen, wonach ein formaler Kontext analysiert werden soll, sondern aus der Semantik jedes einzelnen Synsets, das in den formalen Kontext mit aufgenommen wird. 
@@ -222,51 +201,12 @@ Identifiziert wurden einzelne Einträge der Klassifikation, einschließlich der 
 
 Mithilfe der aus den Notationen erkannten Klassenbezeichnungen sollten dann anschließend jedem Synset, dem eine spezifische Notation zugeteilt wurde, zusätzlich alle Merkmale zugewiesen werden, die auch dem Synset der Oberklasse zugeteilt wurden. 
 
-<!-- Frage zum Satz:
---------------------------------------------------------------------------------
-ERLEDIGT:
-
-Was bedeutet 'offen gestaltete Notation'?
-
-Antwort: mies formuliert von mir, besser: mithilfe der aus den Notationen erkannten Klassenbezeichnern ...
-
--->
-
-Beispielsweise sollen dem Synset für primäres Weitwinkelglaukom (H40.1) alle Merkmale des Synsets Glaukom (H40), sowie das Merkmal Glaukom selbst zugewiesen werden, ausgehend von der Notation. 
-Zusätzlich kann jedem Synset, dem eine Notation als Merkmal zugeordnet wurde, auch das Merkmal 'Krankheit' zugewiesen werden.
-
-In der Praxis scheiterte dieser Ansatz beim Vergleich der Titel der ICD-10-Einträge mit den Bezeichnungen der Wörterbucheinträge.
-
-<!-- Satzvorschlag:
---------------------------------------------------------------------------------
-ERLEDIGT:
-
-Statt 'Benamung' was glaube ich kein deutsches Wort ist, vielleicht 'Bezeichnung'?
-
-Antwort: OK
-
--->
- 
 Obwohl den Synsets häufig mehrere synonyme Bezeichnungen vergeben wurden, beispielsweise unterschiedliche Schreibweisen, konnten lediglich 43 Synsets aus dem Wörterbuch automatisiert ICD-10-Notationen zugeordnet werden und nur etwa 50 Merkmale (bzw. Notationen) erkannt und vergeben werden, von denen die meisten auch nur ein einziges Mal vergeben wurden. 
 Hauptursache sind die Zusatzinformationen, die bei vielen Krankheiten im Titel stehen und ohne manuelles Eingreifen nur schwer zu identifizieren sind, sowie abweichende Wortstellungen bei komplexeren Begriffen. 
 Die niedrige Zahl der Merkmalszuweisungen ergibt sich aus der hierarchischen Struktur der ICD-10, da durch die Einteilung in Klassen Überlappungen von Informationen vermieden werden. 
 Folglich ist dieses Ergebnis als Grundlage für aussagekräftige formale Verbände in keiner Weise hinreichend und der Ansatz der automatisierten Verarbeitung der ICD-10-Klassifikation wurde nicht weiter verfolgt.
 
 ### Wortmuster als Merkmalsidentifizierer
-
-<!-- ACHTUNG: Stark überarbeiteter Teil folgt:
-
-Im Einzelnen:
-
-* ersten Satz verändert und Deine Korrektur einen Absatz nich 'mit Unterschied dazu' zu beginnen, übernommen
-* zweiten Satz wie vorgeschlagen geändert
-* dritter Satz wie vorgeschlagen ergänzt
-* vierten Satz erweitert um die Ausführungen in der Klammer
-* im vierten Satz korrigiert, dass 'oplasty' nicht griechisch ist, sondern englisch aus dem griechischen entlehnt. Im Deutschen hieße die Chose 'oplastie'
-* daher im vierten Satz in der Klammer noch ein 'reines' griechisches Beispiel aufgenommen, obwohl es gleich noch mal in der Liste kommt
-* fünften Satz wie vorgeschlagen geändert
-
--->
 
 Die Durchführung einer (teilweise) automatisierten Merkmalsextraktion und -zuweisung, erwies sich als sehr wirksam.
 Diese wurde anhand von Wortteilmustern und ihrer Bedeutung als Affix, Wortwurzel bzw. Teil eines Kompositums oder Derivats erzielt, wie sie gehäuft in medizinischen Fachbegriffen vorkommen.
@@ -289,107 +229,24 @@ Beispiele hierfür sind
 Da keine externen Informationsquellen für diesen Prozess benötigt werden, können die Merkmalszuweisungen direkt auf Datenbankebene per SQL-Befehl ausgeführt werden. 
 Durch automatischen Abgleich der Synonyme in der Datenbank mit den erkannten Teilmustern wurden so fast 2000 Merkmalszuweisungen vorgenommen, die etwas mehr als 20% aller Synsets des Wörterbuchs abdecken.
 
-Einsatz einer N-Gramm-Frequenzliste
------------------------------------
+### Einsatz einer N-Gramm-Frequenzliste
 
 Die Wahl geeigneter Wortmuster durch manuelle Untersuchung der englischen Begriffsliste - d.h. der Menge aller englischsprachigen Einträge des Wörterbuchs - ist als zu unvollständig bezüglich der Abdeckung der 2500 Synsets einzustufen, wie die bisherigen Ergebnisse der Wortmusteranalyse zeigen.
 
-<!-- Fragen:
-
-ERLEDIGT:
-
-Vieleicht sollte hier etwas mehr ausgeführt werden. Mir stellen sich unmittelbar folgende Fragen:
-Welche englische Begriffsliste?
-Welche erwähnte Methode?
-Unvollständig im Hinblick auf die Abdeckung?
-
-Antwort: Stimmt.
-
--->
-
 Eine Verbesserung der Abdeckung könnte zu erreichen sein, indem weitere geeignete Wortteilmuster anhand ihrer absoluten Häufigkeit identifiziert werden.
-
-<!-- Satzvorschlag:
-
-ERLEDIGT:
-
-Letzter Satz fällt weg. Vor nächstem Satz kommt:
-Eine Verbesserung der Abdeckung könnte zu erreichen sein, indem weitere geeignete Wortteilmuster anhand ihrer [relativen|absoluten]? Häufigkeit identifiziert werden.
-
--->
 
 Aus dieser Überlegung entstand die Idee bereits im Vorhinein eine Frequenzliste aller existierenden Zeichen-n-Gramme aus der Menge der Wörter in den Synsets zu generieren, anhand derer geeignete Wortmuster mit semantischem Inhalt gewählt und dann in einem weiteren Durchlauf der Wortmusteranalyse berücksichtigt werden.
 
-<!-- Frage:
-
---------------------------------------------------------------------------------
-ERLEDIGT:
-
-explizieren von 'angewandte Methode'
-
--->
-
-
 Hierfür musste eine nach Häufigkeiten der vorkommenden n-Gramme sortierte Liste automatisiert erstellt werden. 
 
-<!-- Hinweis:
-
---------------------------------------------------------------------------------
-ERLEDIGT:
-
-Ein nach Frequenzliste ist eine Liste der Häufigkeiten.
-
-Hinweis: hier vielleicht schon präzisieren: 'Zeichen-n-Gramme' oder so. Sieht doof aus, ich weiß
-
-Satzvorschlag:
-
-[...] eine nach Häufigkeiten der vorkommenden n-Gramme sortierte Liste [...]
-
-Antowrt: jop, geb ich dir voll recht.
-
--->
-
-
-Als untere Grenze der Zeichenlänge der n-Gramme wurde  $n > 3$ gewählt, d.h. Gramme der Länge 3 und kleiner wurden nicht erstellt. 
 Durch Versuche mit n-Grammen unterschiedlicher Länge zeigte sich, dass unterhalb dieser Grenze kaum noch brauchbare Wortteilmuster identifiziert werden konnten.
 
-<!-- Satzvorschlag:
---------------------------------------------------------------------------------
-ERLEDIGT:
-
-Hier wird nicht getastet! ;)
-
-Durch Versuche mit n-Grammen unterschiedlicher Länge zeigte sich, dass unterhalb dieser Grenze kaum noch brauchbare Wortteilmuster identifiziert werden konnten
-
-Antwort: OK, klingt besser (und wissenschaftlicher)
-
--->
-
 Im späteren Verlauf wurden trotzdem noch die Trigramme berücksichtigt, die geeignete Worteilmuster darstellten (insgesamt vier Stück).
-
-<!-- Frage:
---------------------------------------------------------------------------------
-ERLEDIGT:
-
-Das verstehe ich nicht: es wurden Trigramme erhoben und heraus kamen nur vier brauchbare Wortteilmuster?
-
-Wenn das so ist, warum wurde das gemacht? Wirklich nur aus Vollständigkeit oder gab es spezifischere Gründe?
-
-Antwort: jo, so wars. Die meisten Trigramme, die Sinn gemacht hätten, waren viel zu uneindeutig (kommen also in mehreren Kontexten vor, leider hab ich hierfür kein Beispiel mehr)
-
-Satzvorschlag:
-
-Im späteren Verlauf wurden trotzdem noch die Trigramme berücksichtigt, die geeignete Worteilmuster darstellten (was waren vier Stück).
-
--->
-
 
 Anschließend wurde die Liste ausgehend vom am häufigsten vorkommenden n-Gramm bis zu einer vorher festgelegten Grenze (bis zu einer Häufigkeit von 6) manuell abgearbeitet und jedes Gramm jeweils nach semantischem Inhalt sowie semantischer Eindeutigkeit überprüft, d.h. im medizinischen Kontext muss die Bedeutung des vorliegenden Gramms nicht nur offentsichtlich, sondern innerhalb dieses Kontextes auch eindeutig sein, also keine Mehrdeutigkeiten aufweisen.
 
 
-<!-- Frage: 
---------------------------------------------------------------------------------
-ERLEDIGT:
+<!-- FRAGE, OFFEN: 
 
 Was bedeuten 'semantischer Inhalt', 'semantische Eindeutigkeit'?
 
@@ -409,12 +266,12 @@ Das Ergebnis dieser Extraktionsmethode ist ein aussagekräftiger formaler Kontex
 Gut die Hälfte aller Synsets aus dem Wörterbuch wurden mithilfe dieser Methode mit Merkmalen versehen. 
 Besonders ermutigend sind dabei der hohe Grad der Qualität an Merkmalen und Zuweisungen aufgrund der eindeutigen Beziehung zwischen Wortbestandteil und Semantik, sowie die hohe Vernetzung der Synsets untereinander durch Merkmale, die sehr häufig mehreren verschiedenen Synsets zugewiesen werden konnten.
 
-### Wikipedia als Wissensquelle
+Wikipedia als Wissensquelle
+--------------------------------------------------------------------------------
 
-Die Kategorie-Tags in der Wikipedia
------------------------------------
+### Die Kategorie-Tags in der Wikipedia
 
-### Vorüberlegungen
+#### Vorüberlegungen
 
 Wie bereits erwähnt wurde, war aus unserer Sicht insbesondere die Beschränkung auf Krankheiten das Hauptproblem, weshalb kaum Merkmalszuweisungen gelangen. 
 Ein weiteres Problem stellte die Art der aufgefundenen Information dar.
@@ -442,7 +299,7 @@ Die Abstracts wurden aus dem Quelltext gewonnen und der Text ist mit dem Markup 
 Da es unterschiedliche Konventionen bezüglich der Formatierung im Quelltext gibt, sind einige Abstracts unbrauchbar gewesen, da sie im Wesentlichen aus dem Markup einer dem Artikel vorangestellten Infobox (ein Beispiel einer solchen Infobox kann man auf der Seite jedes chemischen Elements betrachten) bestanden und keinerlei Fließtext mehr enthielten.
 Aus der deutschen Wikipedia konnten auf diese Weise 433 Artikel für die weitere Verwendung extrahiert werden und aus der englischen Wikipedia 731 Artikel, die Mitglieder der Kategorie selbst oder einer Unterkategorie von *Augenheilkunde*  oder *Ophthalmology* waren.
 
-### Vorgehensweise
+#### Vorgehensweise
 
 Das Vorgehen hierzu umfasste zahlreiche nur manuell durchzuführende Schritte, um die Ergebnismenge möglichst frei von Artikeln oder Kategorien zu halten, die nicht zur eigentlichen Fragestellung zählten. 
 
@@ -465,7 +322,7 @@ Außerdem gibt es Sammelkategorien der Art 'Accuracy disputes from August 2009'.
 Je nachdem wie lange der Dissens bezüglich eines Themas schwelt, sind genau so viele Kategorien dieses Typs einem Artikel zugewiesen, wie Monate vergangen sind.
 Obwohl viele dieser Kategorien, einmal identifiziert, durch reguläre Ausdrücke gut zu filtern waren, war es doch ein erheblicher manueller Aufwand, der aber im Wiederholungsfall automatisierbar ist.
 
-### Ergebnisse
+#### Ergebnisse
 
 Die so ermittelten Kategorien wurden als Schlagwörter der dazugehörigen Artikel betrachtet und versucht, mit den Begriffen aus dem Wörterbuch der Augenheilkunde in Verbindung zu bringen.
 Die resultierenden Merkmalszuweisungen blieben aber hinter den Erwartungen zurück.
@@ -475,10 +332,9 @@ Der wesentliche Grund für die geringen Zuweisungen, ist daher die geringe Menge
 Im Grunde handelt es sich hierbei um das selbe Problem, wie bei dem Versuch mit der ICD-10 und scheiterte aus dem selben Grund: der Zweck der Klassifikation ist ja die Elimination der Überlappung der Begriffsumfänge und Einordnung in hierarchische Strukturen unter Ausnutzung der Vererbung von Merkmalen.
 Der Facettenaspekt in der Klassifikation der Wikipedia-Kategorien brachte hier also kaum Verbesserung.
 
-Die Volltext-Abstracts aus der Wikipedia
-----------------------------------------
+### Die Volltext-Abstracts aus der Wikipedia
 
-### Vorüberlegungen
+#### Vorüberlegungen
 
 Zu Beginn jedes Lexikonartikels steht eine einfache Definition und Einordnung des Begriffs der Gegenstand des Artikels ist.
 In der Wikipedia gibt es sehr umfangreiche und präzise Anleitungen, wie der Aufbau eines Artikels zu sein hat.
@@ -496,7 +352,7 @@ Hierzu wurde die ANSI-C-Implementation des Porter-Stemmers verwendet, jeweils in
 Die resultierende Liste von n-Grammen je Artikel, wurde zusammen mit dem Artikelnamen in einer Pseudo-XML-Notation abgespeichert: die n-Gramme wurden in Tags namens <bigram></bigram> und <trigram></trigram> gespeichert ohne sich weiter mit einer geeigneten Document Type Definition aufzuhalten. 
 Die Ketten sollten aus der Datei nur gut extrahierbar sein.
 
-### Vorgehensweise
+#### Vorgehensweise
 
 1. Unix Shell-Skripte (vor allem mit *sed*, *awk*, *Perl*) zur Extraktion der ersten beiden Sätze.
 Da sowohl das Wiki-Markup, als auch Schriftzeichen anderer Sprachen (insbesondere Altgriechisch, Arabisch und Indisch) herausgefiltert werden mussten, zum Teil mit manuellem Eingriff und Korrektur
@@ -507,7 +363,7 @@ Dieser Schritt geht vollautomatisch und bedarf keiner weiteren Überprüfung ode
 3. PHP-Skripte für den Import der XML-Daten in die Datenbank.
 4. Zuweisung der Merkmale, sowie Matching der Artikeltitel und der Synsetbezeichnungen via SQL.
 
-### Ergebnisse
+#### Ergebnisse
 
 Das Ergebnis zeigte sich bezüglich der Ausbeute an Merkmalen und der Anzahl an Zuweisungen je Begriff als unbefriedigend. 
 Zwar wurden insgesamt ca. 5000 Merkmale produziert, jedoch befindet sich darunter jede Menge Ballast in Form von irrelevanten oder aus dem Kontext heraus falsch extrahierten Daten (z.B. *is\_a* als Merkmal, da als Wikipedia-Eintrag vorhanden). 
@@ -523,11 +379,10 @@ Die Merkmalsanzahl blieb nahezu unverändert, Zuweisungen haben sich um gut 1000
 Dank großzügigerem Matching mit Nichtbeachtung von Groß- und Kleinschreibung konnten ca. 30 Synsets mehr auf Artikel abgebildet werden, aber auch das ändert die Einschätzung des Endresultates nicht. 
 Positiv herauszustellen ist jedoch die Erzeugung eines etwas bereinigteren Begriffsverbandes, da Merkmale wie *is_a* nicht mehr zustande kommen aufgrund der Stoppwortfilterung.
 
-
 Inhalte der Wikipedia via dem API
-=================================
+--------------------------------------------------------------------------------
 
-### Vorüberlegungen
+#### Vorüberlegungen
 
 Die Gründe aus dem der Dump der Wikipedia-Abstracts verwendet worden waren sind
 
@@ -564,7 +419,7 @@ Hornhaut
 Da es mit einem Part-of-Speech-Tagger vergleichsweise einfach ist, die entsprechenden Teile zu extrahieren, sollte der Versuch unternommen werden dem Merkmalscharakter möglichst nahe zu kommen, indem einfach die Wörter, die unmittelbar verwendet werden um den in Frage stehenden Begriff zu beschreiben, auch als Merkmale zu verwenden.
 Die Wahrscheinlichkeit, einerseits möglichst treffende Begriffe zu finden und andererseits nicht zu viele, nicht in unmittelbaren Zusammenhang stehende Wörter zuzuweisen, erschien durch die Beschränkung auf den ersten Satz eines enzyklpädischen Artikels als maximal.
 
-### Vorgehensweise
+#### Vorgehensweise
 
 Anders als bei der Extraktion aus dem Dump wurden die Seiten von einem Shell-Skript aus mit *wget* geholt und mit den geeigneten Teilen der zuvor verwendeten Skripte sofort weiterverarbeitet.
 Für das Part-of-Speech-Tagging wurde der *TreeTagger* von Helmut Schmid von der Universität Stuttgart verwendet.
@@ -627,7 +482,7 @@ Dadurch, dass bei der Verarbeitung in Schritt 3 die Bestandteile des Artikelname
 Zu Überlegen ist, ob man bei einer Unterschreitung einer Anzahl Ergebniszeilen, den oder die Begriffe aus denen sich der Artikel zusammensetzt, hinzunimmt.
 Allerdings geben die beiden Kategorien hinreichend Information um 'scleral lens' zumindest einordnen zu können.
 
-### Ergebnisse
+#### Ergebnisse
 
 Insgesamt wurden 1379 Wikipedia-Abstracts analysiert, aus denen 2439 Merkmale extrahiert werden konnten, die 9797 mal entsprechenden Artikeln zugeordnet wurden. 
 Nach Matching der Artikelnamen auf Synsets aus dem Wörterbuch kommt man auf (nur) 335 gematchte Synsets, auf die insgesamt 931 Merkmale 2582 mal zugewiesen wurden. 
@@ -636,7 +491,8 @@ Zudem ist der resultierende Begriffsverband deutlich kohärenter als zuvor.
 
 Damit kann festgehalten werden, dass diese Methode allein keinen hinreichend aussagekräftigen Begriffsverband für das Wörterbuch generiert hat, jedoch als sinnvolle Ergänzung zu den bereits angewandten Methoden gesehen werden kann.
 
-### Bilden der Begriffsverbände und Visualisierung (unser Script)
+Bilden der Begriffsverbände und Visualisierung (unser Script)
+--------------------------------------------------------------------------------
 
 * Begriffsverband eines gewählten Synsets wird aufgebaut - anhand seiner zugewiesenen Merkmale - und mittels eines Graphens visualisiert
 * Potenzmenge der Merkmale wird gebildet und für jede Untermenge an Merkmalen die Menge an Synsets hinterlegt, die diese Merkmale zugewiesen bekommen haben
@@ -644,7 +500,7 @@ Damit kann festgehalten werden, dass diese Methode allein keinen hinreichend aus
 * leere Knoten fallen weg; Knoten, die sich die gleiche Menge an Synsets teilen, werden zu einem Knoten zusammengefügt (Raum sparen)
 
 Schlußteil
-----------
+================================================================================
 
 ### Diskussion der Ergebnisse
 
@@ -652,8 +508,30 @@ Bereits bestehende Klassifikationen, wie zum Beispiel die ICD-10, aber auch die 
 Die Klassen der ICD-10 ließen sich praktisch überhaupt nicht mit Begriffen aus dem Wörterbuch der Augenheilkunde in Verbindung bringen.
 Erfolgreicher sind die Ergebnisse aus der Extraktion von Teilen des ersten Satzes aus Artikeln der Wikipedia in der Kategorie Augenheilkunde oder Unterkategorien davon.
 
+<!-- TODO
+
+Zwei Sätze zu den Zuweisungen, die ja das eigentliche Ergebnis sind. Ein bis zwei Sätze zur Visualisierung.
+
+-->
 
 ### Diskussion der Probleme
+
+Im Idealfall ist die Menge der verwendeten Merkmale genau so groß, wie sie sein muss, um alle formalen Begriffe bilden zu können und kein weiteres Merkmal zusätzlich.
+Insbesondere für allgemeine Übersetzungsaufgaben scheint es kaum vorstellbar eine Merkmalsmenge derart zu verkleinern, ohne manuelle Korrekturen.
+Bei der Beschränkung auf eine Domäne, so unsere initiale Annahme, müsste aber die automatisiert gewonnene Merkmalsmenge klein zu halten sein und dennoch ausreichend Zuweisungen erlauben.
+Aus unserer Sicht gab es vor allem zwei Problemstellen. 
+Die Überdeckung der Wikipedia-Artikel mit den Einträgen des Wörterbuchs der Augenheilkunde.
+Je mehr Artikel aus der Wikipedia zu Einträgen aus dem Wörterbuch sich finden lassen, desto mehr unmittelbar passende Merkmale lassen sich aus den Artikeln extrahieren.
+Die Anzahl der unmittelbaren Übereinstimmungen in den Begriffen zwischen beiden betrug aber nur XXXX Artikel-Eintrag-Kombinationen.
+
+<!-- TODO
+
+Wieviele? Stimmt das überhaupt?
+
+-->
+
+Weil die Anzahl der Artikel in der englischsprachigen Wikipedia maximal ist (absolut, aber auch unterhalb der Kategorie 'Ophthalmology') verwendeten wir die Einträge daraus.
+Da die Auswahl geeigneter Merkmale im Wesentlichen gleich einer Verschlagwortung ist, wurden unsere Ergebnisse auch besser, je mehr typische Schritte zur Schlagwortgewinnung wir durchführten (Stemming, Zerlegen in n-Gramme).
 
 ### Ausblick (SNOMED, Merkmalsmenge einschränken)
 
@@ -661,7 +539,7 @@ Erfolgreicher sind die Ergebnisse aus der Extraktion von Teilen des ersten Satze
 
 
 Anhang
---------------------------------------------------------------------------------
+================================================================================
 
 ### Beispiel für die Verarbeitung der Extrakte aus der Wikipedia
 
