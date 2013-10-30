@@ -6,11 +6,13 @@ Einführungsteil
 
 ### A multilingual Dictionary of Ophthalmology (Aufbau und Umfang des Dictionarys, was bisher daran gemacht wurde)
 
-Gegenstand dieser Arbeit ist das [digitale multilinguale Wörterbuch der Augenheilkunde](http://www.zeitzfrankozeitz.de/index.php/fachwoerterbuch.html) des Düsseldorfer Augenarztes Dr. Phillipp Franko Zeitz, das seit 2010 existiert und online auf der Webpräsenz der Augenklinik Zeitz Franko Zeitz zugänglich ist.
+Gegenstand dieser Arbeit ist das [digitale multilinguale Wörterbuch der Augenheilkunde](http://www.zeitzfrankozeitz.de/index.php/fachwoerterbuch.html) des Augenarztes Dr. Philipp Franko Zeitz, das seit 2010 existiert und online auf der Webpräsenz der Düsseldorfer Augenklinik Zeitz Franko Zeitz zugänglich ist.
 
-<!-- Hinweis:
+Das Wörterbuch umfasst mittlerweile fast 25.000 händisch gepflegte Einträge aus dem Bereich der Augenheilkunde in 13 (anfänglich 8) Sprachen, die Erklärungen, Abkürzungen, sowie Übersetzungs- und Synonymverweise enthalten, welche mittels eines simplen Suchformulars gefunden werden können. Seit 2011 sind sowohl die Funktionen, als auch der Inhalt des Wörterbuchs stetig erweitert worden, was ein weitreichendes Interesse am Wörterbuch mit sich zog - auch im internationalen Raum. Ergebnisse sind neben der nun breiten Sprachunterstützung ein nutzerfreundliches User Interface, verbesserte Suchfunktionen und ein Bildatlas mit annähernd 2000 Bildern, die vereinzelte Einträge illustrieren.
 
-Arbeite ich noch dran (Aufbau, Anzahl Einträge, Synsets, Sprachunterstützung etc.)
+Die Einträge des Wörterbuchs verteilten sich zum Zeitpunkt des Projektbeginns auf ca. 2500 Konzepte, die jeweils unterschiedliche Ausprägungen eines medizinischen Begriffs zusammenfassen (also alle Einträge des Wörterbuchs mit jeweils derselben Bedeutung, wie Synonyme, Übersetzungen und unterschiedliche Schreibweisen desselben Begriffs). In Anlehnung an den bekannten englischsprachigen Thesaurus WordNet werden diese Konzepte - bzw. Mengen an synonymen Termen - fortan Synsets genannt. Synsets werden im Wörterbuch intern durch eine eindeutige Kennziffer ausgezeichnet, die das Identifizieren von Bedeutungen sehr einfach macht und einen exzellenten Ansatz zum Ausbau der Bedeutungstruktur innerhalb des Wörterbuchs liefert.
+
+<!-- Fertig.
 
 -->
 
@@ -43,6 +45,12 @@ Dieses *lexical gap* genannte Phänomen kann umso ausgeprägter werden, je spezi
 ### Erste Überlegungen zur Umsetzung
 
 Teil der Aufgabenstellung war es, die formale Begriffsanalyse einzusetzen, um eine Zwischensprache aus Konzepten zu entwickeln, über welche wiederum die im Wörterbuch der Augenheilkunde vorhandenen Wörter unterschiedlicher Sprachen miteinander verbunden werden konnten.
+
+<!-- Satzvorschlag:
+
+Zusätzlich hierzu: Man spricht hierbei von einer Interlingua, deren Konzepte allen Sprachen zugrundeliegen.
+
+-->
 
 #### Begriffe der formalen Begriffsanalyse
 
@@ -279,7 +287,7 @@ Beispiele hierfür sind
 * '-retin-' für Retina oder Netzhaut.
  
 Da keine externen Informationsquellen für diesen Prozess benötigt werden, können die Merkmalszuweisungen direkt auf Datenbankebene per SQL-Befehl ausgeführt werden. 
-Durch automatischen Abgleich der Synonyme in der Datenbank mit den erkannten Teilmustern wurden so über 1000 Merkmalszuweisungen vorgenommen, die etwas mehr als 20% aller Synsets des Wörterbuchs abdecken.
+Durch automatischen Abgleich der Synonyme in der Datenbank mit den erkannten Teilmustern wurden so fast 2000 Merkmalszuweisungen vorgenommen, die etwas mehr als 20% aller Synsets des Wörterbuchs abdecken.
 
 Einsatz einer N-Gramm-Frequenzliste
 -----------------------------------
@@ -629,6 +637,11 @@ Zudem ist der resultierende Begriffsverband deutlich kohärenter als zuvor.
 Damit kann festgehalten werden, dass diese Methode allein keinen hinreichend aussagekräftigen Begriffsverband für das Wörterbuch generiert hat, jedoch als sinnvolle Ergänzung zu den bereits angewandten Methoden gesehen werden kann.
 
 ### Bilden der Begriffsverbände und Visualisierung (unser Script)
+
+* Begriffsverband eines gewählten Synsets wird aufgebaut - anhand seiner zugewiesenen Merkmale - und mittels eines Graphens visualisiert
+* Potenzmenge der Merkmale wird gebildet und für jede Untermenge an Merkmalen die Menge an Synsets hinterlegt, die diese Merkmale zugewiesen bekommen haben
+* Untermengen werden durch Knoten dargestellt; bei Klick auf einen Knoten werden die entsprechenden Synsets angezeigt
+* leere Knoten fallen weg; Knoten, die sich die gleiche Menge an Synsets teilen, werden zu einem Knoten zusammengefügt (Raum sparen)
 
 Schlußteil
 ----------
