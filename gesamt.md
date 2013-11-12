@@ -10,9 +10,14 @@ A multilingual Dictionary of Ophthalmology (Aufbau und Umfang des Dictionarys, w
 
 Ausgangspunkt dieser Arbeit ist das [digitale multilinguale Wörterbuch der Augenheilkunde](http://www.zeitzfrankozeitz.de/index.php/fachwoerterbuch.html) des Augenarztes Dr. Philipp Franko Zeitz, das seit 2010 existiert und online auf der Webpräsenz der Düsseldorfer Augenklinik Zeitz Franko Zeitz zugänglich ist.
 
-Das Wörterbuch umfasst mittlerweile fast 25.000 händisch gepflegte Einträge aus dem Bereich der Augenheilkunde in 13 (anfänglich 8) Sprachen. Einträge enthalten Erklärungen, Abkürzungen, sowie Übersetzungs- und Synonymverweise, welche mittels eines simplen Suchformulars gefunden werden können. Seit 2011 sind sowohl die Funktionen, als auch der Inhalt des Wörterbuchs stetig erweitert worden, was ein weitreichendes Interesse am Wörterbuch mit sich zog - auch im internationalen Raum. Ergebnisse sind neben der nun breiten Sprachunterstützung ein nutzerfreundliches User Interface mit verbesserten Suchfunktionen und ein Bildatlas mit annähernd 2000 Bildern, die vereinzelte Einträge illustrieren.
+Das Wörterbuch umfasst mittlerweile fast 25.000 händisch gepflegte Einträge aus dem Bereich der Augenheilkunde in 13 (anfänglich 8) Sprachen. 
+Einträge enthalten Erklärungen, Abkürzungen, sowie Übersetzungs- und Synonymverweise, welche mittels eines simplen Suchformulars gefunden werden können. 
+Seit 2011 sind sowohl die Funktionen, als auch der Inhalt des Wörterbuchs stetig erweitert worden, was ein weitreichendes Interesse am Wörterbuch mit sich zog - auch im internationalen Raum. 
+Ergebnisse sind neben der nun breiten Sprachunterstützung ein nutzerfreundliches User Interface mit verbesserten Suchfunktionen und ein Bildatlas mit annähernd 2000 Bildern, die vereinzelte Einträge illustrieren.
 
-Die Einträge des Wörterbuchs verteilten sich zum Zeitpunkt des Projektbeginns auf ca. 2500 Konzepte, die jeweils unterschiedliche Ausprägungen eines medizinischen Begriffs zusammenfassen (also alle Einträge des Wörterbuchs mit jeweils derselben Bedeutung, wie Synonyme, Übersetzungen und unterschiedliche Schreibweisen desselben Begriffs). In Anlehnung an den bekannten englischsprachigen Thesaurus WordNet werden diese Konzepte - bzw. Mengen an synonymen Termen - fortan Synsets genannt. Synsets werden im Wörterbuch intern durch eine eindeutige Kennziffer ausgezeichnet, die das Identifizieren von Bedeutungen sehr einfach macht und damit einen exzellenten Ansatz zum Ausbau der Bedeutungstruktur innerhalb des Wörterbuchs liefert.
+Die Einträge des Wörterbuchs verteilten sich zum Zeitpunkt des Projektbeginns auf ca. 2500 Konzepte, die jeweils unterschiedliche Ausprägungen eines medizinischen Begriffs zusammenfassen (also alle Einträge des Wörterbuchs mit jeweils derselben Bedeutung, wie Synonyme, Übersetzungen und unterschiedliche Schreibweisen desselben Begriffs). 
+In Anlehnung an den bekannten englischsprachigen Thesaurus WordNet werden diese Konzepte - bzw. Mengen an synonymen Termen - im Nachfolgenden *Synsets* genannt. 
+Synsets werden im Wörterbuch intern durch eine eindeutige Kennziffer ausgezeichnet, die das Identifizieren von Bedeutungen sehr einfach macht und damit einen sehr guten Ansatz zum Ausbau der Bedeutungstruktur innerhalb des Wörterbuchs liefert.
 
 <!-- Fertig.
 
@@ -21,29 +26,28 @@ Die Einträge des Wörterbuchs verteilten sich zum Zeitpunkt des Projektbeginns 
 Ideen und Zielsetzung (SimuLLda, formale Begriffsanalyse, lexical gap)
 --------------------------------------------------------------------------------
 
-Ziel des nachfolgend vorgestellten Teamprojekts war es, aufbauend auf das oben erwähnte *Dictionary of Ophthalmology*, [XXXX, Arztbriefe, XXXX].
-
-<!-- Hinweis:
-
-Arbeite ich noch dran
-
--->
-
-
-### Probleme der Homonymie, Synonymie und [der|die]? 'lexical gap'
-
-<!-- Hinweis:
-
-Fertiges Fragment für den Einleitungsteil. Rest folgt, muss aber vor allem noch die Reihenfolge, was zuerst eingeführt wird und was darauf dann ausbaut. Muss auch noch fertig gekürzt werden.
-
--->
-
+Ziel des nachfolgend vorgestellten Teamprojekts war es, die Einträge des *Wörterbuchs der Augenheilkunde* zu erweitern um ihre jeweilige Repräsentation als formalen Begriff. 
+Die Abdeckung der Synsets im Wörterbuch über alle berücksichtigten Sprachen hin, ist sehr unterschiedlich. 
+Ein Grund dafür könnte unzureichendes Quellmaterial bei der Erstellung des Wörterbuchs gewesen sein. 
+Ein anderer Grund könnte sein, dass es bestimmte Begriffe in der einen Sprache gibt und in anderen Sprachen nicht.
+Begriffe mittels formaler Begriffe auszudrücken und damit über deren Merkmale prinzipiell übersetzbar zu machen in Sprachen, in denen es die Bezeichnung nicht gibt, ist eine Idee, die auf die Arbeit von Janssen, 2002 zurückgeht.
+Solcherlei Lücken, lexical gaps genannt, gibt es im Wörterbuch der Augenheilkunde ebenfalls.
+Dieses Phänomen kann umso ausgeprägter werden, je spezifischer die Domäne ist, so wie beispielsweise die Augenheilkunde.
+Weitere Probleme, die man mit dem vorgestellten Ansatz gut lösen kann, sind die der Homonymie und Synonymie.
 Ein Satz oder eine Phrase in zwei unterschiedlichen Sprachen hat (im Idealfall) in beiden Sprachen die selbe Bedeutung, verwendet aber andere Wörter um ihn auszudrücken.
 Für die wortweise Übersetzung zieht man, so vorhanden, ein Wörterbuch heran.
 Allerdings löst ein Wörterbuch nicht von allein das Problem der Homonymie, also der Frage welcher der Begriffe, die sich eine Bezeichnung teilen, im Kontext verwendet wurde.
 Auch ist nicht zwingend jede Bezeichnung, die für ein und denselben Begriff stehen, Bestandteil eines gegebenen Wörterbuchs (Synonymie).
-Weiterhin gibt es nicht in jeder Sprache für jeden Begriff eine eigene Bezeichnung. 
-Dieses *lexical gap* genannte Phänomen kann umso ausgeprägter werden, je spezifischer die Domäne ist, so wie beispielsweise die Augenheilkunde.
+In keinem der Fälle lässt sich dann zuverlässig ableiten, welches die korrekte Bezeichnung ist, es sei denn man zieht den Kontext, sofern erkennbar, heran.
+Formale Begriffe erlauben es, diesen Kontext herzustellen und sprachübergreifend zu verwenden, weil Begriffe dadurch in termini der ihnen zugewiesenen Merkmale ausgedrückt werden.
+
+<!-- Hinweis:
+
+Ist noch in Arbeit.
+
+[XXXX, Arztbriefe, XXXX].
+
+-->
 
 Erste Überlegungen zur Umsetzung
 --------------------------------------------------------------------------------
@@ -54,10 +58,14 @@ Teil der Aufgabenstellung war es, die formale Begriffsanalyse einzusetzen, um ei
 
 Zusätzlich hierzu: Man spricht hierbei von einer Interlingua, deren Konzepte allen Sprachen zugrundeliegen.
 
+ANMERKUNG: 
+
+Ich weiß nicht, ob das nicht einfach redundant zu Zwischensprache ist und ob 'Interlingua' der terminus technicus ist, so wie bspw. 'Frame'.
+Ich würde es evtl. in Klammer einfach hinter 'Zwischensprache' setzen.
+
 -->
 
 #### Begriffe der formalen Begriffsanalyse
-=======
 
 Die formale Begriffsanalyse ist ein Teil der mathematischen Ordnungslehre. 
 Sie wurde in den 1980er Jahre von Rudolf Wille, Bernhard Ganter und Peter Burmeister entwickelt.
@@ -118,6 +126,10 @@ Kreuztabellen kommen jetzt ja schon bei FBA. Ist also erledigt.
 
 Liniendiagramme (bzw. 1) kommt bei Simullda, ggf. passe ich da noch eines aus dem Tilburg-Vortrag an. 
 Da geht es ja auch nur darum kurz zu zeigen, was das ist, und dass das ein Schaltkasten sein kann, für Übersetzung.
+
+HINWEIS:
+
+Liniendiagramme sind hochgeladen und können angeschaut werden.
 
 -->
 
