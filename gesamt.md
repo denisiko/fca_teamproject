@@ -253,6 +253,7 @@ Sofern ein Teilmuster Bestandteil eines Begriffes aus dem Wörterbuch ist wird d
  
 Da keine externen Informationsquellen für diesen Prozess benötigt werden, können die Merkmalszuweisungen direkt auf Datenbankebene per SQL-Befehl ausgeführt werden. 
 Der folgende beispielhafte Programmcode skizziert die Zuweisung des Merkmals mit der ID 101 (Entzündung) an alle Synsets aus dem Wörterbuch, von denen eine ihrer Bezeichnungen den Wortbestandteil 'itis' enthält:
+
     INSERT INTO Merkmalszuweisungen (SynsetID, MerkmalID) SELECT SynsetID, 101 FROM Woerterbuch WHERE Bezeichnung LIKE '%itis%'
 
 Durch automatischen Abgleich der Synonyme in der Datenbank mit den erkannten Teilmustern wurden so fast 2000 Merkmalszuweisungen vorgenommen, die etwas mehr als 20% aller Synsets des Wörterbuchs abdecken.
