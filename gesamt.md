@@ -27,19 +27,29 @@ Ideen und Zielsetzung (SimuLLda, formale Begriffsanalyse, lexical gap)
 --------------------------------------------------------------------------------
 
 Ziel des nachfolgend vorgestellten Teamprojekts war es, die Einträge des *Wörterbuchs der Augenheilkunde* zu erweitern um ihre jeweilige Repräsentation als formalen Begriff. 
-Die Abdeckung der Synsets im Wörterbuch über alle berücksichtigten Sprachen hin, ist sehr unterschiedlich. 
-Ein Grund dafür könnte unzureichendes Quellmaterial bei der Erstellung des Wörterbuchs gewesen sein. 
+Die Synsets des Wörterbuchs bilden gemäß der Formalen Begriffsanalyse die Menge an Objekten.
+Um diese Objekte formal semantisch repräsentieren zu können werden beschreibende Merkmale benötigt.
+Die Erweiterung des Wörterbuchs beschäftigt sich also vornehmlich mit der Frage, wie diese Merkmale erzeugt und den entsprechenden Objekten bzw. Synsets zugewiesen werden.
+Hierzu bieten sich Methoden der Informationsextraktion an, die im Hauptteil der Arbeit erläutert werden.
+
+Bezüglich der Abdeckung an Synsets im Wörterbuch sind für jede der berücksichtigten Sprachen unterschiedliche Anteile erkennbar. 
+Grund dafür könnte unzureichendes Quellmaterial bei der Erstellung des Wörterbuchs gewesen sein. 
 Ein anderer Grund könnte sein, dass es bestimmte Begriffe in der einen Sprache gibt und in anderen Sprachen nicht.
-Begriffe mittels formaler Begriffe auszudrücken und damit über deren Merkmale prinzipiell übersetzbar zu machen in Sprachen, in denen es die Bezeichnung nicht gibt, ist eine Idee, die auf die Arbeit von Janssen, 2002 zurückgeht.
+Einträge mittels formaler Begriffe auszudrücken und damit über deren Merkmale prinzipiell übersetzbar zu machen in Sprachen, in denen es die Bezeichnung nicht gibt, ist eine Idee, die auf die Arbeit von Janssen, 2002 zurückgeht.
 Solcherlei Lücken, lexical gaps genannt, gibt es im Wörterbuch der Augenheilkunde ebenfalls.
 Dieses Phänomen kann umso ausgeprägter werden, je spezifischer die Domäne ist, so wie beispielsweise die Augenheilkunde.
+
 Weitere Probleme, die man mit dem vorgestellten Ansatz gut lösen kann, sind die der Homonymie und Synonymie.
 Ein Satz oder eine Phrase in zwei unterschiedlichen Sprachen hat (im Idealfall) in beiden Sprachen die selbe Bedeutung, verwendet aber andere Wörter um ihn auszudrücken.
 Für die wortweise Übersetzung zieht man, so vorhanden, ein Wörterbuch heran.
 Allerdings löst ein Wörterbuch nicht von allein das Problem der Homonymie, also der Frage welcher der Begriffe, die sich eine Bezeichnung teilen, im Kontext verwendet wurde.
-Auch ist nicht zwingend jede Bezeichnung, die für ein und denselben Begriff stehen, Bestandteil eines gegebenen Wörterbuchs (Synonymie).
+Auch ist nicht zwingend jede Bezeichnung, die für ein und denselben Begriff steht, Bestandteil eines gegebenen Wörterbuchs (Synonymie).
 In keinem der Fälle lässt sich dann zuverlässig ableiten, welches die korrekte Bezeichnung ist, es sei denn man zieht den Kontext, sofern erkennbar, heran.
 Formale Begriffe erlauben es, diesen Kontext herzustellen und sprachübergreifend zu verwenden, weil Begriffe dadurch in termini der ihnen zugewiesenen Merkmale ausgedrückt werden.
+
+Ein weiterer ausschlaggebender Grund für den Einsatz Formaler Begriffsanalyse ist die Identifizierung der semantischen Nähe (Bedeutungsähnlichkeit) aller Synsets zueinander anhand gemeinsamer Merkmale.
+Der Anteil an gemeinsamen Merkmalen in Bezug auf die Gesamtanzahl zweier Synsets kann als Messwert für ihre semantische Nähe herangezogen werden, sprich je mehr Merkmale sich zwei Synsets teilen relativ gesehen zu der Summe ihrer Merkmale, desto ähnlicher sind sie sich in ihrer Bedeutung.
+In Kombination mit einer geeigneten Darstellung der Begriffsverbände wird den Nutzern des Wörterbuchs so die Möglichkeit gegeben, ausgehend von einem bekannten Begriff bedeutungsähnliche Einträge des Wörterbuchs zu entdecken, um so z.B. spezifischere medizinische Begriffe ausfindig zu machen oder einfach neue Begriffe zu entdecken.
 
 <!-- Hinweis:
 
@@ -52,7 +62,8 @@ Ist noch in Arbeit.
 Erste Überlegungen zur Umsetzung
 --------------------------------------------------------------------------------
 
-Teil der Aufgabenstellung war es, die formale Begriffsanalyse einzusetzen, um eine Zwischensprache aus Konzepten zu entwickeln, über welche wiederum die im Wörterbuch der Augenheilkunde vorhandenen Wörter unterschiedlicher Sprachen miteinander verbunden werden konnten.
+Teil der Aufgabenstellung war es, die formale Begriffsanalyse einzusetzen, um eine Zwischensprache aus Konzepten (Interlingua) zu entwickeln, über welche wiederum die im Wörterbuch der Augenheilkunde vorhandenen Wörter unterschiedlicher Sprachen miteinander verbunden werden konnten.
+
 
 <!-- Satzvorschlag:
 
@@ -63,11 +74,19 @@ ANMERKUNG:
 Ich weiß nicht, ob das nicht einfach redundant zu Zwischensprache ist und ob 'Interlingua' der terminus technicus ist, so wie bspw. 'Frame'.
 Ich würde es evtl. in Klammer einfach hinter 'Zwischensprache' setzen.
 
+Antwort:
+
+OK, done.
+
+Anmerkung:
+
+Ich würde diesen Abschnitt am besten rausnehmen, da unsere Überlegungen schon in Ideen und Zielsetzung und dem Hauptteil recht deutlich werden. Was sagst du?
+
 -->
 
 #### Begriffe der formalen Begriffsanalyse
 
-Die formale Begriffsanalyse ist ein Teil der mathematischen Ordnungslehre. 
+Die Formale Begriffsanalyse ist ein Teil der mathematischen Ordnungslehre. 
 Sie wurde in den 1980er Jahre von Rudolf Wille, Bernhard Ganter und Peter Burmeister entwickelt.
 
 In der formalen Begriffsanalyse setzt sich ein Begriff zusammen aus dem Begriffsumfang und dem Begriffsinhalt.
@@ -104,21 +123,13 @@ Es folgt eine kleine Kreuztabelle, entweder aus Janssen, 2002 oder aus den Folie
 ### SIMuLLDA
 
 Die Structured Interlingua MultiLingual Lexical Database Application (SIMuLLDA) ist im Rahmen der Dissertation von Maarten Janssen aus dem Jahr 2002 entstanden. 
-Statt von einer Sprache direkt in eine gegebene andere Sprache zu übersetzen, verwendet dieser Ansatz eine Zwischensprache. 
+Statt von einer Sprache direkt in eine gegebene andere Sprache zu übersetzen, verwendet dieser Ansatz eine Zwischensprache (Interlingua). 
 Die natürlichen Sprachen sind repräsentiert durch ihre Worte (Lexeme).
 Grundlage der Zwischensprache sind Kreuztabellen, wie sie unter BDFBA vorgestellt wurden.
 Aus den daraus gebildeten Begriffsverbänden sind die Lexeme der jeweiligen Sprachen mit den entsprechenden formalen Begriffen verbunden.
 Immer dann wenn einem formalen Begriff eine Bedeutung in beiden Sprachen zukommt, können die entsprechenden Lexeme verbunden werden.
 Auf diese Weise kann überbrückt werden, wenn es kein entsprechendes Lexem in der zu übersetzenden Sprache gibt, weil die Bezeichnungen der Merkmale in der zu übersetzenden Sprache trotzdem existieren.
 Der Ansatz der Arbeit von Janssen diente unserem Projekt als Ausgangspunkt mit Hilfe der formalen Begriffsanalyse Zuweisungen innerhalb des Wörterbuchs der Augenheilkunde bewerkstelligen zu können.
-
-### Einführung (z.B. Kreuztabellen, Merkmalexploration)
-
-<!-- HINWEIS:
-
-Kreuztabellen kommen jetzt ja schon bei FBA. Ist also erledigt.
-
--->
 
 ### (Hasse-)Diagramme
 
@@ -241,6 +252,9 @@ Beispiele hierfür sind
 Sofern ein Teilmuster Bestandteil eines Begriffes aus dem Wörterbuch ist wird dem zugehörigen Synset das Merkmal zugewiesen, das aus dem identifizierten Wortteilmusters abgeleitet werden kann.
  
 Da keine externen Informationsquellen für diesen Prozess benötigt werden, können die Merkmalszuweisungen direkt auf Datenbankebene per SQL-Befehl ausgeführt werden. 
+Der folgende beispielhafte Programmcode skizziert die Zuweisung des Merkmals mit der ID 101 (Entzündung) an alle Synsets aus dem Wörterbuch, von denen eine ihrer Bezeichnungen den Wortbestandteil 'itis' enthält:
+    INSERT INTO Merkmalszuweisungen (SynsetID, MerkmalID) SELECT SynsetID, 101 FROM Woerterbuch WHERE Bezeichnung LIKE '%itis%'
+
 Durch automatischen Abgleich der Synonyme in der Datenbank mit den erkannten Teilmustern wurden so fast 2000 Merkmalszuweisungen vorgenommen, die etwas mehr als 20% aller Synsets des Wörterbuchs abdecken.
 
 ### Einsatz einer N-Gramm-Frequenzliste
@@ -266,6 +280,8 @@ Was bedeuten 'semantischer Inhalt', 'semantische Eindeutigkeit'?
 
 Antwort: für semantischen Inhalt s.o., semantische Eindeutigkeit = Bedeutung ist (in einem gegebenen Kontext) eindeutig;
 aber du hast recht, Ausführen schadet hier wohl nicht
+
+Erledigt.
 
 -->
 
