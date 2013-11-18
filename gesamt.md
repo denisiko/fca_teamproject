@@ -27,7 +27,7 @@ Ideen und Zielsetzung (SimuLLda, formale Begriffsanalyse, lexical gap)
 --------------------------------------------------------------------------------
 
 Ziel des nachfolgend vorgestellten Teamprojekts war es, die Einträge des *Wörterbuchs der Augenheilkunde* zu erweitern um ihre jeweilige Repräsentation als formalen Begriff. 
-Die Synsets des Wörterbuchs bilden gemäß der Formalen Begriffsanalyse die Menge an Objekten.
+Die Synsets des Wörterbuchs bilden gemäß der Formalen Begriffsanalyse, die im Folgekapitel erläutert wird, die Menge an Objekten.
 Um diese Objekte formal semantisch repräsentieren zu können werden beschreibende Merkmale benötigt.
 Die Erweiterung des Wörterbuchs beschäftigt sich also vornehmlich mit der Frage, wie diese Merkmale erzeugt und den entsprechenden Objekten bzw. Synsets zugewiesen werden.
 Hierzu bieten sich Methoden der Informationsextraktion an, die im Hauptteil der Arbeit erläutert werden.
@@ -47,7 +47,7 @@ Auch ist nicht zwingend jede Bezeichnung, die für ein und denselben Begriff ste
 In keinem der Fälle lässt sich dann zuverlässig ableiten, welches die korrekte Bezeichnung ist, es sei denn man zieht den Kontext, sofern erkennbar, heran.
 Formale Begriffe erlauben es, diesen Kontext herzustellen und sprachübergreifend zu verwenden, weil Begriffe dadurch in termini der ihnen zugewiesenen Merkmale ausgedrückt werden.
 
-Ein weiterer ausschlaggebender Grund für den Einsatz Formaler Begriffsanalyse ist die Identifizierung der semantischen Nähe (Bedeutungsähnlichkeit) aller Synsets zueinander anhand gemeinsamer Merkmale.
+Ein weiterer ausschlaggebender Grund für den Einsatz von formalen Begriffen als Repräsentation der Synsets ist die Identifizierung der semantischen Nähe (Bedeutungsähnlichkeit) aller Synsets zueinander anhand gemeinsamer Merkmale.
 Der Anteil an gemeinsamen Merkmalen in Bezug auf die Gesamtanzahl zweier Synsets kann als Messwert für ihre semantische Nähe herangezogen werden, sprich je mehr Merkmale sich zwei Synsets teilen relativ gesehen zu der Summe ihrer Merkmale, desto ähnlicher sind sie sich in ihrer Bedeutung.
 In Kombination mit einer geeigneten Darstellung der Begriffsverbände wird den Nutzern des Wörterbuchs so die Möglichkeit gegeben, ausgehend von einem bekannten Begriff bedeutungsähnliche Einträge des Wörterbuchs zu entdecken, um so z.B. spezifischere medizinische Begriffe ausfindig zu machen oder einfach neue Begriffe zu entdecken.
 
@@ -142,6 +142,10 @@ HINWEIS:
 
 Liniendiagramme sind hochgeladen und können angeschaut werden.
 
+ANMERKUNG:
+
+Besser Begriff Ordnungsdiagramme verwenden als Liniendiagramme.
+
 -->
 
 ### Grenzen (keine direkte Hierarchie möglich, nur binäre Zuweisungen von Merkmalen möglich)
@@ -154,6 +158,20 @@ Dieser ganze Teil kann vielleicht auch direkt an FBA dran?
 
 -->
 
+Die Formale Begriffsanalyse erzeugt semantische Strukturen ausschließlich auf Grundlage des Merkmalsraums sowie der Zuordnung der Merkmale zu den untersuchten Objekten.
+Naturgemäß ist diese Art der Inhaltserschließung an Grenzen gebunden.
+Zunächst ist festzuhalten, dass nur binäre Zuweisungen von Merkmalen in der Formalen Begriffsanalyse möglich sind, weshalb ein Merkmal einem Objekt entweder zugewiesen ist oder nicht.
+Größere Wertebereiche können somit nicht abgebildet werden, wie beispielsweise ein gegebener Messwert für den Augeninnendruck von 17 mmHg als Ausprägung des Merkmals Augeninnendruck.
+Man könnte zwar das Merkmal *17 mmHg* zuweisen, dies würde jedoch allenfalls Objekte, die mit dem Merkmal 17 mmHg versehen wurden, untereinander vergleichbar machen, da es die Formale Begriffsanalyse nicht vorsieht, Beziehungen zwischen Merkmalen zu kennzeichnen oder Merkmale als Zahlenwerte zu interpretieren.
+Ein Objekt mit dem Merkmal *16 mmHg* wäre somit genauso wenig bedeutungsgleich zu einem Objekt mit dem Merkmal *17 mmHg* wie eines mit dem Merkmal *6 mmHg*, es sei denn die Bedeutungsähnlichkeit würde durch weitere Merkmale deutlich gemacht werden.
+
+Das deutlich größere Problem besteht jedoch in der Abhängigkeit vom Merkmalsraum.
+Herkömmlich gebrauchte hierarchisch strukturierte Wissensordnungen, wie ein Thesaurus oder eine Klassifikation, haben oft durch ihren definierenden Charakter den Anspruch auf Allgemeingültigkeit, zumindest in ihrem Nutzungskontext.
+In der Formalen Begriffsanalyse kann dieser Anspruch für einen gegebenen Begriffsverband nur geltend gemacht werden, wenn alle relevanten Merkmale im Merkmalsraum vorhanden sind.
+Für Kontexte mit geringer Komplexität ist dies einfach, wie beispielsweise bei der Untersuchung aller Ganzzahlen von 1 bis 1000 daraufhin, ob sie gerade, ungerade und/oder eine Primzahl sind.
+Der Kontext der Augenheilkunde ist jedoch so groß und unübersichtlich, dass eine Abdeckung aller relevanten Merkmale für diese Domäne als sehr unwahrscheinlich gilt.
+Um einen dennoch annähernd abdeckenden Merkmalsraum generieren zu können muss zumindest ein sowohl breites, als auch tiefes Domänenwissen vorhanden sein.
+
 ### Chancen (einfache Struktur, Exploration des Begriffsverbandes)
 
 <!-- HINWEIS:
@@ -162,6 +180,14 @@ Hier auch nur ein paar Sätze, vielleicht sogar nur ein 'Paar'.
 Wir kommen ja nochmal drauf zurück..
 
 -->
+
+Neben den geschilderten Nachteilen weist die Formale Begriffsanalyse trotzdem entscheidende Vorteile auf, in denen wir viel Potential für die Erschließung des Wörterbuchs der Augenheilkunde sehen.
+Der binäre Werteraum der Merkmalszuweisungen hält die Komplexität einer Automatisierung der Merkmalszuweisungen relativ gering, da ein entsprechendes Programmskript *nur* die Entscheidung treffen muss, ob ein Merkmal einem untersuchten Objekt zugewiesen werden kann oder nicht.
+Da sich deshalb die Semantik jedes Synsets aus seiner Menge an Merkmalen erschließt kann die Bedeutungsähnlichkeit jedes Synsets zu einem anderen beliebigen Synset aufgrund der Teilmengen an Merkmalen bestimmt werden, die sich die verglichenen Synsets untereinander teilen.
+Die Exploration gegebener Begriffsverbände wird dadurch praktikabel, z.B. anhand von Ordnungsdiagrammen, in denen einzelne Knoten nicht nur Synsets, sondern auch Mengen von repräsentativen Merkmalen darstellen.
+Gegen Ende unseres Berichts stellen wir vor, wie wir versucht haben dieses Potential zu adressieren, indem wir Nutzern des Wörterbuchs die Möglichkeit geben, sich einzelne Begriffsverbände visualisiert anzeigen zu lassen und interaktiv zu steuern.
+Das angesprochene Problem der fehlenden Beziehungen von Merkmalen untereinander kann teilweise dadurch gelöst werden, dass während der Merkmalszuweisung bekannte semantische Relationen berücksichtigt werden.
+Beispielsweise kann jedem Objekt, dem das Merkmal *Gonioskopie* zugewiesen wird, auch die Merkmale *Untersuchung* sowie *diagnostisches Verfahren* zugewiesen werden.
 
 Berichtsteil
 ================================================================================
