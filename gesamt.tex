@@ -398,13 +398,15 @@ Besonders ermutigend sind dabei der hohe Grad der Qualität an Merkmalen und Zuw
 \subsection{Die Kategorie-Tags in der Wikipedia}
 
 \subsubsection{Vorüberlegungen}
-
-%% TODO
-Wie bereits erwähnt wurde, war aus unserer Sicht insbesondere die Beschränkung auf Krankheiten das Hauptproblem, weshalb kaum Merkmalszuweisungen gelangen. 
-Ein weiteres Problem stellte die Art der aufgefundenen Information dar. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TODO -- DONE Bitte mal drüberlesen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Die Beschränkung auf Erkrankungen des Auges und damit auf den betreffenden Bereich der ICD-10 erbrachte kaum Merkmalszuweisungen.
+Zwar sind die Mehrzahl der Einträge im Lexikon der Augenheilkunde solche, die Krankheiten betreffen, aber es zeigte sich, dass die ICD-10 ungeeignet als Quelle für Merkmale ist.
+Dies liegt im Wesentlichen in der Art der dort aufgefundenen Information begründet.
 In der ICD-10 beinhaltet die Bezeichnung einer Klasse keine Erklärung für den Begriff. 
 Der Begriff wird nicht in den Kontext anderer vorhandener Klassen gesetzt und es erfolgt keine Umschreibung in termini seiner Ober- oder Unterklassen oder verwandter Begriffe. 
-Eine einfache Verschlagwortung mittels eines kontrollierten Vokabulars erzeugte vermutlich mehr Querverweise, die für den Aufbau einer Merkmalsmenge nützlich sein könnten, als die hieraus gewonnenen Zuweisungen. 
+Eine einfache Verschlagwortung mittels eines kontrollierten Vokabulars erzeugte vermutlich mehr Querverweise, die für den Aufbau einer Merkmalsmenge nützlich sein könnten, als die aus der ICD-10 gewonnenen Zuweisungen. 
 Der Grund dafür ist, dass der Zweck einer Klassifikation genau ist, möglichst wenig Kongruenz im Begriffsumfang mit benachbarten, vor allem aber Ober- und Unterbegriffen zu beinhalten. 
 
 In der Wikipedia wird durch Zuweisung eines Artikels einer oder mehreren Kategorien eine Klassifikation erzeugt. 
@@ -475,8 +477,11 @@ Die Augenheilkunde (Augenmedizin, fachsprachl.: Ophthalmologie, Ophthalmiatrie; 
 
 Die Überlegungen zur Erzeugung von Merkmalszuweisungen wurden daher darauf konzentriert, aus den ersten beiden Sätzen des Abstracts eine Zerlegung in Wort-n-Gramme der Längen 2 und 3 zu erstellen und zu versuchen diese mit den entsprechenden n-Grammen, die aus den Einträgen des Wörterbuchs der Augenheilkunde erzeugt wurden, in Verbindung zu setzen. 
 Der Grund aus dem die ersten beiden Sätze und nicht nur der erste Satz herangezogen wurden ist, dass bei manchen Artikeln der erste Satz nur aus einer etymologischen Einordnung besteht (ähnlich dem Inhalt der Klammer im Beispiel oben) ohne weitere Erklärung des Begriffs. 
-% TODO Zwei Sätze
-Die Zerlegung in Wort-n-Gramme, im Unterschied zu Zeichen-n-Grammen, befreit allerdings nicht von typischen Problemen bei dieser Art Aufgabe, die entstehen durch Unterschiede in Genus, Numerus, Kasus, Tempus usw. bei gleichem Wortstamm. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TODO Zwei Sätze DONE Bitte mal drüberlesen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Die Zerlegung in Wort-n-Gramme, im Unterschied zu Zeichen-n-Grammen, würde allerdings zu einer Vielzahl Wortformen gleichen Wortstamms führen.
+Für die Zwecke unseres Ansatzes ist aber die Information bezüglich Genus, Numerus, Kasus, Tempus usw. bei gleichem Wortstamm nicht von Bedeutung. 
 Aus diesem Grund wurden die Abstracts vorher mit Stemming auf ihren Wortstamm zurückgeführt (im Rahmen der Möglichkeiten des verwendeten Stemmers). 
 Hierzu wurde die ANSI-C-Implementation des Porter-Stemmers verwendet, jeweils in Standardeinstellung für die englische Sprache und mit angepassten Mustern für die deutsche Sprache (die angepassten Muster sind Teil des Programms). 
 Die resultierende Liste von n-Grammen je Artikel, wurde zusammen mit dem Artikelnamen in einer Pseudo-XML-Notation abgespeichert: die n-Gramme wurden in Tags namens und gespeichert ohne sich weiter mit einer geeigneten Document Type Definition aufzuhalten. 
@@ -643,7 +648,7 @@ Damit kann festgehalten werden, dass diese Methode allein keinen hinreichend aus
 
 \chapter{Schlußteil}
 
-\subsection{Diskussion der Ergebnisse}
+\section{Diskussion der Ergebnisse}
 
 Bereits bestehende Klassifikationen, wie zum Beispiel die ICD-10, aber auch die kurzzeitig erwogene und wieder verworfene Einbeziehung des Operationen und Prozedurenschlüssels (OPS) (Der OPS ist eine Modifikation der unter XXXX erwähnten Internationalen Klassifikation der Prozeduren in der Medizin), zeigten sich für die Merkmalsextraktion als wenig bis gar nicht geeignet. 
 Die Klassen der ICD-10 ließen sich praktisch überhaupt nicht mit Begriffen aus dem Wörterbuch der Augenheilkunde in Verbindung bringen. 
@@ -655,7 +660,7 @@ Erfolgreicher sind die Ergebnisse aus der Extraktion von Teilen des ersten Satze
 \includegraphics[width=0.48\textwidth]{wiki_extraktion}
 \end{figure}
 
-\subsection{Diskussion der Probleme}
+\section{Diskussion der Probleme}
 
 Im Idealfall ist die Menge der verwendeten Merkmale genau so groß, wie sie sein muss, um alle formalen Begriffe bilden zu können und kein weiteres Merkmal zusätzlich. 
 Insbesondere für allgemeine Übersetzungsaufgaben scheint es kaum vorstellbar eine Merkmalsmenge auf die hier vorgestellte Art zu verkleinern, ohne manuelle Korrekturen. 
@@ -669,23 +674,36 @@ Weil die Anzahl der Artikel in der englischsprachigen Wikipedia maximal ist (abs
 Da die Auswahl geeigneter Merkmale im Wesentlichen gleich einer Verschlagwortung ist, wurden unsere Ergebnisse auch besser, je mehr typische Schritte zur Schlagwortgewinnung wir durchführten (Stemming, Zerlegen in n-Gramme). 
 \end{enumerate}
 
-\subsection{Ausblick (SNOMED, Merkmalsmenge einschränken)}
+\section{Auf diese Arbeit aufbauende weitere Ansätze}
+\subsection{Evaluation durch Einschränkung der Merkmalsmenge}
 
-\begin{itemize}
-\item Idee: Merkmalsraum VOR automatisierter Erschließung der Synsets festlegen
-\item Automatisierung der Merkmalszuweisung, nicht der Merkmalsgenerierung
-\item hierfür möglichst allgemeine, aber dennoch spezifizierende Merkmale verwenden, welche Synsets nach Aspekten unterscheiden bzw. 
-gruppieren, die sehr gehäuft in der Domäne der Augenheilkunde auftreten und in der Betrachtung eines Fachkundigen eine gewisse Relevanz haben (z.B. 
-Krankheit, Organ, Behandlungsmethode, diabetisch, etc.) 
-\item Gründe:
+Die Ergebnisse bezüglich der gewonnenen Menge an Merkmalen sind schwer zu beurteilen.
+Die Menge der extrahierten Merkmale wurde nicht versucht zu verkleinern.
+Sie besteht aus allen Worten, die in den einführenden Sätzen der Wikipedia-Artikel vorkamen.
+Mit steigender Zahl der Merkmale wird es auch schwieriger kohärente Begriffsverbände zu erzeugen, weil zuviele Begriffe zu wenige gemeinsame Merkmale haben, oder nur solche von sehr allgemeiner Natur.
+Eine Möglichkeit die Merkmalsmenge zu reduzieren und dieses Problem unmittelbar anzugehen ist, zu versuchen Synonyme in der Merkmalsmenge zu identifizieren, einen der synonymischen Begriffe auszuwählen und alle anderen durch diesen zu ersetzen.
+Dies könnte in Teilen mittels eines Wörterbuchs automatisch erledigt werden, weil viele Bezeichnungen der Merkmale entweder nicht spezifisch aus der Domäne der Augenheilkunde sind, sondern Teil der normalen Sprache, oder allgemeinere medizinische Bezeichnungen sind, für die es (beispielsweise ein englisches) Wörterbuch mit Synonymen gibt.
+Dennoch: ein verbleibender Teil müsste vermutlich per Hand erledigt werden.
+Mit dieser neuen Merkmalsmenge könnte man dann erneut versuchen Begriffsverbände zu bilden und Zuweisungen zu den Einträgen zu prodzieren, um zu vergleichen, ob eine größere Zahl Zuweisungen erreicht wurde und ob die Anzahl gemeinsamer Merkmale gesteigert werden konnte.
 
+Auf diesen Gedanken aufbauend, scheint es uns vielversprechend, mit Teilmengen unterschiedlicher Größe der ursprünglichen Merkmalsmenge zu experimentieren.
+Den bei den 'echten' Synonymen verfolgten Ansatz könnte man hierzu erweitern und beispielsweise sämtliche Merkmale als Synonyme von einem aus 30, 50 oder 70 ausgewählten Merkmalen zu definieren.
+Dem Grunde nach ist das eine Verschlagwortung mittels eines kontrollierten Vokabulars und man müsste sehr umsichtig sein, welche Bezeichnungen man unter einer Merkmalsbezeichnung zusammenfasst, um nicht Ungenauigkeiten oder sogar Fehler in den resultierenden Begriffsverbänden zu bekommen.
+Am Beispiel anatomischer Lagebezeichungnen sei aber kurz illustriert, wie das vonstatten gehen könnte:
+
+\subsection{Automatisierung der Merkmalszuweisung}
+Hierfür möglichst allgemeine, aber dennoch spezifizierende Merkmale verwenden, welche Synsets nach Aspekten unterscheiden bzw. gruppieren, die sehr gehäuft in der Domäne der Augenheilkunde auftreten und in der Betrachtung eines Fachkundige Relevanz haben (zum Beispiel Krankheit, Organ, Behandlungsmethode, diabetisch, usw.) 
+Gründe dafür sind:
 \begin{itemize}
-\item automatisierte Merkmalsgenerierung ist problematisch, da oft viel Ballast zustande kommt (gerade bei Methoden, die auf die linguistische Verarbeitung von Texten abzielt)
+\item die automatisierte Merkmalsgenerierung ist problematisch, da oft viel Ballast zustande kommt (gerade bei Methoden, die auf die linguistische Verarbeitung von Texten abzielt)
 \item die Relevanz der extrahierten Merkmale ist nicht immer gegeben (möchte man wirklich nach diesem Merkmal unterscheiden?)
 \item je größer der Merkmalsraum, desto schwieriger ist es, diesen automatisiert mit Merkmalszuweisungen zu füllen, um einen aussagekräftigen formalen Kontext zu generieren
 \item bei Erstellung des Merkmalraums mit intellektuellem Aufwand und mithilfe von Fachwissen hat man deutlich mehr Kontrolle über die Bildung des Begriffverbandes
 \end{itemize}
-\end{itemize}
+
+\subsection{Die Systematisierte Nomenklatur der Medizin (SNOMED)}
+
+\subsection{Verschiedenes}
 
 \subsection{Schlussbemerkungen}
 
