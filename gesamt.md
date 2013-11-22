@@ -133,30 +133,8 @@ Der Ansatz der Arbeit von Janssen diente unserem Projekt als Ausgangspunkt mit H
 
 ### (Hasse-)Diagramme
 
-<!-- HINWEIS:
-
-Liniendiagramme (bzw. 1) kommt bei Simullda, ggf. passe ich da noch eines aus dem Tilburg-Vortrag an. 
-Da geht es ja auch nur darum kurz zu zeigen, was das ist, und dass das ein Schaltkasten sein kann, für Übersetzung.
-
-HINWEIS:
-
-Liniendiagramme sind hochgeladen und können angeschaut werden.
-
-ANMERKUNG:
-
-Besser Begriff Ordnungsdiagramme verwenden als Liniendiagramme.
-
--->
 
 ### Grenzen (keine direkte Hierarchie möglich, nur binäre Zuweisungen von Merkmalen möglich)
-
-<!-- HINWEIS:
-
-Schreib hier ein paar Sätze dazu. 
-Bestenfalls 5-7, nur kurz erklären. 
-Dieser ganze Teil kann vielleicht auch direkt an FBA dran?
-
--->
 
 Die Formale Begriffsanalyse erzeugt semantische Strukturen ausschließlich auf Grundlage des Merkmalsraums sowie der Zuordnung der Merkmale zu den untersuchten Objekten.
 Naturgemäß ist diese Art der Inhaltserschließung an Grenzen gebunden.
@@ -173,13 +151,6 @@ Der Kontext der Augenheilkunde ist jedoch so groß und unübersichtlich, dass ei
 Um einen dennoch annähernd abdeckenden Merkmalsraum generieren zu können muss zumindest ein sowohl breites, als auch tiefes Domänenwissen vorhanden sein.
 
 ### Chancen (einfache Struktur, Exploration des Begriffsverbandes)
-
-<!-- HINWEIS:
-
-Hier auch nur ein paar Sätze, vielleicht sogar nur ein 'Paar'.
-Wir kommen ja nochmal drauf zurück..
-
--->
 
 Neben den geschilderten Nachteilen weist die Formale Begriffsanalyse trotzdem entscheidende Vorteile auf, in denen wir viel Potential für die Erschließung des Wörterbuchs der Augenheilkunde sehen.
 Der binäre Werteraum der Merkmalszuweisungen hält die Komplexität einer Automatisierung der Merkmalszuweisungen relativ gering, da ein entsprechendes Programmskript *nur* die Entscheidung treffen muss, ob ein Merkmal einem untersuchten Objekt zugewiesen werden kann oder nicht.
@@ -298,19 +269,7 @@ Durch Versuche mit n-Grammen unterschiedlicher Länge zeigte sich, dass unterhal
 
 Im späteren Verlauf wurden trotzdem noch die Trigramme berücksichtigt, die geeignete Worteilmuster darstellten (insgesamt vier Stück).
 
-Anschließend wurde die Liste ausgehend vom am häufigsten vorkommenden n-Gramm bis zu einer vorher festgelegten Grenze (bis zu einer Häufigkeit von 6) manuell abgearbeitet und jedes Gramm jeweils nach semantischem Inhalt sowie semantischer Eindeutigkeit überprüft, d.h. im medizinischen Kontext muss die Bedeutung des vorliegenden Gramms nicht nur offentsichtlich, sondern innerhalb dieses Kontextes auch eindeutig sein, also keine Mehrdeutigkeiten aufweisen.
-
-
-<!-- FRAGE, ERLEDIGT: 
-
-Was bedeuten 'semantischer Inhalt', 'semantische Eindeutigkeit'?
-
-Antwort: für semantischen Inhalt s.o., semantische Eindeutigkeit = Bedeutung ist (in einem gegebenen Kontext) eindeutig;
-aber du hast recht, Ausführen schadet hier wohl nicht
-
-Erledigt.
-
--->
+Anschließend wurde die Liste ausgehend vom am häufigsten vorkommenden n-Gramm bis zu einer vorher festgelegten Grenze (bis zu einer Häufigkeit von 6) manuell abgearbeitet und jedes Gramm jeweils nach semantischem Inhalt sowie semantischer Eindeutigkeit überprüft, d.h. im medizinischen Kontext muss die Bedeutung des vorliegenden Gramms nicht nur offensichtlich, sondern innerhalb dieses Kontextes auch eindeutig sein, also keine Mehrdeutigkeiten aufweisen.
 
 Auf diese Weise ausgesuchte Gramme qualifizieren sich als Wortteilmuster und werden mit den zugehörigen Merkmalen, die sich aus der Semantik des Musters ergeben, gekennzeichnet.
 Dies muss manuell geschehen, da hierbei Domänenwissen absolut notwendig ist. 
@@ -565,12 +524,6 @@ Bereits bestehende Klassifikationen, wie zum Beispiel die ICD-10, aber auch die 
 Die Klassen der ICD-10 ließen sich praktisch überhaupt nicht mit Begriffen aus dem Wörterbuch der Augenheilkunde in Verbindung bringen.
 Erfolgreicher sind die Ergebnisse aus der Extraktion von Teilen des ersten Satzes aus Artikeln der Wikipedia in der Kategorie Augenheilkunde oder Unterkategorien davon.
 
-<!-- TODO
-
-Zwei Sätze zu den Zuweisungen, die ja das eigentliche Ergebnis sind. Ein bis zwei Sätze zur Visualisierung.
-
--->
-
 ### Diskussion der Probleme
 
 Im Idealfall ist die Menge der verwendeten Merkmale genau so groß, wie sie sein muss, um alle formalen Begriffe bilden zu können und kein weiteres Merkmal zusätzlich.
@@ -579,13 +532,8 @@ Bei der Beschränkung auf eine Domäne, so unsere initiale Annahme, müsste aber
 Aus unserer Sicht gab es vor allem zwei Problemstellen. 
 Die Überdeckung der Wikipedia-Artikel mit den Einträgen des Wörterbuchs der Augenheilkunde.
 Je mehr Artikel aus der Wikipedia zu Einträgen aus dem Wörterbuch sich finden lassen, desto mehr unmittelbar passende Merkmale lassen sich aus den Artikeln extrahieren.
-Die Anzahl der unmittelbaren Übereinstimmungen in den Begriffen zwischen beiden betrug aber nur XXXX Artikel-Eintrag-Kombinationen.
+Die Anzahl der unmittelbaren Übereinstimmungen in den Begriffen zwischen beiden betrug aber nur 335 Artikel-Eintrag-Kombinationen.
 
-<!-- TODO
-
-Wieviele? Stimmt das überhaupt?
-
--->
 
 Weil die Anzahl der Artikel in der englischsprachigen Wikipedia maximal ist (absolut, aber auch unterhalb der Kategorie 'Ophthalmology') verwendeten wir die Einträge daraus.
 Da die Auswahl geeigneter Merkmale im Wesentlichen gleich einer Verschlagwortung ist, wurden unsere Ergebnisse auch besser, je mehr typische Schritte zur Schlagwortgewinnung wir durchführten (Stemming, Zerlegen in n-Gramme).
@@ -599,7 +547,7 @@ Da die Auswahl geeigneter Merkmale im Wesentlichen gleich einer Verschlagwortung
 	- automatisierte Merkmalsgenerierung ist problematisch, da oft viel Ballast zustande kommt (gerade bei Methoden, die auf die linguistische Verarbeitung von Texten abzielt)
 	- die Relevanz der extrahierten Merkmale ist nicht immer gegeben (möchte man wirklich nach diesem Merkmal unterscheiden?)
 	- je größer der Merkmalsraum, desto schwieriger ist es, diesen automatisiert mit Merkmalszuweisungen zu füllen, um einen aussagekräftigen formalen Kontext zu generieren
-	- bei Erstellung des Merkmalraums mit intellektuellem Aufwand und mithilfe von Fachwissen hat man deutlich mehr Kontrolle über die Bildung des Begriffverbandes
+	- bei Erstellung des Merkmalraums mit intellektuellem Aufwand und mithilfe von Fachwissen hat man deutlich mehr Kontrolle über die Bildung des Begriffsverbandes
 
 ### Schlussbemerkungen
 
