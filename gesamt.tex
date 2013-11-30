@@ -251,8 +251,8 @@ Größere Wertebereiche können somit nicht abgebildet werden, wie beispielsweis
 Man könnte zwar das Merkmal \emph{17 mmHg} zuweisen, dies würde jedoch allenfalls Objekte, die mit dem Merkmal 17 mmHg versehen wurden, untereinander vergleichbar machen, da es die Formale Begriffsanalyse nicht vorsieht, Beziehungen zwischen Merkmalen zu kennzeichnen oder Merkmale als Zahlenwerte zu interpretieren. 
 Ein Objekt mit dem Merkmal \emph{16 mmHg} wäre somit genauso wenig bedeutungsgleich zu einem Objekt mit dem Merkmal \emph{17 mmHg} wie eines mit dem Merkmal \emph{6 mmHg}, es sei denn die Bedeutungsähnlichkeit würde durch weitere Merkmale deutlich gemacht werden. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-TODO: Die folgenden beiden Sätze verstehe ich nicht ganz.
-ANMERKUNG: Hab den Teil nun geändert. Hoffe, das ist nun verständlicher geworden.
+%% TODO: Die folgenden beiden Sätze verstehe ich nicht ganz.
+%% ANMERKUNG: Hab den Teil nun geändert. Hoffe, das ist nun verständlicher geworden.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Das deutlich größere Problem besteht jedoch in der Abhängigkeit vom Merkmalsraum. 
 Herkömmlich gebrauchte hierarchisch strukturierte Wissensordnungen, wie ein Thesaurus oder eine Klassifikation, haben oft durch ihren eingrenzenden und definierenden Charakter den Anspruch auf Allgemeingültigkeit, zumindest in ihrem Nutzungskontext. 
@@ -260,8 +260,8 @@ Die International Classification of Diseases beispielsweise klassifiziert alle b
 In der Formalen Begriffsanalyse kann dieser Anspruch für einen gegebenen Begriffsverband nur geltend gemacht werden, wenn alle relevanten Merkmale im Merkmalsraum vorhanden sind. 
 Bei den genannten Beispielen sind alle relevanten klassifizierenden Merkmale im Vorhinein definiert in Form von Klassen. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-TODO: 'natürliche Zahlen' statt 'Ganzzahlen'
-ANMERKUNG: DONE.
+%% TODO: 'natürliche Zahlen' statt 'Ganzzahlen'
+%% ANMERKUNG: DONE.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Für Kontexte mit geringer Komplexität ist der Aufbau eines hinreichenden Merkmalsraums einfach, wie beispielsweise bei der Untersuchung aller natürlichen Zahlen von 1 bis 1000 daraufhin, ob sie gerade, ungerade und/oder eine Primzahl sind (die entsprechenden Merkmale sind \emph{gerade}, \emph{ungerade} und \emph{Primzahl}).
 Der Kontext der Augenheilkunde ist jedoch so groß und unübersichtlich, dass eine Abdeckung aller relevanten Merkmale für diese Domäne als sehr unwahrscheinlich gilt. 
@@ -273,10 +273,10 @@ Neben den geschilderten Nachteilen weist die Formale Begriffsanalyse trotzdem en
 Der binäre Werteraum der Merkmalszuweisungen hält die Komplexität einer Automatisierung der Merkmalszuweisungen relativ gering, da \emph{nur} geprüft werden muss, ob ein Merkmal einem untersuchten Objekt zugewiesen werden kann oder nicht. 
 Da sich deshalb die Semantik jedes Synsets aus seiner Menge an Merkmalen erschließt kann die Bedeutungsähnlichkeit jedes Synsets zu einem anderen beliebigen Synset aufgrund der Teilmengen an Merkmalen bestimmt werden, die sich die verglichenen Synsets untereinander teilen. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-TODO: Satzvorschlag
-Die resultierenden Begriffsverbände lassen sich in der Regel gut mit Ordnungsdiagrammen darstellen.
-Einzelne Knoten sind nicht nur Synsets, sondern auch Mengen von repräsentativen Merkmalen.
-ANMERKUNG: DONE (mit einigen Veränderungen).
+%% TODO: Satzvorschlag
+%% Die resultierenden Begriffsverbände lassen sich in der Regel gut mit Ordnungsdiagrammen darstellen.
+%% Einzelne Knoten sind nicht nur Synsets, sondern auch Mengen von repräsentativen Merkmalen.
+%% ANMERKUNG: DONE (mit einigen Veränderungen).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Die resultierenden Begriffsverbände lassen sich in der Regel gut mit Ordnungsdiagrammen darstellen.
 Einzelne Knoten dieser Diagramme können sowohl Synsets, als auch Mengen von repräsentativen Merkmalen darstellen. 
@@ -491,7 +491,7 @@ Gerade der erste Satz folgt damit so gut wie immer dem Schema, welches exemplari
 Die Überlegungen zur Erzeugung von Merkmalszuweisungen wurden daher darauf konzentriert, aus den ersten beiden Sätzen des Abstracts eine Zerlegung in Wort-n-Gramme der Längen 2 und 3 zu erstellen und zu versuchen diese mit den entsprechenden n-Grammen, die aus den Einträgen des Wörterbuchs der Augenheilkunde erzeugt wurden, in Verbindung zu setzen. 
 Der Grund aus dem die ersten beiden Sätze und nicht nur der erste Satz herangezogen wurden ist, dass bei manchen Artikeln der erste Satz nur aus einer etymologischen Einordnung besteht (ähnlich dem Inhalt der Klammer im Beispiel oben) ohne weitere Erklärung des Begriffs. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% TODO Zwei Sätze DONE Bitte mal drüberlesen
+%% TODO Zwei Sätze DONE Bitte mal drüberlesen
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Die Zerlegung in Wort-n-Gramme, im Unterschied zu Zeichen-n-Grammen, würde allerdings zu einer Vielzahl Wortformen gleichen Wortstamms führen.
 Für die Zwecke unseres Ansatzes ist aber die Information bezüglich Genus, Numerus, Kasus, Tempus usw. bei gleichem Wortstamm nicht von Bedeutung. 
@@ -716,7 +716,7 @@ Darauf aufbauend wäre dann aus unserer Sicht besser zu entscheiden, wie man ein
 Im Hinblick auf die praktische Verwendung ist der Ansatz daher nicht geeignet, weil fast alles, was die Formale Begriffsanalyse später überhaupt leistet im Vorfeld schon manuell erledigt worden ist, indem man die Synonymlisten geschaffen hat.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-TODO: nachfolgend bin ich noch dran
+%% TODO: nachfolgend bin ich noch dran
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Ein etwas radikalerer Ansatz die Merkmalsmenge zu verkleinern, wäre es, die Menge an Merkmalen zu verwenden, die man insgesamt benötigt, damit jeder Begriff mindestens zwei Merkmale hat.
 Zusätzlich werden dann noch die Kategorien aus der Wikipedia-Extraktion vergeben.
@@ -789,3 +789,4 @@ sed -n 's/<extract.*>\([^<]*\)\([<$ ].*\)/\1/p' Parinauds_syndrome.xml
 
 HTML-Entities (wie \&\#39; für hochgestellte einzelne Anführungszeichen) wurden gesammelt und in der Ergebnisdatei in einem Durchgang ersetzt.
 \end{document}
+
