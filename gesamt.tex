@@ -705,7 +705,22 @@ Mit dieser neuen Merkmalsmenge könnte man dann erneut versuchen Begriffsverbän
 Auf diesen Gedanken aufbauend, scheint es uns vielversprechend, mit Teilmengen unterschiedlicher Größe der ursprünglichen Merkmalsmenge zu experimentieren.
 Den bei den 'echten' Synonymen verfolgten Ansatz könnte man hierzu erweitern und beispielsweise sämtliche Merkmale als Synonyme von einem aus 30, 50 oder 70 zuvor ausgewählten Merkmalen zu definieren.
 Dem Grunde nach ist das eine Verschlagwortung mittels eines kontrollierten Vokabulars und man müsste sehr umsichtig sein, welche Bezeichnungen man unter einer Merkmalsbezeichnung zusammenfasst, um nicht Ungenauigkeiten oder sogar Fehler in den resultierenden Begriffsverbänden zu bekommen.
-Am Beispiel anatomischer Lagebezeichungnen sei aber kurz illustriert, wie das vonstatten gehen könnte:
+
+Unterschiedlich große Mengen von Merkmalen, die auf diese Weise geschaffen wurden, erlauben es dann den Erfolg bei den Zuweisungen zu evaluieren und ausgehend davon Modifikationen vorzunehmen.
+Zu den so gewonnen Merkmalen würden anatomische Lagemerkmale selbst zählen und Merkmale, die die Domäne der Augenheilkunde (also ob es eine Erkrankung ist, ein Verfahren oder ein Instrument) repräsentieren. 
+Welche sonstigen Merkmale noch in Frage kommen, könnte man über die Häufigkeitsverteilung der gefundenen Merkmale über alle Begriffe herausfinden.
+Die verbleibenden Merkmale müssten dann per Hand den ausgewählten Merkmalen zugewiesen werden, so dass bei neu hinzugekommenen Begriffen aus einer Extraktion die neuen Merkmale ihre Synonyme automatisch erhalten.
+
+Wir halten diesen Ansatz für vielversprechend, weil er erlauben würde zu ermitteln, welche Mermalsmenge unbedingt notwendig (versus ausreichend versus optimal) ist, um die Domäne für die Formale Begriffsanaylse zu erschließen.
+Darauf aufbauend wäre dann aus unserer Sicht besser zu entscheiden, wie man eine so reduzierte Menge an Merkmalen maschinell erschließt.
+Im Hinblick auf die praktische Verwendung ist der Ansatz daher nicht geeignet, weil fast alles, was die Formale Begriffsanalyse später überhaupt leistet im Vorfeld schon manuell erledigt worden ist, indem man die Synonymlisten geschaffen hat.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+TODO: nachfolgend bin ich noch dran
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Ein etwas radikalerer Ansatz die Merkmalsmenge zu verkleinern, wäre es, die Menge an Merkmalen zu verwenden, die man insgesamt benötigt, damit jeder Begriff mindestens zwei Merkmale hat.
+Zusätzlich werden dann noch die Kategorien aus der Wikipedia-Extraktion vergeben.
+Die Kategorien enthalten im Wesentlichen schon die Information, die man manuell durch zusammenziehen der Merkmale auf Synonyme erzeugen würde.
 
 \subsection{Automatisierung der Merkmalszuweisung}
 Hierfür möglichst allgemeine, aber dennoch spezifizierende Merkmale verwenden, welche Synsets nach Aspekten unterscheiden bzw. gruppieren, die sehr gehäuft in der Domäne der Augenheilkunde auftreten und in der Betrachtung eines Fachkundige Relevanz haben (zum Beispiel Krankheit, Organ, Behandlungsmethode, diabetisch, usw.) 
