@@ -244,40 +244,34 @@ Der Ansatz der Arbeit von Janssen diente unserem Projekt als Ausgangspunkt mit H
 
 \subsection{Grenzen (keine direkte Hierarchie möglich, nur binäre Zuweisungen von Merkmalen möglich)}
 
-Die Formale Begriffsanalyse erzeugt semantische Strukturen ausschließlich auf Grundlage der vorhandenen Merkmale sowie der Zuordnung der Merkmale zu den untersuchten Objekten. 
+Die Formale Begriffsanalyse erzeugt semantische Strukturen ausschließlich auf Grundlage vorhandener Merkmale, sowie der Zuordnung der Merkmale zu den untersuchten Objekten. 
 Naturgemäß ist diese Art der Inhaltserschließung an Grenzen gebunden. 
 Zunächst ist festzuhalten, dass nur binäre Zuweisungen von Merkmalen in der Formalen Begriffsanalyse möglich sind: ein Merkmal ist einem Objekt entweder zugewiesen oder nicht. 
-Größere Wertebereiche können somit nicht abgebildet werden, wie beispielsweise ein gegebener Messwert für den Augeninnendruck von 17 mmHg als Ausprägung des Merkmals Augeninnendruck. 
-Man könnte zwar das Merkmal \emph{17 mmHg} zuweisen, dies würde jedoch allenfalls Objekte, die mit dem Merkmal 17 mmHg versehen wurden, untereinander vergleichbar machen, da es die Formale Begriffsanalyse nicht vorsieht, Beziehungen zwischen Merkmalen zu kennzeichnen oder Merkmale als Zahlenwerte zu interpretieren. 
+Größere Wertebereiche können somit nicht abgebildet werden, wie beispielsweise ein bestimmter Messwert für den Augeninnendruck von 17 mmHg als Ausprägung des Merkmals Augeninnendruck. 
+Man könnte zwar das Merkmal »\emph{17 mmHg}« zuweisen, dies würde jedoch allenfalls Objekte, die mit dem Merkmal 17 mmHg versehen wurden, untereinander vergleichbar machen, da es die Formale Begriffsanalyse nicht vorsieht, Beziehungen zwischen Merkmalen zu kennzeichnen oder Merkmale als Zahlenwerte zu interpretieren. 
 Ein Objekt mit dem Merkmal \emph{16 mmHg} wäre somit genauso wenig bedeutungsgleich zu einem Objekt mit dem Merkmal \emph{17 mmHg} wie eines mit dem Merkmal \emph{6 mmHg}, es sei denn die Bedeutungsähnlichkeit würde durch weitere Merkmale deutlich gemacht werden. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% TODO: Die folgenden beiden Sätze verstehe ich nicht ganz.
 %% ANMERKUNG: Hab den Teil nun geändert. Hoffe, das ist nun verständlicher geworden.
+%% ANMERKUNG: Ok. Einen habe ich aber noch: was bedeutet 'Anspruch auf Allgemeingültigkeit?'
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Das deutlich größere Problem besteht jedoch in der Abhängigkeit vom Merkmalsraum. 
 Herkömmlich gebrauchte hierarchisch strukturierte Wissensordnungen, wie ein Thesaurus oder eine Klassifikation, haben oft durch ihren eingrenzenden und definierenden Charakter den Anspruch auf Allgemeingültigkeit, zumindest in ihrem Nutzungskontext. 
-Die International Classification of Diseases beispielsweise klassifiziert alle bekannten Krankheiten, das Linnesche System alle bekannten Pflanzenarten. 
+Die International Classification of Diseases beispielsweise, klassifiziert alle bekannten Krankheiten, das Linnesche System alle bekannten Pflanzenarten. 
 In der Formalen Begriffsanalyse kann dieser Anspruch für einen gegebenen Begriffsverband nur geltend gemacht werden, wenn alle relevanten Merkmale im Merkmalsraum vorhanden sind. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TODO: ANMERKUNG: Nachfolgend Sätze geändert.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Bei den genannten Beispielen sind alle relevanten klassifizierenden Merkmale im Vorhinein definiert in Form von Klassen. 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% TODO: 'natürliche Zahlen' statt 'Ganzzahlen'
-%% ANMERKUNG: DONE.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Für Kontexte mit geringer Komplexität ist der Aufbau eines hinreichenden Merkmalsraums einfach, wie beispielsweise bei der Untersuchung aller natürlichen Zahlen von 1 bis 1000 daraufhin, ob sie gerade, ungerade und/oder eine Primzahl sind (die entsprechenden Merkmale sind \emph{gerade}, \emph{ungerade} und \emph{Primzahl}).
-Der Kontext der Augenheilkunde ist jedoch so groß und unübersichtlich, dass eine Abdeckung aller relevanten Merkmale für diese Domäne als sehr unwahrscheinlich gilt. 
-Um einen dennoch annähernd abdeckenden Merkmalsraum generieren zu können muss zumindest ein sowohl breites, als auch tiefes Domänenwissen vorhanden sein. 
+Die Domäne der Augenheilkunde ist jedoch sehr umfangreich, so dass eine Festlegung auf eine sowohl minimale als auch vollständige Merkmalsmenge, die die Augenheilkunde abdecken kann nicht so eindeutig lösbar ist, wie bei den natürlichen Zahlen. 
+Um einen dennoch annähernd abdeckenden Merkmalsraum generieren zu können, ist unserer Auffassung nach Domänenwissen erforderlich. 
 
 \subsubsection{Chancen (einfache Struktur, Exploration des Begriffsverbandes)}
 
 Neben den geschilderten Nachteilen weist die Formale Begriffsanalyse trotzdem entscheidende Vorteile auf, in denen wir viel Potential für die Erschließung des Wörterbuchs der Augenheilkunde sehen. 
 Der binäre Werteraum der Merkmalszuweisungen hält die Komplexität einer Automatisierung der Merkmalszuweisungen relativ gering, da \emph{nur} geprüft werden muss, ob ein Merkmal einem untersuchten Objekt zugewiesen werden kann oder nicht. 
 Da sich deshalb die Semantik jedes Synsets aus seiner Menge an Merkmalen erschließt kann die Bedeutungsähnlichkeit jedes Synsets zu einem anderen beliebigen Synset aufgrund der Teilmengen an Merkmalen bestimmt werden, die sich die verglichenen Synsets untereinander teilen. 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% TODO: Satzvorschlag
-%% Die resultierenden Begriffsverbände lassen sich in der Regel gut mit Ordnungsdiagrammen darstellen.
-%% Einzelne Knoten sind nicht nur Synsets, sondern auch Mengen von repräsentativen Merkmalen.
-%% ANMERKUNG: DONE (mit einigen Veränderungen).
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Die resultierenden Begriffsverbände lassen sich in der Regel gut mit Ordnungsdiagrammen darstellen.
 Einzelne Knoten dieser Diagramme können sowohl Synsets, als auch Mengen von repräsentativen Merkmalen darstellen. 
 Gegen Ende unseres Berichts stellen wir vor, wie wir versucht haben dieses Potential zu adressieren, indem wir Nutzern des Wörterbuchs die Möglichkeit geben, sich einzelne Begriffsverbände visualisiert anzeigen zu lassen und interaktiv zu steuern. 
@@ -724,12 +718,11 @@ Wir halten diese Ansätze für vielversprechend, weil sie erlauben würden zu er
 Darauf aufbauend wäre dann aus unserer Sicht besser zu entscheiden, wie man eine so reduzierte Menge an Merkmalen maschinell erschließt (bzw. ob es überhaupt mit vertretbarem Aufwand möglich ist).
 Im Hinblick auf die praktische Verwendung ist der erstgenannte Ansatz mit dem manuellen Synonywörterbuch daher nicht geeignet, weil fast alles, was die Formale Begriffsanalyse später überhaupt leistet, im Vorfeld schon manuell erledigt worden ist, indem man die Synonymlisten überhaupt geschaffen hat.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% TODO: nachfolgend bin ich noch dran
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Die Kategorien enthalten im Wesentlichen schon die Information, die man manuell durch zusammenziehen der Merkmale auf Synonyme erzeugen würde.
-
 \subsection{Automatisierung der Merkmalszuweisung}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TODO: Bitte noch ausformulieren
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 Hierfür möglichst allgemeine, aber dennoch spezifizierende Merkmale verwenden, welche Synsets nach Aspekten unterscheiden bzw. gruppieren, die sehr gehäuft in der Domäne der Augenheilkunde auftreten und in der Betrachtung eines Fachkundige Relevanz haben (zum Beispiel Krankheit, Organ, Behandlungsmethode, diabetisch, usw.) 
 Gründe dafür sind:
 \begin{itemize}
