@@ -260,32 +260,26 @@ Ein Objekt mit dem Merkmal \emph{16 mmHg} wäre somit genauso wenig bedeutungsgl
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% TODO: Die folgenden beiden Sätze verstehe ich nicht ganz.
 %% ANMERKUNG: Hab den Teil nun geändert. Hoffe, das ist nun verständlicher geworden.
+%% ANMERKUNG: Ok. Einen habe ich aber noch: was bedeutet 'Anspruch auf Allgemeingültigkeit?'
+%% Antwort: Allgemeingültigkeit ist hier das falsche Wort. habs jetzt durch 'Vollständigkeit' ergänzt.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Das deutlich größere Problem besteht jedoch in der Abhängigkeit vom Merkmalsraum. 
-Herkömmlich gebrauchte hierarchisch strukturierte Wissensordnungen, wie ein Thesaurus oder eine Klassifikation, haben oft durch ihren eingrenzenden und definierenden Charakter den Anspruch auf Vollständigkeit und Allgemeingültigkeit, zumindest in ihrem Nutzungskontext. 
+Herkömmlich gebrauchte hierarchisch strukturierte Wissensordnungen, wie ein Thesaurus oder eine Klassifikation, haben oft durch ihren eingrenzenden und definierenden Charakter den Anspruch auf Vollständigkeit, zumindest in ihrem Nutzungskontext. 
 Die International Classification of Diseases beispielsweise klassifiziert alle bekannten Krankheiten, das Linnesche System alle bekannten Pflanzenarten. 
 In der Formalen Begriffsanalyse kann dieser Anspruch für einen gegebenen Begriffsverband nur geltend gemacht werden, wenn alle relevanten Merkmale im Merkmalsraum vorhanden sind. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TODO: ANMERKUNG: Nachfolgend Sätze geändert.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Bei den genannten Beispielen sind alle relevanten klassifizierenden Merkmale im Vorhinein definiert in Form von Klassen. 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% TODO: 'natürliche Zahlen' statt 'Ganzzahlen'
-%% ANMERKUNG: DONE.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Für Kontexte mit geringer Komplexität ist der Aufbau eines hinreichenden Merkmalsraums einfach, wie beispielsweise bei der Untersuchung aller natürlichen Zahlen von 1 bis 1000 daraufhin, ob sie gerade, ungerade und/oder eine Primzahl sind (die entsprechenden Merkmale sind \emph{gerade}, \emph{ungerade} und \emph{Primzahl}).
-Der Kontext der Augenheilkunde ist jedoch so groß und unübersichtlich, dass eine Abdeckung aller relevanten Merkmale für diese Domäne als sehr unwahrscheinlich gilt. 
-Um einen dennoch annähernd abdeckenden Merkmalsraum generieren zu können muss zumindest ein sowohl breites, als auch tiefes Domänenwissen vorhanden sein. 
+Die Domäne der Augenheilkunde ist jedoch sehr umfangreich, so dass eine Festlegung auf eine sowohl minimale als auch vollständige Merkmalsmenge, die die Augenheilkunde abdecken kann nicht so eindeutig lösbar ist, wie bei den natürlichen Zahlen. 
+Um einen dennoch annähernd abdeckenden Merkmalsraum generieren zu können, ist unserer Auffassung nach Domänenwissen erforderlich. 
 
 \subsubsection{Chancen (einfache Struktur, Exploration des Begriffsverbandes)}
 
 Neben den geschilderten Nachteilen weist die Formale Begriffsanalyse trotzdem entscheidende Vorteile auf, in denen wir viel Potential für die Erschließung des Wörterbuchs der Augenheilkunde sehen. 
 Der binäre Werteraum der Merkmalszuweisungen hält die Komplexität einer Automatisierung der Merkmalszuweisungen relativ gering, da \emph{nur} geprüft werden muss, ob ein Merkmal einem untersuchten Objekt zugewiesen werden kann oder nicht. 
 Da sich deshalb die Semantik jedes Synsets aus seiner Menge an Merkmalen erschließt kann die Bedeutungsähnlichkeit jedes Synsets zu einem anderen beliebigen Synset aufgrund der Teilmengen an Merkmalen bestimmt werden, die sich die verglichenen Synsets untereinander teilen. 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% TODO: Satzvorschlag
-%% Die resultierenden Begriffsverbände lassen sich in der Regel gut mit Ordnungsdiagrammen darstellen.
-%% Einzelne Knoten sind nicht nur Synsets, sondern auch Mengen von repräsentativen Merkmalen.
-%% ANMERKUNG: DONE (mit einigen Veränderungen).
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Die resultierenden Begriffsverbände lassen sich in der Regel gut mit Ordnungsdiagrammen darstellen.
 Einzelne Knoten dieser Diagramme können sowohl Synsets, als auch Mengen von repräsentativen Merkmalen darstellen. 
 
@@ -344,13 +338,15 @@ Wir konnten während unserer Arbeit am Wörterbuch folgende Kategorien identifiz
 Da vor allem Erkrankungen des Auges einen Großteil der Synsets ausmachen, schien es vielversprechend entsprechende externe Quellen nach Merkmalen zu durchsuchen. 
 Ausgehend von dieser Überlegung wurde zunächst die deutsche Ausgabe der `Internationalen Klassifikation für Krankheiten' (vollständig: International Statistical Classification of Diseases and Related Health Problems, nachfolgend ICD-10) in der Version des Jahres 2011 zur Merkmalsextraktion herangezogen. 
 Die Tatsache, dass die komplette Klassifikation online in HTML-Form zugänglich ist und Einträge der Klassifikation hierarchisch nach anatomischer Lage geordnet sind, lässt die ICD-10 als ideale Wissensquelle für unsere Zwecke erscheinen. 
+
 Die automatisierte Merkmalsextraktion setzt am Aufbau der ICD-10--Notationen an. 
 Diese sind nach einem strikt hierarchischen Klassensystem aufgebaut. 
 So steht beispielsweise die Klasse \emph{H40} für ein Glaukom, während \emph{H40.1} für ein primäres Weitwinkelglaukom steht. 
 Die Synsets des Wörterbuchs sollten nun auf die Einträge in der ICD-10 abgebildet werden. 
 Dies geschah durch Zeichenkettenvergleich von Synset und der Überschrift des ICD-10--Eintrags. 
-Die Klassen der Notation wiederum wurden auf entsprechende Merkmale abgebildet, beispielsweise: \emph{Glaukom} für \emph{H40}. 
+Die Klassen der Notation wiederum wurden auf entsprechende Merkmale abgebildet, beispielsweise: \emph{Glaukom} auf \emph{H40}. 
 Identifiziert wurden einzelne Einträge der Klassifikation, einschließlich der Überschrift und der Notation, mittels regulären Ausdrücken, welche einzelne Abschnitte der ICD-10 automatisch erkennen und extrahieren. 
+
 Mithilfe der aus den Notationen erkannten Klassenbezeichnungen sollten dann anschließend jedem Synset, dem eine spezifische Notation zugeteilt wurde, zusätzlich alle Merkmale zugewiesen werden, die auch dem Synset der Oberklasse zugeteilt wurden. 
 Obwohl den Synsets häufig mehrere synonyme Bezeichnungen vergeben wurden, beispielsweise unterschiedliche Schreibweisen, konnten lediglich 43 Synsets aus dem Wörterbuch automatisiert ICD-10-Notationen zugeordnet werden und nur etwa 50 Merkmale (bzw. Notationen) erkannt und vergeben werden, von denen die meisten auch nur ein einziges Mal vergeben wurden.  
 Hauptursache sind die Zusatzinformationen, die bei vielen Krankheiten im Titel stehen und ohne manuelles Eingreifen nur schwer zu identifizieren sind, sowie abweichende Wortstellungen bei komplexeren Begriffen. 
@@ -360,12 +356,12 @@ Folglich ist dieses Ergebnis als Grundlage für aussagekräftige formale Verbän
 \subsection{Wortmuster als Merkmalsidentifizierer}
 
 Die Durchführung einer (teilweise) automatisierten Merkmalsextraktion und -zuweisung erwies sich als sehr wirksam. 
-Diese wurde anhand von Wortteilmustern und ihrer Bedeutung als Affix, Wortwurzel bzw. 
-Teil eines Kompositums oder Derivats erzielt, wie sie gehäuft in medizinischen Fachbegriffen vorkommen. 
+Diese wurde anhand von Wortteilmustern und ihrer Bedeutung als Affix, Wortwurzel bzw. Teil eines Kompositums oder Derivats erzielt, wie sie gehäuft in medizinischen Fachbegriffen vorkommen. 
 Viele dieser Fachbegriffe beinhalten Wortteile aus dem Lateinischen oder Altgriechischen oder sind fast vollständig Lehnwörter daraus. 
 Immer wieder auftretende Affixe des Lateinischen und des Altgriechischen\footnote{Beispielhaft: die englische Endung \emph{-oplasty}, die einen rekonstruktiven Eingriff bezeichnet, stammt aus dem griechischen und bedeutet \emph{formen}. 
 Die griechische Endung \emph{--itis} wiederum bezeichnet meist eine entzündliche Krankheit} deuten meist auf einen hinreichend eindeutig gekennzeichneten Umstand hin, so dass dieser auf entsprechend äquivalente Merkmale übertragen werden kann. 
 Die Merkmalsextraktion findet hierbei manuell statt, die Merkmalszuweisung automatisch. 
+
 Einen großen Mehrwert erhält man zudem durch Berücksichtigung der semantischen Beziehungen zwischen den zugewiesenen Merkmalen. 
 Beispielsweise kann jedem Synset, dem das Merkmal `Entzündung' zugewiesen wurde, auch das Merkmal `Krankheit' als Oberbegriff zugewiesen werden. 
 Neben Hyperonymen kann dieser Folgerungsschritt auch auf Meronyme angewendet werden. 
@@ -397,24 +393,35 @@ Durch automatischen Abgleich der Synonyme in der Datenbank mit den erkannten Tei
 
 \subsubsection{Einsatz einer N-Gramm-Frequenzliste}
 
-Die Wahl geeigneter Wortmuster durch manuelle Untersuchung der englischen Begriffsliste - d.h. 
-der Menge aller englischsprachigen Einträge des Wörterbuchs - ist als zu unvollständig bezüglich der Abdeckung der 2500 Synsets einzustufen, wie die bisherigen Ergebnisse der Wortmusteranalyse zeigen. 
+Die Wahl geeigneter Wortmuster durch manuelle Untersuchung der englischen Begriffsliste - d.h. der Menge aller englischsprachigen Einträge des Wörterbuchs - ist als zu unvollständig bezüglich der Abdeckung der 2500 Synsets einzustufen, wie die bisherigen Ergebnisse der Wortmusteranalyse zeigen. 
 Eine Verbesserung der Abdeckung könnte zu erreichen sein, indem weitere geeignete Wortteilmuster anhand ihrer absoluten Häufigkeit identifiziert werden. 
 Aus dieser Überlegung entstand die Idee bereits im Vorhinein eine Frequenzliste aller existierenden Zeichen-n-Gramme aus der Menge der Wörter in den Synsets zu generieren, anhand derer geeignete Wortmuster mit semantischem Inhalt ausgewählt und dann in einem weiteren Durchlauf der Wortmusteranalyse berücksichtigt werden. 
 Hierfür musste eine nach Häufigkeiten der vorkommenden n-Gramme sortierte Liste automatisiert erstellt werden. 
+
 N-Gramme wurden bis zu einer Länge von minimal 4 Zeichen gebildet. 
 Durch Versuche mit n-Grammen unterschiedlicher Länge zeigte sich, dass unterhalb dieser Grenze kaum noch brauchbare Wortteilmuster identifiziert werden konnten. 
-Im späteren Verlauf wurden trotzdem noch die Trigramme berücksichtigt, die geeignete Worteilmuster darstellten (insgesamt vier Stück). 
-Anschließend wurde die Liste ausgehend vom am häufigsten vorkommenden n-Gramm bis zu einer vorher festgelegten Grenze (bis zu einer Häufigkeit von 6) manuell abgearbeitet und jedes Gramm jeweils nach semantischem Inhalt sowie semantischer Eindeutigkeit überprüft, d.h. 
-im medizinischen Kontext muss die Bedeutung des vorliegenden Gramms nicht nur offentsichtlich, sondern innerhalb dieses Kontextes auch eindeutig sein, also keine Mehrdeutigkeiten aufweisen. 
+Im späteren Verlauf wurden trotzdem noch die Trigramme berücksichtigt, die geeignete Worteilmuster darstellten. 
+Bei diesen Trigrammen handelt es sich um:
+
+\begin{inparaenum}
+\item --dys-- für \emph{illness}
+\item --cyt-- für \emph{cell}
+\item --myo-- für \emph{muscle}
+\item --exo-- für \emph{outside}
+\end{inparaenum}
+
+Anschließend wurde die Liste ausgehend vom am häufigsten vorkommenden n-Gramm bis zu einer vorher festgelegten Grenze (bis zu einer Häufigkeit von 6) manuell abgearbeitet und jedes Gramm jeweils nach semantischem Inhalt sowie semantischer Eindeutigkeit überprüft, d.h. im medizinischen Kontext muss die Bedeutung des vorliegenden Gramms nicht nur offentsichtlich, sondern innerhalb dieses Kontextes auch eindeutig sein, also keine Mehrdeutigkeiten aufweisen. 
+
 Auf diese Weise ausgesuchte Gramme qualifizieren sich als Wortteilmuster und werden mit den zugehörigen Merkmalen, die sich aus der Semantik des Musters ergeben, gekennzeichnet. 
 Dies muss manuell geschehen, da hierbei Domänenwissen absolut notwendig ist. 
 Ursprung dieses Wissens sind fachbezogene Quellen und die Wikipedia-Enzyklopädie, aber insbesondere der englische Wikipedia-Artikel \href{http://en.wikipedia.org/wiki/List_of_medical_roots,_suffixes_and_prefixes}{List of medical roots, suffixes and prefixes}. 
+
 Synsets, die eine oder mehrere Synonymbezeichnungen besitzen, welche das gekennzeichnete n-Gramm als Teilzeichenkette enthalten, werden wie zuvor mit den zugewiesenen Merkmalen versehen. 
 Zum Beispiel wird das Wortteilmuster \emph{--dystroph--} mit den Merkmalen `degeneration' und `disease' gekennzeichnet. 
 Daraus folgt, dass Begriffe, die \emph{--dystroph--} als Wortteilmuster enthalten, diese zwei Merkmale automatisch zugewiesen bekommen. 
-Das Ergebnis dieser Extraktionsmethode ist ein aussagekräftiger formaler Kontext aus 119 Merkmalen, die 4467 mal zugewiesen wurden. 
-Gut die Hälfte aller Synsets aus dem Wörterbuch wurden mithilfe dieser Methode mit Merkmalen versehen. 
+
+Das Ergebnis dieser erweiterten Extraktionsmethode ist ein aussagekräftiger formaler Kontext aus 119 Merkmalen, die 4467 mal zugewiesen wurden. 
+Gut die Hälfte aller Synsets aus dem Wörterbuch wurden mithilfe der Methode mit Merkmalen versehen. 
 Besonders ermutigend sind dabei der hohe Grad der Qualität an Merkmalen und Zuweisungen aufgrund der eindeutigen Beziehung zwischen Wortbestandteil und Semantik, sowie die hohe Vernetzung der Synsets untereinander durch Merkmale, die sehr häufig mehreren verschiedenen Synsets zugewiesen werden konnten. 
 
 \section{Wikipedia als Wissensquelle}
@@ -426,8 +433,9 @@ Besonders ermutigend sind dabei der hohe Grad der Qualität an Merkmalen und Zuw
 %% TODO -- DONE Bitte mal drüberlesen
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Die Beschränkung auf Erkrankungen des Auges und damit auf den betreffenden Bereich der ICD-10 erbrachte kaum Merkmalszuweisungen.
-Zwar sind die Mehrzahl der Einträge im Lexikon der Augenheilkunde solche, die Krankheiten betreffen, aber es zeigte sich, dass die ICD-10 ungeeignet als Quelle für Merkmale ist.
-Dies liegt im Wesentlichen in der Art der dort aufgefundenen Information begründet.
+Zwar sind die Mehrzahl der Einträge im Lexikon der Augenheilkunde solche, die Krankheiten betreffen, aber es zeigte sich, dass die ICD-10 ungeeignet als Quelle für Merkmale ist. 
+Dies liegt im Wesentlichen in der Art der dort aufgefundenen Information begründet. 
+
 In der ICD-10 beinhaltet die Bezeichnung einer Klasse keine Erklärung für den Begriff. 
 Der Begriff wird nicht in den Kontext anderer vorhandener Klassen gesetzt und es erfolgt keine Umschreibung in termini seiner Ober- oder Unterklassen oder verwandter Begriffe. 
 Eine einfache Verschlagwortung mittels eines kontrollierten Vokabulars erzeugte vermutlich mehr Querverweise, die für den Aufbau einer Merkmalsmenge nützlich sein könnten, als die aus der ICD-10 gewonnenen Zuweisungen. 
@@ -443,10 +451,12 @@ Eines der Probleme dabei ist, dass nicht sichergestellt ist, dass eine Seite nic
 Dadurch wird es für die automatische Erschließung eines Kategoriebaums allerdings erforderlich, auf diese Weise doppelt gesammelte Artikel zu eliminieren. 
 Insbesondere ist darauf zu achten, dass wenn den Kategorien-Tags automatisiert gefolgt wird um weitere Artikel zu erschließen, bereits besuchte Kategorien zu ignorieren, um Schleifenbildung zu vermeiden. 
 Dies berücksichtigend schien es aber vielversprechend den Bereich Augenheilkunde sowohl der englischen wie der deutschen Wikipedia bezüglich der vergebenen Kategorien zu untersuchen. 
-Zu diesem Zweck wurde von beiden der Volltext-Dump der Wikipedia Abstracts als XML formatierte Datei heruntergeladen und innerhalb der \emph{title}-Tags nach Übereinstimmungen mit Begriffen oder Phrasen aus dem Wörterbuch der Augenheilkunde gesucht. 
+
+Zu diesem Zweck wurde von beiden der Volltext-Dump der Wikipedia Abstracts als XML-formatierte Datei heruntergeladen und innerhalb der \emph{title}-Tags nach Übereinstimmungen mit Begriffen oder Phrasen aus dem Wörterbuch der Augenheilkunde gesucht. 
 Die Abstracts sind automatisch erstellte Kurzfassungen der entsprechenden Artikel und bestehen, wie sich herausstellte, im Wesentlichen aus dem ersten Absatz, oder, falls eine bestimmte, nicht exakt erkennbare Untergrenze an Wörtern nicht überschritten wurde, aus den ersten Absätzen. 
 Weiterhin sind die Kategorien vermerkt, denen der Artikel angehört. 
 Die Abstracts wurden aus dem Quelltext gewonnen und der Text ist mit dem Markup der Wikipedia ausgezeichnet. 
+
 Da es unterschiedliche Konventionen bezüglich der Formatierung im Quelltext gibt, sind einige Abstracts unbrauchbar gewesen, da sie im Wesentlichen aus dem Markup einer dem Artikel vorangestellten Infobox (ein Beispiel einer solchen Infobox kann man auf der Seite jedes chemischen Elements betrachten) bestanden und keinerlei Fließtext mehr enthielten. 
 Aus der deutschen Wikipedia konnten auf diese Weise 433 Artikel für die weitere Verwendung extrahiert werden und aus der englischen Wikipedia 731 Artikel, die Mitglieder der Kategorie selbst oder einer Unterkategorie von \emph{Augenheilkunde} oder \emph{Ophthalmology} waren. 
 
@@ -472,7 +482,7 @@ Für wiederholte Aufgaben dieser Art ist eine Einarbeitung in XSLT aber zu empfe
 Allerdings fanden sich auch mehrere hundert Kategorien, die lediglich der Verwaltung der Wikipedia dienen, und die vorher nicht aufgefallen waren, weil sie bei der Anzeige im Browser unterdrückt werden. 
 Ein allgemeines Beispiel dafür ist die Kategorie `Articles needing attention', die selbst wiederum mehrere hundert Unterkategorien enthält (unter anderem zu der Zeit `Medical Articles needing attention'). 
 Außerdem gibt es Sammelkategorien der Art `Accuracy disputes from August 2009'. 
-Je nachdem wie lange der Dissens bezüglich eines Themas schwelt, sind genau so viele Kategorien dieses Typs einem Artikel zugewiesen, wie Monate vergangen sind. 
+Je nachdem wie lange der Dissens bezüglich eines Themas schwelt sind genau so viele Kategorien dieses Typs einem Artikel zugewiesen, wie Monate vergangen sind. 
 Obwohl viele dieser Kategorien, einmal identifiziert, durch reguläre Ausdrücke gut zu filtern waren, war es doch ein erheblicher manueller Aufwand, der aber im Wiederholungsfall automatisierbar ist. \end{inparaenum}
 
 \subsubsection{Ergebnisse}
@@ -480,7 +490,9 @@ Obwohl viele dieser Kategorien, einmal identifiziert, durch reguläre Ausdrücke
 Die so ermittelten Kategorien wurden als Schlagwörter der dazugehörigen Artikel betrachtet und versucht, mit den Begriffen aus dem Wörterbuch der Augenheilkunde in Verbindung zu bringen. 
 Die resultierenden Merkmalszuweisungen blieben aber hinter den Erwartungen zurück. 
 Viele Kategorien gehören nur der Ausgangskategorie (\emph{Augenheilkunde}, \emph{ophthalmology}) an. 
-Aufgrund der Mischung von hierarchischer Ordnung und Facettenordnung ist mindestens die Menge der Kategoriebegriffe zu klein um eine erkennbare Vererbung der Kategoriebegriffe auszunutzen; wahrscheinlich ist aber, dass selbst bei einer wesentlich größeren Zahl an Kategorien in der selben Domäne keine wirkliche Verbesserung der Situtation einträte, weil dann immer noch vererbte Eigenschaften mit assoziierten Eigenschaften der Kategorie vermischt wären. 
+
+Aufgrund der Mischung von hierarchischer Ordnung und Facettenordnung ist mindestens die Menge der Kategoriebegriffe zu klein, um eine erkennbare Vererbung der Kategoriebegriffe auszunutzen; wahrscheinlich ist aber, dass selbst bei einer wesentlich größeren Zahl an Kategorien in der selben Domäne keine wirkliche Verbesserung der Situtation einträte, weil dann immer noch vererbte Eigenschaften mit assoziierten Eigenschaften der Kategorie vermischt wären. 
+
 Der wesentliche Grund für die geringen Zuweisungen ist daher die geringe Menge an Überlappungen der Kategorien gewesen. 
 Im Grunde handelt es sich hierbei um das selbe Problem, wie bei dem Versuch mit der ICD-10 und scheiterte aus dem selben Grund: der Zweck der Klassifikation ist ja die Elimination der Überlappung der Begriffsumfänge und Einordnung in hierarchische Strukturen unter Ausnutzung der Vererbung von Merkmalen. 
 Der Facettenaspekt in der Klassifikation der Wikipedia-Kategorien brachte hier also kaum Verbesserung. 
@@ -499,7 +511,7 @@ Gerade der erste Satz folgt damit so gut wie immer dem Schema, welches exemplari
 %Die Augenheilkunde (Augenmedizin, fachsprachl.: Ophthalmologie, Ophthalmiatrie; von gr. \textomikron\textphi\texttheta\textalpha\textlambda\textmugreek\textomikron\textvarsigma, \emph{Auge}) ist die Lehre von den Erkrankungen und Funktionsstörungen des Sehorgans, deren Anhangsorgane, sowie des Sehsinnes und deren medizinischer Behandlung. 
 \end{description}
 
-Die Überlegungen zur Erzeugung von Merkmalszuweisungen wurden daher darauf konzentriert, aus den ersten beiden Sätzen des Abstracts eine Zerlegung in Wort-n-Gramme der Längen 2 und 3 zu erstellen und zu versuchen diese mit den entsprechenden n-Grammen, die aus den Einträgen des Wörterbuchs der Augenheilkunde erzeugt wurden, in Verbindung zu setzen. 
+Die Überlegungen zur Erzeugung von Merkmalszuweisungen wurden daher darauf konzentriert, aus den ersten beiden Sätzen des Abstracts eine Zerlegung in Wort-n-Gramme der Längen 2 und 3 zu erstellen und zu versuchen, diese mit den entsprechenden n-Grammen, die aus den Einträgen des Wörterbuchs der Augenheilkunde erzeugt wurden, in Verbindung zu setzen. 
 Der Grund aus dem die ersten beiden Sätze und nicht nur der erste Satz herangezogen wurden ist, dass bei manchen Artikeln der erste Satz nur aus einer etymologischen Einordnung besteht (ähnlich dem Inhalt der Klammer im Beispiel oben) ohne weitere Erklärung des Begriffs. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% TODO Zwei Sätze DONE Bitte mal drüberlesen
@@ -533,9 +545,10 @@ Dieser Schritt geht vollautomatisch und bedarf keiner weiteren Überprüfung ode
 
 Das Ergebnis zeigte sich bezüglich der Ausbeute an Merkmalen und der Anzahl an Zuweisungen je Begriff als unbefriedigend. 
 Zwar wurden insgesamt ca. 5000 Merkmale produziert, jedoch befindet sich darunter jede Menge Ballast in Form von irrelevanten oder aus dem Kontext heraus falsch extrahierten Daten (z.B. \emph{is\_a} als Merkmal, da als Wikipedia-Eintrag vorhanden). 
-Zudem ist bei insgesamt ca. 7000 Merkmalszuweisungen jedes Merkmal im Schnitt 1,4 mal zugewiesen worden, was extrem wenig ist. 
+Zudem ist bei insgesamt ca. 7000 Merkmalszuweisungen jedes Merkmal im Schnitt 1,4 mal zugewiesen worden, was als sehr wenig erscheint. 
 Es gibt nur ca. 500 Merkmale, die öfters als 3 mal zugewiesen wurden. 
 Auch das Matching der Artikelnamen auf die Synsets bleibt mit einem Wert von 266 erkannten Synsets bei 626 Lexikonartikeln hinter den Erwartungen zurück. 
+
 Daher wurde ein zweiter Durchlauf der selben Daten allerdings nach vorheriger Bereinigung um Stoppworte durchgeführt. 
 Die Quellen der verwendeten Stoppwortlisten sind im Anhang aufgeführt. 
 Auch hier blieb das Ergebnis hinter den Erwartungen zurück. 
@@ -551,16 +564,20 @@ Die Gründe aus dem der Dump der Wikipedia-Abstracts verwendet worden waren sind
 \begin{inparaenum}
 \item es musste kein \emph{Crawler} geschrieben werden, der immer wieder neu auf die Seiten angewandt wurde
 \item es war anfangs auch nicht zu überblicken, ob und welche Kategorien noch hinzugenommen werden sollten, und 
-\item die Hoffnung, dass der reine Text mit Wiki-Markup, statt dem daraus generierten (X)HTML der dann gecrawlten Seiten, leichter zu erschließen sein würde.
+\item die Hoffnung, dass der reine Text mit Wiki-Markup, statt dem daraus generierten (X)HTML der dann extrahierten Seiten, leichter zu erschließen sein würde.
 \end{inparaenum}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ANMERKUNG Du meinst im folgenden Satz wohl 'stellte sich als zutreffend  heraus', ohne das 'nicht', oder?
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Insbesondere der letzte Punkt stellte sich als nicht zutreffend heraus. 
 Im Frühjahr 2012 wurde das API für Anfragen (query.php) der Wikipedia stark überarbeitet und in der Funktionalität ausgebaut. 
 Insbesondere die Ausgabe der Inhalte als reiner Text, frei von Wiki-Markup, stellte eine erhebliche Verbesserung der Möglichkeiten der maschinellen Weiterverarbeitung dar. 
+
 Das API bietet seitdem sogar die Möglichkeit eine beliebige Anzahl von Sätzen, gezählt von Beginn des Artikels an, auszugeben. 
 Allerdings scheitert das gelegentlich daran, dass das Kriterium für das Ende eines Satzes allein das Zeichen für den Punkt ist, so dass Sätze bereits nach `Dr.', `Prof.' und `et al.' enden. 
 Für diese Fälle musste der restliche erste Satz manuell geholt werden. 
-Da die Ansätze lediglich die Kategorien und später die gestemmten, stoppwortbereinigten und zu Wort-n-Grammen reduzierten ersten Sätze zusammen mit den Kategorien zu verwenden keinen Erfolg brachten, sollte untersucht werden, ob möglicherweise schon die `merkmalsenthaltenden' Teile des ersten Satzes genügen, um bessere Merkmale zu bekommen. 
+Da die Ansätze lediglich die Kategorien und später die gestemmten, stoppwortbereinigten und zu Wort-n-Grammen reduzierten ersten Sätze zusammen mit den Kategorien zu verwenden keinen Erfolg brachten, sollte untersucht werden, ob möglicherweise schon die `merkmalsenthaltenden' Teile des ersten Satzes genügen, um bessere Merkmale zu erhalten. 
 Dazu sollten Nomen und Adjektive des ersten Satzes gesammelt und als Merkmale zugewiesen werden. 
 Die Nomen sollten in erster Linie dazu dienen, Überschneidungen mit anderen Begriffen zu begünstigen. 
 Von den Adjektiven wurde sich erhofft, auf einer kleinen Menge beschränkt zu bleiben, die zum Beispiel nur 
@@ -572,10 +589,10 @@ Von den Adjektiven wurde sich erhofft, auf einer kleinen Menge beschränkt zu bl
 
 und ähnlichem umfasst. 
 Die Erwartung war, in größerer Menge die Überschneidungen in der Merkmalsmenge zu bekommen, die erforderlich sind, um überhaupt mittels Formaler Begriffsanalyse analysieren zu können. 
+
 Wie bereits erwähnt, ist der erste Satz eines enzyklopädischen Artikels im Grunde immer identisch aufgebaut. 
 Es findet sich darin der Begriff, der Gegenstand des Artikels ist, selbst. 
-Weiterhin adjektivische Elemente, die den Begriff einordnen in den Rahmen der durch die eine hierarchische Relation implizierende Wendungen `ist ein', `ist der/die/das' etc. 
-gesteckt wird. 
+Weiterhin adjektivische Elemente, die den Begriff einordnen in den Rahmen der durch die eine hierarchische Relation implizierende Wendungen `ist ein', `ist der/die/das' etc. gesteckt wird. 
 Ein Beispiel dafür ist der erste Satz des Artikels \emph{Hornhaut}: 
 
 \begin{description}
@@ -584,7 +601,7 @@ Die Hornhaut (lateinisch Cornea, eingedeutscht auch Kornea, griechisch keratos) 
 \end{description}
 
 Da es mit einem Part-of-Speech-Tagger vergleichsweise einfach ist, die entsprechenden Teile zu extrahieren, sollte der Versuch unternommen werden dem Merkmalscharakter möglichst nahe zu kommen, indem einfach die Wörter, die unmittelbar verwendet werden um den in Frage stehenden Begriff zu beschreiben, auch als Merkmale zu verwenden. 
-Die Wahrscheinlichkeit, einerseits möglichst treffende Begriffe zu finden und andererseits nicht zu viele, nicht in unmittelbaren Zusammenhang stehende Wörter zuzuweisen, erschien durch die Beschränkung auf den ersten Satz eines enzyklpädischen Artikels als maximal. 
+Die Wahrscheinlichkeit, einerseits möglichst treffende Begriffe zu finden und andererseits nicht zu viele, nicht in unmittelbaren Zusammenhang stehende Wörter zuzuweisen, erschien durch die Beschränkung auf den ersten Satz eines enzyklopädischen Artikels als maximal. 
 
 \subsubsection{Vorgehensweise}
 
@@ -603,6 +620,7 @@ Die Abweichung ergibt sich zu etwa zwei Dritteln aus Verbindungsabbrüchen nach 
 Das Programm \emph{wget} hat sehr elaborierte Möglichkeiten, um sein Retrievalverhalten wie das einer natürlichen Person, die mittels Web-Browser die Seiten besucht, aussehen zu lassen. 
 Das ist notwendig, weil auch die Wikipedia-Server zu hochfrequente Verbindungsanfragen drosseln (und bei drastischem Überschreiten IP-Adressen sperren), basierend auf der IP-Adresse und der absoluten Frequenz der Anfragen. 
 Um die Server zu schonen und die Zugriffe nicht so auffällig zu machen, wurden die Zugriffe unter anderem auf einen Zufallswert zwischen einer und 60 Sekunden eingestellt, die Download-Rate auf 5 Kb/s gedrosselt, und wie gesagt die Anzahl der Verbindungsversuche je Artikel auf fünf beschränkt. 
+
 Etwa 1300 der 2415 Artikel sind Namen natürlicher Personen. 
 Der Grund dafür ist, dass ein ganzer Bereich unterhalb der Kategorie `Eye' einerseits berühmte Augenärzte und Wissenschaftler der Augenheilkunde beinhaltet {[}Grafik{]}. 
 Dieser Teil ist vermutlich nicht unmittelbar als Ballast anzusehen. 
@@ -616,6 +634,7 @@ Später ist bei genauerer Betrachtung aufgefallen, dass es Artikel gab, die trot
 Das deutet darauf hin, dass diese Fehlerrate auch absolut höher hätte sein können und die Vorgehensweise vermutlich nicht ohne manuelle Kontrolle auskommt. 
 Allerdings waren die Artikel relativ leicht zu finden, indem die durchschnittliche Satzlänge aller Artikel berechnet wurde und die Artikel ausgegeben wurden, deren Satzlänge $\geq 2 \sigma $ (Standardabweichungen) vom Mittelwert der Satzlänge aller Sätze abwich. 
 Diese Vorgehensweise ist zwar auch nicht vollständig reliabel, aber gut als Postprocessing-Schritt einzubauen. 
+
 Die Ergebnisse wurden an TreeTagger übergeben und die Ausgabe von TreeTagger gefiltert, so dass nur die Stammformen der Nomen und Adjektive gespeichert wurden. (TreeTagger verwendet die Nomenklatur des Penn Treebank Project. 
 Gespeichert wurden alle Vorkommen von JJ* (also JJ - Adjektiv, JJR - Adjektiv komparativ und JJS - Adjektiv Superlativ) und NN* (also NN - Nomen Singular, NNS - Nomen Plural, NNP und NNPS für Eigennamen respektive)). 
 
@@ -680,7 +699,7 @@ Damit kann festgehalten werden, dass diese Methode allein keinen hinreichend aus
 
 Bereits bestehende Klassifikationen, wie zum Beispiel die ICD-10, aber auch die kurzzeitig erwogene und wieder verworfene Einbeziehung des Operationen und Prozedurenschlüssels (OPS) (Der OPS ist eine Modifikation der unter XXXX erwähnten Internationalen Klassifikation der Prozeduren in der Medizin), zeigten sich für die Merkmalsextraktion als wenig bis gar nicht geeignet. 
 Die Klassen der ICD-10 ließen sich praktisch überhaupt nicht mit Begriffen aus dem Wörterbuch der Augenheilkunde in Verbindung bringen. 
-Erfolgreicher sind die Ergebnisse aus der Extraktion von Teilen des ersten Satzes aus Artikeln der Wikipedia in der Kategorie Augenheilkunde oder Unterkategorien davon, sowie die Extraktion von Merkmalen und Zuweisungen anhand von Wortteilmustern und n-Gramm-Frequenzstatistiken. 
+Erfolgreicher sind die Ergebnisse aus der Extraktion von Teilen des ersten Satzes aus Artikeln der Wikipedia in der Kategorie Augenheilkunde oder Unterkategorien davon, da diese Methode deutlich mehr Wissen und Begrifflichkeiten hergibt, sowie die Extraktion von Merkmalen und Zuweisungen anhand von Wortteilmustern und n-Gramm-Frequenzstatistiken, weil diese Methode leicht und direkt zu überblicken und zu automatisieren ist. 
 
 \begin{figure}[!ht]
 \includegraphics[width=0.48\textwidth]{icd10_affixe}
@@ -700,7 +719,7 @@ Je mehr Artikel aus der Wikipedia sich zu Einträgen aus dem Wörterbuch finden 
 \item Die Anzahl der unmittelbaren Übereinstimmungen in den Begriffen zwischen beiden betrug aber nur 335 Artikel-Eintrag-Kombinationen. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% TODO '335 Artikel-Eintrag-Kombinationen': wieviele Artikel wurden dafür herangezogen, wieviele Einträge?
-%% ANTOWORT: Die Zahlen hierzu stehen unter Ergebnisse des Wikipedia-Teils, ein paar Absätze weiter oben
+%% ANTWORT: Die Zahlen hierzu stehen unter Ergebnisse des Wikipedia-Teils, ein paar Absätze weiter oben
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Weil die Anzahl der Artikel in der englischsprachigen Wikipedia maximal ist (absolut, aber auch unterhalb der Kategorie \emph{Ophthalmology}), verwendeten wir die Einträge daraus. 
 Da die Auswahl geeigneter Merkmale im Wesentlichen einer Verschlagwortung der untersuchten Domäne gleichkommt, wurden unsere Ergebnisse auch besser, je mehr typische Schritte zur Schlagwortgewinnung wir durchführten (Stemming, Zerlegen in n-Gramme). 
@@ -710,44 +729,48 @@ Da die Auswahl geeigneter Merkmale im Wesentlichen einer Verschlagwortung der un
 \subsection{Evaluation durch Einschränkung der Merkmalsmenge}
 
 Die Ergebnisse bezüglich der gewonnenen Menge an Merkmalen sind schwer zu beurteilen.
-Die Menge der extrahierten Merkmale wurde nicht versucht zu verkleinern.
-Sie besteht aus allen Worten, die in den einführenden Sätzen der Wikipedia-Artikel vorkamen und die nach den geschilderten Schritten, insbesondere Stemming, verblieben sind.
+Es ist unbekannt, ob es eine optimale Menge an Merkmalen gäbe, die ein Maximum an Zuweisungen erzielte.
+Mit einiger Sicherheit kann man aber sagen, dass eine solche optimale Merkmalsmenge kleiner wäre, als die von uns verwendete Menge.
+Unsere finale Menge von Merkmalen wurde nicht weiter versucht zu verkleinern.
+Sie besteht aus allen Worten, die in den einführenden Sätzen der Wikipedia-Artikel vorkamen und die nach den geschilderten Schritten, insbesondere Stemming, verblieben sind, sowie den zugewiesenen Merkmalen aus der Wortmusterextraktion.
 Mit steigender Zahl der Merkmale wird es schwieriger, kohärente Begriffsverbände zu erzeugen, weil zuviele Begriffe zu wenige gemeinsame Merkmale haben, oder nur solche von sehr allgemeiner Natur.
-Eine Möglichkeit die Merkmalsmenge zu reduzieren und dieses Problem unmittelbar anzugehen ist zu versuchen Synonyme in der Merkmalsmenge zu identifizieren, einen der synonymischen Begriffe auszuwählen und alle anderen durch diesen zu ersetzen.
-Dies könnte in Teilen mittels eines Wörterbuchs automatisch erledigt werden, weil viele Bezeichnungen der Merkmale entweder nicht spezifisch aus der Domäne der Augenheilkunde sind, sondern Teil der normalen Sprache, oder allgemeinere medizinische Bezeichnungen sind, für die es (beispielsweise ein englisches) Wörterbuch mit Synonymen gibt.
-Dennoch: ein verbleibender Teil müsste vermutlich per Hand erledigt werden.
+
+Eine Möglichkeit die Merkmalsmenge zu reduzieren und dieses Problem unmittelbar anzugehen, ist zu versuchen Synonyme in der Merkmalsmenge zu identifizieren, einen der synonymen Begriffe auszuwählen und alle anderen durch diesen zu ersetzen.
+Dies könnte in Teilen mittels eines Wörterbuchs automatisch erledigt werden, weil viele Bezeichnungen der Merkmale entweder nicht spezifisch aus der Domäne der Augenheilkunde sind, sondern Teil der normalen Sprache, oder allgemeinere medizinische Bezeichnungen sind, für die es beispielsweise ein englisches Wörterbuch mit Synonymen gibt.
+Dennoch: ein verbleibender Teil müsste unserer Ansicht nach per Hand erledigt werden.
 Mit dieser neuen Merkmalsmenge könnte man dann erneut versuchen Begriffsverbände zu bilden und Zuweisungen zu den Einträgen zu produzieren, um zu vergleichen, ob eine größere Zahl Zuweisungen erreicht wurde und ob die Anzahl gemeinsamer Merkmale gesteigert werden konnte.
 
-Auf diesen Gedanken aufbauend scheint es uns vielversprechend, mit Teilmengen unterschiedlicher Größe der ursprünglichen Merkmalsmenge zu experimentieren.
-Den bei den 'echten' Synonymen verfolgten Ansatz könnte man hierzu erweitern und beispielsweise sämtliche Merkmale als Synonyme von einem aus 30, 50 oder 70 zuvor ausgewählten Merkmalen zu definieren.
+Auf diesen Gedanken aufbauend, scheint es uns vielversprechend, mit Teilmengen unterschiedlicher Größe der ursprünglichen Merkmalsmenge zu experimentieren.
+Den bei den »echten« Synonymen verfolgten Ansatz könnte man hierzu erweitern und beispielsweise sämtliche Merkmale als Synonyme von einem aus 30, 50 oder 70\footnote{Diese Zahlen sind zwar beliebig gewählt, insbesondere das Intervall, sind aber insofern fundiert, als dass wir auf mindestens 30 Merkmale als untere Grenze kommen, um sowohl Aspekte der anatomischen Lage, der Pathologie, der diagnostischen und operativen Verfahren, sowie der Instrumente abzudecken.} zuvor ausgewählten Merkmalen zu definieren.
+Das heißt, dass man alle verbliebenen Merkmale als Synonym je einem der ausgewählten Merkmale zuweisen müsste.
 Dem Grunde nach ist das eine Verschlagwortung mittels eines kontrollierten Vokabulars und man müsste sehr umsichtig sein, welche Bezeichnungen man unter einer Merkmalsbezeichnung zusammenfasst, um nicht Ungenauigkeiten oder sogar Fehler in den resultierenden Begriffsverbänden zu bekommen.
+Ein solcherlei erstelltes »Synonymwörterbuch« hätte aber den Vorteil, dass Merkmale, die aus neuen Quellen extrahiert wurden, ohne weiteres ihrem zu verwendenden Synonym zugewiesen werden können.
+Unterschiedlich große Mengen von Merkmalen, die auf diese Weise geschaffen wurden, erlauben es dann den Erfolg bei den Zuweisungen im Wörterbuch der Augenheilkunde zu evaluieren und ausgehend davon Modifikationen vorzunehmen.
 
-Unterschiedlich große Mengen von Merkmalen, die auf diese Weise geschaffen wurden, erlauben es dann den Erfolg bei den Zuweisungen zu evaluieren und ausgehend davon Modifikationen vorzunehmen.
-Zu den so gewonnen Merkmalen würden anatomische Lagemerkmale selbst zählen und Merkmale, die die Domäne der Augenheilkunde (also ob es eine Erkrankung ist, ein Verfahren oder ein Instrument) repräsentieren. 
-Welche sonstigen Merkmale noch in Frage kommen, könnte man über die Häufigkeitsverteilung der gefundenen Merkmale über alle Begriffe herausfinden.
-Die verbleibenden Merkmale müssten dann per Hand den ausgewählten Merkmalen zugewiesen werden, so dass bei neu hinzugekommenen Begriffen aus einer Extraktion die neuen Merkmale ihre Synonyme automatisch erhalten.
+Mit dem hierzu zu betreibenden manuellen Aufwand verabschiedete man sich aber, bis auf die Zuweisung im Wörterbuch und die eigentliche Extraktion, vollständig von jeglicher Automatisierbarkeit.
+Man könnte daher untersuchen, ob eine bestimmte Teilmenge der Menge aller Merkmale ausreicht, um die (in unserem Fall) Artikel aus der Wikipedia-Extraktion mit je mindestens zwei, drei oder mehr Merkmalen abzudecken.
+Sofern dies gelingt, könnte man wiederum die Anzahl der damit erzielten Zuweisungen im Wörterbuch der Augenheilkunde evaluieren und ausgehend davon Modifikationen vornehmen.
+Welche Merkmale dafür in Frage kommen, könnte man über die Häufigkeitsverteilung der gefundenen Merkmale über alle Artikel aus der Wikipedia-Extraktion herausfinden.
+Interessant wären hier die Merkmale, die nicht mit absolut größter Häufigkeit vorkommen, und die nicht schon zu der sehr großen Menge Merkmalen zählt, die wenige oder nur ein Mal vorkommen.
+Dieser Bereich der Verteilung der Häufigkeit der Merkmale (insgesamt sind es 2443) ist etwa 100 bis 150 Merkmale groß mit einer Häufigkeit zwischen je 20 und 100.
+Er deckt die Artikel der Wikipedia-Extraktion vollständig mit mindestens einem Merkmal je Artikel ab\footnote{Allerdings zeigt sich auch hier: lediglich einige Artikel sind dadurch mit drei oder mehr Merkmalen abgedeckt, die allermeisten nur mit einem Merkmal (häufig aber zuzüglich eines der Merkmale aus den ersten zehn Rangplätzen der Verteilung der Merkmale).}.
 
-Wir halten diesen Ansatz für vielversprechend, weil er erlauben würde zu ermitteln, welche Mermalsmenge unbedingt notwendig (versus ausreichend versus optimal) ist, um die Domäne für die Formale Begriffsanaylse zu erschließen.
-Darauf aufbauend wäre dann aus unserer Sicht besser zu entscheiden, wie man eine so reduzierte Menge an Merkmalen maschinell erschließt.
-Im Hinblick auf die praktische Verwendung ist der Ansatz daher nicht geeignet, weil fast alles, was die Formale Begriffsanalyse später überhaupt leistet im Vorfeld schon manuell erledigt worden ist, indem man die Synonymlisten geschaffen hat.
+Wir halten diese Ansätze für vielversprechend, weil sie erlauben würden zu ermitteln, welche Merkmalsmenge unbedingt notwendig (versus ausreichend versus optimal) ist, um die Domäne für die Formale Begriffsanaylse zu erschließen.
+Darauf aufbauend wäre dann aus unserer Sicht besser zu entscheiden, wie man eine so reduzierte Menge an Merkmalen maschinell erschließt (bzw. ob es überhaupt mit vertretbarem Aufwand möglich ist).
+Im Hinblick auf die praktische Verwendung ist der erstgenannte Ansatz mit dem manuellen Synonywörterbuch daher nicht geeignet, weil fast alles, was die Formale Begriffsanalyse später überhaupt leistet, im Vorfeld schon manuell erledigt worden ist, indem man die Synonymlisten überhaupt geschaffen hat.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% TODO: nachfolgend bin ich noch dran
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Ein etwas radikalerer Ansatz die Merkmalsmenge zu verkleinern, wäre es, die Menge an Merkmalen zu verwenden, die man insgesamt benötigt, damit jeder Begriff mindestens zwei Merkmale hat.
-Zusätzlich werden dann noch die Kategorien aus der Wikipedia-Extraktion vergeben.
-Die Kategorien enthalten im Wesentlichen schon die Information, die man manuell durch zusammenziehen der Merkmale auf Synonyme erzeugen würde.
+\subsection{Vorgeben des Merkmalsraums}
 
-\subsection{Automatisierung der Merkmalszuweisung}
-<<<<<<< HEAD
+Wie bereits herausgearbeitet wurde ist die automatisierte Erzeugung von Merkmalen äußerst problematisch gewesen und war dadurch gekennzeichnet, dass an vielen Stellen händisch eingegriffen werden musste, um einen aussagekräftigen formalen Begriffsverband zu gewährleisten. 
+Dadurch ist der Merkmalsraum in seiner Struktur nicht so, wie man ihn aus der Literatur kennt, wo die Merkmale nach bestimmten Aspekten ausgesucht wurden, mit denen man die Objekte erschließen möchte.
+
+Im Beispiel nach Janssen aus Tabelle XXX sind die Merkmale so gewählt, dass sie zur Kennzeichnung der Bedeutungen der einzelnen Bezeichnungen für Pferde herangezogen werden können und daher auch Sinn ergeben, nämlich Geschlecht und Alter.
+Bei der automatisierten Extraktion von Merkmalen aus externen Wissensquellen, wie der Wikipedia, ist es nun aber der Fall, dass mit hoher Wahrscheinlichkeit zu allgemeine Merkmale entstehen, wie Tier, Reittier oder Huf, oder im schlimmsten Fall Merkmale, die direkt gar nicht in das semantische Umfeld der untersuchten Objekte passen oder gar überhaupt nichts mit ihnen gemein haben, weil in der Wissensquelle bei der Erklärung des Begriffs zu weit ausgeholt wird (z.B. bei der Etymologie).
+Das größte Problem stellt jedoch die Verarbeitung natürlicher Sprache dar, insbesondere die Homonymie und Unschärfe von Lexemen sowie unregelmäßige Flexionen.
+
+Daher schlagen wir vor, formale Kontexte zusätzlich auch unter Verwendung eines vorgegebenen Merkmalsraums zu bilden, um anschließend Methoden für die automatisierte Merkmalszuweisung zu erproben.
+Den Aufbau eines solchen Merkmalsraumes sollte unbedingt ein Fachkundiger - in unserem Fall ein Augenarzt - durchführen oder zumindest überwachen. 
 Hierfür sollten möglichst allgemeine, aber dennoch spezifizierende Merkmale verwendet werden, welche Synsets nach Aspekten unterscheiden bzw. gruppieren, die sehr gehäuft in der Domäne der Augenheilkunde auftreten und in der Betrachtung eines Fachkundigen Relevanz haben (zum Beispiel Krankheit, Organ, Behandlungsmethode, diabetisch, usw.). 
-=======
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% TODO: Bitte noch ausformulieren
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Hierfür möglichst allgemeine, aber dennoch spezifizierende Merkmale verwenden, welche Synsets nach Aspekten unterscheiden bzw. gruppieren, die sehr gehäuft in der Domäne der Augenheilkunde auftreten und in der Betrachtung eines Fachkundige Relevanz haben (zum Beispiel Krankheit, Organ, Behandlungsmethode, diabetisch, usw.) 
->>>>>>> 333bed50132bb7be41e3f0197d226cc25150731d
 Gründe dafür sind:
 \begin{itemize}
 \item die automatisierte Merkmalsgenerierung ist problematisch, da oft viel Ballast zustande kommt (gerade bei Methoden, die auf die linguistische Verarbeitung von Texten abzielt)
@@ -755,6 +778,9 @@ Gründe dafür sind:
 \item je größer der Merkmalsraum, desto schwieriger ist es, diesen automatisiert mit Merkmalszuweisungen zu füllen, um einen aussagekräftigen formalen Kontext zu generieren
 \item bei Erstellung des Merkmalraums mit intellektuellem Aufwand und mithilfe von Fachwissen hat man deutlich mehr Kontrolle über die Bildung des Begriffverbandes
 \end{itemize}
+Da man ohnehin nicht um intellektuellen Aufwand beim Aufbau einer Merkmalsmenge herum kommt erscheint es nicht abwegig, im Vorhninein die Merkmale selbst zu bestimmen.
+Es ist zu erwarten, dass sich auf diese Weise einige der geschilderten Probleme erübrigen werden, wie die Aufnahme nicht relevanter Merkmale oder mangelnde Wiederverwendung der Merkmale auf Objekte aus dem Begriffsverband. 
+Eine Evaluation dieser These kann Gegenstand weiterer Bemühungen sein. 
 
 \subsection{Die Systematisierte Nomenklatur der Medizin (SNOMED)}
 
@@ -813,3 +839,4 @@ sed -n 's/<extract.*>\([^<]*\)\([<$ ].*\)/\1/p' Parinauds_syndrome.xml
 
 HTML-Entities (wie \&\#39; für hochgestellte einzelne Anführungszeichen) wurden gesammelt und in der Ergebnisdatei in einem Durchgang ersetzt.
 \end{document}
+
