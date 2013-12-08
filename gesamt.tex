@@ -222,7 +222,18 @@ Der Ansatz der Arbeit von Janssen diente unserem Projekt als Ausgangspunkt mit H
 
 \subsubsection{Ordnungsdiagramme}
 
-Ordnungsdiagramme sind graphische Darstellungen mathematischer Halbordnungen. Geläufige Namen sind außerdem noch Liniendiagramm und Hasse-Diagramm.
+Ordnungsdiagramme sind graphische Darstellungen mathematischer Halbordnungen. 
+Geläufige Namen für Ordnungsdiagramme sind außerdem noch \textit{Liniendiagramm} und \textit{Hasse-Diagramm}.
+\footnote{Wir halten \textit{Ordnungsdiagramm} für die geeignete Vorzugsbezeichnung und verwenden sie durchgehend.}
+Das nachfolgende Ordnungsdiagramm ist eine vollständige Darstellung der Kreuztabelle unter\emph{~\nameref{subsec:marker}}.
+Diese Darstellung ist so zu lesen, dass jeder Knoten im Diagramm einem Begriff entspricht.
+Die Merkmale stehen jeweils oberhalb der Knoten, die natürlichsprachigen Entsprechungen bestimmter Begriffe stehen unterhalb mancher Knoten.
+Die Knoten selbst haben keine Beschriftung, sondern sie sind definiert durch die Merkmale, die entlang der Linien zwischen einem gegebenen Knoten und dem Knoten zuoberst stehen.
+So ist der Knoten oberhalb dem das Merkmal \textit{weiblich} steht, definiert durch die beiden Merkmale \textit{\{pferd, weiblich\}}.
+Der Knoten unterhalb dem das Wort \textsc{Stute} steht ist definiert durch die Merkmale \textit{\{pferd, weiblich, erwachsen\}}.
+Damit ist auch deutlich, dass der eine Oberbegriff des anderen ist, weil sie alle Merkmale bis auf eines teilen.
+Die Beschriftung unterhalb der Knoten mit den natürlichsprachigen Ausdrücken des jeweiligen Begriffs für die deutsche Sprache, verdeutlicht recht anschaulich das Konzept der Zwischensprache.
+In anderen Sprachen mögen an einigen Knoten keine Worte verfügbar sein, um dem Begriff Ausdruck zu verleihen, die Ordnung in Bezug auf die verwendeten Merkmale ist aber immer gleich.
 
 \begin{figure}[h!]
 \centering
@@ -240,6 +251,7 @@ Ordnungsdiagramme sind graphische Darstellungen mathematischer Halbordnungen. Ge
  \node (s30) [below=of s21, xshift=2.6em] [concept] {};
  \foreach \from/\to in {s/s10, s/s11, s/s12, s/s13, s10/s20, s10/s21, s11/s20, s11/s22, s12/s21, s12/s23, s13/s22, s13/s23, s20/s30, s21/s30, s22/s30, s23/s30}
  \draw[-] (\from) -- (\to);
+ \node [above=0.25em, fill=white] at (s.north) {\textsc{pferd}};
  \node [below=0.25em, fill=white] at (s.south) {\textsc{Pferd}};
  \node [above=0.25em, fill=white] at (s10.north) {weiblich};
  \node [above=0em, fill=white] at (s11.north) {jung};
@@ -524,7 +536,7 @@ Gerade der erste Satz folgt damit so gut wie immer dem Schema, welches exemplari
 %% Der folgende Satz ist nicht richtig! Die Gramme wurden daraufhin überprüft, ob
 %% es einen Wikipedia-Eintrag für sie gibt, und wenn ja als Merkmal genommen
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Die Überlegungen zur Erzeugung von Merkmalszuweisungen wurden daher darauf konzentriert, aus den ersten beiden Sätzen des Abstracts eine Zerlegung in Wort-n-Gramme der Längen 2 und 3 zu erstellen und zu versuchen, diese mit den entsprechenden n-Grammen, die aus den Einträgen des Wörterbuchs der Augenheilkunde erzeugt wurden, in Verbindung zu setzen. 
+Die Überlegungen zur Erzeugung von Merkmalszuweisungen wurden daher darauf konzentriert, aus den ersten beiden Sätzen des Abstracts eine Zerlegung in Wort-n-Gramme der Längen 2 und 3 zu erstellen, und damit weitere Titel von Wikipedia-Artikeln aus dem Dump zu identifizieren. 
 Der Grund aus dem die ersten beiden Sätze und nicht nur der erste Satz herangezogen wurden ist, dass bei manchen Artikeln der erste Satz nur aus einer etymologischen Einordnung besteht (ähnlich dem Inhalt der Klammer im Beispiel oben) ohne weitere Erklärung des Begriffs. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% TODO Zwei Sätze DONE Bitte mal drüberlesen
@@ -535,16 +547,17 @@ Aus diesem Grund wurden die Worte der Abstracts vorher mit Stemming auf ihren Wo
 Hierzu wurde die ANSI-C-Implementation des Porter-Stemmers verwendet, jeweils in Standardeinstellung für die englische Sprache und mit angepassten Mustern für die deutsche Sprache (die angepassten Muster sind Teil des Programms). 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% ANMERKUNG Der Halbsatz nach dem Doppelpunkt macht nicht viel Sinn (in Tags namens?)
+%% Fixed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Die resultierende Liste von n-Grammen je Artikel wurde zusammen mit dem Artikelnamen in einer Pseudo-XML-Notation abgespeichert: die n-Gramme wurden in Tags namens und gespeichert ohne sich weiter mit einer geeigneten Document Type Definition aufzuhalten. 
+Die resultierende Liste von n-Grammen je Artikel wurde zusammen mit dem Artikelnamen in einer Pseudo-XML-Notation abgespeichert: die n-Gramme wurden in Tags namens \textit{bigram} und \textit{trigram} gespeichert ohne sich weiter mit einer geeigneten Document Type Definition aufzuhalten. 
 Die Ketten sollten aus der Datei nur gut extrahierbar sein. 
 
 \subsubsection{Vorgehensweise}
 
 \begin{inparaenum}
 \item Unix Shell-Skripte (vor allem mit \emph{sed, awk, Perl}) zur Extraktion der ersten beiden Sätze. 
-Da sowohl das Wiki-Markup, als auch Schriftzeichen anderer Sprachen (insbesondere Altgriechisch, Arabisch und Indisch) herausgefiltert werden mussten, zum Teil mit manuellem Eingriff und Korrektur (auch hier gilt, was an anderer Stelle schon bemerkt wurde: manche der manuell ausgeführten Arbeiten sind prinzipiell automatisierbar, allerdings erschien zum relevanten Zeitpunkt der Aufwand dafür, gegeben dass es sich um eine einmalige Aufgabe handelte, als nicht geboten. 
-In jedem Fall wurde aber darauf geachtet, die Schritte so zu wählen, dass sie automatisierbar sein können). 
+    Da sowohl das Wiki-Markup, als auch Schriftzeichen anderer Sprachen (insbesondere Altgriechisch, Arabisch und Indisch) herausgefiltert werden mussten, zum Teil mit manuellem Eingriff und Korrektur\footnote{Auch hier gilt, was an anderer Stelle schon bemerkt wurde: manche der manuell ausgeführten Arbeiten sind prinzipiell automatisierbar, allerdings erschien zum relevanten Zeitpunkt der Aufwand dafür, gegeben dass es sich um eine einmalige Aufgabe handelte, als nicht geboten. 
+In jedem Fall wurde aber darauf geachtet, die Schritte so zu wählen, dass sie automatisierbar sein können.}.
 
 \item Shell-Skript für den Einsatz des Porter-Stemmers und anschließendes Speichern. 
 Dieser Schritt geht vollautomatisch und bedarf keiner weiteren Überprüfung oder Korrektur.
@@ -559,7 +572,7 @@ Dieser Schritt geht vollautomatisch und bedarf keiner weiteren Überprüfung ode
 Das Ergebnis zeigte sich bezüglich der Ausbeute an Merkmalen und der Anzahl an Zuweisungen je Begriff als unbefriedigend. 
 Zwar wurden insgesamt ca. 5000 Merkmale produziert, jedoch befindet sich darunter jede Menge Ballast in Form von irrelevanten oder aus dem Kontext heraus falsch extrahierten Daten (z.B. \emph{is\_a} als Merkmal, da als Wikipedia-Eintrag vorhanden). 
 Zudem ist bei insgesamt ca. 7000 Merkmalszuweisungen jedes Merkmal im Schnitt 1,4 mal zugewiesen worden, was als sehr wenig erscheint. 
-Es gibt nur ca. 500 Merkmale, die öfters als 3 mal zugewiesen wurden. 
+Es gibt nur ca. 500 Merkmale, die öfters als dreimal zugewiesen wurden. 
 Auch das Matching der Artikelnamen auf die Synsets bleibt mit einem Wert von 266 erkannten Synsets bei 626 Lexikonartikeln hinter den Erwartungen zurück. 
 
 Daher wurde ein zweiter Durchlauf der selben Daten allerdings nach vorheriger Bereinigung um Stoppworte durchgeführt. 
@@ -582,8 +595,9 @@ Die Gründe aus dem der Dump der Wikipedia-Abstracts verwendet worden waren sind
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% ANMERKUNG Du meinst im folgenden Satz wohl 'stellte sich als zutreffend  heraus', ohne das 'nicht', oder?
+%% Fixed.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Insbesondere der letzte Punkt stellte sich als nicht zutreffend heraus. 
+Insbesondere das Wiki-Markup stellte sich aber als sehr schwierig vom restlichen Text zu trennen dar und erforderte übermäßig viel manuelles Eingreifen. 
 Im Frühjahr 2012 wurde das API für Anfragen (query.php) der Wikipedia stark überarbeitet und in der Funktionalität ausgebaut. 
 Insbesondere die Ausgabe der Inhalte als reiner Text, frei von Wiki-Markup, stellte eine erhebliche Verbesserung der Möglichkeiten der maschinellen Weiterverarbeitung dar. 
 
