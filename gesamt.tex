@@ -64,7 +64,7 @@
 
 \chapter{Einführungsteil}
 
-\section{A multilingual Dictionary of Ophthalmology (Aufbau und Umfang des Dictionarys, was bisher daran gemacht wurde)}
+\section{A multilingual Dictionary of Ophthalmology}
 
 Ausgangspunkt dieser Arbeit ist das \href{http://www.zeitzfrankozeitz.de/index.php/fachwoerterbuch.html}{digitale multilinguale Wörterbuch der Augenheilkunde} des Augenarztes Dr. Philipp Franko Zeitz, das seit 2010 existiert und online auf der Webpräsenz der Düsseldorfer Augenklinik Zeitz Franko Zeitz zugänglich ist. 
 Das Wörterbuch umfasst mittlerweile fast 25.000 händisch gepflegte Einträge aus dem Bereich der Augenheilkunde in 13 (anfänglich 8) Sprachen. 
@@ -228,7 +228,7 @@ Geläufige Namen für Ordnungsdiagramme sind außerdem noch \textit{Liniendiagra
 \footnote{Wir halten \textit{Ordnungsdiagramm} für die geeignete Vorzugsbezeichnung und verwenden sie durchgehend.}
 Das nachfolgende Ordnungsdiagramm ist eine vollständige Darstellung der Kreuztabelle unter\emph{~\nameref{subsec:marker}}.
 Die Ordnung ist aufgebaut auf der Grundlage der Potenzmenge, der Menge aller Teilmengen, der Merkmalsmenge.\footnote{Zu einer gewissen Verwirrung im Umgang mit Ordnungsdiagrammen trägt anfangs bei, dass der graphisch zuunterst liegende Knoten die Menge aller Merkmale repräsentiert (also am spezifischsten ist), aber \textit{obere Schranke} genannt wird, während der zuoberst dargestellte Knoten die leere Menge repräsentiert, aber \textit{untere Schranke} genannt wird. 
-Erschwerend kommt hinzu, dass das hier gezeigte Ordnungsdiagramm keine untere Schranke hat, denn der zuoberst dargestellte Knoten ist repräsentiert durch das Merkmal \textit{pferd}.}
+Erschwerend kommt hinzu, dass das hier gezeigte Ordnungsdiagramm keine untere Schranke hat, denn der zuoberst dargestellte Knoten ist repräsentiert durch das Merkmal \textit{pferd}, das allen Objekten des Verbands zugrundeliegt.}
 Diese Darstellung ist so zu lesen, dass jeder Knoten im Diagramm einem Begriff entspricht.
 Die Merkmale stehen jeweils oberhalb der Knoten, die natürlichsprachigen Entsprechungen bestimmter Begriffe stehen unterhalb mancher Knoten.
 Die Knoten selbst haben keine Beschriftung, sondern sie sind definiert durch die Merkmale, die entlang der Linien zwischen einem gegebenen Knoten und dem Knoten zuoberst stehen.
@@ -269,7 +269,7 @@ In anderen Sprachen mögen an einigen Knoten keine Worte verfügbar sein, um dem
 \caption{Ordnungsdiagramm der Kreuztabelle aus Janssen, 2002. Ins Deutsche übertragen.}
 \end{figure}
 
-\subsection{Grenzen (keine direkte Hierarchie möglich, nur binäre Zuweisungen von Merkmalen möglich)}
+\subsection{Grenzen der Formalen Begriffsanalyse}
 
 Die Formale Begriffsanalyse erzeugt semantische Strukturen ausschließlich auf Grundlage der vorhandenen Merkmale sowie der Zuordnung der Merkmale zu den untersuchten Objekten. 
 Naturgemäß ist diese Art der Inhaltserschließung an Grenzen gebunden. 
@@ -296,7 +296,7 @@ Für Kontexte mit geringer Komplexität ist der Aufbau eines hinreichenden Merkm
 Die Domäne der Augenheilkunde ist jedoch sehr umfangreich, so dass eine Festlegung auf eine sowohl minimale als auch vollständige Merkmalsmenge, die die Augenheilkunde abdecken kann nicht so eindeutig lösbar ist, wie bei den natürlichen Zahlen. 
 Um einen dennoch annähernd abdeckenden Merkmalsraum generieren zu können, ist unserer Auffassung nach Domänenwissen erforderlich. 
 
-\subsubsection{Chancen (einfache Struktur, Exploration des Begriffsverbandes)}
+\subsubsection{Chancen der Formalen Begriffsanalyse}
 
 Neben den geschilderten Nachteilen weist die Formale Begriffsanalyse trotzdem entscheidende Vorteile auf, in denen wir viel Potential für die Erschließung des Wörterbuchs der Augenheilkunde sehen. 
 Der binäre Werteraum der Merkmalszuweisungen hält die Komplexität einer Automatisierung der Merkmalszuweisungen relativ gering, da \emph{nur} geprüft werden muss, ob ein Merkmal einem untersuchten Objekt zugewiesen werden kann oder nicht. 
@@ -310,7 +310,7 @@ Beispielsweise können jedem Objekt, dem das Merkmal \emph{Gonioskopie} zugewies
 
 \chapter{Berichtsteil}
 
-\section{Automatisierter Aufbau einer Wissensdatenbank (Extraktion allgemein)}
+\section{Automatisierter Aufbau einer Wissensdatenbank}
 
 Um mit der Formalen Begriffsanalyse beginnen zu können, wurde zunächst eine Menge von Merkmalen benötigt, die den Begriffen im Wörterbuch der Augenheilkunde zugewiesen werden konnten. 
 Ein Begriffsverband als Ergebnis der Formalen Begriffsanalyse stellt die Menge an Begriffen in Bezug zu einer so vordefinierten Menge an Merkmalen. 
@@ -721,7 +721,7 @@ Im Gegensatz zu den ersten Durchläufen der Wikipedia-Extraktion ist die Ausbeut
 Zudem ist der resultierende Begriffsverband deutlich kohärenter als zuvor. 
 Damit kann festgehalten werden, dass diese Methode allein keinen hinreichend aussagekräftigen Begriffsverband für das Wörterbuch generiert hat, jedoch als sinnvolle Ergänzung zu den bereits angewandten Methoden gesehen werden kann. 
 
-\section{Bilden der Begriffsverbände und Visualisierung (unser Script)}
+\section{Bilden der Begriffsverbände und Visualisierung}
 
 \begin{inparaenum}
 \item Begriffsverband eines gewählten Synsets wird aufgebaut - anhand seiner zugewiesenen Merkmale - und mittels eines Graphens visualisiert
@@ -822,7 +822,11 @@ Da man ohnehin nicht um intellektuellen Aufwand beim Aufbau einer Merkmalsmenge 
 Es ist zu erwarten, dass sich auf diese Weise einige der geschilderten Probleme erübrigen werden, wie die Aufnahme nicht relevanter Merkmale oder mangelnde Wiederverwendung der Merkmale auf Objekte aus dem Begriffsverband. 
 Eine Evaluation dieser These kann Gegenstand weiterer Bemühungen sein. 
 
-\subsection{Die Systematisierte Nomenklatur der Medizin (SNOMED)}
+\subsection{Die Systematisierte Nomenklatur der Medizin}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Mein Vorschlag zum Unterkapitel 'Verschiedenes': raus damit!^^ Haben eh schon mehr als genug
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Verschiedenes}
 
