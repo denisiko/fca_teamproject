@@ -70,14 +70,14 @@ Ausgangspunkt dieser Arbeit ist das \href{http://www.zeitzfrankozeitz.de/index.p
 Das Wörterbuch umfasst mittlerweile fast 25.000 händisch gepflegte Einträge aus dem Bereich der Augenheilkunde in 13 (anfänglich 8) Sprachen. 
 Einträge enthalten Erklärungen, Abkürzungen, sowie Übersetzungs- und Synonymverweise, welche mittels eines simplen Suchformulars gefunden werden können. 
 
-Seit 2011 sind sowohl die Funktionen, als auch der Inhalt des Wörterbuchs stetig erweitert worden, was ein weitreichendes Interesse am Wörterbuch mit sich zog - auch im internationalen Raum. 
-Ergebnisse sind neben der nun breiten Sprachunterstützung eine benutzerfreundliche Schnittstelle mit verbesserten Suchfunktionen und ein Bildatlas mit annähernd 2000 Bildern, die vereinzelte Einträge illustrieren. 
+Seit 2011 sind sowohl die Funktionen, als auch der Inhalt des Wörterbuchs stetig erweitert worden.
+Ergebnisse sind, neben der nun breiten Sprachunterstützung, eine benutzerfreundliche Schnittstelle mit verbesserten Suchfunktionen und ein Bildatlas mit annähernd 2000 Bildern, die einige Einträge illustrieren. 
 
 Die Einträge des Wörterbuchs verteilten sich zum Zeitpunkt des Projektbeginns auf ca. 2500 Konzepte, die jeweils unterschiedliche Ausprägungen eines medizinischen Begriffs zusammenfassen (also alle Einträge des Wörterbuchs mit jeweils derselben Bedeutung, wie Synonyme, Übersetzungen und unterschiedliche Schreibweisen desselben Begriffs). 
-In Anlehnung an den bekannten englischsprachigen Thesaurus WordNet werden diese Konzepte - bzw. Mengen an synonymen Termen - im Nachfolgenden \emph{Synsets} genannt. 
+In Anlehnung an den englischsprachigen Thesaurus WordNet werden diese Konzepte - bzw. Mengen von synonymen Termen - im Nachfolgenden \emph{Synsets} genannt. 
 Synsets werden im Wörterbuch intern durch eine eindeutige Kennziffer ausgezeichnet, die das Identifizieren von Bedeutungen sehr einfach macht und damit einen sehr guten Ansatz zum Ausbau der Bedeutungstruktur innerhalb des Wörterbuchs liefert.
 
-\section{Ideen und Zielsetzung (SimuLLda, Formale Begriffsanalyse, lexical gap)}
+\section{Ideen und Zielsetzung}
 
 Ziel des nachfolgend vorgestellten Teamprojekts war es, die Einträge des \emph{Wörterbuchs der Augenheilkunde} zu erweitern um ihre jeweilige Repräsentation als formalen Begriff. 
 Die Synsets des Wörterbuchs bilden im Sinne der Formalen Begriffsanalyse, die nachfolgend einführend erläutert wird, die Menge an Objekten. 
@@ -86,11 +86,15 @@ Die Erweiterung des Wörterbuchs beschäftigt sich also vornehmlich mit der Frag
 Hierzu bieten sich Methoden der Informationsextraktion an, die im Hauptteil der Arbeit erläutert werden. 
 
 Bezüglich der Abdeckung an Synsets im Wörterbuch sind für jede der berücksichtigten Sprachen unterschiedliche Anteile erkennbar. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TODO: Der Satz soll doch eigentlich sagen: Die Synsets im Wörterbuch sind nicht gleichmäßig über vorhandenen Sprachen verteilt.
+%% Vielleicht vereinfachen.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Ein Grund dafür könnte unzureichendes Quellenmaterial bei der Erstellung des Wörterbuchs gewesen sein. 
 Ein anderer Grund könnte sein, dass es bestimmte Begriffe in der einen Sprache gibt und in anderen Sprachen nicht. 
-Einträge mittels formaler Begriffe auszudrücken und damit über deren Merkmale prinzipiell übersetzbar zu machen in Sprachen, in denen es die Bezeichnung nicht gibt, ist eine Idee, die auf die Arbeit von Janssen, 2002 zurückgeht. 
 Solcherlei Lücken, lexical gaps genannt, gibt es im Wörterbuch der Augenheilkunde ebenfalls. 
 Dieses Phänomen kann umso ausgeprägter werden, je spezifischer die Domäne ist, so wie beispielsweise die Augenheilkunde. 
+Einträge mittels formaler Begriffe auszudrücken und damit über deren Merkmale prinzipiell übersetzbar zu machen in Sprachen, in denen es die Bezeichnung nicht gibt, ist eine Idee, die auf die Arbeit von Janssen, 2002 zurückgeht. 
 
 Weitere Probleme, die man mit dem vorgestellten Ansatz gut lösen kann, sind die der Homonymie und Synonymie. 
 Ein Satz oder eine Phrase in zwei unterschiedlichen Sprachen hat (im Idealfall) in beiden Sprachen die selbe Bedeutung, verwendet aber andere Wörter um ihn auszudrücken. 
@@ -174,7 +178,7 @@ jung\\
 \textsc{Hengstfohlen}	&	$\times$	&	$\times$	&&&	$\times$\\
 \bottomrule
 \end{tabular}
-\caption{Nach Janssen, 2002}
+\caption{Beispiel für eine Kreuztabelle. Übernommen aus Janssen (2002). Ins Deutsche übertragen.}
 \end{table}
 
 \begin{table}[h!]
@@ -201,7 +205,7 @@ jung\\
 \textsc{Hengstfohlen}	&	$\times$	&	$\times$	&&&	$\times$\\
 \bottomrule
 \end{tabular}
-\caption{Nach Janssen, 2002}
+\caption{Beispiel für eine Kreuztabelle. Übernommen aus Janssen (2002). Ins Deutsche übertragen. Hervorgehoben sind die Kreuzungspunkte aus den Gegenständen und Merkmalen des Kontextes, die den Begriff \textit{pferd, weiblich} ergeben.}
 \end{table}
 
 \subsection{SIMuLLDA}
@@ -217,6 +221,8 @@ Auf diese Weise kann überbrückt werden, wenn es kein entsprechendes Lexem in d
 Der Ansatz der Arbeit von Janssen diente unserem Projekt als Ausgangspunkt mit Hilfe der Formalen Begriffsanalyse Zuweisungen innerhalb des Wörterbuchs der Augenheilkunde bewerkstelligen zu können. 
 
 \subsubsection{Ordnungsdiagramme}
+
+Ordnungsdiagramme sind graphische Darstellungen mathematischer Halbordnungen. Geläufige Namen sind außerdem noch Liniendiagramm und Hasse-Diagramm.
 
 \begin{figure}[h!]
 \centering
@@ -264,7 +270,7 @@ Ein Objekt mit dem Merkmal \emph{16 mmHg} wäre somit genauso wenig bedeutungsgl
 %% Antwort: Allgemeingültigkeit ist hier das falsche Wort. habs jetzt durch 'Vollständigkeit' ergänzt.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Das deutlich größere Problem besteht jedoch in der Abhängigkeit vom Merkmalsraum. 
-Herkömmlich gebrauchte hierarchisch strukturierte Wissensordnungen, wie ein Thesaurus oder eine Klassifikation, haben oft durch ihren eingrenzenden und definierenden Charakter den Anspruch auf Vollständigkeit, zumindest in ihrem Nutzungskontext. 
+Herkömmlich gebrauchte hierarchisch strukturierte Wissensordnungen, wie ein Thesaurus oder eine Klassifikation, haben oft durch ihren eingrenzenden und definierenden Charakter den Anspruch auf Vollständigkeit in ihrem Nutzungskontext. 
 Die International Classification of Diseases beispielsweise klassifiziert alle bekannten Krankheiten, das Linnesche System alle bekannten Pflanzenarten. 
 In der Formalen Begriffsanalyse kann dieser Anspruch für einen gegebenen Begriffsverband nur geltend gemacht werden, wenn alle relevanten Merkmale im Merkmalsraum vorhanden sind. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -378,7 +384,7 @@ Beispiele hierfür sind
  \emph{--retin--} für Retina oder Netzhaut.
 \end{itemize}
 
-Sofern ein Teilmuster Bestandteil eines Begriffes aus dem Wörterbuch ist wird dem zugehörigen Synset das Merkmal zugewiesen, das aus dem identifizierten Wortteilmusters abgeleitet werden kann. 
+Sofern ein Teilmuster Bestandteil eines Begriffes aus dem Wörterbuch ist wird dem zugehörigen Synset das Merkmal zugewiesen, das aus dem identifizierten Wortteilmuster abgeleitet werden kann. 
 Da keine externen Informationsquellen für diesen Prozess benötigt werden, können die Merkmalszuweisungen direkt auf Datenbankebene per SQL-Befehl ausgeführt werden. 
 Der folgende beispielhafte Programmcode skizziert die Zuweisung des Merkmals mit der ID 101 (Entzündung) an alle Synsets aus dem Wörterbuch, von denen eine ihrer Bezeichnungen den Wortbestandteil \emph{--itis--} enthält: 
 
@@ -405,8 +411,11 @@ Bei diesen Trigrammen handelt es sich um:
 
 \begin{inparaenum}
 \item --dys-- für \emph{illness}
+
 \item --cyt-- für \emph{cell}
+
 \item --myo-- für \emph{muscle}
+
 \item --exo-- für \emph{outside}
 \end{inparaenum}
 
@@ -458,7 +467,7 @@ Weiterhin sind die Kategorien vermerkt, denen der Artikel angehört.
 Die Abstracts wurden aus dem Quelltext gewonnen und der Text ist mit dem Markup der Wikipedia ausgezeichnet. 
 
 Da es unterschiedliche Konventionen bezüglich der Formatierung im Quelltext gibt, sind einige Abstracts unbrauchbar gewesen, da sie im Wesentlichen aus dem Markup einer dem Artikel vorangestellten Infobox (ein Beispiel einer solchen Infobox kann man auf der Seite jedes chemischen Elements betrachten) bestanden und keinerlei Fließtext mehr enthielten. 
-Aus der deutschen Wikipedia konnten auf diese Weise 433 Artikel für die weitere Verwendung extrahiert werden und aus der englischen Wikipedia 731 Artikel, die Mitglieder der Kategorie selbst oder einer Unterkategorie von \emph{Augenheilkunde} oder \emph{Ophthalmology} waren. 
+Aus der deutschen Wikipedia konnten 433 Artikel für die weitere Verwendung extrahiert werden und aus der englischen Wikipedia 731 Artikel, die Mitglieder der Kategorie selbst oder einer Unterkategorie von \emph{Augenheilkunde} oder \emph{Ophthalmology} waren. 
 
 \subsubsection{Vorgehensweise}
 
@@ -511,6 +520,10 @@ Gerade der erste Satz folgt damit so gut wie immer dem Schema, welches exemplari
 %Die Augenheilkunde (Augenmedizin, fachsprachl.: Ophthalmologie, Ophthalmiatrie; von gr. \textomikron\textphi\texttheta\textalpha\textlambda\textmugreek\textomikron\textvarsigma, \emph{Auge}) ist die Lehre von den Erkrankungen und Funktionsstörungen des Sehorgans, deren Anhangsorgane, sowie des Sehsinnes und deren medizinischer Behandlung. 
 \end{description}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Der folgende Satz ist nicht richtig! Die Gramme wurden daraufhin überprüft, ob
+%% es einen Wikipedia-Eintrag für sie gibt, und wenn ja als Merkmal genommen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Die Überlegungen zur Erzeugung von Merkmalszuweisungen wurden daher darauf konzentriert, aus den ersten beiden Sätzen des Abstracts eine Zerlegung in Wort-n-Gramme der Längen 2 und 3 zu erstellen und zu versuchen, diese mit den entsprechenden n-Grammen, die aus den Einträgen des Wörterbuchs der Augenheilkunde erzeugt wurden, in Verbindung zu setzen. 
 Der Grund aus dem die ersten beiden Sätze und nicht nur der erste Satz herangezogen wurden ist, dass bei manchen Artikeln der erste Satz nur aus einer etymologischen Einordnung besteht (ähnlich dem Inhalt der Klammer im Beispiel oben) ohne weitere Erklärung des Begriffs. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -518,7 +531,7 @@ Der Grund aus dem die ersten beiden Sätze und nicht nur der erste Satz herangez
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Die Zerlegung in Wort-n-Gramme, im Unterschied zu Zeichen-n-Grammen, würde allerdings zu einer Vielzahl Wortformen gleichen Wortstamms führen.
 Für die Zwecke unseres Ansatzes ist aber die Information bezüglich Genus, Numerus, Kasus, Tempus usw. bei gleichem Wortstamm nicht von Bedeutung. 
-Aus diesem Grund wurden die Abstracts vorher mit Stemming auf ihren Wortstamm zurückgeführt (im Rahmen der Möglichkeiten des verwendeten Stemmers). 
+Aus diesem Grund wurden die Worte der Abstracts vorher mit Stemming auf ihren Wortstamm zurückgeführt (im Rahmen der Möglichkeiten des verwendeten Stemmers). 
 Hierzu wurde die ANSI-C-Implementation des Porter-Stemmers verwendet, jeweils in Standardeinstellung für die englische Sprache und mit angepassten Mustern für die deutsche Sprache (die angepassten Muster sind Teil des Programms). 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% ANMERKUNG Der Halbsatz nach dem Doppelpunkt macht nicht viel Sinn (in Tags namens?)
@@ -670,7 +683,7 @@ is a large lens that rests on the sclera and creates a tear-filled vault over th
 \end{lstlisting}
 
 Dadurch, dass bei der Verarbeitung in Schritt 3 die Bestandteile des Artikelnamens `scleral' und `lens' herausgefiltert werden, bleibt nicht mehr viel Nützliches übrig. 
-Zu Überlegen ist, ob man bei einer Unterschreitung einer Anzahl Ergebniszeilen, den oder die Begriffe aus denen sich der Artikel zusammensetzt, hinzunimmt. 
+Zu überlegen ist, ob man bei einer Unterschreitung einer Anzahl Ergebniszeilen, den oder die Begriffe aus denen sich der Artikel zusammensetzt, hinzunimmt. 
 Allerdings geben die beiden Kategorien hinreichend Information um `scleral lens' zumindest einordnen zu können. 
 
 \subsubsection{Ergebnisse}
