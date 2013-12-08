@@ -70,31 +70,27 @@ Ausgangspunkt dieser Arbeit ist das \href{http://www.zeitzfrankozeitz.de/index.p
 Das Wörterbuch umfasst mittlerweile fast 25.000 händisch gepflegte Einträge aus dem Bereich der Augenheilkunde in 13 (anfänglich 8) Sprachen. 
 Einträge enthalten Erklärungen, Abkürzungen, sowie Übersetzungs- und Synonymverweise, welche mittels eines simplen Suchformulars gefunden werden können. 
 
-Seit 2011 sind sowohl die Funktionen, als auch der Inhalt des Wörterbuchs stetig erweitert worden.
-Ergebnisse sind, neben der nun breiten Sprachunterstützung, eine benutzerfreundliche Schnittstelle mit verbesserten Suchfunktionen und ein Bildatlas mit annähernd 2000 Bildern, die einige Einträge illustrieren. 
+Seit 2011 sind sowohl die Funktionen, als auch der Inhalt des Wörterbuchs stetig erweitert worden, was ein weitreichendes Interesse am Wörterbuch mit sich zog - auch im internationalen Raum. 
+Ergebnisse sind neben der nun breiten Sprachunterstützung eine benutzerfreundliche Schnittstelle mit verbesserten Suchfunktionen und ein Bildatlas mit annähernd 2000 Bildern, die vereinzelte Einträge illustrieren. 
 
 Die Einträge des Wörterbuchs verteilten sich zum Zeitpunkt des Projektbeginns auf ca. 2500 Konzepte, die jeweils unterschiedliche Ausprägungen eines medizinischen Begriffs zusammenfassen (also alle Einträge des Wörterbuchs mit jeweils derselben Bedeutung, wie Synonyme, Übersetzungen und unterschiedliche Schreibweisen desselben Begriffs). 
-In Anlehnung an den englischsprachigen Thesaurus WordNet werden diese Konzepte - bzw. Mengen von synonymen Termen - im Nachfolgenden \emph{Synsets} genannt. 
+In Anlehnung an den bekannten englischsprachigen Thesaurus WordNet werden diese Konzepte - bzw. Mengen an synonymen Termen - im Nachfolgenden \emph{Synsets} genannt. 
 Synsets werden im Wörterbuch intern durch eine eindeutige Kennziffer ausgezeichnet, die das Identifizieren von Bedeutungen sehr einfach macht und damit einen sehr guten Ansatz zum Ausbau der Bedeutungstruktur innerhalb des Wörterbuchs liefert.
 
-\section{Ideen und Zielsetzung}
+\section{Ideen und Zielsetzung (SimuLLda, Formale Begriffsanalyse, lexical gap)}
 
-Ziel des nachfolgend vorgestellten Teamprojekts war es, die Einträge des \emph{Wörterbuchs der Augenheilkunde} zu erweitern um ihre jeweilige Repräsentation als formalen Begriff. 
+Ziel des nachfolgend vorgestellten Teamprojekts war es, die Einträge des \emph{Wörterbuchs der Augenheilkunde} zu erweitern um ihre jeweilige Repräsentation als formalen Begriff, um die Einträge auf diese Weise stärker miteinander zu verknüpfen und schließlich ein \emph{semantisches Netz} im Wörterbuch zu etablieren. 
 Die Synsets des Wörterbuchs bilden im Sinne der Formalen Begriffsanalyse, die nachfolgend einführend erläutert wird, die Menge an Objekten. 
 Um diese Objekte repräsentieren zu können werden beschreibende Merkmale benötigt. 
 Die Erweiterung des Wörterbuchs beschäftigt sich also vornehmlich mit der Frage, wie diese Merkmale erzeugt und den entsprechenden Objekten, den Synsets, zugewiesen werden. 
 Hierzu bieten sich Methoden der Informationsextraktion an, die im Hauptteil der Arbeit erläutert werden. 
 
 Bezüglich der Abdeckung an Synsets im Wörterbuch sind für jede der berücksichtigten Sprachen unterschiedliche Anteile erkennbar. 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% TODO: Der Satz soll doch eigentlich sagen: Die Synsets im Wörterbuch sind nicht gleichmäßig über vorhandenen Sprachen verteilt.
-%% Vielleicht vereinfachen.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Ein Grund dafür könnte unzureichendes Quellenmaterial bei der Erstellung des Wörterbuchs gewesen sein. 
 Ein anderer Grund könnte sein, dass es bestimmte Begriffe in der einen Sprache gibt und in anderen Sprachen nicht. 
+Einträge mittels formaler Begriffe auszudrücken und damit über deren Merkmale prinzipiell übersetzbar zu machen in Sprachen, in denen es die Bezeichnung nicht gibt, ist eine Idee, die auf die Arbeit von Janssen, 2002 zurückgeht. 
 Solcherlei Lücken, lexical gaps genannt, gibt es im Wörterbuch der Augenheilkunde ebenfalls. 
 Dieses Phänomen kann umso ausgeprägter werden, je spezifischer die Domäne ist, so wie beispielsweise die Augenheilkunde. 
-Einträge mittels formaler Begriffe auszudrücken und damit über deren Merkmale prinzipiell übersetzbar zu machen in Sprachen, in denen es die Bezeichnung nicht gibt, ist eine Idee, die auf die Arbeit von Janssen, 2002 zurückgeht. 
 
 Weitere Probleme, die man mit dem vorgestellten Ansatz gut lösen kann, sind die der Homonymie und Synonymie. 
 Ein Satz oder eine Phrase in zwei unterschiedlichen Sprachen hat (im Idealfall) in beiden Sprachen die selbe Bedeutung, verwendet aber andere Wörter um ihn auszudrücken. 
@@ -178,7 +174,7 @@ jung\\
 \textsc{Hengstfohlen}	&	$\times$	&	$\times$	&&&	$\times$\\
 \bottomrule
 \end{tabular}
-\caption{Beispiel für eine Kreuztabelle. Übernommen aus Janssen (2002). Ins Deutsche übertragen.}
+\caption{Nach Janssen, 2002}
 \end{table}
 
 \begin{table}[h!]
@@ -205,7 +201,7 @@ jung\\
 \textsc{Hengstfohlen}	&	$\times$	&	$\times$	&&&	$\times$\\
 \bottomrule
 \end{tabular}
-\caption{Beispiel für eine Kreuztabelle. Übernommen aus Janssen (2002). Ins Deutsche übertragen. Hervorgehoben sind die Kreuzungspunkte aus den Gegenständen und Merkmalen des Kontextes, die den Begriff \textit{pferd, weiblich} ergeben.}
+\caption{Nach Janssen, 2002}
 \end{table}
 
 \subsection{SIMuLLDA}
@@ -221,8 +217,6 @@ Auf diese Weise kann überbrückt werden, wenn es kein entsprechendes Lexem in d
 Der Ansatz der Arbeit von Janssen diente unserem Projekt als Ausgangspunkt mit Hilfe der Formalen Begriffsanalyse Zuweisungen innerhalb des Wörterbuchs der Augenheilkunde bewerkstelligen zu können. 
 
 \subsubsection{Ordnungsdiagramme}
-
-Ordnungsdiagramme sind graphische Darstellungen mathematischer Halbordnungen. Geläufige Namen sind außerdem noch Liniendiagramm und Hasse-Diagramm.
 
 \begin{figure}[h!]
 \centering
