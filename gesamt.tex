@@ -535,29 +535,14 @@ Gerade der erste Satz folgt damit so gut wie immer dem Schema, welches exemplari
 %Die Augenheilkunde (Augenmedizin, fachsprachl.: Ophthalmologie, Ophthalmiatrie; von gr. \textomikron\textphi\texttheta\textalpha\textlambda\textmugreek\textomikron\textvarsigma, \emph{Auge}) ist die Lehre von den Erkrankungen und Funktionsstörungen des Sehorgans, deren Anhangsorgane, sowie des Sehsinnes und deren medizinischer Behandlung. 
 \end{description}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Der folgende Satz ist nicht richtig! Die Gramme wurden daraufhin überprüft, ob
-%% es einen Wikipedia-Eintrag für sie gibt, und wenn ja als Merkmal genommen
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Satz nachfolgend abgeändert
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Die Überlegungen zur Erzeugung von Merkmalszuweisungen wurden daher darauf konzentriert, aus den ersten beiden Sätzen des Abstracts eine Zerlegung in Wort-n-Gramme (Wortfolgen der Länge n) der Längen 2 und 3 zu erstellen, um mit diesen mittels Zeichenkettenvergleich weitere Titel von Wikipedia-Artikeln aus dem Dump zu identifizieren.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% SATZVORSCHLAG (hier ergänzend einfügen): Auf diese Weise identifizierte Begriffe, zu denen ein Wikipediaartikel existiert, bilden Merkmale, die dem Synset, das dem untersuchten Wikipediaartikel entspricht, zugewiesen werden. Wenn beispielsweise die Wortfolge 'Diabetes mellitus' im Abstract des Artikels 'Diabetische Rethinopathie' gefunden wurde, dann wird das Merkmal Diabetes mellitus dem Synset diabetische Rethinopathie zugeordnet.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+Die Überlegungen zur Erzeugung von Merkmalszuweisungen wurden daher darauf konzentriert, aus den ersten beiden Sätzen des Abstracts eine Zerlegung in Wort-n-Gramme der Längen 2 und 3 zu erstellen, um mit diesen mittels Zeichenkettenvergleich weitere Titel von Wikipedia-Artikeln aus dem Dump zu identifizieren.
+Auf diese Weise identifizierte Begriffe, zu denen ein Wikipediaartikel existiert, bilden Merkmale, die dem Synset, das dem untersuchten Wikipediaartikel entspricht, zugewiesen werden. 
+Wenn beispielsweise die Wortfolge \textit{Diabetes mellitus} im Abstract des Artikels 'Diabetische Retinopathie' gefunden wurde, dann wird das Merkmal \textit{Diabetes mellitus} dem Synset 'diabetische Retinopathie' zugeordnet.
 Der Grund aus dem die ersten beiden Sätze und nicht nur der erste Satz herangezogen wurden ist, dass bei manchen Artikeln der erste Satz nur aus einer etymologischen Einordnung besteht (ähnlich dem Inhalt der Klammer im Beispiel oben) ohne weitere Erklärung des Begriffs. 
-Die Zerlegung in Wort-n-Gramme, im Unterschied zu Zeichen-n-Grammen, würde allerdings zu einer Vielzahl Wortformen gleichen Wortstamms führen.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Nachfolgendene 2 Sätze geändert
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Die Zerlegung in Wort-n-Gramme, im Unterschied zu Zeichen-n-Grammen, würde stattdessen zu einer Vielzahl Wortformen gleichen Wortstamms führen.
 Für die Zwecke unseres Ansatzes ist aber die Information bezüglich Genus, Numerus, Kasus, Tempus usw. bei gleichem Wortstamm nicht von Bedeutung, da Artikeltitel der Wikipedia unflektiert und meist im Nominativ Singular bzw. Infinitiv Präsens stehen.
 Aus diesem Grund wurden die Worte der Abstracts vorher mit Stemming auf ihren Wortstamm zurückgeführt (im Rahmen der Möglichkeiten des verwendeten Stemmers), um ein besseres Matching auf vorhandene Wikipediaartikel-Titel zu ermöglichen.
 Hierzu wurde die ANSI-C-Implementation des Porter-Stemmers verwendet, jeweils in Standardeinstellung für die englische Sprache und mit angepassten Mustern für die deutsche Sprache (die angepassten Muster sind Teil des Programms). 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% ANMERKUNG Der Halbsatz nach dem Doppelpunkt macht nicht viel Sinn (in Tags namens?)
-%% Fixed
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Die resultierende Liste von n-Grammen je Artikel wurde zusammen mit dem Artikelnamen in einer Pseudo-XML-Notation abgespeichert: die n-Gramme wurden in Tags namens \textit{bigram} und \textit{trigram} gespeichert ohne sich weiter mit einer geeigneten Document Type Definition aufzuhalten. 
 Die Ketten sollten aus der Datei nur gut extrahierbar sein. 
 
@@ -571,7 +556,7 @@ In jedem Fall wurde aber darauf geachtet, die Schritte so zu wählen, dass sie a
 \item Shell-Skript für den Einsatz des Porter-Stemmers und anschließendes Speichern. 
 Dieser Schritt geht vollautomatisch und bedarf keiner weiteren Überprüfung oder Korrektur.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Nachfolgendenen 2 Punkte geändert
+%% Nachfolgende 2 Punkte geändert
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item PHP-Skript für den Import der XML-Daten in die Datenbank, sowie Abgleich der Wort-Gramme mit Artikeltiteln und Speichern der Ergebnisse.
 
@@ -808,31 +793,38 @@ Im Hinblick auf die praktische Verwendung ist der erstgenannte Ansatz mit dem ma
 
 \subsection{Vorgeben des Merkmalsraums}
 
-Wie bereits herausgearbeitet wurde ist die automatisierte Erzeugung von Merkmalen äußerst problematisch gewesen und war dadurch gekennzeichnet, dass an vielen Stellen händisch eingegriffen werden musste, um einen aussagekräftigen formalen Begriffsverband zu gewährleisten. 
+Die Merkmalsmenge einzuschränken und mit unterschiedlich großen Mengen zu experimentieren, kann weitere Erkenntnisse erbringen.
+Dieser Ansatz ist aber noch weiter zu verschärfen, indem man die zu verwendenden Merkmale selbst vorgibt und den Zuweiungsschritt auf das Zuweisen von extrahierten Merkmalen zu vorher festgelegten verschiebt.
+
+Wie bereits geschildert wurde, ist die automatisierte Erzeugung von Merkmalen äußerst problematisch gewesen und war dadurch gekennzeichnet, dass an vielen Stellen manuell eingegriffen werden musste, um einen aussagekräftigen formalen Begriffsverband zu erzeugen. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TODO: nächster Satz. 1. Welche Literatur? Hinweis vielleicht weglassen. 2. Tempus zwischen 'ausgesucht wurden, ' und 'möchte.'.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Dadurch ist der Merkmalsraum in seiner Struktur nicht so, wie man ihn aus der Literatur kennt, wo die Merkmale nach bestimmten Aspekten ausgesucht wurden, mit denen man die Objekte erschließen möchte.
 
 Im Beispiel nach Janssen aus Tabelle XXX sind die Merkmale so gewählt, dass sie zur Kennzeichnung der Bedeutungen der einzelnen Bezeichnungen für Pferde herangezogen werden können und daher auch Sinn ergeben, nämlich Geschlecht und Alter.
-Bei der automatisierten Extraktion von Merkmalen aus externen Wissensquellen, wie der Wikipedia, ist es nun aber der Fall, dass mit hoher Wahrscheinlichkeit zu allgemeine Merkmale entstehen, wie Tier, Reittier oder Huf, oder im schlimmsten Fall Merkmale, die direkt gar nicht in das semantische Umfeld der untersuchten Objekte passen oder gar überhaupt nichts mit ihnen gemein haben, weil in der Wissensquelle bei der Erklärung des Begriffs zu weit ausgeholt wird (z.B. bei der Etymologie).
-Das größte Problem stellt jedoch die Verarbeitung natürlicher Sprache dar, insbesondere die Homonymie und Unschärfe von Lexemen sowie unregelmäßige Flexionen.
+Bei der automatisierten Extraktion von Merkmalen aus externen Wissensquellen, wie der Wikipedia, entstehen mit hoher Wahrscheinlichkeit zu allgemeine Merkmale wie Tier, Reittier oder Huf.
+Im schlimmsten Fall sind es Merkmale, die gar nicht unmittelbar in das Bedeutungsumfeld der untersuchten Objekte passen oder nichts mit ihnen gemeinsam haben, weil in der Wissensquelle bei der Erklärung des Begriffs zu weit ausgeholt wird (beispielsweise, wenn im ersten Satz im Wesentlichen die Etymologie geklärt wird.).
 
 Daher schlagen wir vor, formale Kontexte zusätzlich auch unter Verwendung eines vorgegebenen Merkmalsraums zu bilden, um anschließend Methoden für die automatisierte Merkmalszuweisung zu erproben.
 Den Aufbau eines solchen Merkmalsraumes sollte unbedingt ein Fachkundiger - in unserem Fall ein Augenarzt - durchführen oder zumindest überwachen. 
-Hierfür sollten möglichst allgemeine, aber dennoch spezifizierende Merkmale verwendet werden, welche Synsets nach Aspekten unterscheiden bzw. gruppieren, die sehr gehäuft in der Domäne der Augenheilkunde auftreten und in der Betrachtung eines Fachkundigen Relevanz haben (zum Beispiel Krankheit, Organ, Behandlungsmethode, diabetisch, usw.). 
+Hierfür sollten möglichst allgemeine, aber dennoch günstig die Domäne abgrenzende, Merkmale verwendet werden.
+Solcherlei Synsets sollten nach Aspekten unterscheiden bzw. gruppieren, die sehr gehäuft in der Domäne der Augenheilkunde auftreten und in der Betrachtung eines Fachkundigen Relevanz haben (zum Beispiel Krankheit, Organ, Behandlungsmethode, diabetisch, usw.). 
 Gründe dafür sind:
 \begin{itemize}
 \item die automatisierte Merkmalsgenerierung ist problematisch, da oft viel Ballast zustande kommt (gerade bei Methoden, die auf die linguistische Verarbeitung von Texten abzielt)
 \item die Relevanz der extrahierten Merkmale ist nicht immer gegeben (möchte man wirklich nach diesem Merkmal unterscheiden?)
 \item je größer der Merkmalsraum, desto schwieriger ist es, diesen automatisiert mit Merkmalszuweisungen zu füllen, um einen aussagekräftigen formalen Kontext zu generieren
-\item bei Erstellung des Merkmalraums mit intellektuellem Aufwand und mithilfe von Fachwissen hat man deutlich mehr Kontrolle über die Bildung des Begriffverbandes
+\item bei Erstellung des Merkmalraums mit intellektuellem Aufwand und mithilfe von Fachwissen hat man deutlich mehr Kontrolle über die Bildung des Begriffsverbandes
 \end{itemize}
-Da man ohnehin nicht um intellektuellen Aufwand beim Aufbau einer Merkmalsmenge herum kommt erscheint es nicht abwegig, im Vorhninein die Merkmale selbst zu bestimmen.
-Es ist zu erwarten, dass sich auf diese Weise einige der geschilderten Probleme erübrigen werden, wie die Aufnahme nicht relevanter Merkmale oder mangelnde Wiederverwendung der Merkmale auf Objekte aus dem Begriffsverband. 
-Eine Evaluation dieser These kann Gegenstand weiterer Bemühungen sein. 
+Da sich ein gewisser intellektueller Aufwand beim Aufbau einer Merkmalsmenge nicht vermeiden lässt, erscheint es akzeptabel, im Vorhinein die Merkmale selbst zu bestimmen.
+Es ist zu erwarten, dass sich auf diese Weise einige der geschilderten Probleme mindern lassen, wie die Aufnahme nicht relevanter Merkmale oder mangelnde Wiederverwendung der Merkmale auf Objekte aus dem Begriffsverband. 
 
 \subsection{Die Systematisierte Nomenklatur der Medizin}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Mein Vorschlag zum Unterkapitel 'Verschiedenes': raus damit!^^ Haben eh schon mehr als genug
+%% Das sehe ich genauso.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Verschiedenes}
