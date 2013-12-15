@@ -13,6 +13,7 @@
 \usepackage{listings}
 \usepackage{paralist}
 %\usepackage{textgreek}
+\usepackage[babel, german=quotes]{csquotes}
 
 \usepackage{enumitem}
 \setlist[itemize,1]{label=--}
@@ -354,7 +355,7 @@ Wir konnten während unserer Arbeit am Wörterbuch folgende Kategorien identifiz
 \end{enumerate}
 
 Da vor allem Erkrankungen des Auges einen Großteil der Synsets ausmachen, schien es vielversprechend entsprechende externe Quellen nach Merkmalen zu durchsuchen. 
-Ausgehend von dieser Überlegung wurde zunächst die deutsche Ausgabe der `Internationalen Klassifikation für Krankheiten' (vollständig: International Statistical Classification of Diseases and Related Health Problems, nachfolgend ICD-10) in der Version des Jahres 2011 zur Merkmalsextraktion herangezogen. 
+Ausgehend von dieser Überlegung wurde zunächst die deutsche Ausgabe der \enquote{Internationalen Klassifikation für Krankheiten} (vollständig: International Statistical Classification of Diseases and Related Health Problems, nachfolgend ICD-10) in der Version des Jahres 2011 zur Merkmalsextraktion herangezogen. 
 Die Tatsache, dass die komplette Klassifikation online in HTML-Form zugänglich ist und Einträge der Klassifikation hierarchisch nach anatomischer Lage geordnet sind, lässt die ICD-10 als ideale Wissensquelle für unsere Zwecke erscheinen. 
 
 Die automatisierte Merkmalsextraktion setzt am Aufbau der ICD-10-Notationen an. 
@@ -463,10 +464,10 @@ Der Grund dafür ist, dass der Zweck einer Klassifikation genau ist, möglichst 
 
 In der Wikipedia wird durch Zuweisung eines Artikels einer oder mehreren Kategorien eine Klassifikation erzeugt. 
 In erster Linie dient dies dazu, thematische Bereiche zu erstellen und weniger eine Begriffsordnung zu schaffen. 
-Daher gibt es, neben einer Begriffsordnung eher zurechenbaren Kategorien wie `Medizin', `Medizinisches Fachgebiet' oder `Augenheilkunde' auch Sammelkategorien wie `Liste Nationalparks'. 
+Daher gibt es, neben einer Begriffsordnung eher zurechenbaren Kategorien wie \enquote{Medizin}, \enquote{Medizinisches Fachgebiet} oder \enquote{Augenheilkunde} auch Sammelkategorien wie \enquote{Liste Nationalparks}. 
 Die Wikipedia hat damit Eigenschaften einer hierarchischen Klassifikation und solche einer Facettenklassifikation. 
 Die Wahl eines geeigneten Kategoriebegriffs für einen Artikel ist dem jeweiligen Autor freigestellt, er kann auch einen neuen Kategoriebegriff wählen. 
-In der Praxis gibt es aber Empfehlungen für die Eigenschaften und die korrekte Wahl eines geeigneten Kategoriebegriffs und über die Zeit bildet sich dadurch eine brauchbare (das heißt: nicht zu diverse) Begriffsordnung heraus, weil darauf geachtet wird, dass es beispielsweise nur eine Kategorie `Liste Nationalparks' gibt, und nicht zusätzlich noch `Liste der Nationalparks', `Liste aller Nationalparks' und ähnlichen Abweichungen. 
+In der Praxis gibt es aber Empfehlungen für die Eigenschaften und die korrekte Wahl eines geeigneten Kategoriebegriffs und über die Zeit bildet sich dadurch eine brauchbare (das heißt: nicht zu diverse) Begriffsordnung heraus, weil darauf geachtet wird, dass es beispielsweise nur eine Kategorie \enquote{Liste Nationalparks} gibt, und nicht zusätzlich noch \enquote{Liste der Nationalparks}, \enquote{Liste aller Nationalparks} und ähnlichen Abweichungen. 
 Eines der Probleme dabei ist, dass nicht sichergestellt ist, dass eine Seite nicht einer Kategorie und einer Oberkategorie dieser Kategorie gleichzeitig eingeordnet wird. 
 Dadurch wird es für die automatische Erschließung eines Kategoriebaums allerdings erforderlich, auf diese Weise doppelt gesammelte Artikel zu eliminieren. 
 Insbesondere ist darauf zu achten, dass wenn den Kategorien-Tags automatisiert gefolgt wird um weitere Artikel zu erschließen, bereits besuchte Kategorien zu ignorieren, um Schleifenbildung zu vermeiden. 
@@ -488,7 +489,7 @@ Die Vorgehensweise war wie folgt:
 \begin{inparaenum}
 \item Download des Abstract-Dumps. Für die deutsche Wikipedia 1.19 GB und für die englische Wikipedia 3.15 GB Dateigröße.
 
-\item Ermitteln der Artikelnamen in den Unterkategorien der Kategorien `Augenheilkunde' bzw. `Ophthalmology'. 
+\item Ermitteln der Artikelnamen in den Unterkategorien der Kategorien \enquote{Augenheilkunde} bzw. \enquote{Ophthalmology}. 
 Dieser Schritt wurde noch manuell unter Verwendung des Kategorie-Browsers auf der Wikipedia-Hauptseite durchgeführt. 
 
 \item Extraktion der Abstracts durch Suche nach den Artikelnamen. 
@@ -500,8 +501,8 @@ Für wiederholte Aufgaben dieser Art ist eine Einarbeitung in XSLT aber zu empfe
 
 \item In den Abstracts befinden sich die Kategorie-Tags, die wiederum dem Artikelnamen zugewiesen werden. 
 Allerdings fanden sich auch mehrere hundert Kategorien, die lediglich der Verwaltung der Wikipedia dienen, und die vorher nicht aufgefallen waren, weil sie bei der Anzeige im Browser unterdrückt werden. 
-Ein allgemeines Beispiel dafür ist die Kategorie `Articles needing attention', die selbst wiederum mehrere hundert Unterkategorien enthält (unter anderem zu der Zeit `Medical Articles needing attention'). 
-Außerdem gibt es Sammelkategorien der Art `Accuracy disputes from August 2009'. 
+Ein allgemeines Beispiel dafür ist die Kategorie \enquote{Articles needing attention}, die selbst wiederum mehrere hundert Unterkategorien enthält (unter anderem zu der Zeit \enquote{Medical Articles needing attention}). 
+Außerdem gibt es Sammelkategorien der Art \enquote{Accuracy disputes from August 2009}. 
 Je nachdem wie lange der Dissens bezüglich eines Themas schwelt sind genau so viele Kategorien dieses Typs einem Artikel zugewiesen, wie Monate vergangen sind. 
 Obwohl viele dieser Kategorien, einmal identifiziert, durch reguläre Ausdrücke gut zu filtern waren, war es doch ein erheblicher manueller Aufwand, der aber im Wiederholungsfall automatisierbar ist. \end{inparaenum}
 
@@ -596,16 +597,16 @@ Im Frühjahr 2012 wurde das API für Anfragen (query.php) der Wikipedia stark ü
 Insbesondere die Ausgabe der Inhalte als reiner Text, frei von Wiki-Markup, stellte eine erhebliche Verbesserung der Möglichkeiten der maschinellen Weiterverarbeitung dar. 
 
 Das API bietet seitdem sogar die Möglichkeit eine beliebige Anzahl von Sätzen, gezählt von Beginn des Artikels an, auszugeben. 
-Allerdings scheitert das gelegentlich daran, dass das Kriterium für das Ende eines Satzes allein das Zeichen für den Punkt ist, so dass Sätze bereits nach `Dr.', `Prof.' und `et al.' enden. 
+Allerdings scheitert das gelegentlich daran, dass das Kriterium für das Ende eines Satzes allein das Zeichen für den Punkt ist, so dass Sätze bereits nach \enquote{Dr.}, \enquote{Prof.} und \enquote{et al.} enden. 
 Für diese Fälle musste der restliche erste Satz manuell geholt werden. 
-Da die Ansätze lediglich die Kategorien und später die gestemmten, stoppwortbereinigten und zu Wort-n-Grammen reduzierten ersten Sätze zusammen mit den Kategorien zu verwenden keinen Erfolg brachten, sollte untersucht werden, ob möglicherweise schon die `merkmalsenthaltenden' Teile des ersten Satzes genügen, um bessere Merkmale zu erhalten. 
+Da die Ansätze lediglich die Kategorien und später die gestemmten, stoppwortbereinigten und zu Wort-n-Grammen reduzierten ersten Sätze zusammen mit den Kategorien zu verwenden keinen Erfolg brachten, sollte untersucht werden, ob möglicherweise schon die \enquote{merkmalsenthaltenden} Teile des ersten Satzes genügen, um bessere Merkmale zu erhalten. 
 Dazu sollten Nomen und Adjektive des ersten Satzes gesammelt und als Merkmale zugewiesen werden. 
 Die Nomen sollten in erster Linie dazu dienen, Überschneidungen mit anderen Begriffen zu begünstigen. 
-Von den Adjektiven wurde sich erhofft, auf einer kleinen Menge beschränkt zu bleiben, die zum Beispiel nur 
+Von den Adjektiven wurde sich erhofft, auf einer kleinen Menge beschränkt zu bleiben, die nur 
 
 \begin{itemize}
-\item Lageinformation wie in der Anatomie, wie zum Beispiel `vorne, hinter, über, in, teilt, beinhaltet' und
-\item Bezeichnungen aus dem näheren Umfeld von Krankheiten. wie zum Beispiel `fiebrig, geschwollen, eiternd'
+\item Lageinformation ähnlich jenen in der Anatomie, wie zum Beispiel \textit{vorne, hinter, über, in, teilt, beinhaltet} und
+\item Bezeichnungen aus dem näheren Umfeld von Krankheiten, wie zum Beispiel \textit{fiebrig, geschwollen, eiternd}
 \end{itemize}
 
 und ähnlichem umfasst. 
@@ -613,8 +614,8 @@ Die Erwartung war, in größerer Menge die Überschneidungen in der Merkmalsmeng
 
 Wie bereits erwähnt, ist der erste Satz eines enzyklopädischen Artikels im Grunde immer identisch aufgebaut. 
 Es findet sich darin der Begriff, der Gegenstand des Artikels ist, selbst. 
-Weiterhin adjektivische Elemente, die den Begriff einordnen in den Rahmen der durch die eine hierarchische Relation implizierende Wendungen `ist ein', `ist der/die/das' und ähnliche gesteckt wird. 
-Ein Beispiel dafür ist der erste Satz des Artikels \emph{Hornhaut}: 
+Weiterhin adjektivische Elemente, die den Begriff einordnen in den Rahmen der durch die eine hierarchische Relation implizierende Wendungen \textit{ist ein}, \textit{ist der/die/das} und ähnliche gesteckt wird. 
+Ein Beispiel dafür ist der erste Satz des Artikels \enquote{Hornhaut}: 
 
 \begin{quote}
 Die Hornhaut (lateinisch Cornea, eingedeutscht auch Kornea, griechisch keratos) ist der glasklare, von Tränenflüssigkeit benetzte, gewölbte vordere Teil der äußeren Augenhaut. 
@@ -627,12 +628,12 @@ Die Wahrscheinlichkeit, einerseits möglichst treffende Begriffe zu finden und a
 
 Anders als bei der Extraktion aus dem Dump wurden die Seiten von einem Shell-Skript aus mit \emph{wget} geholt und mit den geeigneten Teilen der zuvor verwendeten Skripte sofort weiterverarbeitet. 
 Für das Part-of-Speech-Tagging wurde der \emph{TreeTagger} von Helmut Schmid von der Universität Stuttgart verwendet. 
-Er enthält sogenannte `parameter files' für eine Vielzahl von Sprachen. 
+Er enthält sogenannte \enquote{parameter files} für eine Vielzahl von Sprachen. 
 Vor allem aber ist das Programm ohne große Konfiguration recht schnell und verarbeitet Standarddatenströme der Unix-Shell, so dass es sich gut in Shell-Skripten verwenden lässt. 
 Die genaue Vorgehensweise war: 
 
 \begin{inparaenum}
-\item Ausgehend von der Kategorie `Eye' rekursiv alle ersten Sätze aller Artikel in allen Unterkategorien holen. 
+\item Ausgehend von der Kategorie \enquote{Eye} rekursiv alle ersten Sätze aller Artikel in allen Unterkategorien holen. 
 Bei Verwendung des API ist die Standardeinstellung, dass die oben erwähnten Verwaltungskategorien nicht beachtet werden. 
 Man erhält also sofort eine wesentliche fehlerfreiere Menge von Artikeln. 
 Auf diese Weise wurden 118 Kategorien und 2415 von 2841 möglichen Artikeln geholt. 
@@ -642,10 +643,10 @@ Das ist notwendig, weil auch die Wikipedia-Server zu hochfrequente Verbindungsan
 Um die Server zu schonen und die Zugriffe nicht so auffällig zu machen, wurden die Zugriffe unter anderem auf einen Zufallswert zwischen einer und 60 Sekunden eingestellt, die Download-Rate auf 5 Kb/s gedrosselt, und wie gesagt die Anzahl der Verbindungsversuche je Artikel auf fünf beschränkt. 
 
 Etwa 1300 der 2415 Artikel sind Namen natürlicher Personen. 
-Der Grund dafür ist, dass ein ganzer Bereich unterhalb der Kategorie `Eye' berühmte Augenärzte und Wissenschaftler der Augenheilkunde beinhaltet {[}Grafik{]}.
-Ein anderer Bereich hingegen gehört zu Unterkategorien der Kategorie `blindness' und dort tauchen sämtliche Personenartikel in der Wikipedia auf, deren Gegenstand auch ein blinder Mensch ist (diese umfassen unter anderem Kategorien wie `blind academics', `fictional blind characters' oder `sportspeople with a vision impairment'\footnote{In dieser Katgorie finden sich tatsächlich auch Leute, die nicht blind sind. Das sind zum Beispiel Personen, die sich für die Belange von Blinden verdient gemacht haben.}. 
+Der Grund dafür ist, dass ein ganzer Bereich unterhalb der Kategorie \enquote{Eye} berühmte Augenärzte und Wissenschaftler der Augenheilkunde beinhaltet {[}Grafik{]}.
+Ein anderer Bereich hingegen gehört zu Unterkategorien der Kategorie \enquote{blindness}\footnote{In dieser Katgorie finden sich tatsächlich auch Leute, die nicht blind sind. Das sind zum Beispiel Personen, die sich um die Belange von Blinden verdient gemacht haben.} und dort tauchen sämtliche Personenartikel in der Wikipedia auf, deren Gegenstand auch ein blinder Mensch ist (diese umfassen unter anderem Kategorien wie \enquote{blind academics}, \enquote{fictional blind characters} oder \enquote{sportspeople with a vision impairment}. 
 Insbesondere der Teil der Personen der Wissenschaftler und Ärzte umfasst, ist vermutlich nicht unmittelbar als Ballast anzusehen. 
-Formal sind diese Artikel aber alle Mitglieder der Oberkategorie `blindness' via der Kategorie `blind people'. 
+Formal sind diese Artikel aber alle Mitglieder der Oberkategorie \enquote{blindness} via der Kategorie \enquote{blind people}. 
 Dies ist ein weiterer Hinweis auf die Probleme der Mischung aus facettierter und streng hierarchischer Klassifikation in der Wikipedia.
 
 \item Nach kleineren Filterschritten durch die üblichen Programme (siehe oben), musste bei 58 Artikeln manuell der erste Satz hinzugefügt werden, weil der erste Punkt im Satz der Punkt nach einer Abkürzung war. 
@@ -654,8 +655,8 @@ Das deutet darauf hin, dass diese Fehlerrate auch absolut höher hätte sein kö
 Allerdings waren die Artikel relativ leicht zu finden, indem die durchschnittliche Satzlänge aller Artikel berechnet wurde und die Artikel ausgegeben wurden, deren Satzlänge $\geq 2 $ Standardabweichungen vom Mittelwert der Satzlänge aller Sätze abwich. 
 Diese Vorgehensweise ist zwar auch nicht vollständig reliabel, aber gut als Schritt bei der Nachbearbeitung einzubauen. 
 
-Die Ergebnisse wurden an TreeTagger übergeben und die Ausgabe von TreeTagger gefiltert, so dass nur die Stammformen der Nomen und Adjektive gespeichert wurden. (TreeTagger verwendet die Nomenklatur des Penn Treebank Project. 
-Gespeichert wurden alle Vorkommen von JJ* (also JJ - Adjektiv, JJR - Adjektiv komparativ und JJS - Adjektiv Superlativ) und NN* (also NN - Nomen Singular, NNS - Nomen Plural, NNP und NNPS für Eigennamen respektive)). 
+Die Ergebnisse wurden an TreeTagger übergeben und die Ausgabe von TreeTagger gefiltert, so dass nur die Stammformen der Nomen und Adjektive gespeichert wurden.\footnote{TreeTagger verwendet die Nomenklatur des Penn Treebank Project. 
+Gespeichert wurden alle Vorkommen von JJ*, also JJ - Adjektiv, JJR - Adjektiv komparativ und JJS - Adjektiv Superlativ und NN*, also NN - Nomen Singular, NNS - Nomen Plural, NNP und NNPS für Eigennamen respektive.}. 
 
 \item Nach weiteren Filterschritten {[}ausführen?{]} werden die Ergebnisse zusammen mit dem Artikelnamen und den Kategorien, die in einem separaten Schritt geholt wurden, gespeichert. 
 Auf das finale Speichern der Part-of-Speech-Information wurde verzichtet. 
@@ -665,7 +666,19 @@ Das Ergebnis wurde wie folgt gespeichert, die Zahl am Anfang ist eine durchlaufe
 Jeweils vorangestellt ist der ursprüngliche Satz. 
 Das erste Beispiel ist ein eher erfolgreiches Resultat des Ansatzes, das zweite Beispiel ist ein typischer Fall für die weniger brauchbaren Ergebnisse. 
 
-\paragraph{Keratoprosthesis} is a surgical procedure where a severely damaged or diseased cornea is replaced with an artificial cornea.
+\begin{quote}
+Keratoprosthesis is a surgical procedure where a severely damaged or diseased cornea is replaced with an artificial cornea.
+\end{quote}
+
+\lstset{
+	numbers=left,
+        language=Bash,
+	basicstyle=\ttfamily\footnotesize,
+	extendedchars=true,
+	inputencoding=utf8,
+	breaklines=true,
+	breakindent=0pt,
+}
 
 \begin{lstlisting}
 69,Keratoprosthesis,surgical 
@@ -676,10 +689,21 @@ Das erste Beispiel ist ein eher erfolgreiches Resultat des Ansatzes, das zweite 
 69,Keratoprosthesis,Ophthalmology
 \end{lstlisting}
 
-Die zusätzliche Kategorie \emph{Ophthalmology} bringt hier keine besonderen Zugewinne, weil sie eine der neun unmittelbaren Unterkategorien von `eye' ist und damit allein zu allgemein ist.
+Die zusätzliche Kategorie \enquote{Ophthalmology} bringt hier keine besonderen Zugewinne, weil sie eine der neun unmittelbaren Unterkategorien von \enquote{eye} ist und damit allein zu allgemein ist.
 
-\paragraph{A scleral lens}
-is a large lens that rests on the sclera and creates a tear-filled vault over the cornea.
+\begin{quote}
+A scleral lens is a large lens that rests on the sclera and creates a tear-filled vault over the cornea.
+\end{quote}
+
+\lstset{
+	numbers=left,
+        language=Bash,
+	basicstyle=\ttfamily\footnotesize,
+	extendedchars=true,
+	inputencoding=utf8,
+	breaklines=true,
+	breakindent=0pt,
+}
 
 \begin{lstlisting}
 185,Scleral lens,large 
@@ -688,9 +712,9 @@ is a large lens that rests on the sclera and creates a tear-filled vault over th
 185,Scleral lens,corrective lenses
 \end{lstlisting}
 
-Dadurch, dass bei der Verarbeitung in Schritt 3 die Bestandteile des Artikelnamens `scleral' und `lens' herausgefiltert werden, bleibt nicht mehr viel Nützliches übrig. 
+Dadurch, dass bei der Verarbeitung in Schritt 3 die Bestandteile des Artikelnamens \textit{scleral} und \textit{lens} herausgefiltert werden, bleibt nicht mehr viel Nützliches übrig. 
 Zu überlegen ist, ob man bei einer Unterschreitung einer Anzahl Ergebniszeilen, den oder die Begriffe aus denen sich der Artikel zusammensetzt, hinzunimmt. 
-Allerdings geben die beiden Kategorien hinreichend Information um `scleral lens' zumindest einordnen zu können. 
+Allerdings geben die beiden Kategorien hinreichend Information um \enquote{scleral lens} zumindest einordnen zu können. 
 
 \subsubsection{Ergebnisse}
 
@@ -767,10 +791,10 @@ Dennoch: ein verbleibender Teil müsste unserer Ansicht nach per Hand erledigt w
 Mit dieser neuen Merkmalsmenge könnte man dann erneut versuchen Begriffsverbände zu bilden und Zuweisungen zu den Einträgen zu produzieren, um zu vergleichen, ob eine größere Zahl Zuweisungen erreicht wurde und ob die Anzahl gemeinsamer Merkmale gesteigert werden konnte.
 
 Auf diesen Gedanken aufbauend, scheint es uns vielversprechend, mit Teilmengen unterschiedlicher Größe der ursprünglichen Merkmalsmenge zu experimentieren.
-Den bei den »echten« Synonymen verfolgten Ansatz könnte man hierzu erweitern und beispielsweise sämtliche Merkmale als Synonyme von einem aus 30, 50 oder 70\footnote{Diese Zahlen sind zwar beliebig gewählt, insbesondere das Intervall, sind aber insofern fundiert, als dass wir auf mindestens 30 Merkmale als untere Grenze kommen, um sowohl Aspekte der anatomischen Lage, der Pathologie, der diagnostischen und operativen Verfahren, sowie der Instrumente abzudecken.} zuvor ausgewählten Merkmalen zu definieren.
+Den bei den \enquote{echten} Synonymen verfolgten Ansatz könnte man hierzu erweitern und beispielsweise sämtliche Merkmale als Synonyme von einem aus 30, 50 oder 70\footnote{Diese Zahlen sind zwar beliebig gewählt, insbesondere das Intervall, sind aber insofern fundiert, als dass wir auf mindestens 30 Merkmale als untere Grenze kommen, um sowohl Aspekte der anatomischen Lage, der Pathologie, der diagnostischen und operativen Verfahren, sowie der Instrumente abzudecken.} zuvor ausgewählten Merkmalen zu definieren.
 Das heißt, dass man alle verbliebenen Merkmale als Synonym je einem der ausgewählten Merkmale zuweisen müsste.
 Dem Grunde nach ist das eine Verschlagwortung mittels eines kontrollierten Vokabulars und man müsste sehr umsichtig sein, welche Bezeichnungen man unter einer Merkmalsbezeichnung zusammenfasst, um nicht Ungenauigkeiten oder sogar Fehler in den resultierenden Begriffsverbänden zu bekommen.
-Ein solcherlei erstelltes »Synonymwörterbuch« hätte aber den Vorteil, dass Merkmale, die aus neuen Quellen extrahiert wurden, ohne weiteres ihrem zu verwendenden Synonym zugewiesen werden können.
+Ein solcherlei erstelltes \enquote{Synonymwörterbuch} hätte aber den Vorteil, dass Merkmale, die aus neuen Quellen extrahiert wurden, ohne weiteres ihrem zu verwendenden Synonym zugewiesen werden können.
 Unterschiedlich große Mengen von Merkmalen, die auf diese Weise geschaffen wurden, erlauben es dann den Erfolg bei den Zuweisungen im Wörterbuch der Augenheilkunde zu evaluieren und ausgehend davon Modifikationen vorzunehmen.
 
 Mit dem hierzu zu betreibenden manuellen Aufwand verabschiedete man sich aber, bis auf die Zuweisung im Wörterbuch und die eigentliche Extraktion, vollständig von jeglicher Automatisierbarkeit.
