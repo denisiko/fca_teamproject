@@ -5,17 +5,23 @@
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
 \usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage[normal,it,footnotesize]{caption}
-\usepackage{booktabs}
+%\usepackage{booktabs}
+\usepackage{tabularx}
 \usepackage[table]{xcolor}
 \usepackage{listings}
 \usepackage{paralist}
-%\usepackage{textgreek}
-\usepackage[babel, german=quotes]{csquotes}
+\usepackage{textgreek}
+\usepackage{multirow}
+\usepackage{array}
+%\usepackage{xtab}
+\usepackage{colortbl}
+\usepackage[babel,german=quotes]{csquotes}
 \usepackage{fnpct}
+\usepackage{units}
 
 \usepackage{enumitem}
 \setlist[itemize,1]{label=--}
@@ -74,7 +80,7 @@
 
 \section{A multilingual Dictionary of Ophthalmology}
 
-Ausgangspunkt dieser Arbeit ist das \enquote{Digitale multilinguale Wörterbuch der Augenheilkunde}\footnote{Erreichbar unter: \href{http://www.zeitzfrankozeitz.de/index.php/fachwoerterbuch.html}{http://www.zeitzfrankozeitz.de/index.php/fachwoerterbuch.html} des Augenarztes Dr. Philipp Franko Zeitz, das seit 2010 existiert und online auf der Webpräsenz der Düsseldorfer Augenklinik Zeitz Franko Zeitz zugänglich ist. 
+Ausgangspunkt dieser Arbeit ist das \enquote{Digitale multilinguale Wörterbuch der Augenheilkunde}\footnote{Erreichbar unter: \href{http://www.zeitzfrankozeitz.de/index.php/fachwoerterbuch.html}{http://www.zeitzfrankozeitz.de/index.php/fachwoerterbuch.html}} des Augenarztes Dr. Philipp Franko Zeitz, das seit 2010 existiert und online auf der Webpräsenz der Düsseldorfer Augenklinik Zeitz Franko Zeitz zugänglich ist. 
 Das Wörterbuch umfasst mittlerweile fast 25.000 manuell gepflegte Einträge aus dem Bereich der Augenheilkunde in 13 (anfänglich 8) Sprachen. 
 Die Einträge enthalten Erklärungen, Abkürzungen, sowie Übersetzungs- und Synonymverweise, welche mittels eines einfach gestalteten Suchformulars gefunden werden können. 
 
@@ -285,9 +291,9 @@ In anderen Sprachen mögen an einigen Knoten keine Worte verfügbar sein, um dem
 Die Formale Begriffsanalyse erzeugt semantische Strukturen ausschließlich auf Grundlage der vorhandenen Merkmale sowie der Zuordnung der Merkmale zu den untersuchten Objekten. 
 Naturgemäß ist diese Art der Inhaltserschließung an Grenzen gebunden. 
 Zunächst ist festzuhalten, dass nur binäre Zuweisungen von Merkmalen in der Formalen Begriffsanalyse möglich sind: ein Merkmal ist einem Objekt entweder zugewiesen oder nicht. 
-Größere Wertebereiche können somit nicht abgebildet werden, wie beispielsweise ein gegebener Messwert für den Augeninnendruck von 17 mmHg als Ausprägung des Merkmals Augeninnendruck. 
-Man könnte zwar das Merkmal \emph{17 mmHg} zuweisen, dies würde jedoch allenfalls Objekte, die mit dem Merkmal 17 mmHg versehen wurden, untereinander vergleichbar machen, da es die Formale Begriffsanalyse nicht vorsieht, Beziehungen zwischen Merkmalen zu kennzeichnen oder Merkmale als Zahlenwerte zu interpretieren. 
-Ein Objekt mit dem Merkmal \emph{16 mmHg} wäre somit genauso wenig bedeutungsgleich zu einem Objekt mit dem Merkmal \emph{17 mmHg} wie eines mit dem Merkmal \emph{6 mmHg}, es sei denn die Bedeutungsähnlichkeit würde durch weitere Merkmale deutlich gemacht werden. 
+Größere Wertebereiche können somit nicht abgebildet werden, wie beispielsweise ein gegebener Messwert für den Augeninnendruck von \unit[17]{mmHg} als Ausprägung des Merkmals Augeninnendruck. 
+Man könnte zwar das Merkmal \unit[17]{mmHg} zuweisen, dies würde jedoch allenfalls Objekte, die mit dem Merkmal \unit[17]{mmHg} versehen wurden, untereinander vergleichbar machen, da es die Formale Begriffsanalyse nicht vorsieht, Beziehungen zwischen Merkmalen zu kennzeichnen oder Merkmale als Zahlenwerte zu interpretieren. 
+Ein Objekt mit dem Merkmal \unit[16]{mmHg} wäre somit genauso wenig bedeutungsgleich zu einem Objekt mit dem Merkmal \unit[17]{mmHg} wie eines mit dem Merkmal \unit[6] {mmHg}, es sei denn die Bedeutungsähnlichkeit würde durch weitere Merkmale deutlich gemacht werden. 
 
 Das deutlich größere Problem besteht jedoch in der Abhängigkeit vom Merkmalsraum. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -297,7 +303,7 @@ Herkömmlich gebrauchte hierarchisch strukturierte Wissensordnungen, wie ein The
 Die ICD-10 beispielsweise klassifiziert alle bekannten Krankheiten, die Internationalen Regeln für die Zoologische Nomenklatur (ICZN) das Tierreich. 
 In der Formalen Begriffsanalyse kann dieser Anspruch für einen gegebenen Begriffsverband nur geltend gemacht werden, wenn alle relevanten Merkmale im Merkmalsraum vorhanden sind. 
 Bei den genannten Beispielen sind alle relevanten klassifizierenden Merkmale im Vorhinein definiert in Form von Klassen. 
-Für Kontexte mit geringer Komplexität ist der Aufbau eines hinreichenden Merkmalsraums einfach, wie beispielsweise bei der Untersuchung der Menge der natürlichen Zahlen daraufhin, ob sie gerade, ungerade und/oder eine Primzahl sind (die entsprechenden Merkmale sind \emph{gerade}, \emph{ungerade} und \emph{Primzahl}).
+Für Kontexte mit geringer Komplexität ist der Aufbau eines hinreichenden Merkmalsraums einfach, wie beispielsweise bei der Untersuchung der Menge der natürlichen Zahlen daraufhin, ob sie gerade, ungerade und/oder eine Primzahl sind (die entsprechenden Merkmale sind \textit{gerade}, \textit{ungerade} und \textit{Primzahl}).
 Die Domäne der Augenheilkunde ist jedoch sehr umfangreich, so dass eine Festlegung auf eine sowohl minimale als auch vollständige Merkmalsmenge, die die Augenheilkunde abdecken kann nicht so eindeutig lösbar ist, wie bei den natürlichen Zahlen. 
 Um einen dennoch annähernd abdeckenden Merkmalsraum generieren zu können, ist unserer Auffassung nach Domänenwissen erforderlich. 
 
@@ -311,7 +317,7 @@ Einzelne Knoten dieser Diagramme können sowohl Synsets, als auch Mengen von rep
 
 Gegen Ende unseres Berichts stellen wir vor, wie wir Nutzern des Wörterbuchs die Möglichkeit geben, sich einzelne Begriffsverbände visualisieren zu lassen und interaktiv zu steuern. 
 Das zuvor angesprochene Problem der fehlenden Beziehungen von Merkmalen untereinander kann teilweise dadurch gelöst werden, dass während der Merkmalszuweisung bekannte semantische Relationen berücksichtigt werden. 
-Beispielsweise können jedem Objekt, dem das Merkmal \emph{Gonioskopie} zugewiesen wird, auch die Merkmale \emph{Untersuchung} sowie \emph{diagnostisches Verfahren} zugewiesen werden. 
+Beispielsweise können jedem Objekt, dem das Merkmal \textit{Gonioskopie} zugewiesen wird, auch die Merkmale \textit{Untersuchung} sowie \textit{diagnostisches Verfahren} zugewiesen werden. 
 
 \chapter{Bericht}
 
@@ -452,7 +458,7 @@ Im medizinischen Kontext muss die Bedeutung des vorliegenden Gramms nicht nur of
 
 Auf diese Weise ausgesuchte n-Gramme qualifizieren sich als Wortteilmuster und werden mit den zugehörigen Merkmalen, die sich aus der Semantik des Musters ergeben, gekennzeichnet. 
 Dies muss manuell geschehen, da hierbei Domänenwissen absolut notwendig ist. 
-Ursprung dieses Wissens sind fachbezogene Quellen und die Wikipedia-Enzyklopädie, aber insbesondere der englische Wikipedia-Artikel \href{http://en.wikipedia.org/wiki/List_of_medical_roots,_suffixes_and_prefixes}{List of medical roots, suffixes and prefixes}. 
+Ursprung dieses Wissens sind fachbezogene Quellen und die Wikipedia-Enzyklopädie, aber insbesondere der englische Wikipedia-Artikel \enquote{List of medical roots, suffixes and prefixes}\footnote{Erreichbar unter \href{http://en.wikipedia.org/wiki/List\_of\_medical\_roots,\_suffixes\_and\_prefixes}{http://en.wikipedia.org/wiki/List\_of\_medical\_roots,\_suffixes\_and\_prefixes}.}. 
 
 Synsets, die eine oder mehrere Synonymbezeichnungen besitzen, welche das gekennzeichnete n-Gramm als Teilkette enthalten, werden wie zuvor mit den zugewiesenen Merkmalen versehen. 
 Zum Beispiel wird das Wortteilmuster \emph{/dystroph/} mit den Merkmalen \textit{degeneration} und \textit{disease} gekennzeichnet. 
@@ -857,14 +863,31 @@ Es ist zu erwarten, dass sich auf diese Weise einige der geschilderten Probleme 
 
 \subsection{Die Systematisierte Nomenklatur der Medizin}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Mein Vorschlag zum Unterkapitel 'Verschiedenes': raus damit!^^ Haben eh schon mehr als genug
-%% Das sehe ich genauso.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Verschiedenes}
-
 \subsection{Schlussbemerkungen}
+
+Bei oberflächlicher Inaugenscheinnahme der Ergebnisse kann man feststellen, dass wir die ursprünglich formulierten Ziele erreicht haben.
+Allerdings sind dabei viele Einschränkungen zu machen.
+So sind die gebildeten Begriffsverbände nicht minimal.
+Während es zwar fraglich ist, ob die kleinstmögliche Merkmalsmenge, die noch genügt um alle Begriffe des Wörterbuchs zu bilden, auch optimal ist, kann man sicher festhalten, dass unsere Merkmalsmenge zu groß ist.
+Für die meiste Zeit des Projekts waren wir aber beschäftigt eine möglichst große Merkmalsmenge zu finden, ohne auf die Passung mit dem Wörterbuch der Augenheilkunde Rücksicht zu nehmen.
+Der Versuch die Begriffe des Wörterbuchs über die Titel der Wikipedia-Artikel zur Passung zu bringen und im Erfolgsfall überhaupt Merkmale zuzuweisen, zeigte sich als deutliche Einschränkung.
+Vieles, das insbesondere aus der Wikipedia-Extraktion kam, fand keine Verwendung, weil es keine Entsprechung im Wörterbuch hatte.
+Das Wörterbuch ist aber weit entfernt davon vollständig zu sein.
+Wir wissen also eigentlich gar nicht, was die Bedingungen sind, die man im Hinblick auf die Merkmalsmenge braucht, um die Formale Begriffanalyse besser in einem Umfeld wie dem Wörterbuch der Augenheilkunde nutzbar zu machen, weil wir zu diesem Punkt nicht gekommen sind.
+Dazu hätten wir für die Evaluation geeignete Teilmengen der Merkmalsmenge benötigt.
+Aus unserer Sicht wäre es günstig gewesen diese Tests an den Wikipedia-Artikeln, aus denen die Merkmale ursprünglich stammten, vorzunehmen und das Wörterbuch der Augenheilkunde anfangs außen vor zu lassen, bis die Frage der geeigneten Merkmalsmenge geklärt ist.
+Wenngleich noch in eher experimentellem Stadium, so ist die Visualisierung der Ergebnisse auf den Seiten des Wörterbuchs der Augenheilkunde eine nützliche und wertvolle Bereicherung.
+Anders als Tagclouds und ähnliche \enquote{siehe auch}-Navigationselemente, fußt der gezeigte Begriffsverband auf hierarchisch korrekter Information. 
+Wir sind der Ansicht, dass es sich lohnt, diese Art der Anreicherung von Wörterbucheinträgen mit hierarchischer Information weiter zu verfolgen.
+Im Hinblick auf die Projekplanung wäre unsere Wunschvorstellung bezüglich der Aufgabenstellung, jetzt wo wir wissen was wir wissen, folgendermaßen:
+
+\begin{enumerate}
+    \item Identifizieren einer geeigneten Quelle zur Merkmalsextraktion (läuft auf Wikipedia hinaus)
+    \item testen und verbessern der Möglichkeiten der vollautomatischen Merkmalsextraktion
+    \item innerhalb der Wikipediadaten: bilden von Begriffsverbänden und testen und evaluieren unterschiedlich großer Merkmalsmengen
+    \item erst am Schluß der Versuch eine Anbindung an das Wörterbuch der Augenheilkunde zu bekommen, gegebenenfalls durch Ergänzen mit in der Wikipedia vorhandenen Einträge und Umbenennen von Einträgen für eine bessere Passung mit den Einträgen aus der Wikipedia.
+\end{enumerate}
+
 
 \chapter{Anhang}
 
