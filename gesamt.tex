@@ -107,7 +107,7 @@ Das Deutsche und das Englische dominieren deutlich.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Ein Grund dafür könnte unzureichendes Quellenmaterial sowie natürlich fehlende Fremdsprachenkenntnisse bei der Erstellung des Wörterbuchs gewesen sein. 
 Ein anderer Grund könnte sein, dass es bestimmte Begriffe in der einen Sprache gibt und in anderen Sprachen nicht. 
-Solcherlei Lücken, lexical gaps genannt, gibt es im Wörterbuch der Augenheilkunde ebenfalls. 
+Solcherlei Lücken, lexical gaps genannt, gibt es im \enquote{Wörterbuch der Augenheilkunde} ebenfalls. 
 Dieses Phänomen kann umso ausgeprägter werden, je spezifischer die Domäne ist, so wie beispielsweise die Augenheilkunde. 
 Einträge mittels formaler Begriffe auszudrücken und damit über deren Merkmale prinzipiell übersetzbar zu machen in Sprachen, in denen es die Bezeichnung nicht gibt, ist eine Idee, die auf die Arbeit von Janssen, 2002 zurückgeht. 
 
@@ -125,7 +125,7 @@ In Kombination mit einer geeigneten Darstellung der Begriffsverbände wird den N
 
 \section{Erste Überlegungen zur Umsetzung}
 
-Teil der Aufgabenstellung war es, die Formale Begriffsanalyse einzusetzen, um eine Zwischensprache aus Konzepten (Interlingua) zu entwickeln, über welche wiederum die im Wörterbuch der Augenheilkunde vorhandenen Wörter unterschiedlicher Sprachen miteinander verbunden werden konnten.
+Teil der Aufgabenstellung war es, die Formale Begriffsanalyse einzusetzen, um eine Zwischensprache aus Konzepten (Interlingua) zu entwickeln, über welche wiederum die im \enquote{Wörterbuch der Augenheilkunde} vorhandenen Wörter unterschiedlicher Sprachen miteinander verbunden werden konnten.
 
 \subsection{Begriffe der Formalen Begriffsanalyse}
 \label{subsec:fba}
@@ -323,9 +323,9 @@ Beispielsweise können jedem Objekt, dem das Merkmal \textit{Gonioskopie} zugewi
 
 \section{Automatisierter Aufbau einer Wissensdatenbank}
 
-Um mit der Formalen Begriffsanalyse beginnen zu können, wurde zunächst eine Menge von Merkmalen benötigt, die den Begriffen im Wörterbuch der Augenheilkunde zugewiesen werden konnten. 
+Um mit der Formalen Begriffsanalyse beginnen zu können, wurde zunächst eine Menge von Merkmalen benötigt, die den Begriffen im \enquote{Wörterbuch der Augenheilkunde} zugewiesen werden konnten. 
 Ein Begriffsverband als Ergebnis der Formalen Begriffsanalyse stellt die Menge an Begriffen in Bezug zu einer so vordefinierten Menge an Merkmalen. 
-Im Wörterbuch der Augenheilkunde befanden sich zu diesem Zeitpunkt 20000 Einträge repräsentiert durch 2500 Synsets. 
+Im \enquote{Wörterbuch der Augenheilkunde} befanden sich zu diesem Zeitpunkt 20000 Einträge repräsentiert durch 2500 Synsets. 
 Ein gegebenes Synset ist dabei die Menge aller im Vorhinein als synonym bestimmten Wörterbucheinträge, insbesondere auch über Sprachen hinweg. 
 
 Zu Beginn stand keine Quelle zur Verfügung aus der sich geeignete Merkmale hätten entlehnen lassen. 
@@ -349,7 +349,7 @@ Somit existiert in einem formalen Kontext kein einziges Merkmal, das keinem der 
 
 \subsection{Die ICD-10 als Wissensquelle}
 
-Das Wörterbuch der Augenheilkunde umfasst Begriffe aus vielen Bereichen der Medizin. 
+Das \enquote{Wörterbuch der Augenheilkunde} umfasst Begriffe aus vielen Bereichen der Medizin. 
 Wir konnten während unserer Arbeit am Wörterbuch folgende Kategorien identifizieren: 
 
 \begin{enumerate}
@@ -496,7 +496,7 @@ Dadurch wird es für die automatische Erschließung eines Kategoriebaums allerdi
 Insbesondere ist darauf zu achten, dass wenn den Kategorien-Tags automatisiert gefolgt wird um weitere Artikel zu erschließen, bereits besuchte Kategorien zu ignorieren, um Schleifenbildung zu vermeiden. 
 Dies berücksichtigend schien es aber vielversprechend den Bereich \enquote{Augenheilkunde} sowohl der englischen wie der deutschen Wikipedia bezüglich der vergebenen Kategorien zu untersuchen. 
 
-Zu diesem Zweck wurde von beiden der Volltext-Dump der Wikipedia Abstracts als XML-formatierte Datei heruntergeladen und innerhalb der \textit{title}-Tags nach Übereinstimmungen mit Begriffen oder Phrasen aus dem Wörterbuch der Augenheilkunde gesucht. 
+Zu diesem Zweck wurde von beiden eine Volltextkopie der Wikipedia Abstracts als XML"=annotierte Datei heruntergeladen und innerhalb der \textit{title}-Tags nach Übereinstimmungen mit Begriffen oder Phrasen aus dem \enquote{Wörterbuch der Augenheilkunde} gesucht. 
 Die Abstracts sind automatisch erstellte Kurzfassungen der entsprechenden Artikel und bestehen, wie sich herausstellte, im Wesentlichen aus dem ersten Absatz, oder, falls eine bestimmte, nicht exakt erkennbare Untergrenze an Wörtern nicht überschritten wurde, aus den ersten Absätzen. 
 Weiterhin sind die Kategorien vermerkt, denen der Artikel angehört. 
 Die Abstracts wurden aus dem Quelltext gewonnen und der Text ist mit dem Markup der Wikipedia ausgezeichnet. 
@@ -510,7 +510,7 @@ Das Vorgehen hierzu umfasste zahlreiche nur manuell durchzuführende Schritte, u
 Die Vorgehensweise war wie folgt: 
 
 \begin{inparaenum}
-\item Download des Abstract-Dumps. Für die deutsche Wikipedia 1.19 GB und für die englische Wikipedia 3.15 GB Dateigröße.
+\item Download der Abstracts. Für die deutsche Wikipedia 1.19 GB und für die englische Wikipedia 3.15 GB Dateigröße.
 
 \item Ermitteln der Artikelnamen in den Unterkategorien der Kategorien \enquote{Augenheilkunde} bzw. \enquote{Ophthalmology}. 
 Dieser Schritt wurde noch manuell unter Verwendung des Kategorie-Browsers auf der Wikipedia-Hauptseite durchgeführt. 
@@ -531,7 +531,7 @@ Obwohl viele dieser Kategorien, einmal identifiziert, durch reguläre Ausdrücke
 
 \subsubsection{Ergebnisse}
 
-Die so ermittelten Kategorien wurden als Schlagwörter der dazugehörigen Artikel betrachtet und versucht, mit den Begriffen aus dem Wörterbuch der Augenheilkunde in Verbindung zu bringen. 
+Die so ermittelten Kategorien wurden als Schlagwörter der dazugehörigen Artikel betrachtet und versucht, mit den Begriffen aus dem \enquote{Wörterbuch der Augenheilkunde} in Verbindung zu bringen. 
 Die resultierenden Merkmalszuweisungen blieben aber hinter den Erwartungen zurück. 
 Viele Kategorien gehören nur der Ausgangskategorie (\enquote{Augenheilkunde}, \enquote{ophthalmology}) an. 
 
@@ -554,7 +554,7 @@ Gerade der erste Satz folgt damit so gut wie immer dem Schema, welches exemplari
 %Die Augenheilkunde (Augenmedizin, fachsprachl.: Ophthalmologie, Ophthalmiatrie; von gr. \textomikron\textphi\texttheta\textalpha\textlambda\textmugreek\textomikron\textvarsigma, \emph{Auge}) ist die Lehre von den Erkrankungen und Funktionsstörungen des Sehorgans, deren Anhangsorgane, sowie des Sehsinnes und deren medizinischer Behandlung. 
 \end{quote}
 
-Die Überlegungen zur Erzeugung von Merkmalszuweisungen wurden daher darauf konzentriert, aus den ersten beiden Sätzen des Abstracts eine Zerlegung in Wort-n-Gramme der Längen 2 und 3 zu erstellen, um mit diesen mittels Zeichenkettenvergleich weitere Titel von Wikipedia-Artikeln aus dem Dump zu identifizieren.
+Die Überlegungen zur Erzeugung von Merkmalszuweisungen wurden daher darauf konzentriert, aus den ersten beiden Sätzen des Abstracts eine Zerlegung in Wort-n-Gramme der Längen 2 und 3 zu erstellen, um mit diesen mittels Zeichenkettenvergleich weitere Titel von Wikipedia-Artikeln aus der Volltextkopie zu identifizieren.
 Auf diese Weise identifizierte Begriffe, zu denen ein Wikipedia-Artikel existiert, sollten die Merkmale bilden, die dem Synset, das dem Wikipedia-Artikel entspricht, zugewiesen werden. 
 Wenn beispielsweise die Wortfolge \textit{Diabetes mellitus} im Abstract des Artikels \enquote{Diabetische Retinopathie} gefunden wurde, dann wird das Merkmal \textit{Diabetes mellitus} dem Synset \enquote{diabetische Retinopathie} zugeordnet.
 Der Grund aus dem die ersten beiden Sätze und nicht nur der erste Satz herangezogen wurden ist, dass bei manchen Artikeln der erste Satz nur aus einer etymologischen Einordnung besteht (ähnlich dem Inhalt der Klammer im Beispiel oben) ohne weitere Erklärung des Begriffs. 
@@ -775,7 +775,7 @@ Auf diese Weise ist es möglich, alle Synsets des Wörterbuchs zu erforschen und
 \section{Diskussion der Ergebnisse}
 
 Bereits bestehende Klassifikationen, wie zum Beispiel die ICD-10, aber auch die kurzzeitig erwogene und wieder verworfene Einbeziehung des Operationen und Prozedurenschlüssels (OPS)\footnote{Der OPS ist eine Modifikation der Internationalen Klassifikation der Prozeduren in der Medizin. Es handelt sich dabei primär um ein Werkzeug des Controllings von Krankenhäusern und ist aufgrund seiner seriellen Struktur ohne Nutzen für uns gewesen.}, zeigten sich für die Merkmalsextraktion als wenig bis gar nicht geeignet. 
-Die Klassen der ICD-10 ließen sich praktisch überhaupt nicht mit Begriffen aus dem Wörterbuch der Augenheilkunde in Verbindung bringen. 
+Die Klassen der ICD-10 ließen sich praktisch überhaupt nicht mit Begriffen aus dem \enquote{Wörterbuch der Augenheilkunde} in Verbindung bringen. 
 Erfolgreicher sind die Ergebnisse aus der Extraktion von Teilen des ersten Satzes aus Artikeln der Wikipedia in der Kategorie \enquote{Augenheilkunde} oder Unterkategorien davon, da diese Methode deutlich mehr Wissen und Begrifflichkeiten hergibt, sowie die Extraktion von Merkmalen und Zuweisungen anhand von Wortteilmustern und n-Gramm-Frequenzstatistiken, weil diese Methode leicht und direkt zu überblicken und zu automatisieren ist. 
 
 \begin{figure}[!ht]
@@ -818,11 +818,11 @@ Den bei den \enquote{echten} Synonymen verfolgten Ansatz könnte man hierzu erwe
 Das heißt, dass man alle verbliebenen Merkmale als Synonym je einem der ausgewählten Merkmale zuweisen müsste.
 Dem Grunde nach ist das eine Verschlagwortung mittels eines kontrollierten Vokabulars und man müsste sehr umsichtig sein, welche Bezeichnungen man unter einer Merkmalsbezeichnung zusammenfasst, um nicht Ungenauigkeiten oder sogar Fehler in den resultierenden Begriffsverbänden zu bekommen.
 Ein solcherlei erstelltes \enquote{Synonymwörterbuch} hätte aber den Vorteil, dass Merkmale, die aus neuen Quellen extrahiert wurden, ohne weiteres ihrem zu verwendenden Synonym zugewiesen werden können.
-Unterschiedlich große Mengen von Merkmalen, die auf diese Weise geschaffen wurden, erlauben es dann den Erfolg bei den Zuweisungen im Wörterbuch der Augenheilkunde zu evaluieren und ausgehend davon Modifikationen vorzunehmen.
+Unterschiedlich große Mengen von Merkmalen, die auf diese Weise geschaffen wurden, erlauben es dann den Erfolg bei den Zuweisungen im \enquote{Wörterbuch der Augenheilkunde} zu evaluieren und ausgehend davon Modifikationen vorzunehmen.
 
 Mit dem hierzu zu betreibenden manuellen Aufwand verabschiedete man sich aber, bis auf die Zuweisung im Wörterbuch und die eigentliche Extraktion, vollständig von jeglicher Automatisierbarkeit.
 Man könnte daher untersuchen, ob eine bestimmte Teilmenge der Menge aller Merkmale ausreicht, um die (in unserem Fall) Artikel aus der Wikipedia-Extraktion mit je mindestens zwei, drei oder mehr Merkmalen abzudecken.
-Sofern dies gelingt, könnte man wiederum die Anzahl der damit erzielten Zuweisungen im Wörterbuch der Augenheilkunde evaluieren und ausgehend davon Modifikationen vornehmen.
+Sofern dies gelingt, könnte man wiederum die Anzahl der damit erzielten Zuweisungen im \enquote{Wörterbuch der Augenheilkunde} evaluieren und ausgehend davon Modifikationen vornehmen.
 Welche Merkmale dafür in Frage kommen, könnte man über die Häufigkeitsverteilung der gefundenen Merkmale über alle Artikel aus der Wikipedia-Extraktion herausfinden.
 Interessant wären hier die Merkmale, die nicht mit absolut größter Häufigkeit vorkommen, und die nicht schon zu der sehr großen Menge Merkmalen zählt, die wenige oder nur ein Mal vorkommen.
 Dieser Bereich der Verteilung der Häufigkeit der Merkmale (insgesamt sind es 2443) ist etwa 100 bis 150 Merkmale groß mit einer Häufigkeit zwischen je 20 und 100.
@@ -861,7 +861,26 @@ Gründe dafür sind:
 Da sich ein gewisser intellektueller Aufwand beim Aufbau einer Merkmalsmenge nicht vermeiden lässt, erscheint es akzeptabel, im Vorhinein die Merkmale selbst zu bestimmen.
 Es ist zu erwarten, dass sich auf diese Weise einige der geschilderten Probleme mindern lassen, wie die Aufnahme nicht relevanter Merkmale oder mangelnde Wiederverwendung der Merkmale auf Objekte aus dem Begriffsverband. 
 
-\subsection{Die Systematisierte Nomenklatur der Medizin}
+\subsection{Nutzung der Systematisierten Nomenklatur der Medizin}
+
+Die \enquote{Systematized Nomenclature of Human and Veterinary Medicine} ist, anders als die ICD-10, die eine Klassifikation ist, eine Nomenklatur medizinischer Terminologie mit dem Ziel den klinischen Alltag, das heißt Aufnahme, Diagnose, Behandlung und Abrechnung, auf eine einheitliche Kodierung zu bringen.
+Während die ICD-10 für die Erhebung statistischer und insbesondere epidemiologischer Daten geschaffen wurde, handelt es sich bei der SNOMED und ihren Nachfolgern um eine an der klinischen Praxis und ihren Bedürfnissen orientierte Begriffsordnung.
+Die aktuelle SNOMED 3 genannte Version enthält elf orthogonal zueinander stehende Achsen zur Kodierung der Begriffe. 
+Die Achsen bilden Aspekte medizinischer Terminologie ab.
+Beispielsweise enthält die Achse \enquote{Topography}\footnote{Nachfolgend werden die englischen Achsenbezeichner verwendet, da damit die resultierende Kodierung deutlicher wird.} anatomische Begriffe wie die Bezeichnungen für Organe, Knochen, Muskeln, Sehnen und anderen.
+Die Achse \enquote{Morphology} enthält Bezeichnungen für Veränderungen in Geweben, innerhalb von Körperzellen und Organen. 
+Darunter fallen sowohl entzündliche Veränderungen, als auch degenerative oder traumatische Veränderungen. 
+Weitere Achsen sind \enquote{Function} für Symptome und Auffälligkeiten zur Beschreibung einer Diagnose (zum Beispiel \enquote{Fieber, Schüttelfrost, Übelkeit}) oder \enquote{Procedure}, welche sowohl medizinische als auch die Krankenhausverwaltung betreffende Maßnahmen enthält.
+Mit der Achse \enquote{Diagnosis} gibt es auch eine weitreichende Verbindung in die ICD-10 hinein, da diese Achse die Bezeichnungen für Krankheiten, aber auch Verletzungen und andere Störungen umfasst.
+Die Kodierung erfolgt mittels Aneinanderreihung der Bezeichner aus der entsprechenden Achse, beginnend mit der ersten passenden Achse. 
+Eine Appendizitis wird kodiert mit \emph{T66000 M40000}, eine perforierende Appendizitis mit \emph{T66000 M46300}, Krankheiten der Appendix allgemein mit \emph{D62700} und eine Appendektomie mit \emph{T66000 P11000}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TODO: Bitte mal nachdenken, ob das Nachfolgende wirklich Sinn macht, und wie das genau vonstatten gehen könnte. Ich arbeite an einer Auflistung
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Aufgrund der Beschränkung auf elf Achsen und insbesondere aufgrund der Unterscheidung in Anatomie, Ursachen von Krankheiten, Diagnose und Prozeduren (und einigen anderen Dimensionen noch) scheint es uns lohnenswert, die Begriffe des Wörterbuchs der Augenheilkunde zur Passung mit SNOMED zu bringen beziehungsweise sie mittels der dortigen Notation auszudrücken.
+Viele der Extrakte aus der Wikipedia enthalten Wörter, die als Konzept in entsprechenden Achsen der SNOMED unmittelbar Verwendung finden, so dass sich aus unserer Sicht hier die Chance ergibt, die Verschlagwortung der Synsets mittels eines von Fachleuten erstellten Systems zu betreiben.\footnote{Stichprobenartige Versuche ausgewählte erste Sätze der Wikipedia-Extraktion in den \enquote{SNOMED CT Categorizer} \href{http://eagl.unige.ch/SNOCat/index.jsp}{http://eagl.unige.ch/SNOCat/index.jsp} der Universität Genf zu geben, zeigen ermutigende Ergebnisse im Hinblick auf die Abdeckung. Dieses System soll eigentlich Formulierungen wie sie in Arztbriefen vorkommen in SNOMED-Kategorien übersetzen}
+
 
 \subsection{Schlussbemerkungen}
 
@@ -869,13 +888,13 @@ Bei oberflächlicher Inaugenscheinnahme der Ergebnisse kann man feststellen, das
 Allerdings sind dabei viele Einschränkungen zu machen.
 So sind die gebildeten Begriffsverbände nicht minimal.
 Während es zwar fraglich ist, ob die kleinstmögliche Merkmalsmenge, die noch genügt um alle Begriffe des Wörterbuchs zu bilden, auch optimal ist, kann man sicher festhalten, dass unsere Merkmalsmenge zu groß ist.
-Für die meiste Zeit des Projekts waren wir aber beschäftigt eine möglichst große Merkmalsmenge zu finden, ohne auf die Passung mit dem Wörterbuch der Augenheilkunde Rücksicht zu nehmen.
+Für die meiste Zeit des Projekts waren wir aber beschäftigt eine möglichst große Merkmalsmenge zu finden, ohne auf die Passung mit dem \enquote{Wörterbuch der Augenheilkunde} Rücksicht zu nehmen.
 Die Begriffe des Wörterbuchs dann mit den Titeln der Wikipedia-Artikel zur Passung zu bringen und im Erfolgsfall Merkmale zuzuweisen, zeigte sich als deutliche Einschränkung.
 Vieles, das insbesondere aus der Wikipedia-Extraktion kam, fand keine Verwendung, weil es keine Entsprechung im Wörterbuch hatte.
 Das Wörterbuch ist aber weit entfernt davon vollständig zu sein.
-Wir wissen also eigentlich gar nicht, was die Bedingungen sind, die man im Hinblick auf die Merkmalsmenge braucht, um die Formale Begriffanalyse besser in einem Umfeld wie dem Wörterbuch der Augenheilkunde nutzbar zu machen, weil wir zu diesem Punkt nicht gekommen sind.
+Wir wissen also eigentlich gar nicht, was die Bedingungen sind, die man im Hinblick auf die Merkmalsmenge braucht, um die Formale Begriffsanalyse besser in einem Umfeld wie dem \enquote{Wörterbuch der Augenheilkunde} nutzbar zu machen, weil wir zu diesem Punkt nicht gekommen sind.
 Um das quantifizieren zu können, hätten wir für die Evaluation geeignete Teilmengen der Merkmalsmenge benötigt.
-Aus unserer Sicht wäre es günstig gewesen diese Tests an den Wikipedia-Artikeln, aus denen die Merkmale ursprünglich stammten, vorzunehmen und das Wörterbuch der Augenheilkunde anfangs außen vor zu lassen, bis die Frage der geeigneten Merkmalsmenge geklärt ist.
+Aus unserer Sicht wäre es günstig gewesen diese Tests an den Wikipedia-Artikeln, aus denen die Merkmale ursprünglich stammten, vorzunehmen und das \enquote{Wörterbuch der Augenheilkunde} anfangs außen vor zu lassen, bis die Frage der geeigneten Merkmalsmenge geklärt ist.
 
 Wenngleich noch in eher experimentellem Stadium, so ist die Visualisierung der Ergebnisse auf den Seiten des Wörterbuchs der Augenheilkunde eine nützliche und wertvolle Bereicherung.
 Anders als Tagclouds und ähnliche \enquote{siehe auch}-Navigationselemente, fußt der gezeigte Begriffsverband auf hierarchisch korrekter Information. 
@@ -887,7 +906,7 @@ Im Hinblick auf die Projektplanung wäre unsere Wunschvorstellung bezüglich der
     \item Identifizieren einer geeigneten Quelle zur Merkmalsextraktion (liefe wahrscheinlich auf Wikipedia hinaus)
     \item testen und verbessern der Möglichkeiten der vollautomatischen Merkmalsextraktion
     \item innerhalb der Wikipediadaten: bilden von Begriffsverbänden und testen und evaluieren unterschiedlich großer Merkmalsmengen
-    \item erst am Schluß der Versuch eine Anbindung an das Wörterbuch der Augenheilkunde zu bekommen, gegebenenfalls durch Ergänzen mit in der Wikipedia vorhandenen Einträgen und Umbenennen von Einträgen für eine bessere Passung mit den Einträgen aus der Wikipedia.
+    \item erst am Schluß der Versuch eine Anbindung an das \enquote{Wörterbuch der Augenheilkunde} zu bekommen, gegebenenfalls durch Ergänzen mit in der Wikipedia vorhandenen Einträgen und Umbenennen von Einträgen für eine bessere Passung mit den Einträgen aus der Wikipedia.
 \end{enumerate}
 
 
