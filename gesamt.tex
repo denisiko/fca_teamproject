@@ -750,7 +750,8 @@ Der Aufbau eines formalen Begriffsverbandes für das Wörterbuch hat für die Nu
 Dazu gehört eine übersichtliche Visualisierung formaler Kontexte, die den Nutzer nicht überfordert und einen guten Überblick über das semantische Umfeld eines gewählten Synsets liefert.
 Hierzu bietet sich die Verwendung von Ordnungsdiagrammen an. 
 
-Unser Script zur Visualisierung eines formalen Kontextes erzeugt mithilfe des Programms \emph{GraphViz} ein Ordnungsdiagramm ausgehend von einem ausgewählten Synset. 
+Unser Script zur Visualisierung eines formalen Kontextes erzeugt mithilfe des Programms \emph{GraphViz} und der Skriptsprache PHP ein Ordnungsdiagramm ausgehend von einem ausgewählten Synset. 
+Der große Vorteil beim Rendern eines Graphen mithilfe von GraphViz ist das Wegfallen eines erheblichen Aufwands beim Platzieren der Knoten und Kanten, da GraphViz dies beim Rendern automatisch übernimmt, ohne jegliche Platzierungsinformationen zu fordern. 
 Die Menge der dem gewählten Synset zugewiesenen Merkmale bildet die obere Schranke. 
 Die zugehörige Potenzmenge dieser Menge bildet, wie im Kapitel Ordnungsdiagramme beschrieben, alle Knoten des erzeugten Diagramms, einschließlich der unteren Schranke, die der leeren Menge entspricht. 
 Ein Ordnungsdiagramm wird dadurch lediglich aus einer Teilmenge aller Merkmale des Datenbestandes erzeugt, weil ein aus der kompletten Menge an Merkmalen generiertes Ordnungsdiagramm schlicht viel zu groß und damit zu unübersichtlich wäre, als dass ein Nutzer damit interagieren könnte. 
@@ -963,5 +964,79 @@ sed -n 's/<extract.*>\([^<]*\)\([<$ ].*\)/\1/p' Parinauds_syndrome.xml
 \end{lstlisting}
 
 HTML-Entities wie \texttt{\&\#39;} für hochgestellte einzelne Anführungszeichen wurden gesammelt und in der Ergebnisdatei in einem Durchgang ersetzt.
+
+\subsection{Erzeugung eines Graphen}
+
+Beispielhaft wird an dieser Stelle das DOT-Format (Auszeichnungssprache für GraphViz) eines automatisiert erzeugten Graphens gezeigt, aus dem die visuelle Repräsentation des Graphen mittels eines Renderers ins SVG-Format geparst wird. Erzeugt wurde der Graph aus dem Begriffsverband des Synsets Macula mit dem Script visualize_new.php. Anhand des Formats erkennt man deutlich Knoten und Kanten, sowie deren Attribute (Labels, Farben,  Verlinkungen, etc.).
+
+\lstset{
+language=C
+}
+
+\begin{lstlisting}
+strict digraph G {
+	graph [center=true, size=12, overlap=voronoi, splines=true, sep="0.01"];
+	node [label="\N"];
+	graph [bb="0,0,142,260"];
+	0 [label=190, URL="/visualize_new.php?WID=1895&show=1", pos="31,167", width="0.86111", height="0.51389"];
+	1 [label=598, URL="/visualize_new.php?WID=1895&show=2", pos="31,241", width="0.86111", height="0.51389"];
+	2 [label=46, URL="/visualize_new.php?WID=1895&show=4", style=filled, color="#333344", fontcolor="#ffffff", pos="69,19", width="0.75", height="0.51389"];
+	3 [label=103, URL="/visualize_new.php?WID=1895&show=8", pos="111,241", width="0.86111", height="0.51389"];
+	4 [label=50, URL="/visualize_new.php?WID=1895&show=9", pos="69,93", width="0.75", height="0.51389"];
+	5 [label=79, URL="/visualize_new.php?WID=1895&show=10", pos="107,167", width="0.75", height="0.51389"];
+	1 -> 0 [pos="e,31,185.67 31,222.33 31,214.26 31,204.65 31,195.71"];
+	1 -> 5 [pos="e,91.32,182.27 47.491,224.94 58.163,214.55 72.21,200.87 83.976,189.42"];
+	4 -> 2 [pos="e,69,37.667 69,74.327 69,66.264 69,56.648 69,47.711"];
+	0 -> 4 [pos="e,60.017,110.49 40.199,149.09 44.76,140.2 50.358,129.3 55.402,119.48"];
+	5 -> 4 [pos="e,78.073,110.67 97.995,149.46 93.437,140.59 87.808,129.63 82.725,119.73"];
+	3 -> 5 [pos="e,108.01,185.67 109.99,222.33 109.55,214.26 109.04,204.65 108.55,195.71"];
+}
+\end{lstlisting}
+
+\lstset{
+language=PHP
+}
+
+Anhand der folgenden Funktion wird die Potenzmenge der Attribute errechnet, mit der die Graphstruktur aufgebaut wird.
+
+\begin{lstlisting}
+function getPowerset($array) {
+
+	$power = array(array());
+	foreach ($array as $element) foreach ($power as $combi)
+		array_push($power, array_merge(array($element),$combi));
+	return $power;
+}
+\end{lstlisting}
+
+Im Folgenden sieht man die Methoden, mit denen Untermengen von Attributmengen und transitive Kanten identifiziert werden. Die Zuweisung von Ober- und Untermengen ist für die Erzeugung der Kanten und somit des kompletten hierarchischen Aufbaus des Graphen notwendig. Die Erkennung von transitiven Kanten (Kanten, zwischen denen ein oder mehrere Knoten liegen) ist wichtig, um überflüssige Kanten ausfindig zu machen, da in Ordnungsdiagrammen Kanten nur Verbindungen zu direkten Ober- bzw. Unterknoten herstellen und zusätzliche Kanten, die Zwischenknoten überspringen, überflüssig sind.
+
+\begin{lstlisting}
+function is_subset($a1, $a2) {		//Überprüfung, ob $a1 Untermenge von $a2 ist
+
+	foreach ($a1 as $word) if (!in_array($word, $a2)) return false;
+	return true;
+}
+
+function is_transitive($edge) {		//Überprüfung, ob Kante überflüssig ist
+
+	global $edges;
+	foreach ($edges as $ecomp) if ($edge != $ecomp && $edge[0] == $ecomp[0]) {	//wenn Ausgangsknoten beider Kanten gleich ist...
+		if (sameRoute($edge, $ecomp)) return true;				//... dann check, ob Alternativpfad existiert
+	}
+	return false;
+}
+
+function sameRoute($ebasic, $ecomp) {		//Überprüfung, ob $ecomp über andere ausgehende Kanten zum Zielknoten von $ebasic führt
+
+	global $edges;
+	if ($ebasic[1] == $ecomp[1]) return true;	//true-Bedingung: Zielknoten sind identisch = Kante überflüssig (wg. Alternativroute)
+	foreach ($edges as $next) if ($ecomp[1] == $next[0]) {	//wenn ausgehende Kante...
+		if (sameRoute($ebasic, $next)) return true;	//... dann rekursiv mit dieser Kante Überprüfung fortsetzen
+	}
+	return false;
+}
+\end{lstlisting}
+
 \end{document}
 
