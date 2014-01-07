@@ -1,12 +1,34 @@
-\documentclass[pagesize,DIV=calc,12pt,final]{scrreprt}
+\documentclass[pagesize,paper=A4,DIV=calc,fontsize=12pt,draft=false]{scrreprt}
+
+%% Core %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{scrhack}
 \usepackage[plain]{fullpage}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
+\usepackage[babel,german=quotes]{csquotes}
+\usepackage[babel]{microtype}
+\usepackage{ellipsis}
 \usepackage{amsmath}
 %\usepackage{amsfonts}
 %\usepackage{amssymb}
+
+\KOMAoptions{
+	footnotes=multiple,
+	headings=normal
+	}
+	
+\addtokomafont{chapter}{\mdseries}
+\addtokomafont{section}{\mdseries}
+\addtokomafont{subsection}{\mdseries}
+\addtokomafont{subsubsection}{\mdseries}
+
+\addtokomafont{chapterentry}{\mdseries}
+
+\renewcommand*{\multfootsep}{,\nobreakspace}
+
+%% Dokumentenspezifisch %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \usepackage{graphicx}
 \usepackage[normal,it,footnotesize]{caption}
 %\usepackage{booktabs}
@@ -16,52 +38,72 @@
 \usepackage{paralist}
 \usepackage{textgreek}
 \usepackage{multirow}
-\usepackage{array}
+%\usepackage{array}
 %\usepackage{xtab}
-\usepackage{colortbl}
-\usepackage[babel,german=quotes]{csquotes}
-\usepackage{fnpct}
+%\usepackage{colortbl}
+%\usepackage{fnpct}
 \usepackage{units}
+\usepackage{multicol}
 
 \usepackage{enumitem}
 \setlist[itemize,1]{label=--}
+\setlist[enumerate,1]{leftmargin=1em,topsep=0.5em}
 
-\usepackage[breaklinks]{hyperref}
-\hypersetup{
- colorlinks,%
- citecolor=black,%
- filecolor=black,%
- linkcolor=black,%
- urlcolor=hhublau,%
- hypertexnames=false
- }
+%% Tabellen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% FARBEN
+%% Schriftgröße der ganzen Tabelle
+\let\oldtabular\tabularx
+\renewcommand{\tabularx}{\small\oldtabular}
 
-\definecolor{hhublau}{rgb}{0.09,0.435,0.757}
+%% Selbst-expandierende Spalte mit zentriertem Inhalt
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
 
-% TikZ
+%% Großes Kreuz. Muss aktiviert werden, wenn MinionPro nicht verfügbar
+%\newcommand*{\bigtimes}{\mathop{\raisebox{-.15ex}{\hbox{\Large{$\times$}}}}}
 
-\usepackage{tikz}
-\usetikzlibrary{positioning,chains,fit,shapes}
+%% Linienbreite in der Tabelle
+\setlength\arrayrulewidth{1pt}
 
-% ZEILENABSTAND
+
+%% Schriften %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\usepackage{lmodern}
+\usepackage[footnotefigures]{MinionPro}
+\usepackage[scaled]{ulgothic}
+\renewcommand{\sfdefault}{uop}
+
+%% Zeilenabstand
 
 \usepackage{setspace}
 \onehalfspacing
 
-\usepackage{lmodern}
+%% Farben 
 
-% VERSCHIEDENES
+\definecolor{lgray}{gray}{.95}
+\definecolor{mgray}{gray}{.85}
+\definecolor{dgray}{gray}{.75}
+\definecolor{intersect}{gray}{.45}
+%\definecolor{hhublau}{rgb}{0.09,0.435,0.757}
 
-\setcounter{secnumdepth}{-1}
+%% TikZ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tikz}
+\usetikzlibrary{positioning,chains,fit,shapes,backgrounds,arrows}
 
-\begin{document}
+%% Verschiedenes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\lstloadlanguages{SQL,bash,XML}
+%\setcounter{secnumdepth}{-1}
+
+\usepackage{hyperref}
+\hypersetup{
+colorlinks,
+linkcolor=black,
+urlcolor=black,
+breaklinks=true,
+hypertexnames=true
+}
+
+\lstloadlanguages{SQL,bash,XML,PHP}
 \lstset{
 	literate= {Ö}{{\"O}}1 {Ä}{{\"A}}1 {Ü}{{\"U}}1 {ß}{{\ss}}2
 	 {ü}{{\"u}}1 {ä}{{\"a}}1 {ö}{{\"o}}1,
@@ -72,7 +114,12 @@
 	extendedchars=true,
 	breaklines=true,
 	breakindent=0pt,
+	tabsize=2
 }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
 
 \tableofcontents
 
@@ -93,7 +140,7 @@ Synsets werden im Wörterbuch intern durch eine eindeutige Kennziffer ausgezeich
 
 \section{Ideen und Zielsetzung}
 
-Ziel des nachfolgend vorgestellten Teamprojekts war es, die Einträge des \emph{Wörterbuchs der Augenheilkunde} zu erweitern um ihre jeweilige Repräsentation als formalen Begriff, um die Einträge auf diese Weise stärker miteinander zu verknüpfen und schließlich ein \emph{semantisches Netz} im Wörterbuch zu etablieren. 
+Ziel des nachfolgend vorgestellten Teamprojekts war es, die Einträge des \enquote{Wörterbuchs der Augenheilkunde} zu erweitern um ihre jeweilige Repräsentation als formalen Begriff, um die Einträge auf diese Weise stärker miteinander zu verknüpfen und schließlich ein \emph{semantisches Netz} im Wörterbuch zu etablieren. 
 Die Synsets des Wörterbuchs bilden im Sinne der Formalen Begriffsanalyse, die nachfolgend einführend erläutert wird, die Menge an Objekten. 
 Um diese Objekte repräsentieren zu können werden beschreibende Merkmale benötigt. 
 Die Erweiterung des Wörterbuchs beschäftigt sich also vornehmlich mit der Frage, wie diese Merkmale erzeugt und den entsprechenden Objekten, den Synsets, zugewiesen werden. 
@@ -164,60 +211,52 @@ Ein Unterbegriff ist dann ein Begriff, welcher alle Merkmale eines gegebenen Beg
 Damit definiert sich eine Ordnung auf die Menge der Begriffe eines gegebenen Kontextes. 
 Dies zusammen nennt man Begriffsverband zu dem Kontext. 
 
-\begin{table}[ht]
-\label{tab:janssen}
-\centering
-\renewcommand{\arraystretch}{2}
-\begin{tabular}{@{}lccccc@{}}
-\toprule
-&
-pferd &
-männlich &
-weiblich &
-erwachsen &
-jung\\
-\midrule
-\textsc{Pferd}	&	$\times$	&&&&\\
-
-\textsc{Hengst}	&	$\times$	&	$\times$	&&	$\times$	&\\
-
-\textsc{Stute}	&	$\times$	&&	$\times$	&	$\times$	&\\
-
-\textsc{Fohlen}	&	$\times$	&&&&	$\times$\\
-
-\textsc{Stutfohlen}	&	$\times$	&&	$\times$	&&	$\times$\\
-
-\textsc{Hengstfohlen}	&	$\times$	&	$\times$	&&&	$\times$\\
-\bottomrule
-\end{tabular}
-\caption{Beispiel für eine Kreuztabelle. Übernommen aus Janssen (2002). Ins Deutsche übertragen.}
-\end{table}
-
 \begin{table}[h!]
 \centering
 \renewcommand{\arraystretch}{2}
-\begin{tabular}{@{}lccccc@{}}
-\toprule&
-pferd &
+\arrayrulecolor{black}
+\begin{tabularx}{.7\linewidth}{@{}l|c|c|c|c|c@{}}
+&
+\cellcolor{mgray}pferd &
 männlich &
-weiblich &
+\cellcolor{mgray}weiblich &
 erwachsen &
 jung\\
-\midrule
-\textsc{Pferd}	&	$\times$	&&&&\\
-
-\textsc{Hengst}	&	$\times$	&	$\times$	&&	$\times$	&\\
-
-\textsc{Stute}	&	$\times$	&&	$\times$	&	$\times$	&\\
-
-\textsc{Fohlen}	&	$\times$	&&&&	$\times$\\
-
-\textsc{Stutfohlen}	&	$\times$	&&	$\times$	&&	$\times$\\
-
-\textsc{Hengstfohlen}	&	$\times$	&	$\times$	&&&	$\times$\\
-\bottomrule
-\end{tabular}
-\caption{Beispiel für eine Kreuztabelle. Übernommen aus Janssen (2002). Ins Deutsche übertragen. Hervorgehoben sind die Kreuzungspunkte aus den Gegenständen und Merkmalen des Kontextes, die den Begriff \textit{pferd, weiblich} ergeben.}
+\hline
+\textsc{Pferd}	&	
+\cellcolor{mgray}$\bigtimes$	&&
+\cellcolor{mgray}&&\\
+\hline
+\textsc{Hengst}	&	
+\cellcolor{mgray}$\bigtimes$	&	
+$\bigtimes$	&	
+\cellcolor{mgray}	&	
+$\bigtimes$	&\\
+\hline
+\rowcolor{mgray}
+\textsc{Stute}	&	
+\cellcolor{intersect}\color{white}$\bigtimes$	&&	
+\cellcolor{intersect}\color{white}$\bigtimes$	&	
+$\bigtimes$	&\\
+\hline
+\textsc{Fohlen}	&	
+\cellcolor{mgray}$\bigtimes$	&&	
+\cellcolor{mgray}	&&	
+$\bigtimes$\\
+\hline
+\rowcolor{mgray}\color{black}
+\textsc{Stutfohlen}	&	
+\cellcolor{intersect}\color{white}$\bigtimes$	&&	
+\cellcolor{intersect}\color{white}$\bigtimes$	&&	
+$\bigtimes$\\
+\hline
+\textsc{Hengstfohlen}	&	
+\cellcolor{mgray}$\bigtimes$	&	
+$\bigtimes$	&
+\cellcolor{mgray}	&&	
+$\bigtimes$
+\end{tabularx}
+\caption{Beispiel für eine Kreuztabelle. Übernommen aus Janssen (2002). Ins Deutsche übertragen. Hervorgehoben sind die Kreuzungspunkte aus den Gegenständen und Merkmalen des Kontextes, der den Begriff \textit{pferd, weiblich} ergibt.}
 \label{tab:janssen}
 \end{table}
 
@@ -227,7 +266,7 @@ Die Structured Interlingua MultiLingual Lexical Database Application (SIMuLLDA) 
 Statt von einer Sprache direkt in eine gegebene andere Sprache zu übersetzen, verwendet dieser Ansatz eine Zwischensprache (Interlingua). 
 Die natürlichen Sprachen sind repräsentiert durch ihre Worte (Lexeme). 
 
-Grundlage der Zwischensprache sind Kreuztabellen, wie sie unter\emph{~\nameref{subsec:fba}} vorgestellt wurden. 
+Grundlage der Zwischensprache sind Kreuztabellen, wie sie unter\emph{~\nameref{subsec:fba}} auf Seite~\pageref{subsec:fba} vorgestellt wurden. 
 Aus den daraus gebildeten Begriffsverbänden sind die Lexeme der jeweiligen Sprachen mit den entsprechenden formalen Begriffen verbunden. 
 Immer dann, wenn einem formalen Begriff eine Bedeutung in beiden Sprachen zukommt, können die entsprechenden Lexeme verbunden werden. 
 Auf diese Weise kann überbrückt werden, wenn es kein entsprechendes Lexem in der zu übersetzenden Sprache gibt, weil die Bezeichnungen der Merkmale in der zu übersetzenden Sprache trotzdem existieren. 
@@ -236,16 +275,16 @@ Der Ansatz der Arbeit von Janssen diente unserem Projekt als Ausgangspunkt mit H
 \subsubsection{Ordnungsdiagramme}
 
 Ordnungsdiagramme sind graphische Darstellungen mathematischer Halbordnungen. 
-Geläufige Namen für Ordnungsdiagramme sind außerdem noch \textit{Liniendiagramm} und \textit{Hasse-Diagramm}.
-\footnote{Wir halten \textit{Ordnungsdiagramm} für die geeignete Vorzugsbezeichnung und verwenden sie durchgehend.}
-Das nachfolgende Ordnungsdiagramm ist eine vollständige Darstellung der Kreuztabelle unter\emph{~\nameref{subsec:fba}}.
+Geläufige Namen für Ordnungsdiagramme sind außerdem noch \textit{Liniendiagramm} und \textit{Hasse-Diagramm}.\footnote{Wir halten \textit{Ordnungsdiagramm} für die geeignete Vorzugsbezeichnung und verwenden sie durchgehend.}
+Das nachfolgende Ordnungsdiagramm ist eine vollständige Darstellung der Kreuztabelle unter\emph{~\nameref{subsec:fba}} auf Seite~\pageref{subsec:fba}.
 Die Ordnung ist aufgebaut auf der Grundlage der Potenzmenge, der Menge aller Teilmengen, der Merkmalsmenge.\footnote{Zu einer gewissen Verwirrung im Umgang mit Ordnungsdiagrammen trägt anfangs bei, dass der graphisch zuunterst liegende Knoten die Menge aller Merkmale repräsentiert (also am spezifischsten ist), aber \textit{obere Schranke} genannt wird, während der zuoberst dargestellte Knoten die leere Menge repräsentiert, aber \textit{untere Schranke} genannt wird. 
 Erschwerend kommt hinzu, dass das hier gezeigte Ordnungsdiagramm keine untere Schranke hat, denn der zuoberst dargestellte Knoten ist repräsentiert durch das Merkmal \textit{pferd}, das allen Objekten des Verbands zugrundeliegt.}
 Diese Darstellung ist so zu lesen, dass jeder Knoten im Diagramm einem Begriff entspricht.
 Die Merkmale stehen jeweils oberhalb der Knoten, die natürlichsprachigen Entsprechungen bestimmter Begriffe stehen unterhalb mancher Knoten.
 Die Knoten selbst haben keine Beschriftung, sondern sie sind definiert durch die Merkmale, die entlang der Linien zwischen einem gegebenen Knoten und dem Knoten zuoberst stehen.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Nachfolgend Worte abgeändert
+%% Nachfolgend Worte abgeändert
+%% P. Ok.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 So ist der Knoten, über dem das Merkmal \textit{weiblich} steht, definiert durch die beiden Merkmale \textit{\{pferd, weiblich\}}.
 Der Knoten unter dem das Wort \textsc{Stute} steht ist definiert durch die Merkmale \textit{\{pferd, weiblich, erwachsen\}}.
@@ -290,7 +329,7 @@ In anderen Sprachen mögen an einigen Knoten keine Worte verfügbar sein, um dem
 Die Formale Begriffsanalyse erzeugt semantische Strukturen ausschließlich auf Grundlage der vorhandenen Merkmale sowie der Zuordnung der Merkmale zu den untersuchten Objekten. 
 Naturgemäß ist diese Art der Inhaltserschließung an Grenzen gebunden. 
 Zunächst ist festzuhalten, dass nur binäre Zuweisungen von Merkmalen in der Formalen Begriffsanalyse möglich sind: ein Merkmal ist einem Objekt entweder zugewiesen oder nicht. 
-Größere Wertebereiche können somit nicht abgebildet werden, wie beispielsweise ein gegebener Messwert für den Augeninnendruck von \unit[17]{mmHg} als Ausprägung des Merkmals Augeninnendruck. 
+Größere Wertebereiche können somit nicht abgebildet werden, wie beispielsweise ein gegebener Messwert für den Augeninnendruck von \unit[17]{mmHg}\footnote{Die Maßeinheit \unit[]{mmHg} beschreibt den Druck in Flüssigkeiten in \unit[]{mm} Aufstieg einer Quecksilbersäule.} als Ausprägung des Merkmals Augeninnendruck. 
 Man könnte zwar das Merkmal \unit[17]{mmHg} zuweisen, dies würde jedoch allenfalls Objekte, die mit dem Merkmal \unit[17]{mmHg} versehen wurden, untereinander vergleichbar machen, da es die Formale Begriffsanalyse nicht vorsieht, Beziehungen zwischen Merkmalen zu kennzeichnen oder Merkmale als Zahlenwerte zu interpretieren. 
 Ein Objekt mit dem Merkmal \unit[16]{mmHg} wäre somit genauso wenig bedeutungsgleich zu einem Objekt mit dem Merkmal \unit[17]{mmHg} wie eines mit dem Merkmal \unit[6] {mmHg}, es sei denn die Bedeutungsähnlichkeit würde durch weitere Merkmale deutlich gemacht werden. 
 
@@ -353,18 +392,12 @@ Das \enquote{Wörterbuch der Augenheilkunde} umfasst Begriffe aus vielen Bereich
 Wir konnten während unserer Arbeit am Wörterbuch folgende Kategorien identifizieren: 
 
 \begin{enumerate}
-\item
- Anatomie (Aufbau des Auges)
-\item
- Pathologie (Erkrankungen des Auges)
-\item
- externe Schädigungen des Auges
-\item
- Behandlungs- und diagnostische Verfahren
-\item
- Instrumente und Apparate in der Augenheilkunde
-\item
- Arzneimittel
+\item Anatomie (Aufbau des Auges)
+\item Pathologie (Erkrankungen des Auges)
+\item externe Schädigungen des Auges
+\item Behandlungs- und diagnostische Verfahren
+\item Instrumente und Apparate in der Augenheilkunde
+\item Arzneimittel
 \end{enumerate}
 
 Da vor allem Erkrankungen des Auges einen Großteil der Synsets ausmachen, schien es vielversprechend entsprechende externe Quellen nach Merkmalen zu durchsuchen. 
@@ -391,7 +424,7 @@ Die Durchführung einer (teilweise) automatisierten Merkmalsextraktion und -zuwe
 Diese wurde anhand von Wortteilmustern und ihrer Bedeutung als Affix, Wortwurzel beziehungsweise Teil eines Kompositums oder Derivats erzielt, wie sie gehäuft in medizinischen Fachbegriffen vorkommen. 
 Viele dieser Fachbegriffe beinhalten Wortteile aus dem Lateinischen oder Altgriechischen oder sind fast vollständig Lehnwörter daraus. 
 Immer wieder auftretende Affixe des Lateinischen und des Altgriechischen\footnote{Wir stellen im Fließtext Präfixe durch vorangestellten Schrägstrich, Affixe durch finalen Schrägstrich und Infixe durch beidseitige Schrägstriche dar.}\footnote{Beispielhaft: die englische Endung \emph{/oplasty}, die einen rekonstruktiven Eingriff bezeichnet, stammt aus dem griechischen und bedeutet \emph{formen}. 
-Die griechische Endung \emph{/itis} wiederum bezeichnet meist eine entzündliche Krankheit} deuten meist auf einen hinreichend eindeutig gekennzeichneten Umstand hin, so dass dieser auf entsprechend äquivalente Merkmale übertragen werden kann. 
+Die griechische Endung \emph{/itis} wiederum bezeichnet meist eine entzündliche Krankheit} deuten meist auf einen hinreichend eindeutig gekennzeichneten Umstand hin, so dass dieser auf entsprechende Merkmale übertragen werden kann. 
 Die Merkmalsextraktion findet hierbei manuell statt, die Merkmalszuweisung automatisch. 
 
 Einen großen Mehrwert erhält man zudem durch Berücksichtigung der semantischen Beziehungen zwischen den zugewiesenen Merkmalen. 
@@ -415,16 +448,10 @@ Da keine externen Informationsquellen für diesen Prozess benötigt werden, kön
 Der folgende beispielhafte Programmcode skizziert die Zuweisung des Merkmals mit der ID 101 (Entzündung) an alle Synsets aus dem Wörterbuch, von denen eine ihrer Bezeichnungen den Wortbestandteil \emph{/itis/} enthält: 
 
 \lstset{
-	numbers=left,
-        language=SQL,
-	basicstyle=\ttfamily\footnotesize,
-	extendedchars=true,
-	inputencoding=utf8,
-	breaklines=true,
-	breakindent=0pt,
+language=SQL
 }
 
-\begin{lstlisting}
+\begin{lstlisting}[caption={Merkmalszuweisung der ID 101 (Entzündung) an Synsets mit dem Wortbestandteil \emph{/itis/}}]
 INSERT INTO Merkmalszuweisungen (SynsetID, MerkmalID) 
 SELECT SynsetID, 101 
 FROM Woerterbuch 
@@ -446,12 +473,14 @@ Durch Versuche mit n-Grammen unterschiedlicher Länge zeigte sich, dass unterhal
 Im späteren Verlauf wurden trotzdem noch die Trigramme berücksichtigt, die geeignete Wortteilmuster darstellten. 
 Bei diesen Trigrammen handelt es sich um:
 
+\begin{multicols}{2}
 \begin{enumerate}
     \item \textit{/dys/} für \textit{illness}
     \item \textit{/cyt/} für \textit{cell}
     \item \textit{/myo/} für \textit{muscle}
     \item \textit{/exo/} für \textit{outside}
 \end{enumerate}
+\end{multicols}
 
 Anschließend wurde die Liste ausgehend vom am häufigsten vorkommenden n-Gramm bis zu einer Häufigkeit von 6 manuell abgearbeitet und jedes n-Gramm jeweils nach semantischem Inhalt sowie semantischer Eindeutigkeit überprüft.
 Im medizinischen Kontext muss die Bedeutung des vorliegenden Gramms nicht nur offensichtlich, sondern innerhalb dieses Kontextes auch eindeutig sein, also keine Mehrdeutigkeiten aufweisen. 
@@ -471,6 +500,7 @@ Besonders ermutigend sind dabei der hohe Grad der Qualität an Merkmalen und Zuw
 \section{Wikipedia als Wissensquelle}
 
 \subsection{Die Kategorie-Tags in der Wikipedia}
+\label{subsec:wiki_cats}
 
 \subsubsection{Vorüberlegungen}
 
@@ -494,6 +524,7 @@ In erster Linie dient dies dazu, thematische Bereiche zu erstellen und weniger e
 Daher gibt es, neben einer Begriffsordnung eher zurechenbaren Kategorien wie \enquote{Medizin}, \enquote{Medizinisches Fachgebiet} oder \enquote{Augenheilkunde} auch Sammelkategorien wie \enquote{Liste Nationalparks}. 
 Die Wikipedia hat damit Eigenschaften einer hierarchischen Klassifikation und solche einer Facettenklassifikation. 
 Die Wahl einer geeigneten Kategoriebezeichnung für einen Artikel ist dem jeweiligen Autor freigestellt, er kann auch eine neue Kategoriebezeichnung wählen. 
+
 In der Praxis gibt es aber Empfehlungen für die Eigenschaften und die korrekte Wahl einer geeigneten Kategoriebezeichnung und über die Zeit bildet sich dadurch eine brauchbare (das heißt: nicht zu diverse) Begriffsordnung heraus, weil darauf geachtet wird, dass es beispielsweise nur eine Kategorie \enquote{Liste Nationalparks} gibt, und nicht zusätzlich noch \enquote{Liste der Nationalparks}, \enquote{Liste aller Nationalparks} und ähnlichen Abweichungen. 
 Eines der Probleme dabei ist, dass nicht sichergestellt ist, dass eine Seite nicht einer Kategorie und einer Oberkategorie dieser Kategorie gleichzeitig eingeordnet wird. 
 Dadurch wird es für die automatische Erschließung eines Kategoriebaums allerdings erforderlich, auf diese Weise doppelt gesammelte Artikel zu eliminieren. 
@@ -513,7 +544,7 @@ Aus der deutschen Wikipedia konnten 433 Artikel für die weitere Verwendung extr
 Das Vorgehen hierzu umfasste zahlreiche nur manuell durchzuführende Schritte, um die Ergebnismenge möglichst frei von Artikeln oder Kategorien zu halten, die nicht zur eigentlichen Fragestellung zählten. 
 Die Vorgehensweise war wie folgt: 
 
-\begin{inparaenum}
+\begin{enumerate}
 \item Download der Abstracts. Für die deutsche Wikipedia 1.19 GB und für die englische Wikipedia 3.15 GB Dateigröße.
 
 \item Ermitteln der Artikelnamen in den Unterkategorien der Kategorien \enquote{Augenheilkunde} bzw. \enquote{Ophthalmology}. 
@@ -530,8 +561,9 @@ Für wiederholte Aufgaben dieser Art ist eine Einarbeitung in XSLT aber zu empfe
 Allerdings fanden sich auch mehrere hundert Kategorien, die lediglich der Verwaltung der Wikipedia dienen, und die vorher nicht aufgefallen waren, weil sie bei der Anzeige im Browser unterdrückt werden. 
 Ein allgemeines Beispiel dafür ist die Kategorie \enquote{Articles needing attention}, die selbst wiederum mehrere hundert Unterkategorien enthält (unter anderem zu jener Zeit sich selbst: \enquote{Medical Articles needing attention}). 
 Außerdem gibt es Sammelkategorien der Art \enquote{Accuracy disputes from August 2009}. 
-Je nachdem wie lange der Dissens bezüglich eines Themas schwelt sind genau so viele Kategorien dieses Typs einem Artikel zugewiesen, wie Monate vergangen sind. 
-Obwohl viele dieser Kategorien, einmal identifiziert, durch reguläre Ausdrücke gut zu filtern waren, war es doch ein erheblicher manueller Aufwand, der aber im Wiederholungsfall automatisierbar ist. \end{inparaenum}
+Je nachdem wie lange der Dissens bezüglich eines Themas schwelt, sind genau so viele Kategorien dieses Typs einem Artikel zugewiesen, wie Monate vergangen sind. 
+Obwohl viele dieser Kategorien, einmal identifiziert, durch reguläre Ausdrücke gut zu filtern waren, war es doch ein erheblicher manueller Aufwand, der aber im Wiederholungsfall automatisierbar ist.
+\end{enumerate}
 
 \subsubsection{Ergebnisse}
 
@@ -555,24 +587,26 @@ Insbesondere für Artikel, die schon etwas älter sind und die viele Bearbeiter,
 Gerade der erste Satz folgt damit so gut wie immer dem Schema, welches exemplarisch am nachfolgenden Exzerpt aus der Wikipedia veranschaulicht werden soll: 
 
 \begin{quote}
-Die Augenheilkunde (Augenmedizin, fachsprachl.: Ophthalmologie, Ophthalmiatrie; von gr. \textomikron\textphi\texttheta\textalpha\textlambda\textmugreek\textomikron\textvarsigma, \emph{Auge}) ist die Lehre von den Erkrankungen und Funktionsstörungen des Sehorgans, deren Anhangsorgane, sowie des Sehsinnes und deren medizinischer Behandlung. 
+Die \textbf{Augenheilkunde} (Augenmedizin, fachsprachl.: \textbf{Ophthalmologie, Ophthalmiatrie}; von gr. \textomikron\textphi\texttheta\textalpha\textlambda\textmugreek\textomikron\textvarsigma, \emph{Auge}) ist die Lehre von den Erkrankungen und Funktionsstörungen des Sehorgans, deren Anhangsorgane, sowie des Sehsinnes und deren medizinischer Behandlung. 
 \end{quote}
 
 Die Überlegungen zur Erzeugung von Merkmalszuweisungen wurden daher darauf konzentriert, aus den ersten beiden Sätzen des Abstracts eine Zerlegung in Wort-n-Gramme der Längen 2 und 3 zu erstellen, um mit diesen mittels Zeichenkettenvergleich weitere Titel von Wikipedia-Artikeln aus der Volltextkopie zu identifizieren.
 Auf diese Weise identifizierte Begriffe, zu denen ein Wikipedia-Artikel existiert, sollten die Merkmale bilden, die dem Synset, das dem Wikipedia-Artikel entspricht, zugewiesen werden. 
 Wenn beispielsweise die Wortfolge \textit{Diabetes mellitus} im Abstract des Artikels \enquote{Diabetische Retinopathie} gefunden wurde, dann wird das Merkmal \textit{Diabetes mellitus} dem Synset \enquote{diabetische Retinopathie} zugeordnet.
+
 Der Grund aus dem die ersten beiden Sätze und nicht nur der erste Satz herangezogen wurden ist, dass bei manchen Artikeln der erste Satz nur aus einer etymologischen Einordnung besteht (ähnlich dem Inhalt der Klammer im Beispiel oben) ohne weitere Erklärung des Begriffs. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Nachfolgende Sätze ersetzt
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Wortfolgen, zu denen erfolgreich ein Wikipedia-Eintrag zugewiesen werden konnten, werden als sinnvolles Merkmal für die Zwecke der Formalen Begriffsanalyse betrachtet, da sie anscheinend als bedeutungstragend genug erachtet werden, um in der Wikipedia-Enzyklopädie aufgenommen und erklärt zu werden. Anschließend wurden die Worte der Abstracts vorher mit Stemming auf ihren Wortstamm zurückgeführt (im Rahmen der Möglichkeiten des verwendeten Stemmers), um eine bessere Übereinstimmung mit vorhandenen Titeln von Wikipedia-Artikeln zu ermöglichen.
+
 Hierzu wurde die ANSI-C-Implementation des Porter-Stemmers verwendet, jeweils in Standardeinstellung für die englische Sprache und mit angepassten Mustern für die deutsche Sprache (die angepassten Muster sind Teil des Programms). 
 Die resultierende Liste von n-Grammen je Artikel wurde zusammen mit dem Artikelnamen in einer Pseudo-XML-Notation abgespeichert: die n-Gramme wurden in Tags namens \emph{bigram} und \emph{trigram} gespeichert ohne sich weiter mit einer geeigneten Document Type Definition aufzuhalten. 
 Die Ketten sollten aus der Datei nur gut extrahierbar sein und die Datei trotzdem für Menschen lesbar.
 
 \subsubsection{Vorgehensweise}
 
-\begin{inparaenum}
+\begin{enumerate}
 \item Unix Shell-Skripte (vor allem mit \emph{sed, awk, Perl}) zur Extraktion der ersten beiden Sätze. 
     Es musste sowohl das Wiki-Markup, als auch Schriftzeichen anderer Sprachen (insbesondere Altgriechisch, Arabisch und Indisch) herausgefiltert werden, zum Teil mit manuellem Eingriff und Korrektur\footnote{Auch hier gilt, was an anderer Stelle schon bemerkt wurde: manche der manuell ausgeführten Arbeiten sind prinzipiell automatisierbar, allerdings erschien zum relevanten Zeitpunkt der Aufwand dafür, gegeben dass es sich um eine einmalige Aufgabe handelte, als nicht geboten. 
 In jedem Fall wurde aber darauf geachtet, die Schritte so zu wählen, dass sie automatisierbar sein können.}.
@@ -583,7 +617,7 @@ Dieser Schritt geht vollautomatisch und bedarf keiner weiteren Überprüfung ode
 \item PHP-Skript für den Import der XML-Daten in die Datenbank, sowie Abgleich der Wort-Gramme mit den Titeln der Artikel und Speichern der Ergebnisse.
 
 \item Anlegen und Zuweisung der Merkmale, sowie Matching der Artikeltitel und der Synsetbezeichnungen via SQL. 
-\end{inparaenum}
+\end{enumerate}
 
 \subsubsection{Ergebnisse}
 
@@ -608,7 +642,7 @@ Positiv herauszustellen ist jedoch die Erzeugung eines bereinigteren Begriffsver
 
 \subsubsection{Vorüberlegungen}
 
-Die Gründe aus dem der Dump der Wikipedia-Abstracts verwendet worden waren sind: 
+Die Gründe aus denen die Volltextkopie der Wikipedia-Abstracts verwendet worden waren sind: 
 \begin{inparaenum}
 \item es musste kein \emph{Crawler} geschrieben werden, der immer wieder neu auf die Seiten angewandt wurde
 \item es war anfangs auch nicht zu überblicken, ob und welche Kategorien noch hinzugenommen werden sollten, und 
@@ -616,7 +650,7 @@ Die Gründe aus dem der Dump der Wikipedia-Abstracts verwendet worden waren sind
 \end{inparaenum}
 
 Insbesondere das Wiki-Markup stellte sich aber als sehr schwierig vom restlichen Text zu trennen dar und erforderte übermäßig viel manuelles Eingreifen. 
-Im Frühjahr 2012 wurde das API für Anfragen (query.php) der Wikipedia stark überarbeitet und in der Funktionalität ausgebaut. 
+Im Frühjahr 2012 wurde das API für Anfragen der Wikipedia stark überarbeitet und in der Funktionalität ausgebaut. 
 Insbesondere die Ausgabe der Inhalte als reiner Text, frei von Wiki-Markup, stellte eine erhebliche Verbesserung der Möglichkeiten der maschinellen Weiterverarbeitung dar. 
 
 Das API bietet seitdem sogar die Möglichkeit eine beliebige Anzahl von Sätzen, gezählt von Beginn des Artikels an, auszugeben. 
@@ -641,7 +675,7 @@ Weiterhin adjektivische Elemente, die den Begriff einordnen in den Rahmen der du
 Ein Beispiel dafür ist der erste Satz des Artikels \enquote{Hornhaut}: 
 
 \begin{quote}
-Die Hornhaut (lateinisch Cornea, eingedeutscht auch Kornea, griechisch keratos) ist der glasklare, von Tränenflüssigkeit benetzte, gewölbte vordere Teil der äußeren Augenhaut. 
+Die \textbf{Hornhaut} (lateinisch \textbf{Cornea}, eingedeutscht auch \textbf{Kornea}, griechisch \emph{keras} = Horn, \emph{keratoeides chiton} = Hornhaut) ist der glasklare, von Tränenflüssigkeit benetzte, gewölbte vordere Teil der äußeren Augenhaut. 
 \end{quote}
 
 Da es mit einem Part-of-Speech-Tagger vergleichsweise einfach ist, die entsprechenden Teile zu extrahieren, sollte der Versuch unternommen werden dem Merkmalscharakter möglichst nahe zu kommen, indem einfach die Wörter, die unmittelbar verwendet werden um den in Frage stehenden Begriff zu beschreiben, als Merkmale zu nutzen. 
@@ -649,13 +683,13 @@ Die Wahrscheinlichkeit, einerseits möglichst treffende Begriffe zu finden und a
 
 \subsubsection{Vorgehensweise}
 
-Anders als bei der Extraktion aus dem Dump wurden die Seiten von einem Shell-Skript aus mit \emph{wget} geholt und mit den geeigneten Teilen der zuvor verwendeten Skripte sofort weiterverarbeitet. 
+Anders als bei der Extraktion aus der Volltextkopie wurden die Seiten von einem Shell-Skript aus mit \emph{wget} geholt und mit den geeigneten Teilen der zuvor verwendeten Skripte sofort weiterverarbeitet. 
 Für das Part-of-Speech-Tagging wurde der \emph{TreeTagger} von Helmut Schmid (Schmid, 1994) verwendet.
 Er enthält sogenannte \enquote{parameter files} für eine Vielzahl von Sprachen. 
 Vor allem aber ist das Programm ohne große Konfiguration recht schnell und verarbeitet Standarddatenströme der Unix-Shell, so dass es sich gut in Shell-Skripten verwenden lässt. 
 Die genaue Vorgehensweise war: 
 
-\begin{inparaenum}
+\begin{enumerate}
 \item Ausgehend von der Kategorie \enquote{Eye} rekursiv alle ersten Sätze aller Artikel in allen Unterkategorien holen. 
 Bei Verwendung des API ist die Standardeinstellung, dass die oben erwähnten Verwaltungskategorien nicht beachtet werden. 
 Man erhält also sofort eine wesentliche fehlerfreiere Menge von Artikeln. 
@@ -678,33 +712,26 @@ Später ist bei genauerer Betrachtung aufgefallen, dass es Artikel gab, die trot
 Das deutet darauf hin, dass diese Fehlerrate auch absolut höher hätte sein können und die Vorgehensweise vermutlich nicht ohne manuelle Kontrolle auskommt. 
 Allerdings waren die Artikel relativ leicht zu finden, indem die durchschnittliche Satzlänge aller Artikel berechnet wurde und die Artikel ausgegeben wurden, deren Satzlänge $\geq 2 $ Standardabweichungen vom Mittelwert der Satzlänge aller Sätze abwich. 
 Diese Vorgehensweise ist zwar auch nicht vollständig reliabel, aber gut als Schritt bei der Nachbearbeitung einzubauen. 
-
-Die Ergebnisse wurden an TreeTagger übergeben und die Ausgabe von TreeTagger gefiltert, so dass nur die Stammformen der Nomen und Adjektive gespeichert wurden.\footnote{TreeTagger verwendet die Nomenklatur des Penn Treebank Project. 
-Gespeichert wurden alle Vorkommen von JJ*, also JJ - Adjektiv, JJR - Adjektiv komparativ und JJS - Adjektiv Superlativ und NN*, also NN - Nomen Singular, NNS - Nomen Plural, NNP und NNPS für Eigennamen respektive.} 
+Die Ergebnisse wurden an TreeTagger übergeben und die Ausgabe von TreeTagger gefiltert, so dass nur die Stammformen der Nomen und Adjektive gespeichert wurden\footnote{TreeTagger verwendet die Nomenklatur des Penn Treebank Project. 
+Gespeichert wurden alle Vorkommen von JJ*, also JJ - Adjektiv, JJR - Adjektiv komparativ und JJS - Adjektiv Superlativ und NN*, also NN - Nomen Singular, NNS - Nomen Plural, NNP und NNPS für Eigennamen respektive.}. 
 
 \item Nach weiteren Filterschritten werden die Ergebnisse zusammen mit dem Artikelnamen und den Kategorien, die in einem separaten Schritt geholt wurden, gespeichert. 
 Auf das finale Speichern der Part-of-Speech-Information wurde verzichtet. 
-\end{inparaenum}
+\end{enumerate}
 
 Das Ergebnis wurde wie folgt gespeichert: die Zahl am Anfang ist eine durchlaufende Nummer je Begriff, die mit dem Sternsymbol hervorgehobenen Merkmale sind Kategorien. 
 Jeweils vorangestellt ist der ursprüngliche Satz. 
 Das erste Beispiel ist ein eher erfolgreiches Resultat des Ansatzes, das zweite Beispiel ist ein typischer Fall für die weniger brauchbaren Ergebnisse. 
 
 \begin{quote}
-Keratoprosthesis is a surgical procedure where a severely damaged or diseased cornea is replaced with an artificial cornea.
+\textbf{Keratoprosthesis} is a surgical procedure where a severely damaged or diseased cornea is replaced with an artificial cornea.
 \end{quote}
 
 \lstset{
-	numbers=left,
-        language=Bash,
-	basicstyle=\ttfamily\footnotesize,
-	extendedchars=true,
-	inputencoding=utf8,
-	breaklines=true,
-	breakindent=0pt,
+language=Bash
 }
 
-\begin{lstlisting}
+\begin{lstlisting}[caption={Beispiel für eine Ergebnisliste nach Filterung mit Wortartenerkennung. Das in Sternen eingefasste Wort ist die Kategorie.}]
 69,Keratoprosthesis,surgical 
 69,Keratoprosthesis,procedure
 69,Keratoprosthesis,damaged 
@@ -716,20 +743,14 @@ Keratoprosthesis is a surgical procedure where a severely damaged or diseased co
 Die zusätzliche Kategorie \enquote{Ophthalmology} bringt hier keine besonderen Zugewinne, weil sie eine der neun unmittelbaren Unterkategorien von \enquote{eye} ist und damit allein zu allgemein ist.
 
 \begin{quote}
-A scleral lens is a large lens that rests on the sclera and creates a tear-filled vault over the cornea.
+A \textbf{scleral lens} is a large lens that rests on the sclera and creates a tear-filled vault over the cornea.
 \end{quote}
 
 \lstset{
-	numbers=left,
-        language=Bash,
-	basicstyle=\ttfamily\footnotesize,
-	extendedchars=true,
-	inputencoding=utf8,
-	breaklines=true,
-	breakindent=0pt,
+language=Bash,
 }
 
-\begin{lstlisting}
+\begin{lstlisting}[caption={Beispiel für eine Ergebnisliste nach Filterung mit Wortartenerkennung. Die in Sternen eingefassten Wörter sind Kategorien.}]
 185,Scleral lens,large 
 185,Scleral lens,vault 
 185,Scleral lens,*contact lenses* 
@@ -887,7 +908,7 @@ Aufgrund der Beschränkung auf elf Achsen und insbesondere aufgrund der Untersch
 Viele der Extrakte aus der Wikipedia enthalten Wörter, die als Konzept in entsprechenden Achsen der SNOMED unmittelbar Verwendung finden, so dass sich aus unserer Sicht hier die Chance ergibt, die Verschlagwortung der Synsets mittels eines von Fachleuten erstellten Systems zu betreiben.\footnote{Stichprobenartige Versuche ausgewählte erste Sätze der Wikipedia-Extraktion in den \enquote{SNOMED CT Categorizer} \href{http://eagl.unige.ch/SNOCat/index.jsp}{http://eagl.unige.ch/SNOCat/index.jsp} der Universität Genf zu geben, zeigen ermutigende Ergebnisse im Hinblick auf die Abdeckung. Dieses System soll eigentlich Formulierungen wie sie in Arztbriefen vorkommen in SNOMED-Kategorien übersetzen}
 
 
-\subsection{Schlussbemerkungen}
+\section{Schlussbemerkungen}
 
 Bei oberflächlicher Inaugenscheinnahme der Ergebnisse kann man feststellen, dass wir die ursprünglich formulierten Ziele erreicht haben.
 Allerdings sind dabei viele Einschränkungen zu machen.
@@ -920,18 +941,23 @@ Im Hinblick auf die Projektplanung wäre unsere Wunschvorstellung bezüglich der
 
 \chapter{Anhang}
 
-\subsection{Beispiel für die Verarbeitung der Extrakte aus der Wikipedia}
+\section{Beispiel für Verarbeitung der Extrakte aus der Wikipedia}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Referenz auf den Wikipedia-Abschnitt hinzugefügt
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Basierend auf den Kategorien, wurden alle Artikel, denen ein gegebenes Kategorie-Tag zugewiesen war geholt (genaueres, siehe Abschnitt \emph{Die Kategorie-Tags in der Wikipedia}).
+%% Referenz auf den Wikipedia-Abschnitt hinzugefügt
+%% Danke. \nameref daraus gemacht.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Basierend auf den als relevant erachteten Kategorien der Wikipedia, wurden alle Artikel, denen ein gegebenes Kategorie-Tag zugewiesen war, geholt (siehe auch \emph{~\nameref{subsec:wiki_cats}} auf Seite~\pageref{subsec:wiki_cats}).
+Der typische Aufbau eines solchen Artikels im Quelltext ist nachfolgend dargestellt.
+Von Interesse sind hier der Titel des Dokuments, die Kategorien und das Extrakt selbst.
+Die Kategorien wurden zum Abgleich mit der ursprünglichen Kategorieliste extrahiert.
+Dabei gab es keine Abweichungen, der Schritt ist daher in Zukunft vermeidbar. 
 
 \lstset{
 language=XML
 }
 
-\begin{lstlisting}
+\begin{lstlisting}[caption={XML-Quelltext eines typischen Artikels der Wikipedia: \enquote{Parinaud's syndrome}}]
 <?xml version="1.0"?>
 <api>
 <query>
@@ -950,51 +976,89 @@ Parinauds Syndrome, also known as dorsal midbrain syndrome is a group of abnorma
 </api>
 \end{lstlisting}
 
-Von Interesse sind hier der eigentliche Titel des Dokuments, die Kategorien und das Extrakt selbst. 
-Die Kategorien wurden extrahiert, um hinterher kontrollieren zu können, dass alle Artikel geholt wurden (die Artikel wurden ja aufgrund ihrer Kategoriezugehörigkeit ausgewählt). 
-Dabei gab es keine Abweichungen, der Schritt ist daher in Zukunft vermeidbar. 
-Um den Titel in einem Ausdruck ohne das Markup zu holen, wurde folgender Ausdruck verwendet: 
-
 \lstset{
 language=bash
 }
 
-\begin{lstlisting}
+\begin{lstlisting}[caption={Extraktion des Titels aus Zeile 5 des Artikels \enquote{Parinaud's syndrome}. HTML-Entities wie \texttt{\&\#39;} für hochgestellte einzelne Anführungszeichen in Zeile 5 wurden gesammelt und in der Ergebnisdatei in einem Durchgang ersetzt.}]
 sed -n 's/<page.*title="\([^"]*\)".*$/\1/p' Parinauds_syndrome.xml
 \end{lstlisting}
 
-Um das Extrakt in einem Ausdruck ohne das Markup zu holen, wurde
-folgender Ausdruck verwendet:
-
-\begin{lstlisting}
+\begin{lstlisting}[caption={Extraktion des Textes aus der der Zeile 10 nachfolgenden Zeile des Artikels \enquote{Parinaud's syndrome}}]
 sed -n 's/<extract.*>\([^<]*\)\([<$ ].*\)/\1/p' Parinauds_syndrome.xml
 \end{lstlisting}
 
-HTML-Entities wie \texttt{\&\#39;} für hochgestellte einzelne Anführungszeichen wurden gesammelt und in der Ergebnisdatei in einem Durchgang ersetzt.
+%HTML-Entities wie \texttt{\&\#39;} für hochgestellte einzelne Anführungszeichen in Zeile 5 wurden gesammelt und in der Ergebnisdatei in einem Durchgang ersetzt.
 
-\subsection{Stoppwortliste}
+%\section{Stoppwortliste}
 
-Eine Liste der verwendeten englischen Stoppworte ist unter \href{http://norm.al/2009/04/14/list-of-english-stop-words/}{http://norm.al/2009/04/14/list-of-english-stop-words/} einsehbar.
+%Eine Liste der verwendeten englischen Stoppworte ist unter \href{http://norm.al/2009/04/14/list-of-english-stop-words/}{http://norm.al/2009/04/14/list-of-english-stop-words/} einsehbar.
 
-\subsection{Erzeugung eines Graphen}
+\section{Erzeugen eines Ordnungsdiagramms}
 
-Beispielhaft wird an dieser Stelle das DOT-Format (Auszeichnungssprache für GraphViz) eines automatisiert erzeugten Graphens gezeigt, aus dem die visuelle Repräsentation des Graphen mittels eines Renderers ins SVG-Format geparst wird. Erzeugt wurde der Graph aus dem Begriffsverband des Synsets Macula mit dem Script visualize_new.php. Anhand des Formats erkennt man deutlich Knoten und Kanten, sowie deren Attribute (Labels, Farben,  Verlinkungen, etc.).
+\subsection{Die Auszeichnungssprache DOT}
+
+Die Auszeichnungssprache DOT kann verwendet werden zur einfachen Beschreibung von Graphen.
+Sie wird von unterschiedlichen Programmen interpretiert, die meisten sind aber Teil des Programmpaketes GraphViz.
+Diese Programme erlauben die Ausgabe des Graphen in einer Vielzahl von Dateitypen für Raster- und Vektorgrafiken.
+Nachfolgend wird die Syntax am Beispiel eines aus unseren Daten generierten Begriffsverbands gezeigt.
+Als Ausgabestrom erzeugt \emph{dot} dann SVG-Syntax, die direkt in das Markup der HTML-Seite eingebettet werden kann.
+Erzeugt wurde das Diagramm aus dem Begriffsverband des Synsets \emph{Macula} mit dem Script \enquote{visualize\_new.php}. 
+Die Formatierung erlaubt es Knoten und Kanten, sowie deren Attribute deutlich hervorzuheben ohne eine Rastergrafik zu verwenden, weil die Auszeichnung des Diagramms in reinem Text im Quelltext des Dokumentes erfolgt.
 
 \lstset{
 language=C
 }
 
-\begin{lstlisting}
+\begin{lstlisting}[caption={Dot-Syntax für Ordnungsdiagramm des Begriffsverbands für das Synset \emph{Macula}}]
 strict digraph G {
-	graph [center=true, size=12, overlap=voronoi, splines=true, sep="0.01"];
+	graph [
+		center=true, 
+		size=12, 
+		overlap=voronoi, 
+		splines=true, 
+		sep="0.01"];
 	node [label="\N"];
 	graph [bb="0,0,142,260"];
-	0 [label=190, URL="/visualize_new.php?WID=1895&show=1", pos="31,167", width="0.86111", height="0.51389"];
-	1 [label=598, URL="/visualize_new.php?WID=1895&show=2", pos="31,241", width="0.86111", height="0.51389"];
-	2 [label=46, URL="/visualize_new.php?WID=1895&show=4", style=filled, color="#333344", fontcolor="#ffffff", pos="69,19", width="0.75", height="0.51389"];
-	3 [label=103, URL="/visualize_new.php?WID=1895&show=8", pos="111,241", width="0.86111", height="0.51389"];
-	4 [label=50, URL="/visualize_new.php?WID=1895&show=9", pos="69,93", width="0.75", height="0.51389"];
-	5 [label=79, URL="/visualize_new.php?WID=1895&show=10", pos="107,167", width="0.75", height="0.51389"];
+	0 [
+		label=190, 
+		URL="/visualize_new.php?WID=1895&show=1", 
+		pos="31,167", 
+		width="0.86111", 
+		height="0.51389"];
+	1 [
+		label=598, 
+		URL="/visualize_new.php?WID=1895&show=2", 
+		pos="31,241", 
+		width="0.86111", 
+		height="0.51389"];
+	2 [
+		label=46, 
+		URL="/visualize_new.php?WID=1895&show=4", 
+		style=filled, 
+		color="#333344", 
+		fontcolor="#ffffff", 
+		pos="69,19", 
+		width="0.75", 
+		height="0.51389"];
+	3 [
+		label=103, 
+		URL="/visualize_new.php?WID=1895&show=8", 
+		pos="111,241", 
+		width="0.86111", 
+		height="0.51389"];
+	4 [
+		label=50, 
+		URL="/visualize_new.php?WID=1895&show=9", 
+		pos="69,93", 
+		width="0.75", 
+		height="0.51389"];
+	5 [
+		label=79, 
+		URL="/visualize_new.php?WID=1895&show=10", 
+		pos="107,167", 
+		width="0.75", 
+		height="0.51389"];
 	1 -> 0 [pos="e,31,185.67 31,222.33 31,214.26 31,204.65 31,195.71"];
 	1 -> 5 [pos="e,91.32,182.27 47.491,224.94 58.163,214.55 72.21,200.87 83.976,189.42"];
 	4 -> 2 [pos="e,69,37.667 69,74.327 69,66.264 69,56.648 69,47.711"];
@@ -1004,50 +1068,223 @@ strict digraph G {
 }
 \end{lstlisting}
 
+\subsection{Berechnen der Potenzmenge der Attribute}
+
+Anhand der folgenden Funktion wird die Potenzmenge der Attribute errechnet, mit der die Graphstruktur aufgebaut wird.
+
 \lstset{
 language=PHP
 }
 
-Anhand der folgenden Funktion wird die Potenzmenge der Attribute errechnet, mit der die Graphstruktur aufgebaut wird.
-
-\begin{lstlisting}
+\begin{lstlisting}[caption={Potenzmenge der Attribute}]
 function getPowerset($array) {
-
 	$power = array(array());
-	foreach ($array as $element) foreach ($power as $combi)
+	foreach ($array as $element)
+	foreach ($power as $combi)
 		array_push($power, array_merge(array($element),$combi));
 	return $power;
 }
 \end{lstlisting}
 
+\subsection{Bestimmung von Untermengen und transitiven Kanten}
+
 Im Folgenden sieht man die Methoden, mit denen Untermengen von Attributmengen und transitive Kanten identifiziert werden. Die Zuweisung von Ober- und Untermengen ist für die Erzeugung der Kanten und somit des kompletten hierarchischen Aufbaus des Graphen notwendig. Die Erkennung von transitiven Kanten (Kanten, zwischen denen ein oder mehrere Knoten liegen) ist wichtig, um überflüssige Kanten ausfindig zu machen, da in Ordnungsdiagrammen Kanten nur Verbindungen zu direkten Ober- bzw. Unterknoten herstellen und zusätzliche Kanten, die Zwischenknoten überspringen, überflüssig sind.
 
-\begin{lstlisting}
-function is_subset($a1, $a2) {		//Überprüfung, ob $a1 Untermenge von $a2 ist
+\lstset{
+language=PHP
+}
 
-	foreach ($a1 as $word) if (!in_array($word, $a2)) return false;
+\begin{lstlisting}[caption={Überprüfung, ob \texttt{\$a1} Untermenge von \texttt{\$a2} ist}]
+function is_subset($a1, $a2) {
+	foreach ($a1 as $word) 
+		if (!in_array($word, $a2)) return false;
 	return true;
 }
+\end{lstlisting}
 
-function is_transitive($edge) {		//Überprüfung, ob Kante überflüssig ist
-
-	global $edges;
-	foreach ($edges as $ecomp) if ($edge != $ecomp && $edge[0] == $ecomp[0]) {	//wenn Ausgangsknoten beider Kanten gleich ist...
-		if (sameRoute($edge, $ecomp)) return true;				//... dann check, ob Alternativpfad existiert
-	}
-	return false;
+\lstset{
+language=PHP
 }
 
-function sameRoute($ebasic, $ecomp) {		//Überprüfung, ob $ecomp über andere ausgehende Kanten zum Zielknoten von $ebasic führt
-
+\begin{lstlisting}[caption={Überprüfung, ob eine Kante überflüssig ist. 
+Wenn der Ausgangsknoten beider Kanten gleich ist, wird überprüft, ob ein Alternativpfad existiert.}]
+function is_transitive($edge) {
 	global $edges;
-	if ($ebasic[1] == $ecomp[1]) return true;	//true-Bedingung: Zielknoten sind identisch = Kante überflüssig (wg. Alternativroute)
-	foreach ($edges as $next) if ($ecomp[1] == $next[0]) {	//wenn ausgehende Kante...
-		if (sameRoute($ebasic, $next)) return true;	//... dann rekursiv mit dieser Kante Überprüfung fortsetzen
+	foreach ($edges as $ecomp) 
+		if ($edge != $ecomp && $edge[0] == $ecomp[0]) { 
+			if (sameRoute($edge, $ecomp)) return true;
+		}
+	return false;
+}
+\end{lstlisting}
+
+\lstset{
+language=PHP
+}
+
+\begin{lstlisting}[caption={Überprüfung, ob \texttt{\$ecomp} über andere ausgehende Kanten zum Zielknoten von \texttt{\$ebasic} führt.}]
+function sameRoute($ebasic, $ecomp) {
+	global $edges;
+
+// true-Bedingung: Zielknoten sind identisch = Kante überflüssig (wg. Alternativroute)
+
+	if ($ebasic[1] == $ecomp[1]) return true;
+
+// wenn ausgehende Kante...
+
+	foreach ($edges as $next) if ($ecomp[1] == $next[0]) {
+
+//... dann rekursiv mit dieser Kante Überprüfung fortsetzen.
+		
+		if (sameRoute($ebasic, $next)) return true; 
+
 	}
 	return false;
 }
 \end{lstlisting}
+
+\section{Beispiele der Visualisierung der Begriffsverbände}
+\begin{figure}[h!]
+    \label{fig:visualization_2}
+\centering
+ \begin{tikzpicture}
+ 	[
+	>=stealth',
+	node distance=2em, 
+	font=\ttfamily, 
+	concept/.style={ellipse,inner sep=0.25em,minimum size=0.25em,draw=black,fill=white,thick}, 
+	final/.style={ellipse,inner sep=0.25em,minimum size=0.25em,draw=black,fill=gray,thick,text=white}]
+ \node (s0) [left=of s10,yshift=-2em]
+    {\begin{minipage}{15em}
+    \rmfamily
+    \raggedright
+     \textbf{Attributes}\newline keratitis\newline
+     \textbf{Synsets}\newline 
+     herpes keratitis $\vert\vert$
+     keratitis $\vert\vert$
+     scrofulous keratitis $\vert\vert$
+     keratitis punctata $\vert\vert$
+     flash keratoconjunctivitis $\vert\vert$
+     neurotrophic keratitis $\vert\vert$
+     peripheral ulcerative keratitis $\vert\vert$
+     thygeson's disease $\vert\vert$
+     diffuse lamellar keratitis $\vert\vert$
+     filamentary keratitis $\vert\vert$
+     dendritic keratitis $\vert\vert$
+     marginal keratitis $\vert\vert$
+     nummular keratitis $\vert\vert$
+     disciform keratitis  $\vert\vert$
+     acanthamoeba keratitis
+   \end{minipage}};
+ \node (s10) [concept] {598};
+ \node (s11) [right=of s10] [concept] {415};
+ \node (s20) [below=of s10,xshift=-2.4em] [concept] {131};
+ \node (s21) [right=of s20] [concept] {194};
+ \node (s22) [right=of s21] [concept] {70};
+ \node (s30) [below=of s10,yshift=-4em] [concept] {53};
+ \node (s31) [below=of s11,yshift=-4em] [concept] {47};
+ \node (s40) [below=of s21,yshift=-4em] [concept] {22};
+ \node (s50) [below=of s40] [final] {15};
+ \foreach \from/\to in {s10/s20, s10/s21, s11/s21, s11/s22, s20/s30, s21/s30, s21/s31, s22/s31, s30/s40, s31/s40, s40/s50}
+%\draw[-] (\from) -- (\to);
+ \draw (\from) edge[->] (\to);
+ \end{tikzpicture}
+\caption{Nachbildung der Visualisierung eines Begriffsverbands, wie sie auf den Seiten des \enquote{Lexikons der Augenheilkunde} umgesetzt wurde.}
+\end{figure}
+
+\begin{figure}[h!]
+\label{fig:visualization_1}
+\centering
+\begin{tikzpicture}
+ 	[
+	>=stealth',
+	node distance=2em and 0.12em, 
+	concept/.style={ellipse,inner sep=0.15em,minimum size=0.15em,draw=black,fill=white,thick,font=\ttfamily\scriptsize}, 
+	final/.style={ellipse,inner sep=0.15em,minimum size=0.25em,draw=black,fill=gray,thick,text=white,font=\ttfamily\scriptsize}
+	]
+ \node (s101) [concept] {114};
+ \node (s102) [right=of s101,xshift=1.12em] [concept] {198};
+ \node (s103) [right=of s102] [concept] {598};
+ \node (s104) [right=of s103] [concept] {415};
+ \node (s105) [right=of s104] [concept] {78};
+ \node (s106) [right=of s105,xshift=3.36em] [concept] {139};
+ \node (s107) [right=of s106] [concept] {88};
+ \node (s202) [below=of s101] [concept] {26};
+ \node (s201) [left=of s202] [concept] {24};
+ \node (s203) [right=of s202] [concept] {53};
+ \node (s204) [right=of s203] [concept] {21};
+ \node (s205) [right=of s204] [concept] {43};
+ \node (s206) [right=of s205] [concept] {37};
+ \node (s207) [right=of s206] [concept] {137};
+ \node (s208) [right=of s207] [concept] {194};
+ \node (s209) [right=of s208] [concept] {9};
+ \node (s210) [right=of s209] [concept] {20};
+ \node (s211) [right=of s210] [concept] {40};
+ \node (s212) [right=of s211] [concept] {45};
+ \node (s213) [right=of s212] [concept] {26};
+ \node (s214) [right=of s213] [concept] {22};
+ \node (s215) [right=of s214] [concept] {32};
+ \node (s216) [right=of s215] [concept] {16};
+ \node (s301) [below=of s201] [concept] {9};
+ \node (s302) [right=of s301] [concept] {11};
+ \node (s303) [right=of s302] [concept] {4};
+ \node (s304) [right=of s303] [concept] {16};
+ \node (s305) [right=of s304] [concept] {14};
+ \node (s306) [right=of s305] [concept] {13};
+ \node (s307) [right=of s306] [concept] {107};
+ \node (s308) [right=of s307] [concept] {6};
+ \node (s309) [right=of s308] [concept] {19};
+ \node (s310) [right=of s309] [concept] {4};
+ \node (s311) [right=of s310] [concept] {19};
+ \node (s312) [right=of s311] [concept] {9};
+ \node (s313) [right=of s312] [concept] {18};
+ \node (s314) [right=of s313] [concept] {15};
+ \node (s315) [right=of s314] [concept] {15};
+ \node (s316) [right=of s315] [concept] {14};
+ \node (s317) [right=of s316] [concept] {13};
+ \node (s401) [below=of s304,xshift=-2.24em] [concept] {13};
+ \node (s402) [right=of s401,xshift=1.12em] [concept] {10};
+ \node (s403) [right=of s402] [concept] {8};
+ \node (s404) [right=of s403] [concept] {4};
+ \node (s405) [right=of s404,xshift=1.12em] [concept] {8};
+ \node (s406) [right=of s405] [concept] {8};
+ \node (s407) [right=of s406] [concept] {11};
+ \node (s408) [right=of s407,xshift=1.12em] [concept] {12};
+ \node (s409) [right=of s408] [concept] {11};
+ \node (s410) [right=of s409] [concept] {11};
+ \node (s501) [below=of s401] [concept] {7};
+ \node (s502) [below=of s406,xshift=-1.12em] [concept] {7};
+ \node (s503) [below=of s408] [concept] {9};
+ \node (s504) [below=of s409] [concept] {9};
+ \node (s601) [below=of s502] [concept] {7};
+ \node (s602) [below=of s503] [concept] {7};
+ \node (s701) [below=of s601] [concept] {6};
+ \node (s801) [below=of s701] [final] {3};
+\node (s0) [left=of s101,xshift=-2em,yshift=-5em]
+	{
+	\begin{minipage}{10em}
+    \rmfamily
+    \footnotesize
+    \raggedright
+    \textbf{Attributes}\newline 
+    Anterior chamber $\vert\vert$
+    illness $\vert\vert$
+    optic\newline
+    \textbf{Synsets}\newline 
+    anterior ischaemic optic neuropathy $\vert\vert$
+    arteritic anterior ischemic optic neuropathy $\vert\vert$
+    non-arteritic anterior ischemic optic neuropathy $\vert\vert$
+    \end{minipage}
+    };
+    \begin{scope}[on background layer]
+\foreach \from/\to in {
+ 	s101/s201,s101/s202,s101/s203,s101/s209,s102/s202,s102/s204,s102/s205,s102/s210,s103/s201,s103/s204,s103/s206,s103/s213,s104/s203,s104/s205,s104/s207,s104/s208,s104/s211,s104/s214,s105/s210,s105/s211,s105/s213,s105/s215,s106/s207,s106/s216,s107/s209,s107/s212,s107/s214,s107/s215,s107/s216,s201/s301,s201/s401,s202/s301,s202/s302,s203/s302,s203/s304,s204/s301,s204/s306,s205/s302,s205/s305,s205/s306,s205/s309,s206/s303,s206/s308,s206/s310,s207/s304,s207/s305,s207/s307,s207/s316,s208/s306,s208/s307,s208/s308,s208/s311,s208/s313,s209/s405,s210/s309,s210/s312,s211/s309,s211/s311,s211/s314,s212/s310,s212/s313,s212/s315,s213/s311,s213/s315,s214/s313,s214/s314,s214/s316,s215/s312,s215/s314,s215/s315,s215/s317,s216/s316,s216/s317,s301/s501,s302/s402,s303/s801,s304/s401,s304/s402,s305/s402,s305/s403,s306/s403,s306/s502,s307/s401,s307/s403,s307/s404,s307/s408,s308/s404,s309/s406,s310/s801,s311/s407,s312/s406,s313/s407,s313/s408,s314/s406,s314/s407,s314/s409,s315/s407,s316/s408,s316/s409,s317/s409,s317/s410,s401/s501,s402/s501,s402/s601,s403/s501,s404/s801,s405/s601,s406/s601,s406/s502,s407/s502,s407/s503,s408/s503,s409/s503,s409/s504,s410/s504,s501/s701,s502/s701,s503/s602,s504/s601,s504/s602,s601/s701,s602/s701,s701/s801}
+ %\draw[-] (\from) -- (\to);
+ \draw (\from) edge[out=270,in=90,->] (\to);
+ \end{scope}
+ \end{tikzpicture}
+\caption{Nachbildung der Visualisierung eines Begriffsverbands, wie sie auf den Seiten des \enquote{Lexikons der Augenheilkunde} umgesetzt wurde.}
+\end{figure}
 
 \end{document}
 
