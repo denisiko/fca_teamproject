@@ -1,30 +1,20 @@
 \documentclass[pagesize,paper=A4,DIV=calc,fontsize=12pt,draft=false]{scrreprt}
 
 %% Core %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{scrhack}
 \usepackage[plain]{fullpage}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
 \usepackage[babel,german=quotes]{csquotes}
-\usepackage[babel]{microtype}
-\usepackage{ellipsis}
 \usepackage{amsmath}
 %\usepackage{amsfonts}
-%\usepackage{amssymb}
+\usepackage{amssymb}
 
 \KOMAoptions{
 	footnotes=multiple,
 	headings=normal
 	}
 	
-\addtokomafont{chapter}{\mdseries}
-\addtokomafont{section}{\mdseries}
-\addtokomafont{subsection}{\mdseries}
-\addtokomafont{subsubsection}{\mdseries}
-
-\addtokomafont{chapterentry}{\mdseries}
-
 \renewcommand*{\multfootsep}{,\nobreakspace}
 
 %% Dokumentenspezifisch %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -36,18 +26,9 @@
 \usepackage[table]{xcolor}
 \usepackage{listings}
 \usepackage{paralist}
-\usepackage{textgreek}
 \usepackage{multirow}
-%\usepackage{array}
-%\usepackage{xtab}
-%\usepackage{colortbl}
-%\usepackage{fnpct}
 \usepackage{units}
 \usepackage{multicol}
-
-\usepackage{enumitem}
-\setlist[itemize,1]{label=--}
-\setlist[enumerate,1]{leftmargin=1em,topsep=0.5em}
 
 %% Tabellen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -59,7 +40,7 @@
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
 
 %% Großes Kreuz. Muss aktiviert werden, wenn MinionPro nicht verfügbar
-%\newcommand*{\bigtimes}{\mathop{\raisebox{-.15ex}{\hbox{\Large{$\times$}}}}}
+\newcommand*{\bigtimes}{\mathop{\raisebox{-.15ex}{\hbox{\Large{$\times$}}}}}
 
 %% Linienbreite in der Tabelle
 \setlength\arrayrulewidth{1pt}
@@ -67,10 +48,7 @@
 
 %% Schriften %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\usepackage{lmodern}
-\usepackage[footnotefigures]{MinionPro}
-\usepackage[scaled]{ulgothic}
-\renewcommand{\sfdefault}{uop}
+\usepackage{lmodern}
 
 %% Zeilenabstand
 
@@ -81,14 +59,7 @@
 
 \definecolor{lgray}{gray}{.95}
 \definecolor{mgray}{gray}{.85}
-\definecolor{dgray}{gray}{.75}
 \definecolor{intersect}{gray}{.45}
-%\definecolor{hhublau}{rgb}{0.09,0.435,0.757}
-
-%% TikZ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\usepackage{tikz}
-\usetikzlibrary{positioning,chains,fit,shapes,backgrounds,arrows}
 
 %% Verschiedenes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -292,37 +263,10 @@ Damit ist auch deutlich, dass der eine Knoten Oberbegriff des anderen Knotens is
 Die Beschriftung unterhalb der Knoten mit den natürlichsprachigen Ausdrücken des jeweiligen Begriffs für die deutsche Sprache, verdeutlicht recht anschaulich das Konzept der Zwischensprache.
 In anderen Sprachen mögen an einigen Knoten keine Worte verfügbar sein, um dem Begriff Ausdruck zu verleihen, die Ordnung in Bezug auf die verwendeten Merkmale ist aber immer gleich.
 
-\begin{figure}[h!]
-    \label{fig:hasse}
-\centering
- \begin{tikzpicture}
- 	[node distance=4.5em, concept/.style={circle,inner sep=0pt,minimum size=3mm,draw=black,fill=white,thick}]
- \node (s) [concept] {};
- \node (s11) [below=of s,xshift=-2.6em] [concept] {};
- \node (s12) [below=of s,right=of s11] [concept] {};
- \node (s10) [left=of s11] [concept] {};
- \node (s13) [right=of s12] [concept] {};
- \node (s20) [below=of s10] [concept] {};
- \node (s21) [below=of s11] [concept] {};
- \node (s22) [below=of s12] [concept] {};
- \node (s23) [below=of s13] [concept] {};
- \node (s30) [below=of s21, xshift=2.6em] [concept] {};
- \foreach \from/\to in {s/s10, s/s11, s/s12, s/s13, s10/s20, s10/s21, s11/s20, s11/s22, s12/s21, s12/s23, s13/s22, s13/s23, s20/s30, s21/s30, s22/s30, s23/s30}
- \draw[-] (\from) -- (\to);
- \node [above=0.25em, fill=white] at (s.north) {pferd};
- \node [below=0.25em, fill=white] at (s.south) {\textsc{Pferd}};
- \node [above=0.25em, fill=white] at (s10.north) {weiblich};
- \node [above=0em, fill=white] at (s11.north) {jung};
- \node [below=0.25em, fill=white] at (s11.south) {\textsc{Fohlen}};
- \node [above=0.25em, fill=white] at (s12.north) {erwachsen};
- \node [above=0.25em, fill=white] at (s13.north) {männlich};
- \node [below=0.25em, fill=white] at (s20.south) {\textsc{Stutfohlen}};
- \node [below=0.25em, fill=white] at (s21.south) {\textsc{Stute}};
- \node [below=0.25em, fill=white] at (s22.south) {\textsc{Stuthengst}};
- \node [below=0.25em, fill=white] at (s23.south) {\textsc{Hengst}};
- \end{tikzpicture}
-\caption{Ordnungsdiagramm der Kreuztabelle aus Janssen, 2002. Ins Deutsche übertragen.}
-\end{figure}
+
+JANSSEN-ORDNUNGSDIAGRAMM
+\label{fig:hasse}
+
 
 \subsection{Grenzen der Formalen Begriffsanalyse}
 
@@ -505,7 +449,7 @@ Besonders ermutigend sind dabei der hohe Grad der Qualität an Merkmalen und Zuw
 \subsubsection{Vorüberlegungen}
 
 Die Beschränkung auf Erkrankungen des Auges und damit auf den betreffenden Bereich der ICD-10 erbrachte kaum Merkmalszuweisungen.
-Zwar sind die Mehrzahl der Einträge im Lexikon der Augenheilkunde solche, die Krankheiten betreffen, aber es zeigte sich, dass die ICD-10 ungeeignet als Quelle für Merkmale ist. 
+Zwar sind die Mehrzahl der Einträge im \enquote{Lexikon der Augenheilkunde} solche, die Krankheiten betreffen, aber es zeigte sich, dass die ICD-10 ungeeignet als Quelle für Merkmale ist. 
 Dies liegt im Wesentlichen in der Art der dort aufgefundenen Information begründet. 
 
 In der ICD-10 beinhaltet die Bezeichnung einer Klasse keine Erklärung für den Begriff. 
@@ -781,7 +725,7 @@ Die Menge der dem gewählten Synset zugewiesenen Merkmale bildet die obere Schra
 Die zugehörige Potenzmenge dieser Menge bildet, wie im Kapitel Ordnungsdiagramme beschrieben, alle Knoten des erzeugten Diagramms, einschließlich der unteren Schranke, die der leeren Menge entspricht. 
 Ein Ordnungsdiagramm wird dadurch lediglich aus einer Teilmenge aller Merkmale des Datenbestandes erzeugt, weil ein aus der kompletten Menge an Merkmalen generiertes Ordnungsdiagramm schlicht viel zu groß und damit zu unübersichtlich wäre, als dass ein Nutzer damit interagieren könnte. 
 Um diese Platzproblematik zu lösen und die Ordnungsdiagramme so klein und übersichtlich wie möglich zu halten, werden zusätzlich alle Teilmengen der Potenzmenge des gewählten Synsets, die dieselbe Menge an Synsets beschreiben, zu einem Knoten zusammengefasst. 
-Dadurch ist es möglich, dass für einen formalen Kontext ein Diagramm erzeugt wird, dass der Definition eines Ordnungsdiagramms nicht genügt, weil ihm keine vollständige Potenzmenge zugrundeliegt. 
+%Dadurch ist es möglich, dass für einen formalen Kontext ein Diagramm erzeugt wird, dass der Definition eines Ordnungsdiagramms nicht genügt, weil ihm keine vollständige Potenzmenge zugrundeliegt. 
 Ebenso wurde in einem späteren Entwicklungsstadium die Darstellung der unteren Schranke abgeschafft, da sie für jedes erzeugte Diagramm stets gleich ist und keinen Mehrwert zur Exploration des Kontextes bietet.
 
 Die erzeugten Darstellungen sind interaktiv gestaltet, indem Knoten des Diagramms klickbar sind. 
@@ -1010,61 +954,26 @@ Die Formatierung erlaubt es Knoten und Kanten, sowie deren Attribute deutlich he
 language=C
 }
 
-\begin{lstlisting}[caption={Dot-Syntax für Ordnungsdiagramm des Begriffsverbands für das Synset \emph{Macula}}]
+\begin{lstlisting}[caption={Dot-Syntax für Ordnungsdiagramm des Begriffsverbands für das Synset \emph{Macula}. Vereinfachte Darstellung.}]
 strict digraph G {
-	graph [
-		center=true, 
-		size=12, 
-		overlap=voronoi, 
-		splines=true, 
-		sep="0.01"];
-	node [label="\N"];
-	graph [bb="0,0,142,260"];
-	0 [
-		label=190, 
-		URL="/visualize_new.php?WID=1895&show=1", 
-		pos="31,167", 
-		width="0.86111", 
-		height="0.51389"];
-	1 [
-		label=598, 
-		URL="/visualize_new.php?WID=1895&show=2", 
-		pos="31,241", 
-		width="0.86111", 
-		height="0.51389"];
-	2 [
-		label=46, 
-		URL="/visualize_new.php?WID=1895&show=4", 
-		style=filled, 
-		color="#333344", 
-		fontcolor="#ffffff", 
-		pos="69,19", 
-		width="0.75", 
-		height="0.51389"];
-	3 [
-		label=103, 
-		URL="/visualize_new.php?WID=1895&show=8", 
-		pos="111,241", 
-		width="0.86111", 
-		height="0.51389"];
-	4 [
-		label=50, 
-		URL="/visualize_new.php?WID=1895&show=9", 
-		pos="69,93", 
-		width="0.75", 
-		height="0.51389"];
-	5 [
-		label=79, 
-		URL="/visualize_new.php?WID=1895&show=10", 
-		pos="107,167", 
-		width="0.75", 
-		height="0.51389"];
-	1 -> 0 [pos="e,31,185.67 31,222.33 31,214.26 31,204.65 31,195.71"];
-	1 -> 5 [pos="e,91.32,182.27 47.491,224.94 58.163,214.55 72.21,200.87 83.976,189.42"];
-	4 -> 2 [pos="e,69,37.667 69,74.327 69,66.264 69,56.648 69,47.711"];
-	0 -> 4 [pos="e,60.017,110.49 40.199,149.09 44.76,140.2 50.358,129.3 55.402,119.48"];
-	5 -> 4 [pos="e,78.073,110.67 97.995,149.46 93.437,140.59 87.808,129.63 82.725,119.73"];
-	3 -> 5 [pos="e,108.01,185.67 109.99,222.33 109.55,214.26 109.04,204.65 108.55,195.71"];
+	0 [ label=190, 
+		URL="/visualize_new.php?WID=1895&show=1"];
+	1 [ label=598, 
+		URL="/visualize_new.php?WID=1895&show=2"];
+	2 [ label=46, 
+		URL="/visualize_new.php?WID=1895&show=4"];
+	3 [ label=103, 
+		URL="/visualize_new.php?WID=1895&show=8"];
+	4 [ label=50, 
+		URL="/visualize_new.php?WID=1895&show=9"];
+	5 [ label=79, 
+		URL="/visualize_new.php?WID=1895&show=10"];
+	1 -> 0;
+	1 -> 5;
+	4 -> 2;
+	0 -> 4;
+	5 -> 4;
+	3 -> 5;
 }
 \end{lstlisting}
 
@@ -1144,147 +1053,8 @@ function sameRoute($ebasic, $ecomp) {
 \end{lstlisting}
 
 \section{Beispiele der Visualisierung der Begriffsverbände}
-\begin{figure}[h!]
-    \label{fig:visualization_2}
-\centering
- \begin{tikzpicture}
- 	[
-	>=stealth',
-	node distance=2em, 
-	font=\ttfamily, 
-	concept/.style={ellipse,inner sep=0.25em,minimum size=0.25em,draw=black,fill=white,thick}, 
-	final/.style={ellipse,inner sep=0.25em,minimum size=0.25em,draw=black,fill=gray,thick,text=white}]
- \node (s0) [left=of s10,yshift=-2em]
-    {\begin{minipage}{15em}
-    \rmfamily
-    \raggedright
-     \textbf{Attributes}\newline keratitis\newline
-     \textbf{Synsets}\newline 
-     herpes keratitis $\vert\vert$
-     keratitis $\vert\vert$
-     scrofulous keratitis $\vert\vert$
-     keratitis punctata $\vert\vert$
-     flash keratoconjunctivitis $\vert\vert$
-     neurotrophic keratitis $\vert\vert$
-     peripheral ulcerative keratitis $\vert\vert$
-     thygeson's disease $\vert\vert$
-     diffuse lamellar keratitis $\vert\vert$
-     filamentary keratitis $\vert\vert$
-     dendritic keratitis $\vert\vert$
-     marginal keratitis $\vert\vert$
-     nummular keratitis $\vert\vert$
-     disciform keratitis  $\vert\vert$
-     acanthamoeba keratitis
-   \end{minipage}};
- \node (s10) [concept] {598};
- \node (s11) [right=of s10] [concept] {415};
- \node (s20) [below=of s10,xshift=-2.4em] [concept] {131};
- \node (s21) [right=of s20] [concept] {194};
- \node (s22) [right=of s21] [concept] {70};
- \node (s30) [below=of s10,yshift=-4em] [concept] {53};
- \node (s31) [below=of s11,yshift=-4em] [concept] {47};
- \node (s40) [below=of s21,yshift=-4em] [concept] {22};
- \node (s50) [below=of s40] [final] {15};
- \foreach \from/\to in {s10/s20, s10/s21, s11/s21, s11/s22, s20/s30, s21/s30, s21/s31, s22/s31, s30/s40, s31/s40, s40/s50}
-%\draw[-] (\from) -- (\to);
- \draw (\from) edge[->] (\to);
- \end{tikzpicture}
-\caption{Nachbildung der Visualisierung eines Begriffsverbands, wie sie auf den Seiten des \enquote{Lexikons der Augenheilkunde} umgesetzt wurde.}
-\end{figure}
 
-\begin{figure}[h!]
-\label{fig:visualization_1}
-\centering
-\begin{tikzpicture}
- 	[
-	>=stealth',
-	node distance=2em and 0.12em, 
-	concept/.style={ellipse,inner sep=0.15em,minimum size=0.15em,draw=black,fill=white,thick,font=\ttfamily\scriptsize}, 
-	final/.style={ellipse,inner sep=0.15em,minimum size=0.25em,draw=black,fill=gray,thick,text=white,font=\ttfamily\scriptsize}
-	]
- \node (s101) [concept] {114};
- \node (s102) [right=of s101,xshift=1.12em] [concept] {198};
- \node (s103) [right=of s102] [concept] {598};
- \node (s104) [right=of s103] [concept] {415};
- \node (s105) [right=of s104] [concept] {78};
- \node (s106) [right=of s105,xshift=3.36em] [concept] {139};
- \node (s107) [right=of s106] [concept] {88};
- \node (s202) [below=of s101] [concept] {26};
- \node (s201) [left=of s202] [concept] {24};
- \node (s203) [right=of s202] [concept] {53};
- \node (s204) [right=of s203] [concept] {21};
- \node (s205) [right=of s204] [concept] {43};
- \node (s206) [right=of s205] [concept] {37};
- \node (s207) [right=of s206] [concept] {137};
- \node (s208) [right=of s207] [concept] {194};
- \node (s209) [right=of s208] [concept] {9};
- \node (s210) [right=of s209] [concept] {20};
- \node (s211) [right=of s210] [concept] {40};
- \node (s212) [right=of s211] [concept] {45};
- \node (s213) [right=of s212] [concept] {26};
- \node (s214) [right=of s213] [concept] {22};
- \node (s215) [right=of s214] [concept] {32};
- \node (s216) [right=of s215] [concept] {16};
- \node (s301) [below=of s201] [concept] {9};
- \node (s302) [right=of s301] [concept] {11};
- \node (s303) [right=of s302] [concept] {4};
- \node (s304) [right=of s303] [concept] {16};
- \node (s305) [right=of s304] [concept] {14};
- \node (s306) [right=of s305] [concept] {13};
- \node (s307) [right=of s306] [concept] {107};
- \node (s308) [right=of s307] [concept] {6};
- \node (s309) [right=of s308] [concept] {19};
- \node (s310) [right=of s309] [concept] {4};
- \node (s311) [right=of s310] [concept] {19};
- \node (s312) [right=of s311] [concept] {9};
- \node (s313) [right=of s312] [concept] {18};
- \node (s314) [right=of s313] [concept] {15};
- \node (s315) [right=of s314] [concept] {15};
- \node (s316) [right=of s315] [concept] {14};
- \node (s317) [right=of s316] [concept] {13};
- \node (s401) [below=of s304,xshift=-2.24em] [concept] {13};
- \node (s402) [right=of s401,xshift=1.12em] [concept] {10};
- \node (s403) [right=of s402] [concept] {8};
- \node (s404) [right=of s403] [concept] {4};
- \node (s405) [right=of s404,xshift=1.12em] [concept] {8};
- \node (s406) [right=of s405] [concept] {8};
- \node (s407) [right=of s406] [concept] {11};
- \node (s408) [right=of s407,xshift=1.12em] [concept] {12};
- \node (s409) [right=of s408] [concept] {11};
- \node (s410) [right=of s409] [concept] {11};
- \node (s501) [below=of s401] [concept] {7};
- \node (s502) [below=of s406,xshift=-1.12em] [concept] {7};
- \node (s503) [below=of s408] [concept] {9};
- \node (s504) [below=of s409] [concept] {9};
- \node (s601) [below=of s502] [concept] {7};
- \node (s602) [below=of s503] [concept] {7};
- \node (s701) [below=of s601] [concept] {6};
- \node (s801) [below=of s701] [final] {3};
-\node (s0) [left=of s101,xshift=-2em,yshift=-5em]
-	{
-	\begin{minipage}{10em}
-    \rmfamily
-    \footnotesize
-    \raggedright
-    \textbf{Attributes}\newline 
-    Anterior chamber $\vert\vert$
-    illness $\vert\vert$
-    optic\newline
-    \textbf{Synsets}\newline 
-    anterior ischaemic optic neuropathy $\vert\vert$
-    arteritic anterior ischemic optic neuropathy $\vert\vert$
-    non-arteritic anterior ischemic optic neuropathy $\vert\vert$
-    \end{minipage}
-    };
-    \begin{scope}[on background layer]
-\foreach \from/\to in {
- 	s101/s201,s101/s202,s101/s203,s101/s209,s102/s202,s102/s204,s102/s205,s102/s210,s103/s201,s103/s204,s103/s206,s103/s213,s104/s203,s104/s205,s104/s207,s104/s208,s104/s211,s104/s214,s105/s210,s105/s211,s105/s213,s105/s215,s106/s207,s106/s216,s107/s209,s107/s212,s107/s214,s107/s215,s107/s216,s201/s301,s201/s401,s202/s301,s202/s302,s203/s302,s203/s304,s204/s301,s204/s306,s205/s302,s205/s305,s205/s306,s205/s309,s206/s303,s206/s308,s206/s310,s207/s304,s207/s305,s207/s307,s207/s316,s208/s306,s208/s307,s208/s308,s208/s311,s208/s313,s209/s405,s210/s309,s210/s312,s211/s309,s211/s311,s211/s314,s212/s310,s212/s313,s212/s315,s213/s311,s213/s315,s214/s313,s214/s314,s214/s316,s215/s312,s215/s314,s215/s315,s215/s317,s216/s316,s216/s317,s301/s501,s302/s402,s303/s801,s304/s401,s304/s402,s305/s402,s305/s403,s306/s403,s306/s502,s307/s401,s307/s403,s307/s404,s307/s408,s308/s404,s309/s406,s310/s801,s311/s407,s312/s406,s313/s407,s313/s408,s314/s406,s314/s407,s314/s409,s315/s407,s316/s408,s316/s409,s317/s409,s317/s410,s401/s501,s402/s501,s402/s601,s403/s501,s404/s801,s405/s601,s406/s601,s406/s502,s407/s502,s407/s503,s408/s503,s409/s503,s409/s504,s410/s504,s501/s701,s502/s701,s503/s602,s504/s601,s504/s602,s601/s701,s602/s701,s701/s801}
- %\draw[-] (\from) -- (\to);
- \draw (\from) edge[out=270,in=90,->] (\to);
- \end{scope}
- \end{tikzpicture}
-\caption{Nachbildung der Visualisierung eines Begriffsverbands, wie sie auf den Seiten des \enquote{Lexikons der Augenheilkunde} umgesetzt wurde.}
-\end{figure}
+Zwei Graphviz-Darstellungen von Ergebnissen des Skripts.
 
 \end{document}
 
