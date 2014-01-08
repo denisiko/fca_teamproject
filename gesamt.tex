@@ -1,13 +1,14 @@
 \documentclass[pagesize,paper=A4,DIV=calc,fontsize=12pt,draft=false]{scrreprt}
 
-%% Core %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Core %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \usepackage[plain]{fullpage}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
 \usepackage[babel,german=quotes]{csquotes}
 \usepackage{amsmath}
-%\usepackage{amsfonts}
+\usepackage{amsfonts}
 \usepackage{amssymb}
 
 \KOMAoptions{
@@ -17,11 +18,10 @@
 	
 \renewcommand*{\multfootsep}{,\nobreakspace}
 
-%% Dokumentenspezifisch %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Dokumentenspezifisch %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage{graphicx}
 \usepackage[normal,it,footnotesize]{caption}
-%\usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage[table]{xcolor}
 \usepackage{listings}
@@ -30,7 +30,7 @@
 \usepackage{units}
 \usepackage{multicol}
 
-%% Tabellen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Tabellen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Schriftgröße der ganzen Tabelle
 \let\oldtabular\tabularx
@@ -46,9 +46,9 @@
 \setlength\arrayrulewidth{1pt}
 
 
-%% Schriften %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Schriften %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{lmodern}
+\usepackage{txfonts}
 
 %% Zeilenabstand
 
@@ -61,9 +61,7 @@
 \definecolor{mgray}{gray}{.85}
 \definecolor{intersect}{gray}{.45}
 
-%% Verschiedenes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\setcounter{secnumdepth}{-1}
+%% Verschiedenes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage{hyperref}
 \hypersetup{
@@ -76,17 +74,18 @@ hypertexnames=true
 
 \lstloadlanguages{SQL,bash,XML,PHP}
 \lstset{
-	literate= {Ö}{{\"O}}1 {Ä}{{\"A}}1 {Ü}{{\"U}}1 {ß}{{\ss}}2
-	 {ü}{{\"u}}1 {ä}{{\"a}}1 {ö}{{\"o}}1,
-	numbers=left,
-	basicstyle=\ttfamily\footnotesize,
-	showstringspaces=false,
-	inputencoding=utf8,
-	extendedchars=true,
-	breaklines=true,
-	breakindent=0pt,
-	tabsize=2
+literate= {Ö}{{\"O}}1 {Ä}{{\"A}}1 {Ü}{{\"U}}1 {ß}{{\ss}}2
+ {ü}{{\"u}}1 {ä}{{\"a}}1 {ö}{{\"o}}1,
+numbers=left,
+basicstyle=\ttfamily\footnotesize,
+showstringspaces=false,
+inputencoding=utf8,
+extendedchars=true,
+breaklines=true,
+breakindent=0pt,
+tabsize=2
 }
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -264,7 +263,7 @@ Die Beschriftung unterhalb der Knoten mit den natürlichsprachigen Ausdrücken d
 In anderen Sprachen mögen an einigen Knoten keine Worte verfügbar sein, um dem Begriff Ausdruck zu verleihen, die Ordnung in Bezug auf die verwendeten Merkmale ist aber immer gleich.
 
 
-JANSSEN-ORDNUNGSDIAGRAMM
+\fbox{\parbox[t][6cm][c]{14cm}{\textsc{Janssen Ordnungsdiagramm}}}
 \label{fig:hasse}
 
 
@@ -530,9 +529,9 @@ In der Wikipedia gibt es sehr umfangreiche und präzise Anleitungen, wie der Auf
 Insbesondere für Artikel, die schon etwas älter sind und die viele Bearbeiter, insbesondere Domänenspezialisten, hatten, ist die Wahrung der Formvorgaben mit hoher Sicherheit als gegeben zu betrachten. 
 Gerade der erste Satz folgt damit so gut wie immer dem Schema, welches exemplarisch am nachfolgenden Exzerpt aus der Wikipedia veranschaulicht werden soll: 
 
-\begin{quote}
-Die \textbf{Augenheilkunde} (Augenmedizin, fachsprachl.: \textbf{Ophthalmologie, Ophthalmiatrie}; von gr. \textomikron\textphi\texttheta\textalpha\textlambda\textmugreek\textomikron\textvarsigma, \emph{Auge}) ist die Lehre von den Erkrankungen und Funktionsstörungen des Sehorgans, deren Anhangsorgane, sowie des Sehsinnes und deren medizinischer Behandlung. 
-\end{quote}
+%\begin{quote}
+%Die \textbf{Augenheilkunde} (Augenmedizin, fachsprachl.: \textbf{Ophthalmologie, Ophthalmiatrie}; von gr. \textomikron\textphi\texttheta\textalpha\textlambda\textmugreek\textomikron\textvarsigma, \emph{Auge}) ist die Lehre von den Erkrankungen und Funktionsstörungen des Sehorgans, deren Anhangsorgane, sowie des Sehsinnes und deren medizinischer Behandlung. 
+%\end{quote}
 
 Die Überlegungen zur Erzeugung von Merkmalszuweisungen wurden daher darauf konzentriert, aus den ersten beiden Sätzen des Abstracts eine Zerlegung in Wort-n-Gramme der Längen 2 und 3 zu erstellen, um mit diesen mittels Zeichenkettenvergleich weitere Titel von Wikipedia-Artikeln aus der Volltextkopie zu identifizieren.
 Auf diese Weise identifizierte Begriffe, zu denen ein Wikipedia-Artikel existiert, sollten die Merkmale bilden, die dem Synset, das dem Wikipedia-Artikel entspricht, zugewiesen werden. 
@@ -1054,7 +1053,9 @@ function sameRoute($ebasic, $ecomp) {
 
 \section{Beispiele der Visualisierung der Begriffsverbände}
 
-Zwei Graphviz-Darstellungen von Ergebnissen des Skripts.
+\fbox{\parbox[t][6cm][c]{14cm}{\textsc{Beispiel 1 Visualisierung mit dem Skript}}}
+
+\fbox{\parbox[t][6cm][c]{14cm}{\textsc{Beispiel 2 Visualisierung mit dem Skript}}}
 
 \end{document}
 
