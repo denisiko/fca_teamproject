@@ -252,10 +252,6 @@ Erschwerend kommt hinzu, dass das hier gezeigte Ordnungsdiagramm keine untere Sc
 Diese Darstellung ist so zu lesen, dass jeder Knoten im Diagramm einem Begriff entspricht.
 Die Merkmale stehen jeweils oberhalb der Knoten, die natürlichsprachigen Entsprechungen bestimmter Begriffe stehen unterhalb mancher Knoten.
 Die Knoten selbst haben keine Beschriftung, sondern sie sind definiert durch die Merkmale, die entlang der Linien zwischen einem gegebenen Knoten und dem Knoten zuoberst stehen.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Nachfolgend Worte abgeändert
-%% P. Ok.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 So ist der Knoten, über dem das Merkmal \textit{weiblich} steht, definiert durch die beiden Merkmale \textit{\{pferd, weiblich\}}.
 Der Knoten unter dem das Wort \textsc{Stute} steht ist definiert durch die Merkmale \textit{\{pferd, weiblich, erwachsen\}}.
 Damit ist auch deutlich, dass der eine Knoten Oberbegriff des anderen Knotens ist, weil sie alle Merkmale bis auf eines teilen.
@@ -279,15 +275,18 @@ Ein Objekt mit dem Merkmal \unit[16]{mmHg} wäre somit genauso wenig bedeutungsg
 Das deutlich größere Problem besteht jedoch in der Abhängigkeit vom Merkmalsraum. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% TODO: Frage zum Anspruch der Vollständigkeit. Woher kommt das? Die ICD-10 deckt ja die Pathologie und Traumatologie sicher auch nur ab, indem sie Klassen der Art 'sonstige Entzündungen der Hirnanhangdrüse' hat.
+%% Antwort: So: hoffe das beschreibt jetzt das Problem annähernd genau :)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Herkömmlich gebrauchte hierarchisch strukturierte Wissensordnungen, wie ein Thesaurus oder eine Klassifikation, haben oft durch ihren eingrenzenden und definierenden Charakter den Anspruch auf Vollständigkeit in ihrem Nutzungskontext. 
-Die ICD-10 beispielsweise klassifiziert alle bekannten Krankheiten, die Internationalen Regeln für die Zoologische Nomenklatur (ICZN) das Tierreich. 
-In der Formalen Begriffsanalyse kann dieser Anspruch für einen gegebenen Begriffsverband nur geltend gemacht werden, wenn alle relevanten Merkmale im Merkmalsraum vorhanden sind, sodass eine vollständige und gültige mathematische Ordnung entsteht. 
-In der Praxis ist das für konkrete Probleme aus wissenschaftlichen Disziplinen -- gerade dann, wenn sie nicht aus der Naturwissenschaft stammen -- kaum möglich. 
-Bei den genannten Beispielen sind alle relevanten klassifizierenden Merkmale im Vorhinein definiert in Form von Klassen. 
-Für Kontexte mit geringer Komplexität ist der Aufbau eines hinreichenden Merkmalsraums einfach, wie beispielsweise bei der Untersuchung der Menge der natürlichen Zahlen daraufhin, ob sie gerade, ungerade und/oder eine Primzahl sind (die entsprechenden Merkmale sind \textit{gerade}, \textit{ungerade} und \textit{Primzahl}).
-Die Domäne der Augenheilkunde ist jedoch sehr umfangreich, so dass eine Festlegung auf eine sowohl minimale als auch vollständige Merkmalsmenge, die die Augenheilkunde abdecken kann nicht so eindeutig lösbar ist, wie bei den natürlichen Zahlen. 
+In herkömmlich verwendeten hierarchisch strukturierten Wissensordnungen, wie einem Thesaurus oder einer Klassifikation, sind die beschreibenden Merkmale von Beginn an gesetzt, meist in Form von Ober- und Unterklassen. 
+Mit diesen werden Abstraktionen der beschreibenden Merkmale möglich, die das Bilden eines hinreichend abdeckenden und trotzdem spezifizierenden Klassensystems ermöglichen, was das Einordnen der zu erschließenden Begriffe in einen Gesamtkontext vereinfacht. 
+Man spricht hierbei von Hospitalität in der Begriffsleiter. 
+
+Wie bereits erläutert sind in der Formalen Begriffsanalyse jedoch keine direkten Auszeichnungen von Beziehungen zwischen Merkmalen möglich, doch selbst wenn dem so wäre müssten diese vor dem Aufbau der Ordnung gesetzt werden. 
+Der Aufbau eines hinreichenden Merkmalsraums erweist sich somit als schwierig, zumal Begriffsordnungen der Formalen Begriffsanalyse für gewöhnlich vollständige und gültige mathematische Ordnungen beschreiben (siehe Janssen, 2002). 
+Für Kontexte mit geringer Komplexität und aus Bereichen mit formal eindeutig definierten Problemen -- wie der Mathematik -- ist der Aufbau eines hinreichenden Merkmalsraums einfach, wie beispielsweise bei der Untersuchung der Menge der natürlichen Zahlen daraufhin, ob sie gerade, ungerade und/oder eine Primzahl sind (die entsprechenden Merkmale sind \textit{gerade}, \textit{ungerade} und \textit{Primzahl}). 
+Die Domäne der Augenheilkunde ist jedoch so umfangreich und schlecht zu erfassen, dass eine Festlegung auf eine sowohl minimale als auch vollständige Merkmalsmenge, die die Augenheilkunde abdecken kann nicht so eindeutig lösbar ist, wie bei den natürlichen Zahlen. 
 Um einen dennoch annähernd abdeckenden Merkmalsraum generieren zu können, ist unserer Auffassung nach Domänenwissen erforderlich. 
+Zudem müsste idealerweise vor dem Zuweisen von Merkmalen zu Begriffen aus dem Wörterbuch klar sein, auf welche Abstraktionsebenen und in welche semantischen Kategorien die Merkmale einzuorden sind, damit ein Überblick über die Begriffsordnung gewährleistet ist, wie bei hierarchischen Ordnungen. 
 
 \subsubsection{Chancen der Formalen Begriffsanalyse}
 
@@ -456,9 +455,6 @@ Der Begriff wird nicht in den Kontext anderer vorhandener Klassen gesetzt und es
 Eine einfache Verschlagwortung mittels eines kontrollierten Vokabulars erzeugte vermutlich mehr Querverweise, die für den Aufbau einer Merkmalsmenge nützlich sein könnten, als die aus der ICD-10 gewonnenen Zuweisungen. 
 Der Grund dafür ist, dass der Zweck einer Klassifikation genau ist, möglichst wenig Kongruenz im Begriffsumfang mit benachbarten, vor allem aber Ober- und Unterbegriffen zu beinhalten. 
 
-%%%%%%%%%%%%%%%%%%%%
-% Sätze hinzugefügt
-%%%%%%%%%%%%%%%%%%%%
 Aufgrund der großen Menge an bereitgestellten Informationen haben wir uns dazu entschieden, die Online-Enzyklopädie Wikipedia als Wissensquelle für das Wörterbuch der Augenheilkunde zu berücksichtigen. 
 Auch wenn anfänglich sowohl die englische, als auch die deutsche Version der Wikipedia für die Informationsextraktion herangezogen wurden, entschied man sich schließlich für die englische Wikipedia als Wissensquelle, um einerseits den Merkmalsraum einsprachig zu halten und andererseit aus dem Grund, dass die englische Wikipedia deutlich mehr Informationen aus dem Bereich der Augenheilkunde enthält (siehe Anzahl erkannter Artikel am Ende des Abschnitts), und weil die englische Sprache weniger Flexionen verwendet als die deutsche, was den linguistischen Abgleich von Informationen der Wikipedia mit den Einträgen aus dem Wörterbuch vereinfacht. 
 
@@ -538,9 +534,6 @@ Auf diese Weise identifizierte Begriffe, zu denen ein Wikipedia-Artikel existier
 Wenn beispielsweise die Wortfolge \textit{Diabetes mellitus} im Abstract des Artikels \enquote{Diabetische Retinopathie} gefunden wurde, dann wird das Merkmal \textit{Diabetes mellitus} dem Synset \enquote{diabetische Retinopathie} zugeordnet.
 
 Der Grund aus dem die ersten beiden Sätze und nicht nur der erste Satz herangezogen wurden ist, dass bei manchen Artikeln der erste Satz nur aus einer etymologischen Einordnung besteht (ähnlich dem Inhalt der Klammer im Beispiel oben) ohne weitere Erklärung des Begriffs. 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Nachfolgende Sätze ersetzt
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Wortfolgen, zu denen erfolgreich ein Wikipedia-Eintrag zugewiesen werden konnten, werden als sinnvolles Merkmal für die Zwecke der Formalen Begriffsanalyse betrachtet, da sie anscheinend als bedeutungstragend genug erachtet werden, um in der Wikipedia-Enzyklopädie aufgenommen und erklärt zu werden. Anschließend wurden die Worte der Abstracts vorher mit Stemming auf ihren Wortstamm zurückgeführt (im Rahmen der Möglichkeiten des verwendeten Stemmers), um eine bessere Übereinstimmung mit vorhandenen Titeln von Wikipedia-Artikeln zu ermöglichen.
 
 Hierzu wurde die ANSI-C-Implementation des Porter-Stemmers verwendet, jeweils in Standardeinstellung für die englische Sprache und mit angepassten Mustern für die deutsche Sprache (die angepassten Muster sind Teil des Programms). 
@@ -724,7 +717,6 @@ Die Menge der dem gewählten Synset zugewiesenen Merkmale bildet die obere Schra
 Die zugehörige Potenzmenge dieser Menge bildet, wie im Kapitel Ordnungsdiagramme beschrieben, alle Knoten des erzeugten Diagramms, einschließlich der unteren Schranke, die der leeren Menge entspricht. 
 Ein Ordnungsdiagramm wird dadurch lediglich aus einer Teilmenge aller Merkmale des Datenbestandes erzeugt, weil ein aus der kompletten Menge an Merkmalen generiertes Ordnungsdiagramm schlicht viel zu groß und damit zu unübersichtlich wäre, als dass ein Nutzer damit interagieren könnte. 
 Um diese Platzproblematik zu lösen und die Ordnungsdiagramme so klein und übersichtlich wie möglich zu halten, werden zusätzlich alle Teilmengen der Potenzmenge des gewählten Synsets, die dieselbe Menge an Synsets beschreiben, zu einem Knoten zusammengefasst. 
-%Dadurch ist es möglich, dass für einen formalen Kontext ein Diagramm erzeugt wird, dass der Definition eines Ordnungsdiagramms nicht genügt, weil ihm keine vollständige Potenzmenge zugrundeliegt. 
 Ebenso wurde in einem späteren Entwicklungsstadium die Darstellung der unteren Schranke abgeschafft, da sie für jedes erzeugte Diagramm stets gleich ist und keinen Mehrwert zur Exploration des Kontextes bietet.
 
 Die erzeugten Darstellungen sind interaktiv gestaltet, indem Knoten des Diagramms klickbar sind. 
@@ -804,11 +796,6 @@ Die Merkmalsmenge einzuschränken und mit unterschiedlich großen Mengen zu expe
 Dieser Ansatz ist aber noch weiter zu verschärfen, indem man die zu verwendenden Merkmale selbst vorgibt und den Zuweisungsschritt auf das Zuweisen von extrahierten Merkmalen zu vorher festgelegten verschiebt.
 
 Wie bereits geschildert wurde, ist die automatisierte Erzeugung von Merkmalen äußerst problematisch gewesen und war dadurch gekennzeichnet, dass an vielen Stellen manuell eingegriffen werden musste, um einen aussagekräftigen formalen Begriffsverband zu erzeugen. 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% TODO: nächster Satz. 1. Welche Literatur? Hinweis vielleicht weglassen. 2. Tempus zwischen 'ausgesucht wurden, ' und 'möchte.'.
-% 'möchte' -> 'wollte'
-% Bzg. Literatur: ich gehe ja im darauffolgenden Satz auf Janssen ein. Denke das reicht.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Dadurch ist der Merkmalsraum in seiner Struktur nicht so, wie man ihn aus der Literatur kennt, wo die Merkmale nach bestimmten Aspekten ausgesucht wurden, mit denen man die Objekte erschließen wollte.
 
 Im Beispiel nach Janssen aus Tabelle ~\ref{tab:janssen} auf Seite ~\pageref{tab:janssen} sind die Merkmale so gewählt, dass sie zur Kennzeichnung der Bedeutungen der einzelnen Bezeichnungen für Pferde herangezogen werden können und daher auch Sinn ergeben, nämlich Geschlecht und Alter.
@@ -865,10 +852,7 @@ Wir wissen also eigentlich gar nicht, was die Bedingungen sind, die man im Hinbl
 Um das quantifizieren zu können, hätten wir für die Evaluation geeignete Teilmengen der Merkmalsmenge benötigt.
 Aus unserer Sicht wäre es günstig gewesen diese Tests an den Wikipedia-Artikeln, aus denen die Merkmale ursprünglich stammten, vorzunehmen und das \enquote{Wörterbuch der Augenheilkunde} anfangs außen vor zu lassen, bis die Frage der geeigneten Merkmalsmenge geklärt ist.
 
-Wenngleich noch in eher experimentellem Stadium, so ist die Visualisierung der Ergebnisse auf den Seiten des Wörterbuchs der Augenheilkunde eine nützliche und wertvolle Bereicherung.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Hier eine Ergänzung in Klammern hinzugefügt
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Wenngleich noch in eher experimentellem Stadium, so ist die Visualisierung der Ergebnisse auf den Seiten des Wörterbuchs der Augenheilkunde eine nützliche und wertvolle Bereicherung. 
 Anders als Tagclouds und ähnliche \enquote{siehe auch}-Navigationselemente, fußt der gezeigte Begriffsverband auf hierarchisch korrekter Information (sofern die Extraktion der Information korrekt ist). 
 Wir sind der Ansicht, dass es sich lohnt, diese Art der Anreicherung von Wörterbucheinträgen mit hierarchischer Information weiter zu verfolgen.
 
@@ -886,10 +870,6 @@ Im Hinblick auf die Projektplanung wäre unsere Wunschvorstellung bezüglich der
 
 \section{Beispiel für Verarbeitung der Extrakte aus der Wikipedia}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Referenz auf den Wikipedia-Abschnitt hinzugefügt
-%% Danke. \nameref daraus gemacht.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Basierend auf den als relevant erachteten Kategorien der Wikipedia, wurden alle Artikel, denen ein gegebenes Kategorie-Tag zugewiesen war, geholt (siehe auch \emph{~\nameref{subsec:wiki_cats}} auf Seite~\pageref{subsec:wiki_cats}).
 Der typische Aufbau eines solchen Artikels im Quelltext ist nachfolgend dargestellt.
 Von Interesse sind hier der Titel des Dokuments, die Kategorien und das Extrakt selbst.
@@ -944,9 +924,13 @@ sed -n 's/<extract.*>\([^<]*\)\([<$ ].*\)/\1/p' Parinauds_syndrome.xml
 Die Auszeichnungssprache DOT kann verwendet werden zur einfachen Beschreibung von Graphen.
 Sie wird von unterschiedlichen Programmen interpretiert, die meisten sind aber Teil des Programmpaketes GraphViz.
 Diese Programme erlauben die Ausgabe des Graphen in einer Vielzahl von Dateitypen für Raster- und Vektorgrafiken.
+
 Nachfolgend wird die Syntax am Beispiel eines aus unseren Daten generierten Begriffsverbands gezeigt.
 Als Ausgabestrom erzeugt \emph{dot} dann SVG-Syntax, die direkt in das Markup der HTML-Seite eingebettet werden kann.
 Erzeugt wurde das Diagramm aus dem Begriffsverband des Synsets \emph{Macula} mit dem Script \enquote{visualize\_new.php}. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Anmerkung: hier vielleicht nochmal genauer formulieren (letzter Satz)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Die Formatierung erlaubt es Knoten und Kanten, sowie deren Attribute deutlich hervorzuheben ohne eine Rastergrafik zu verwenden, weil die Auszeichnung des Diagramms in reinem Text im Quelltext des Dokumentes erfolgt.
 
 \lstset{
