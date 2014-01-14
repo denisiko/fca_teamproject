@@ -93,7 +93,7 @@ tabsize=2
 \begin{center}
 \vfill
 \LARGE
-Entwicklung eines multilingualen Fachwörterbuchs mit Methoden der formalen Begriffsanalyse
+Entwicklung eines multilingualen Fachwörterbuchs mit Methoden der Formalen Begriffsanalyse
 \vfill 
 \Large
 Bericht zum Teamprojekt\\
@@ -157,7 +157,8 @@ In Kombination mit einer geeigneten Darstellung der Begriffsverbände wird den N
 
 \section{Erste Überlegungen zur Umsetzung}
 
-Teil der Aufgabenstellung war es, die Formale Begriffsanalyse einzusetzen, um eine Zwischensprache aus Konzepten (Interlingua) zu entwickeln, über welche wiederum die im \enquote{Wörterbuch der Augenheilkunde} vorhandenen Wörter unterschiedlicher Sprachen miteinander verbunden werden konnten.
+% Nachfolgend 'Wörter' durch 'Einträge' ersetzt
+Teil der Aufgabenstellung war es, die Formale Begriffsanalyse einzusetzen, um eine Zwischensprache aus Konzepten (Interlingua) zu entwickeln, über welche wiederum die im \enquote{Wörterbuch der Augenheilkunde} vorhandenen Einträge unterschiedlicher Sprachen miteinander verbunden werden konnten.
 
 \subsection{Begriffe der Formalen Begriffsanalyse}
 \label{subsec:fba}
@@ -184,6 +185,7 @@ B' := \lbrace g \in G \; \vert \; \forall m \in B: (g,m) \in I\rbrace
 
 Ist $A$ Umfang und $B$ Inhalt, so heißt $(A,B)$ formaler Begriff des Kontextes $(G,M,I)$ wenn
 
+% Ich würde 1., 2. usw. als Aufzählung verwenden, liest sich besser
 \begin{inparaenum}[\itshape i.\upshape)]
 \item
  $A$ eine echte Teilmenge von $G$, und
@@ -284,6 +286,8 @@ Man spricht hierbei von Hospitalität in der Begriffsleiter.
 Wie bereits erläutert sind in der Formalen Begriffsanalyse jedoch keine direkten Auszeichnungen von Beziehungen zwischen Merkmalen möglich, doch selbst wenn dem so wäre müssten diese vor dem Aufbau der Ordnung gesetzt werden. 
 Der Aufbau eines hinreichenden Merkmalsraums erweist sich somit als schwierig, zumal Begriffsordnungen der Formalen Begriffsanalyse für gewöhnlich vollständige mathematische Ordnungen beschreiben (siehe Janssen, 2002). 
 Für Kontexte mit geringer Komplexität und aus Bereichen mit formal eindeutig definierten Problemen -- wie der Mathematik -- ist der Aufbau eines Merkmalsraums einfach, wie beispielsweise bei der Untersuchung der Menge der natürlichen Zahlen daraufhin, ob sie gerade, ungerade und/oder eine Primzahl sind (die entsprechenden Merkmale sind \emph{gerade}, \emph{ungerade} und \emph{Primzahl}). 
+% Satz hinzugefügt
+Auch beim gezeigten Beispiel von Janssen hält sich die Komplexität des Kontextes deutlich in Grenzen, da es sich bei allen Objekten eines Verbandes jeweils um ein Pferd handelt, das sich in maximal 4 Merkmalsausprägungen zu jedem anderen anderen Objekt des Verbandes unterscheidet. 
 Die Domäne der Augenheilkunde ist jedoch so umfangreich und schwierig zu erfassen, dass eine Festlegung auf eine sowohl minimale als auch vollständige Merkmalsmenge, die die Augenheilkunde abdecken kann nicht so eindeutig lösbar ist, wie bei den natürlichen Zahlen. 
 Um einen dennoch annähernd abdeckenden Merkmalsraum generieren zu können, ist unserer Auffassung nach Domänenwissen erforderlich. 
 Zudem müsste idealerweise vor dem Zuweisen von Merkmalen zu Begriffen aus dem Wörterbuch klar sein, auf welche Abstraktionsebenen und in welche semantischen Kategorien die Merkmale einzuorden sind, damit ein Überblick über die Begriffsordnung gewährleistet ist, wie bei hierarchischen Ordnungen. 
@@ -299,6 +303,8 @@ Einzelne Knoten dieser Diagramme können sowohl Synsets, als auch Mengen von rep
 Gegen Ende unseres Berichts stellen wir vor, wie wir Nutzern des Wörterbuchs die Möglichkeit geben, sich einzelne Begriffsverbände visualisieren zu lassen und interaktiv zu steuern. 
 Das zuvor angesprochene Problem der fehlenden Beziehungen von Merkmalen untereinander kann teilweise dadurch gelöst werden, dass während der Merkmalszuweisung bekannte semantische Relationen berücksichtigt werden. 
 Beispielsweise können jedem Objekt, dem das Merkmal \emph{Gonioskopie} zugewiesen wird, auch die Merkmale \emph{Untersuchung} sowie \emph{diagnostisches Verfahren} zugewiesen werden. 
+% Satz hinzugefügt
+Hierbei ist jedoch wiederum Domänenwissen erforderlich, wie aus dem Beispiel zu erkennen ist. 
 
 \chapter{Bericht}
 
@@ -434,7 +440,8 @@ Dies muss manuell geschehen, da hierbei Domänenwissen absolut notwendig ist.
 Ursprung dieses Wissens sind fachbezogene Quellen und die Wikipedia-Enzyklopädie, aber insbesondere der englische Wikipedia-Artikel \enquote{List of medical roots, suffixes and prefixes}\footnote{Erreichbar unter \href{http://en.wikipedia.org/wiki/List\_of\_medical\_roots,\_suffixes\_and\_prefixes}{http://en.wikipedia.org/wiki/List\_of\_medical\_roots,\_suffixes\_and\_prefixes}.}. 
 
 Synsets, die eine oder mehrere Synonymbezeichnungen besitzen, welche das gekennzeichnete n-Gramm als Teilkette enthalten, werden wie zuvor mit den zugewiesenen Merkmalen versehen. 
-Zum Beispiel wird das Wortteilmuster \emph{/dystroph/} mit den Merkmalen \emph{degeneration} und \emph{disease} gekennzeichnet. 
+% disease durch illness ersetzt (damit einheitlich, siehe /dys/ für 'illness' oben)
+Zum Beispiel wird das Wortteilmuster \emph{/dystroph/} mit den Merkmalen \emph{degeneration} und \emph{illness} gekennzeichnet. 
 Daraus folgt, dass Begriffe, die \emph{/dystroph/} als Wortteilmuster enthalten, diese zwei Merkmale automatisch zugewiesen bekommen. 
 
 Das Ergebnis dieser erweiterten Extraktionsmethode ist ein aussagekräftiger formaler Kontext aus 119 Merkmalen, die 4467 mal zugewiesen wurden. 
@@ -467,7 +474,8 @@ Die Wikipedia hat damit Eigenschaften einer hierarchischen Klassifikation und so
 Die Wahl einer geeigneten Kategoriebezeichnung für einen Artikel ist dem jeweiligen Autor freigestellt, er kann auch eine neue Kategoriebezeichnung wählen. 
 
 In der Praxis gibt es aber Empfehlungen für die Eigenschaften und die korrekte Wahl einer geeigneten Kategoriebezeichnung und über die Zeit bildet sich dadurch eine brauchbare (das heißt: nicht zu diverse) Begriffsordnung heraus, weil darauf geachtet wird, dass es beispielsweise nur eine Kategorie \enquote{Liste Nationalparks} gibt, und nicht zusätzlich noch \enquote{Liste der Nationalparks}, \enquote{Liste aller Nationalparks} und ähnlichen Abweichungen. 
-Eines der Probleme dabei ist, dass nicht sichergestellt ist, dass eine Seite nicht einer Kategorie und einer Oberkategorie dieser Kategorie gleichzeitig eingeordnet wird. 
+% kleiner sem. Fehler: eingeordnet nun durch zugeordnet ersetzt
+Eines der Probleme dabei ist, dass nicht sichergestellt ist, dass eine Seite nicht einer Kategorie und einer Oberkategorie dieser Kategorie gleichzeitig zugeordnet wird. 
 Dadurch wird es für die automatische Erschließung eines Kategoriebaums allerdings erforderlich, auf diese Weise doppelt gesammelte Artikel zu eliminieren. 
 Insbesondere ist darauf zu achten, dass wenn den Kategorien-Tags automatisiert gefolgt wird um weitere Artikel zu erschließen, bereits besuchte Kategorien zu ignorieren, um Schleifenbildung zu vermeiden. 
 Dies berücksichtigend schien es aber vielversprechend den Bereich \enquote{Augenheilkunde} sowohl der englischen wie der deutschen Wikipedia bezüglich der vergebenen Kategorien zu untersuchen. 
@@ -559,7 +567,8 @@ Zudem ist bei insgesamt ca. 7000 Merkmalszuweisungen jedes Merkmal im Schnitt 1,
 Es gibt nur ca. 500 Merkmale, die öfters als dreimal zugewiesen wurden. 
 Auch das Matching der Artikelnamen auf die Synsets bleibt mit einem Wert von 266 erkannten Synsets bei 626 Lexikonartikeln hinter den Erwartungen zurück. 
 
-Daher wurde ein zweiter Durchlauf der selben Daten allerdings nach vorheriger Bereinigung um Stoppworte durchgeführt. 
+% Hinzugefügt, dass es bei der Stoppwortfilterung um N-Gramme geht
+Daher wurde ein zweiter Durchlauf der selben Daten allerdings nach vorheriger Bereinigung der N-Gramme um Stoppworte durchgeführt. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% TODO: Nachfolgender Satz: Dran denken die Quellen auch tatsächlich aufzuführen.
 %% DONE (ist nur eine Quelle).
@@ -568,7 +577,8 @@ Die Quelle der verwendeten Stoppwortliste ist im Quellenverzeichnis aufgeführt.
 Auch hier blieb das Ergebnis hinter den Erwartungen zurück. 
 Die Merkmalsanzahl blieb nahezu unverändert, Zuweisungen haben sich um gut 1000 reduziert. 
 Dank großzügigerem Matching unter Nichtbeachtung von Groß- und Kleinschreibung konnten ca. 30 Synsets mehr auf Artikel abgebildet werden, aber auch das ändert die Einschätzung des Endresultates nicht. 
-Positiv herauszustellen ist jedoch die Erzeugung eines bereinigteren Begriffsverbandes, da Merkmale wie \emph{is a} nicht mehr zustande kommen aufgrund der Stoppwortfilterung. 
+% Begriffsverband durch Kontext ersetzt
+Positiv herauszustellen ist jedoch die Erzeugung eines bereinigteren Kontextes, da Merkmale wie \emph{is a} nicht mehr zustande kommen aufgrund der Stoppwortfilterung. 
 
 \section{Inhalte der Wikipedia via API und Erkennung der Wortarten}
 
@@ -696,13 +706,15 @@ Allerdings geben die beiden Kategorien hinreichend Information um \enquote{scler
 Insgesamt wurden 1379 Wikipedia-Abstracts analysiert, aus denen 2439 Merkmale extrahiert werden konnten, die in 9797 Fällen entsprechenden Artikeln zugeordnet wurden. 
 Nach Matching der Artikelnamen auf Synsets aus dem Wörterbuch verbleiben (nur) 335 gematchte Synsets, auf die insgesamt 931 Merkmale 2582 mal zugewiesen wurden. 
 Im Gegensatz zu den ersten Durchläufen der Wikipedia-Extraktion ist die Ausbeute an Merkmalen damit deutlich geringer, dafür konnten aber mehr Synsets identifiziert und die Wiederverwendungsrate der Merkmale in Relation zu ihren Zuweisungen deutlich erhöht werden (ungefähr um den Faktor 2). 
-Zudem ist der resultierende Begriffsverband deutlich kohärenter als zuvor. 
-Damit kann festgehalten werden, dass diese Methode allein keinen hinreichend aussagekräftigen Begriffsverband für das Wörterbuch generiert hat, jedoch als sinnvolle Ergänzung zu den bereits angewandten Methoden gesehen werden kann. 
+% Wieder Begriffsverband durch Kontext ersetzt (in beiden folgenden Sätzen)
+Zudem ist der resultierende Kontext deutlich kohärenter als zuvor. 
+Damit kann festgehalten werden, dass diese Methode allein keinen hinreichend aussagekräftigen Kontext für das Wörterbuch generiert hat, jedoch als sinnvolle Ergänzung zu den bereits angewandten Methoden gesehen werden kann. 
 
 \section{Visualisierung des Begriffsverbands}
 
 Der Aufbau eines formalen Begriffsverbandes für das Wörterbuch hat für die Nutzer nur dann einen Mehrwert, wenn eine geeignete Schnittstelle zur Betrachtung und Steuerung des Verbands vorliegt. 
-Dazu gehört eine übersichtliche Visualisierung formaler Kontexte, die den Nutzer nicht überfordert und einen guten Überblick über das semantische Umfeld eines gewählten Synsets liefert.
+% Diesmal Kontext durch Begriffsverband ersetzt
+Dazu gehört eine übersichtliche Visualisierung formaler Begriffsverbände, die den Nutzer nicht überfordert und einen guten Überblick über das semantische Umfeld eines gewählten Synsets liefert.
 Hierzu bietet sich die Verwendung von Ordnungsdiagrammen an. 
 
 Unser Script zur Visualisierung eines formalen Kontextes erzeugt mithilfe des Programms \emph{GraphViz} und der Skriptsprache PHP ein Ordnungsdiagramm ausgehend von einem ausgewählten Synset. 
@@ -712,7 +724,8 @@ Die zugehörige Potenzmenge dieser Menge bildet, wie im Kapitel Ordnungsdiagramm
 Ein Ordnungsdiagramm wird dadurch lediglich aus einer Teilmenge aller Merkmale des Datenbestandes erzeugt, weil ein aus der kompletten Menge an Merkmalen generiertes Ordnungsdiagramm schlicht viel zu groß und damit zu unübersichtlich wäre, als dass ein Nutzer damit interagieren könnte. 
 Um diese Platzproblematik zu lösen und die Ordnungsdiagramme so klein und übersichtlich wie möglich zu halten, werden zusätzlich alle Teilmengen der Potenzmenge des gewählten Synsets, die dieselbe Menge an Synsets beschreiben, zu einem Knoten zusammengefasst. 
 %Dadurch ist es möglich, dass für einen formalen Kontext ein Diagramm erzeugt wird, dass der Definition eines Ordnungsdiagramms nicht genügt, weil ihm keine vollständige Potenzmenge zugrundeliegt. 
-Ebenso wurde in einem späteren Entwicklungsstadium die Darstellung der unteren Schranke abgeschafft, da sie für jedes erzeugte Diagramm stets gleich ist und keinen Mehrwert zur Exploration des Kontextes bietet.
+% Kontext durch Verband ersetzt
+Ebenso wurde in einem späteren Entwicklungsstadium die Darstellung der unteren Schranke abgeschafft, da sie für jedes erzeugte Diagramm stets gleich ist und keinen Mehrwert zur Exploration des Verbands bietet.
 
 Die erzeugten Darstellungen sind interaktiv gestaltet, indem Knoten des Diagramms klickbar sind. 
 Bei Klick auf einen Knoten öffnet sich ein Menü, das sowohl die Merkmale, als auch die Vorzugsbezeichnungen der zugehörigen Synsets anzeigt. 
@@ -791,7 +804,8 @@ Im Hinblick auf die praktische Verwendung ist der erstgenannte Ansatz mit dem ma
 Die Merkmalsmenge einzuschränken und mit unterschiedlich großen Mengen zu experimentieren, kann weitere Erkenntnisse erbringen.
 Dieser Ansatz ist aber noch weiter zu verschärfen, indem man die zu verwendenden Merkmale selbst vorgibt und den Zuweisungsschritt auf das Zuweisen von extrahierten Merkmalen zu vorher festgelegten verschiebt.
 
-Wie bereits geschildert wurde, ist die automatisierte Erzeugung von Merkmalen äußerst problematisch gewesen und war dadurch gekennzeichnet, dass an vielen Stellen manuell eingegriffen werden musste, um einen aussagekräftigen formalen Begriffsverband zu erzeugen. 
+% Begriffsverband durch Kontext ersetzt
+Wie bereits geschildert wurde, ist die automatisierte Erzeugung von Merkmalen äußerst problematisch gewesen und war dadurch gekennzeichnet, dass an vielen Stellen manuell eingegriffen werden musste, um einen aussagekräftigen formalen Kontext zu erzeugen. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% TODO: nächster Satz. 1. Welche Literatur? Hinweis vielleicht weglassen. 2. Tempus zwischen 'ausgesucht wurden, ' und 'möchte.'.
 % 'möchte' -> 'wollte'
@@ -801,7 +815,8 @@ Dadurch ist der Merkmalsraum in seiner Struktur nicht so, wie man ihn aus der Li
 
 Im Beispiel nach Janssen aus Tabelle ~\ref{tab:janssen} auf Seite ~\pageref{tab:janssen} sind die Merkmale so gewählt, dass sie zur Kennzeichnung der Bedeutungen der einzelnen Bezeichnungen für Pferde herangezogen werden können und daher auch Sinn ergeben, nämlich Geschlecht und Alter.
 Bei der automatisierten Extraktion von Merkmalen aus externen Wissensquellen, wie der Wikipedia, entstehen mit hoher Wahrscheinlichkeit zu allgemeine Merkmale wie \emph{Tier, Reittier} oder \emph{Huf}.
-Im schlimmsten Fall sind es Merkmale, die gar nicht unmittelbar in das Bedeutungsumfeld der untersuchten Objekte passen oder nichts mit ihnen gemeinsam haben, weil in der Wissensquelle bei der Erklärung des Begriffs zu weit ausgeholt wird (beispielsweise, wenn im ersten Satz im Wesentlichen die Etymologie geklärt wird.).
+% Punkt am Ende vor der Klammer entfernt
+Im schlimmsten Fall sind es Merkmale, die gar nicht unmittelbar in das Bedeutungsumfeld der untersuchten Objekte passen oder nichts mit ihnen gemeinsam haben, weil in der Wissensquelle bei der Erklärung des Begriffs zu weit ausgeholt wird (beispielsweise, wenn im ersten Satz im Wesentlichen die Etymologie geklärt wird).
 
 Daher schlagen wir vor, formale Kontexte zusätzlich auch unter Verwendung eines vorgegebenen Merkmalsraums zu bilden, um anschließend Methoden für die automatisierte Merkmalszuweisung zu erproben.
 Den Aufbau eines solchen Merkmalsraumes sollte unbedingt ein Fachkundiger - in unserem Fall ein Augenarzt - durchführen oder zumindest überwachen. 
