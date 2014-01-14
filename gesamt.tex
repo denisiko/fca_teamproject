@@ -93,7 +93,7 @@ tabsize=2
 \begin{center}
 \vfill
 \LARGE
-Name des Projekts
+Entwicklung eines multilingualen Fachwörterbuchs mit Methoden der formalen Begriffsanalyse
 \vfill 
 \Large
 Bericht zum Teamprojekt\\
@@ -103,7 +103,7 @@ bei Jun.-Prof. Dr. Wiebke Petersen\\
 Institut für Sprache und Information -- Abteilung für Computerlinguistik
 \vfill
 \normalsize
-vorgelegt von \\ Denis Anuschewski \\ Matrikelnummer: 1234567 $\vert$ denis.anuschewski@hhu.de\\ \& \\ Pascal Chave \\ Matrikelnummer:  1726710 $\vert$ pascal.chave@hhu.de \\
+vorgelegt von \\ Denis Anuschewski \\ denis.anuschewski@hhu.de\\ \& \\ Pascal Chave \\ pascal.chave@hhu.de \\
 \vfill
 \today
 \vfill
@@ -564,7 +564,7 @@ Daher wurde ein zweiter Durchlauf der selben Daten allerdings nach vorheriger Be
 %% TODO: Nachfolgender Satz: Dran denken die Quellen auch tatsächlich aufzuführen.
 %% DONE (ist nur eine Quelle).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Die Quelle der verwendeten Stoppwortliste ist im Anhang aufgeführt. 
+Die Quelle der verwendeten Stoppwortliste ist im Quellenverzeichnis aufgeführt. 
 Auch hier blieb das Ergebnis hinter den Erwartungen zurück. 
 Die Merkmalsanzahl blieb nahezu unverändert, Zuweisungen haben sich um gut 1000 reduziert. 
 Dank großzügigerem Matching unter Nichtbeachtung von Groß- und Kleinschreibung konnten ca. 30 Synsets mehr auf Artikel abgebildet werden, aber auch das ändert die Einschätzung des Endresultates nicht. 
@@ -940,11 +940,9 @@ Diese Programme erlauben die Ausgabe des Graphen in einer Vielzahl von Dateitype
 Nachfolgend wird die Syntax am Beispiel eines aus unseren Daten generierten Begriffsverbands gezeigt.
 Als Ausgabestrom erzeugt \emph{dot} dann SVG-Syntax (Scalable Vector Graphics), die direkt in das Markup der HTML-Seite eingebettet werden kann.
 Erzeugt wurde das Diagramm aus dem Begriffsverband des Synsets \emph{Macula} mit dem Script \enquote{visualize\_new.php}. 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Anmerkung: hier vielleicht nochmal genauer formulieren (letzter Satz)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Die Ausgabe nach SVG erlaubt es, Knoten und Kanten, sowie deren Attribute, exakt zu beschreiben und deutlich hervorzuheben, ohne eine Rastergrafik zu verwenden, weil die Auszeichnung des Diagramms in reinem Text im Quelltext des Dokumentes erfolgt.
-Die eigentliche Darstellung der Grafik übernimmt der Browser basierend auf den Anweisungen im Quelltext.
+Die Ausgabe nach SVG erlaubt -- anders als bei der Erzeugung von Rastergrafiken -- sowohl menschen-, als auch systemlesbare Hervorhebungen von Knoten und Kanten, sowie ihren Attributen.
+Der Grund hierfür ist, dass die Auszeichnung der Grafik im Quelltext in reinem Text statt in Binärcode erfolgt. 
+Dadurch ist die Manipulation von SVG-Grafiken auch besonders einfach zu handhaben.
 
 \lstset{
 language=C
@@ -1076,10 +1074,12 @@ Côté, R. (1986). Architecture of SNOMED: Its Contribution to Medical Language 
 \href{http://www.dimdi.de/static/de/klassi/icd-10-gm/kodesuche/onlinefassungen/htmlgm2014/index.htm}{http://www.dimdi.de/static/de/klassi/icd-10-gm/kodesuche/onlinefassungen/htmlgm2014/}
 \item Wikipedia: List of medical roots, suffixes and prefixes, \\
 \href{http://en.wikipedia.org/wiki/List\_of\_medical\_roots,\_suffixes\_and\_prefixes}{http://en.wikipedia.org/wiki/List of medical roots, suffixes and prefixes}
+\item Verwendete Stoppwortliste, \\ 
+\href{http://norm.al/2009/04/14/list-of-english-stop-words/}{http://norm.al/2009/04/14/list-of-english-stop-words/}
 \item Porter Stemmer, ANSI-C (thread-safe), \\
-\href{http://tartarus.org/~martin/PorterStemmer/c_thread_safe.txt}{http://tartarus.org/~martin/PorterStemmer/c\_thread\_safe.txt}
+\href{http://tartarus.org/~martin/PorterStemmer/c_thread_safe.txt}{http://tartarus.org/\textasciitilde martin/PorterStemmer/c\_thread\_safe.txt}
 \item TreeTagger - a language independent part-of-speech tagger, \\
-\href{http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/}{http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/}
+\href{http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/}{http://www.cis.uni-muenchen.de/\textasciitilde schmid/tools/TreeTagger/}
 \item Penn Treebank Tag Set, \\
 \href{http://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html}{http://www.ling.upenn.edu/courses/Fall\_2003/ling001/penn\_treebank\_pos.html}
 \item Image\_Graphviz, \\
