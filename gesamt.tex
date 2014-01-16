@@ -240,7 +240,7 @@ Immer dann, wenn einem formalen Begriff eine Bedeutung in beiden Sprachen zukomm
 Auf diese Weise kann überbrückt werden, wenn es kein entsprechendes Lexem in der zu übersetzenden Sprache gibt, weil die Bezeichnungen der Merkmale in der zu übersetzenden Sprache trotzdem existieren. 
 Der Ansatz der Arbeit von Janssen diente unserem Projekt als Ausgangspunkt mit Hilfe der Formalen Begriffsanalyse Zuweisungen innerhalb des Wörterbuchs der Augenheilkunde bewerkstelligen zu können. 
 
-\subsubsection{Ordnungsdiagramme}
+\subsection{Ordnungsdiagramme}
 
 Ordnungsdiagramme sind graphische Darstellungen mathematischer Halbordnungen. 
 Geläufige Namen für Ordnungsdiagramme sind außerdem noch \emph{Liniendiagramm} und \emph{Hasse-Diagramm}.\footnote{Wir halten \emph{Ordnungsdiagramm} für die geeignete Vorzugsbezeichnung und verwenden sie durchgehend.}
@@ -292,7 +292,7 @@ Die Domäne der Augenheilkunde ist jedoch so umfangreich und schwierig zu erfass
 Um einen dennoch annähernd abdeckenden Merkmalsraum generieren zu können, ist unserer Auffassung nach Domänenwissen erforderlich. 
 Zudem müsste idealerweise vor dem Zuweisen von Merkmalen zu Begriffen aus dem Wörterbuch klar sein, auf welche Abstraktionsebenen und in welche semantischen Kategorien die Merkmale einzuorden sind, damit ein Überblick über die Begriffsordnung gewährleistet ist, wie bei hierarchischen Ordnungen. 
 
-\subsubsection{Chancen der Formalen Begriffsanalyse}
+\subsection{Chancen der Formalen Begriffsanalyse}
 
 Neben den geschilderten Nachteilen weist die Formale Begriffsanalyse trotzdem entscheidende Vorteile auf, in denen wir viel Potential für die Erschließung des Wörterbuchs der Augenheilkunde sehen. 
 Der Umstand, dass lediglich geprüft werden muss, ob ein Merkmal einem untersuchten Objekt zugewiesen werden kann oder nicht, bedingt sehr einfache Datenstrukturen.
@@ -408,7 +408,7 @@ WHERE Bezeichnung LIKE '%itis%'
 
 Durch automatischen Abgleich der Synonyme in der Datenbank mit den erkannten Teilmustern wurden so fast 2000 Merkmalszuweisungen vorgenommen, die etwas mehr als 20\% aller Synsets des Wörterbuchs abdecken. 
 
-\subsubsection{Einsatz einer N-Gramm-Frequenzliste}
+\subsection{Einsatz einer N-Gramm-Frequenzliste}
 
 Die Wahl geeigneter Wortmuster durch manuelle Untersuchung der englischen Begriffsliste - der Menge aller englischsprachigen Einträge des Wörterbuchs - ist als zu unvollständig bezüglich der Abdeckung der 2500 Synsets einzustufen, wie die bisherigen Ergebnisse der Wortmusteranalyse zeigen. 
 Eine Verbesserung der Abdeckung könnte zu erreichen sein, indem weitere geeignete Wortteilmuster anhand ihrer absoluten Häufigkeit identifiziert werden. 
@@ -940,10 +940,6 @@ sed -n 's/<page.*title="\([^"]*\)".*$/\1/p' Parinauds_syndrome.xml
 \begin{lstlisting}[caption={Extraktion des Textes aus der der Zeile 10 nachfolgenden Zeile des Artikels \enquote{Parinaud's syndrome}}]
 sed -n 's/<extract.*>\([^<]*\)\([<$ ].*\)/\1/p' Parinauds_syndrome.xml
 \end{lstlisting}
-
-%\section{Stoppwortliste}
-
-%Eine Liste der verwendeten englischen Stoppworte ist unter \href{http://norm.al/2009/04/14/list-of-english-stop-words/}{http://norm.al/2009/04/14/list-of-english-stop-words/} einsehbar.
 
 \section{Erzeugen eines Ordnungsdiagramms}
 
