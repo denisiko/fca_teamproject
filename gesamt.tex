@@ -1,7 +1,6 @@
 \documentclass[pagesize,paper=A4,DIV=calc,fontsize=12pt,draft=false]{scrreprt}
 
 %% Core %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{scrhack}
 \usepackage[plain]{fullpage}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -26,6 +25,7 @@
 \usepackage{listings}
 \usepackage{multicol}
 \usepackage{paralist}
+\usepackage{tabularx}
 \usepackage{units}
 \usepackage{multicol}
 
@@ -34,11 +34,6 @@
 \usepackage{txfonts}
 \renewcommand{\sfdefault}{lmss}
 
-%% Zeilenabstand
-
-\usepackage{setspace}
-\onehalfspacing
-
 %% Farben 
 
 \definecolor{mgray}{gray}{.85}
@@ -46,13 +41,9 @@
 
 %% Tabellen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% Schriftgröße der ganzen Tabelle
-%\let\oldtabular\tabular
-%\renewcommand{\tabular}{\small\oldtabular}
-
 %% Selbst-expandierende Spalte mit zentriertem Inhalt
-\newcolumntype{C}{>{\columncolor{mgray}}c}
-
+\newcolumntype{G}{>{\columncolor{mgray}}c}
+\newcolumntype{D}{>{\scriptsize\centering\arraybackslash}X}
 %% Großes Kreuz. Muss aktiviert werden, wenn MinionPro nicht verfügbar
 \newcommand*{\bigtimes}{\mathop{\raisebox{-.15ex}{\hbox{\Large{$\times$}}}}}
 
@@ -103,7 +94,7 @@ bei Jun.-Prof. Dr. Wiebke Petersen\\
 Institut für Sprache und Information -- Abteilung für Computerlinguistik
 \vfill
 \normalsize
-vorgelegt von \\ Denis Anuschewski \\ denis.anuschewski@hhu.de\\ \& \\ Pascal Chave \\ pascal.chave@hhu.de \\
+vorgelegt von \\ Denis Anuschewski \\ \& \\ Pascal Chave \\
 \vfill
 \today
 \vfill
@@ -129,7 +120,7 @@ Synsets werden im Wörterbuch intern durch eine eindeutige Kennziffer ausgezeich
 
 \section{Ideen und Zielsetzung}
 
-Ziel des nachfolgend vorgestellten Teamprojekts war es, die Einträge des \enquote{Wörterbuchs der Augenheilkunde} zu erweitern um ihre jeweilige Repräsentation als formalen Begriff, um die Einträge auf diese Weise stärker miteinander zu verknüpfen und schließlich ein \emph{semantisches Netz} im Wörterbuch zu etablieren. 
+Ziel des nachfolgend vorgestellten Teamprojekts war es, die Einträge des \enquote{Wörterbuchs der Augenheilkunde} zu erweitern um ihre jeweilige Repräsentation als formalen Begriff, um die Einträge auf diese Weise stärker miteinander zu verknüpfen und schließlich ein \enquote{semantisches Netz} im Wörterbuch zu etablieren. 
 Die Synsets des Wörterbuchs bilden im Sinne der Formalen Begriffsanalyse, die nachfolgend einführend erläutert wird, die Menge an Objekten. 
 Um diese Objekte repräsentieren zu können werden beschreibende Merkmale benötigt. 
 Die Erweiterung des Wörterbuchs beschäftigt sich also vornehmlich mit der Frage, wie diese Merkmale erzeugt und den entsprechenden Objekten, den Synsets, zugewiesen werden. 
@@ -140,9 +131,8 @@ Das Deutsche und das Englische dominieren deutlich.
 Ein Grund dafür könnte unzureichendes Quellenmaterial sowie natürlich fehlende Fremdsprachenkenntnisse bei der Erstellung des Wörterbuchs gewesen sein. 
 Ein anderer Grund könnte sein, dass es bestimmte Begriffe in der einen Sprache gibt und in anderen Sprachen nicht. 
 Solcherlei Lücken, lexical gaps genannt, gibt es im \enquote{Wörterbuch der Augenheilkunde} ebenfalls. 
-Dieses Phänomen kann umso ausgeprägter werden, je spezifischer die Domäne ist, so wie beispielsweise die Augenheilkunde. 
-Einträge mittels formaler Begriffe auszudrücken und damit über deren Merkmale prinzipiell übersetzbar zu machen in Sprachen, in denen es die Bezeichnung nicht gibt, ist eine Idee, die auf die Arbeit von Janssen, 2002 zurückgeht. 
-
+Dieses Phänomen kann umso ausgeprägter werden, je spezifischer die Domäne ist: so wie es im vorliegenden Fall die Augenheilkunde ist. 
+Einträge mittels formaler Begriffe auszudrücken und damit über deren Merkmale prinzipiell übersetzbar zu machen in Sprachen, in denen es die entsprechende Bezeichnung nicht gibt, ist eine Idee, die auf die Arbeit von Janssen, 2002 zurückgeht.  
 Weitere Probleme, die man mit dem vorgestellten Ansatz gut lösen kann, sind die der Homonymie und Synonymie. 
 Ein Satz oder eine Phrase in zwei unterschiedlichen Sprachen hat (im Idealfall) in beiden Sprachen die selbe Bedeutung, verwendet aber andere Wörter um ihn auszudrücken. 
 Für die wortweise Übersetzung zieht man, so vorhanden, ein Wörterbuch heran. 
@@ -152,8 +142,9 @@ In keinem der Fälle lässt sich dann zuverlässig ableiten, welches die korrekt
 Formale Begriffe erlauben es, diesen Kontext herzustellen und sprachübergreifend zu verwenden, weil Begriffe dadurch in termini der ihnen zugewiesenen Merkmale ausgedrückt werden. 
 
 Ein weiterer ausschlaggebender Grund für den Einsatz von formalen Begriffen als Repräsentation der Synsets ist die Identifizierung der semantischen Nähe (Bedeutungsähnlichkeit) aller Synsets zueinander anhand gemeinsamer Merkmale. 
-Der Anteil an gemeinsamen Merkmalen in Bezug auf die Gesamtanzahl zweier Synsets kann als Messwert für ihre semantische Nähe herangezogen werden, sprich je mehr Merkmale sich zwei Synsets teilen relativ gesehen zu der Summe ihrer Merkmale, desto ähnlicher sind sie sich in ihrer Bedeutung. 
-In Kombination mit einer geeigneten Darstellung der Begriffsverbände wird den Nutzern des Wörterbuchs so die Möglichkeit gegeben, ausgehend von einem bekannten Begriff, in ihrer Bedeutung ähnliche Einträge des Wörterbuchs zu entdecken, um so spezifischere medizinische Begriffe ausfindig zu machen oder einfach neue Begriffe zu entdecken. 
+Der Anteil an gemeinsamen Merkmalen in Bezug auf die Gesamtanzahl zweier Synsets kann als Kennwert für ihre semantische Nähe herangezogen werden. 
+Je mehr Merkmale sich zwei Synsets teilen, relativ zu Gesamtanzahl ihrer Merkmale, desto ähnlicher sind sie sich in ihrer Bedeutung. 
+In Kombination mit einer geeigneten Darstellung der Begriffsverbände wird den Nutzern des Wörterbuchs so die Möglichkeit gegeben, ausgehend von einem bekannten Begriff, in ihrer Bedeutung ähnliche Einträge des Wörterbuchs zu entdecken, um so spezifischere medizinische Begriffe ausfindig zu machen oder neue Begriffe zu entdecken. 
 
 \section{Erste Überlegungen zur Umsetzung}
 
@@ -171,22 +162,22 @@ Diese lässt sich in Form einer Kreuztabelle genannten Darstellung, typischerwei
 Die Kreuze in den Zellen dieser Tabelle bedeuten dann das Vorhandensein des Merkmals für den jeweiligen Gegenstand.
 Die nachfolgenden Definitionen sind aus Petersen, 2001. 
 
-Für eine beliebige Menge $A$ von Gegenständen aus einem formalen Kontext ist ihre Ableitung $A'$ die Menge der gemeinsamen Merkmale der Gegenstände aus $A$. 
+Für eine beliebige Menge $A$ von Gegenständen aus einem formalen Kontext, ist ihre Ableitung $A'$ die Menge der gemeinsamen Merkmale der Gegenstände aus $A$. 
 
 \begin{equation*}
 A' := \lbrace m \in M \; \vert \; \forall g \in A: (g,m) \in I\rbrace
 \end{equation*}
 
-Für eine beliebige Menge $B$ von Merkmalen aus einem formalen Kontext ist ihre Ableitung $B'$ die Menge der gemeinsamen Gegenstände der Merkmale aus $B$. 
+Für eine beliebige Menge $B$ von Merkmalen aus einem formalen Kontext, ist ihre Ableitung $B'$ die Menge der gemeinsamen Gegenstände der Merkmale aus $B$. 
 
 \begin{equation*}
 B' := \lbrace g \in G \; \vert \; \forall m \in B: (g,m) \in I\rbrace
 \end{equation*}
 
-Ist $A$ Umfang und $B$ Inhalt, so heißt $(A,B)$ formaler Begriff des Kontextes $(G,M,I)$ wenn
-
+Sind $A$ der Umfang und $B$ der Inhalt, so heißt $(A,B)$ formaler Begriff des Kontextes $(G,M,I)$, wenn
 % Ich würde 1., 2. usw. als Aufzählung verwenden, liest sich besser
-\begin{inparaenum}[\itshape i.\upshape)]
+%\begin{inparaenum}[\itshape i.\upshape)]
+\begin{inparaenum}[\itshape 1.)]
 \item
  $A$ eine echte Teilmenge von $G$, und
 \item
@@ -207,7 +198,7 @@ Dies zusammen nennt man Begriffsverband zu dem Kontext.
 \begin{table}[h!]
 \centering
 \renewcommand{\arraystretch}{2}
-\begin{tabular}{l|C|c|C|c|c}
+\begin{tabular}{l|G|c|G|c|c}
 &	pferd &	männlich &	weiblich &	erwachsen &	jung\\
 \hline
 \textsc{Pferd}	&	$\bigtimes$	&&&&\\
@@ -237,8 +228,8 @@ Die natürlichen Sprachen sind repräsentiert durch ihre Worte (Lexeme).
 Grundlage der Zwischensprache sind Kreuztabellen, wie sie unter\emph{~\nameref{subsec:fba}} auf Seite~\pageref{subsec:fba} vorgestellt wurden. 
 Aus den daraus gebildeten Begriffsverbänden sind die Lexeme der jeweiligen Sprachen mit den entsprechenden formalen Begriffen verbunden. 
 Immer dann, wenn einem formalen Begriff eine Bedeutung in beiden Sprachen zukommt, können die entsprechenden Lexeme verbunden werden. 
-Auf diese Weise kann überbrückt werden, wenn es kein entsprechendes Lexem in der zu übersetzenden Sprache gibt, weil die Bezeichnungen der Merkmale in der zu übersetzenden Sprache trotzdem existieren. 
-Der Ansatz der Arbeit von Janssen diente unserem Projekt als Ausgangspunkt mit Hilfe der Formalen Begriffsanalyse Zuweisungen innerhalb des Wörterbuchs der Augenheilkunde bewerkstelligen zu können. 
+Auf diese Weise kann überbrückt werden, wenn es kein entsprechendes Lexem in der zu übersetzenden Sprache gibt, weil die Bezeichnungen der Merkmale in der zu übersetzenden Sprache trotzdem existieren (oder wenigstens in der Mehrzahl der Fälle existieren). 
+Der Ansatz der Arbeit von Janssen diente unserem Projekt als Ausgangspunkt mit Hilfe der Formalen Begriffsanalyse Zuweisungen innerhalb des \enquote{Wörterbuchs der Augenheilkunde} bewerkstelligen zu können. 
 
 \subsection{Ordnungsdiagramme}
 
@@ -274,7 +265,7 @@ Größere Wertebereiche können somit nicht abgebildet werden, wie beispielsweis
 Man könnte zwar das Merkmal \unit[17]{mmHg} zuweisen, dies würde jedoch allenfalls Objekte, die mit dem Merkmal \unit[17]{mmHg} versehen wurden, untereinander vergleichbar machen, da es die Formale Begriffsanalyse nicht vorsieht, Beziehungen zwischen Merkmalen zu kennzeichnen oder Merkmale als Zahlenwerte zu interpretieren. 
 Ein Objekt mit dem Merkmal \unit[16]{mmHg} wäre somit genauso wenig bedeutungsgleich zu einem Objekt mit dem Merkmal \unit[17]{mmHg} wie eines mit dem Merkmal \unit[6] {mmHg}, es sei denn die Bedeutungsähnlichkeit würde durch weitere Merkmale deutlich gemacht werden. 
 
-Das deutlich größere Problem besteht jedoch in der Abhängigkeit vom Merkmalsraum. 
+Das eindeutig größere Problem besteht jedoch in der Abhängigkeit vom Merkmalsraum. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% TODO: Frage zum Anspruch der Vollständigkeit. Woher kommt das? Die ICD-10 deckt ja die Pathologie und Traumatologie sicher auch nur ab, indem sie Klassen der Art 'sonstige Entzündungen der Hirnanhangdrüse' hat.
 %% Antwort: So: hoffe das beschreibt jetzt das Problem annähernd genau :)
@@ -290,17 +281,18 @@ Für Kontexte mit geringer Komplexität und aus Bereichen mit formal eindeutig d
 Auch beim gezeigten Beispiel von Janssen hält sich die Komplexität des Kontextes deutlich in Grenzen, da es sich bei allen Objekten eines Verbandes jeweils um ein Pferd handelt, das sich in maximal 4 Merkmalsausprägungen zu jedem anderen anderen Objekt des Verbandes unterscheidet. 
 Die Domäne der Augenheilkunde ist jedoch so umfangreich und schwierig zu erfassen, dass eine Festlegung auf eine sowohl minimale als auch vollständige Merkmalsmenge, die die Augenheilkunde abdecken kann nicht so eindeutig lösbar ist, wie bei den natürlichen Zahlen. 
 Um einen dennoch annähernd abdeckenden Merkmalsraum generieren zu können, ist unserer Auffassung nach Domänenwissen erforderlich. 
-Zudem müsste idealerweise vor dem Zuweisen von Merkmalen zu Begriffen aus dem Wörterbuch klar sein, auf welche Abstraktionsebenen und in welche semantischen Kategorien die Merkmale einzuorden sind, damit ein Überblick über die Begriffsordnung gewährleistet ist, wie bei hierarchischen Ordnungen. 
+Zudem müsste idealerweise vor dem Zuweisen von Merkmalen zu Begriffen aus dem Wörterbuch klar sein, auf welche Abstraktionsebenen und in welche Kategorien die Merkmale einzuorden sind, damit ein vergleichbarer Überblick über die Begriffsordnung gewährleistet ist, wie bei hierarchischen Ordnungen. 
 
 \subsection{Chancen der Formalen Begriffsanalyse}
 
 Neben den geschilderten Nachteilen weist die Formale Begriffsanalyse trotzdem entscheidende Vorteile auf, in denen wir viel Potential für die Erschließung des Wörterbuchs der Augenheilkunde sehen. 
-Der Umstand, dass lediglich geprüft werden muss, ob ein Merkmal einem untersuchten Objekt zugewiesen werden kann oder nicht, bedingt sehr einfache Datenstrukturen.
+Der Umstand, dass lediglich geprüft werden muss, ob ein Merkmal einem untersuchten Objekt zugewiesen werden kann oder nicht, bedarf lediglich sehr einfacher Datenstrukturen.
 Ein Synset erschließt sich daher aus seiner Menge an Merkmalen und die Ähnlichkeit jedes Synsets zu einem anderen beliebigen Synset kann leicht mit der Teilmenge gemeinsamer Merkmale bestimmt werden.
 Die resultierenden Begriffsverbände lassen sich in der Regel gut mit Ordnungsdiagrammen darstellen.
 Einzelne Knoten dieser Diagramme können sowohl Synsets, als auch Mengen von repräsentativen Merkmalen darstellen. 
 
-Gegen Ende unseres Berichts stellen wir vor, wie wir Nutzern des Wörterbuchs die Möglichkeit geben, sich einzelne Begriffsverbände visualisieren zu lassen und interaktiv zu steuern. 
+Im Kapitel~\ref{sec:visualization_0}\emph{~\nameref{sec:visualization_0}} stellen wir vor, wie wir Nutzern des Wörterbuchs die Möglichkeit geben, sich einzelne Begriffsverbände visualisieren zu lassen und interaktiv zu steuern.
+Beispiele für die damit erzeugten Darstellungen finden sich im Anhang auf Seite~\pageref{sec:visualization_01}. 
 Das zuvor angesprochene Problem der fehlenden Beziehungen von Merkmalen untereinander kann teilweise dadurch gelöst werden, dass während der Merkmalszuweisung bekannte semantische Relationen berücksichtigt werden. 
 Beispielsweise können jedem Objekt, dem das Merkmal \emph{Gonioskopie} zugewiesen wird, auch die Merkmale \emph{Untersuchung} sowie \emph{diagnostisches Verfahren} zugewiesen werden. 
 % Satz hinzugefügt
@@ -371,8 +363,7 @@ Folglich ist dieses Ergebnis als Grundlage für aussagekräftige formale Verbän
 Die Durchführung einer (teilweise) automatisierten Merkmalsextraktion und -zuweisung erwies sich als sehr wirksam. 
 Diese wurde anhand von Wortteilmustern und ihrer Bedeutung als Affix, Wortwurzel beziehungsweise Teil eines Kompositums oder Derivats erzielt, wie sie gehäuft in medizinischen Fachbegriffen vorkommen. 
 Viele dieser Fachbegriffe beinhalten Wortteile aus dem Lateinischen oder Altgriechischen oder sind fast vollständig Lehnwörter daraus. 
-Immer wieder auftretende Affixe des Lateinischen und des Altgriechischen\footnote{Wir stellen im Fließtext Präfixe durch vorangestellten Schrägstrich, Affixe durch finalen Schrägstrich und Infixe durch beidseitige Schrägstriche dar.}\footnote{Beispielhaft: die englische Endung \emph{/oplasty}, die einen rekonstruktiven Eingriff bezeichnet, stammt aus dem griechischen und bedeutet \emph{formen}. 
-Die griechische Endung \emph{/itis} wiederum bezeichnet meist eine entzündliche Krankheit.} deuten meist auf einen hinreichend eindeutig gekennzeichneten Umstand hin, so dass dieser auf entsprechende Merkmale übertragen werden kann. 
+Immer wieder auftretende Affixe des Lateinischen und des Altgriechischen\footnote{Wir stellen im Fließtext Präfixe durch vorangestellten Schrägstrich, Affixe durch finalen Schrägstrich und Infixe durch beidseitige Schrägstriche dar.}\footnote{Beispielhaft: die englische Endung \emph{/oplasty}, die einen rekonstruktiven Eingriff bezeichnet, stammt aus dem griechischen und bedeutet \emph{formen}. Die griechische Endung \emph{/itis} wiederum bezeichnet meist eine entzündliche Krankheit.} deuten meist auf einen hinreichend eindeutig gekennzeichneten Umstand hin, so dass dieser auf entsprechende Merkmale übertragen werden kann. 
 Die Merkmalsextraktion findet hierbei manuell statt, die Merkmalszuweisung automatisch. 
 
 Einen großen Mehrwert erhält man zudem durch Berücksichtigung der semantischen Beziehungen zwischen den zugewiesenen Merkmalen. 
@@ -465,7 +456,7 @@ Eine einfache Verschlagwortung mittels eines kontrollierten Vokabulars erzeugte 
 Der Grund dafür ist, dass der Zweck einer Klassifikation genau ist, möglichst wenig Kongruenz im Begriffsumfang mit benachbarten, vor allem aber Ober- und Unterbegriffen zu beinhalten. 
 
 Aufgrund der großen Menge an bereitgestellten Informationen haben wir uns dazu entschieden, die Online-Enzyklopädie Wikipedia als Wissensquelle für das Wörterbuch der Augenheilkunde zu berücksichtigen. 
-Auch wenn anfänglich sowohl die englische, als auch die deutsche Version der Wikipedia für die Informationsextraktion herangezogen wurden, entschied man sich schließlich für die englische Wikipedia als Wissensquelle, um einerseits den Merkmalsraum einsprachig zu halten und andererseit aus dem Grund, dass die englische Wikipedia deutlich mehr Informationen aus dem Bereich der Augenheilkunde enthält (siehe Anzahl erkannter Artikel am Ende des Abschnitts), und weil die englische Sprache weniger Flexionen verwendet als die deutsche, was den linguistischen Abgleich von Informationen der Wikipedia mit den Einträgen aus dem Wörterbuch vereinfacht. 
+Auch wenn anfänglich sowohl die englische, als auch die deutsche Version der Wikipedia für die Informationsextraktion herangezogen wurden, entschied man sich schließlich für die englische Wikipedia als Wissensquelle, um einerseits den Merkmalsraum einsprachig zu halten und andererseits aus dem Grund, dass die englische Wikipedia deutlich mehr Informationen aus dem Bereich der Augenheilkunde enthält, und weil die englische Sprache weniger Flexionen verwendet als die deutsche, was den linguistischen Abgleich von Informationen der Wikipedia mit den Einträgen aus dem Wörterbuch vereinfacht. 
 
 In der Wikipedia wird durch Zuweisung eines Artikels einer oder mehreren Kategorien eine Klassifikation erzeugt. 
 In erster Linie dient dies dazu, thematische Bereiche zu erstellen und weniger eine Begriffsordnung zu schaffen. 
@@ -498,11 +489,11 @@ Die Vorgehensweise war wie folgt:
 \item Ermitteln der Artikelnamen in den Unterkategorien der Kategorien \enquote{Augenheilkunde} bzw. \enquote{Ophthalmology}. 
 Dieser Schritt wurde noch manuell unter Verwendung des Kategorie"=Browsers auf der Wikipedia"=Hauptseite durchgeführt. 
 \item Extraktion der Abstracts durch Suche nach den Artikelnamen. 
-Da es sich um ein XML"=Dokument handelt, wurde versucht mittels XSLT (Extensible Stylesheet Language Transformation, eine Sprache unter anderem zur Extraktion von Teilbäumen eines XML-Dokuments) und regulären Ausdrücken, die Abstracts zu gewinnen. 
+Da es sich um ein XML"=Dokument handelt, wurde versucht mittels XSLT (Extensible Stylesheet Language Transformation, eine Sprache unter anderem zur Extraktion von Teilbäumen eines XML"=Dokuments) und regulären Ausdrücken, die Abstracts zu gewinnen. 
 Verwendet wurde dazu das Kommandozeilenprogramm \emph{xsltproc}. 
 Der Aufwand damit eine fehlerfreie Menge an Abstracts zu extrahieren zeigte sich aber als zu groß, insbesondere aufgrund der spärlichen Dokumentation bezüglich der Leistungsfähigkeit der regulären Ausdrücke, aber auch weil die Abstracts keine vollkommen einheitliche Struktur hatten, und die XSL-Templates immer wieder angepasst werden mussten um die Treffermenge zu erhöhen.
 Daher wurde die Extraktion mit den üblichen dafür geeigneten Programmen der Unix-Shell (\emph{grep, sed, awk}) und \emph{Perl} bewerkstelligt. 
-Für wiederholte Aufgaben dieser Art ist eine Einarbeitung in XSLT aber zu empfehlen, weil die Verarbeitung sehr großer Dateien, selbst im Vergleich zu den eben genannten Programmen, noch einmal erheblich schneller ist und auch dem eigentlichen Zweck der Verwendung von XML zur Datenauszeichnung entspricht. 
+Trotzdem ist für ordentlich strukturierte XML-Daten XSLT immer vorzuziehen, weil die Verarbeitung sehr großer Dateien, selbst im Vergleich zu den eben genannten Programmen, noch einmal erheblich schneller ist und auch dem eigentlichen Zweck der Verwendung von XML zur Datenauszeichnung entspricht. 
 \item In den Abstracts befinden sich die Kategorie-Tags, die wiederum dem Artikelnamen zugewiesen werden. 
 Allerdings fanden sich auch mehrere hundert Kategorien, die lediglich der Verwaltung der Wikipedia dienen, und die vorher nicht aufgefallen waren, weil sie bei der Anzeige im Browser unterdrückt werden. 
 Ein allgemeines Beispiel dafür ist die Kategorie \enquote{Articles needing attention}, die selbst wiederum mehrere hundert Unterkategorien enthält (unter anderem zu jener Zeit sich selbst: \enquote{Medical Articles needing attention}). 
@@ -555,7 +546,7 @@ Es musste sowohl das Wiki-Markup, als auch Schriftzeichen anderer Sprachen (insb
 In jedem Fall wurde aber darauf geachtet, die Schritte so zu wählen, dass sie automatisierbar sein können.}.
 \item Shell-Skript für den Einsatz des Porter-Stemmers und anschließendes Speichern. 
 Dieser Schritt geht vollautomatisch und bedarf keiner weiteren Überprüfung oder Korrektur.
-\item PHP-Skript für den Import der XML-Daten in die Datenbank, sowie Abgleich der Wort-Gramme mit den Titeln der Artikel und Speichern der Ergebnisse.
+\item PHP-Skript für den Import der XML"=Daten in die Datenbank, sowie Abgleich der Wort-Gramme mit den Titeln der Artikel und Speichern der Ergebnisse.
 \item Anlegen und Zuweisung der Merkmale, sowie Matching der Artikeltitel und der Synsetbezeichnungen via SQL. 
 \end{enumerate}
 
@@ -802,7 +793,7 @@ Im Hinblick auf die praktische Verwendung ist der erstgenannte Ansatz mit dem ma
 \subsection{Vorgeben des Merkmalsraums}
 
 Die Merkmalsmenge einzuschränken und mit unterschiedlich großen Mengen zu experimentieren, kann weitere Erkenntnisse erbringen.
-Dieser Ansatz ist aber noch weiter zu verschärfen, indem man die zu verwendenden Merkmale selbst vorgibt und den Zuweisungsschritt auf das Zuweisen von extrahierten Merkmalen zu vorher festgelegten verschiebt.
+Dieser Ansatz ist aber noch weiter zu verschärfen, indem man die zu verwendenden Merkmale selbst vorgibt und den Zuweisungsschritt auf das Zuweisen von extrahierten Merkmalen zu vorher Festgelegten verschiebt.
 
 % Begriffsverband durch Kontext ersetzt
 Wie bereits geschildert wurde, ist die automatisierte Erzeugung von Merkmalen äußerst problematisch gewesen und war dadurch gekennzeichnet, dass an vielen Stellen manuell eingegriffen werden musste, um einen aussagekräftigen formalen Kontext zu erzeugen. 
@@ -813,7 +804,7 @@ Wie bereits geschildert wurde, ist die automatisierte Erzeugung von Merkmalen ä
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Dadurch ist der Merkmalsraum in seiner Struktur nicht so, wie man ihn aus der Literatur kennt, wo die Merkmale nach bestimmten Aspekten ausgesucht wurden, mit denen man die Objekte erschließen wollte.
 
-Im Beispiel nach Janssen aus Tabelle ~\ref{tab:janssen} auf Seite ~\pageref{tab:janssen} sind die Merkmale so gewählt, dass sie zur Kennzeichnung der Bedeutungen der einzelnen Bezeichnungen für Pferde herangezogen werden können und daher auch Sinn ergeben, nämlich Geschlecht und Alter.
+Im Beispiel nach Janssen, 2002 aus Tabelle~\ref{tab:janssen} auf Seite~\pageref{tab:janssen} sind die Merkmale so gewählt, dass sie zur Kennzeichnung der Bedeutungen der einzelnen Bezeichnungen für Pferde herangezogen werden können und daher auch Sinn ergeben, nämlich Geschlecht und Alter.
 Bei der automatisierten Extraktion von Merkmalen aus externen Wissensquellen, wie der Wikipedia, entstehen mit hoher Wahrscheinlichkeit zu allgemeine Merkmale wie \emph{Tier, Reittier} oder \emph{Huf}.
 % Punkt am Ende vor der Klammer entfernt
 Im schlimmsten Fall sind es Merkmale, die gar nicht unmittelbar in das Bedeutungsumfeld der untersuchten Objekte passen oder nichts mit ihnen gemeinsam haben, weil in der Wissensquelle bei der Erklärung des Begriffs zu weit ausgeholt wird (beispielsweise, wenn im ersten Satz im Wesentlichen die Etymologie geklärt wird).
@@ -900,17 +891,36 @@ Im Hinblick auf die Projektplanung wäre unsere Wunschvorstellung bezüglich der
 %% Referenz auf den Wikipedia-Abschnitt hinzugefügt
 %% Danke. \nameref daraus gemacht.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Basierend auf den als relevant erachteten Kategorien der Wikipedia, wurden alle Artikel, denen ein gegebenes Kategorie-Tag zugewiesen war, geholt (siehe auch \emph{~\nameref{subsec:wiki_cats}} auf Seite~\pageref{subsec:wiki_cats}).
-Der typische Aufbau eines solchen Artikels im Quelltext ist nachfolgend dargestellt.
-Von Interesse sind hier der Titel des Dokuments, die Kategorien und das Extrakt selbst.
-Die Kategorien wurden zum Abgleich mit der ursprünglichen Kategorieliste extrahiert.
+Basierend auf den als relevant erachteten Kategorien der englischen Wikipedia, wurden alle Artikel, denen ein gegebenes Kategorie-Tag zugewiesen war, geholt (siehe auch\emph{~\nameref{subsec:wiki_cats}} auf Seite~\pageref{subsec:wiki_cats}).
+Nachfolgend werden die entscheidenden Teile der Skripte aufgeführt, die zum Holen der Artikel via dem API der Wikipedia verwendet wurden.
+
+Nicht gezeigt werden die Zeilen die beispielsweise die in Listing~\ref{list:getcats} geholte Liste trennen in die Liste der Artikel und die Liste der Kategorien.
+Ebenfalls nicht gezeigt wird das Vorbereiten und Weiterreichen der Daten an TreeTagger und die finale Aufbereitung zur Verwendung in der Datenbank.
+Sie sind aber für die Beschreibung der Vorgehensweise auch nicht weiter relevant.
+Der typische Aufbau der Artikel im Quelltext ist in Listing~\ref{list:showxml}  dargestellt.
+Von Interesse sind hier der Titel des Dokuments, die Kategorien und das Extrakt selbst. 
+Die beiden Ausdrücke, die den Titel und den Text des Artikels extrahieren, sind in den Listings~\ref{list:gettitle} und~\ref{list:gettext} dargestellt.
+Die Kategorien in Listing~\ref{list:getarts} wurden zum Zweck des Abgleichs mit der ursprünglichen Kategorieliste extrahiert.
 Dabei gab es keine Abweichungen, der Schritt ist daher in Zukunft vermeidbar. 
+
+\lstset{
+language=bash
+}
+
+\begin{lstlisting}[caption={Holen aller Unterkategorien der Kategorie \emph{Eye}. Erläuterung \emph{wget}: Ausgabe \emph{verbose}, maximal 5 Versuche, maximal mit 15 kB/s holen, Ausgabe nach \emph{stdout} umleiten. User-Agent-String zur besseren Übersicht hier nicht aufgeführt. Erläuterung API-String: hole die Liste der Unterkategorien und Artikelnamen, maximal 500 Einträge (das ist auch das zulässige Maximum, das das API erlaubt). Sonstiges: daraus werden eine Liste der Artikel und eine Liste der Kategorien produziert.},label=list:getcats]
+wget -v -t 5 --limit-rate=15k --user-agent="#" -O - "http://en.wikipedia.org/w/api.php?action=query&list=categorymembers&cmlimit=500&cmtitle=Category:Eye&cmtype=page|subcat&cmprop=title|type&format=xml"
+\end{lstlisting}
+
+\begin{lstlisting}[caption={Aus der Liste der Artikel werden die ersten beiden Sätze geholt im nicht-annotierten Format und ohne die Verwaltungskategorien. User-Agent-String zur besseren Übersicht hier nicht aufgeführt. Erläuterung zu den Anführungszeichen: die Befehlshistorie der Bash verwendet das Ausrufungszeichen als Steuerzeichen, daher darf es im URL nicht interpretiert werden und muss in einzelne Anführungszeichen.},label=list:getarts]
+wget -v -t 5 --limit-rate=15k --user-agent="#" -O - "http://en.wikipedia.org/w/api.php?action=query&prop=categories|extracts&clshow="'!'"hidden&exsentences=2&explaintext&exsectionformat=plain&titles=Parinaud's_syndrome&cllimit=500&format=xml"
+\end{lstlisting}
+
 
 \lstset{
 language=XML
 }
 
-\begin{lstlisting}[caption={XML-Quelltext eines typischen Artikels der Wikipedia: \enquote{Parinaud's syndrome}}]
+\begin{lstlisting}[caption={XML-Quelltext eines typischen Artikels der Wikipedia: \enquote{Parinaud's syndrome}},label=list:showxml]
 <?xml version="1.0"?>
 <api>
 <query>
@@ -933,11 +943,11 @@ Parinauds Syndrome, also known as dorsal midbrain syndrome is a group of abnorma
 language=bash
 }
 
-\begin{lstlisting}[caption={Extraktion des Titels aus Zeile 5 des Artikels \enquote{Parinaud's syndrome}. HTML-Entities wie \texttt{\&\#39;} für hochgestellte einzelne Anführungszeichen in Zeile 5 wurden gesammelt und in der Ergebnisdatei ersetzt.}]
+\begin{lstlisting}[caption={Extraktion des Titels aus Zeile 5 des Artikels \enquote{Parinaud's syndrome}. HTML-Entities wie \texttt{\&\#39;} für hochgestellte einzelne Anführungszeichen in Zeile 5 wurden gesammelt und in der Ergebnisdatei ersetzt.},label=list:gettitle]
 sed -n 's/<page.*title="\([^"]*\)".*$/\1/p' Parinauds_syndrome.xml
 \end{lstlisting}
 
-\begin{lstlisting}[caption={Extraktion des Textes aus der der Zeile 10 nachfolgenden Zeile des Artikels \enquote{Parinaud's syndrome}}]
+\begin{lstlisting}[caption={Extraktion des Textes aus der der Zeile 10 nachfolgenden Zeile des Artikels \enquote{Parinaud's syndrome}},label=list:gettext]
 sed -n 's/<extract.*>\([^<]*\)\([<$ ].*\)/\1/p' Parinauds_syndrome.xml
 \end{lstlisting}
 
@@ -1050,7 +1060,6 @@ function sameRoute($ebasic, $ecomp) {
 //... dann rekursiv mit dieser Kante Überprüfung fortsetzen.
 		
         if (sameRoute($ebasic, $next)) return true; 
-
     }
     return false;
 }
@@ -1098,6 +1107,19 @@ Côté, R. (1986). Architecture of SNOMED: Its Contribution to Medical Language 
 \item SNOMED CT Categorizer, \\
 \href{http://eagl.unige.ch/SNOCat/index.jsp}{http://eagl.unige.ch/SNOCat/index.jsp}
 \end{enumerate}
+
+\chapter{Aufteilung der Bereiche}
+
+\begin{table}[!ht]
+\begin{tabularx}{\textwidth}{@{}DDDDDDDDDDDDDDDDDDDDDDDDDDDD@{}}
+&   \multicolumn{8}{c}{1}   &   \multicolumn{8}{c}{2}   &   \multicolumn{6}{c}{3}   &   \multicolumn{5}{c}{4}\\
+&1 &   2 &   3 & 3.1 &   3.2   & 3.3 &   3.4   &   3.5   &   1 &   1.1.  &   1.2   &   1.3   &   2.1   &   2.2   &   3 &   4 &   1 &   2 &   3.1   &   3.2   &   3.3   &   4 &   1 &   2.1   &   2.2   &   2.3   &   3\\
+DA &    $\times$    &   $\times$    &&&&&   $\times$    &   $\times$    &   $\times$    &   $\times$    &   $\times$    &   $\times$    &&&&  $\times$    &&&&&&&&  $\times$    &  $\times$    &   $\times$    &\\
+PC &&& $\times$ &   $\times$ &   $\times$    &   $\times$   &&&&&&& $\times$    &   $\times$    &   $\times$    &&  $\times$    &   $\times$ &   $\times$    &   $\times$    &   $\times$    &   $\times$    &    $\times$    &&&& $\times$\\
+CO &   $\times$    &   $\times$    &   $\times$    &&&&&&&&&&&&&&&&&    $\times$    &&&&    $\times$    &&&  $\times$\\
+\end{tabularx}
+\caption{Aufteilung nach bearbeiteten Schwerpunkten bzw. ursprünglicher Fassung. Die Zeile \emph{CO} zeigt stark gemeinschaftlich erstellte Teile. Für alle Teile gilt, dass sie, insbesondere in der Schlußphase, gemeinschaftlich bearbeitet wurden.}
+\end{table}
 
 \end{document}
 
