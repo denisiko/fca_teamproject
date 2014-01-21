@@ -133,7 +133,7 @@ Ein anderer Grund könnte sein, dass es bestimmte Begriffe in der einen Sprache 
 Solcherlei Lücken, lexical gaps genannt, gibt es im \enquote{Wörterbuch der Augenheilkunde} ebenfalls. 
 Dieses Phänomen kann umso ausgeprägter werden, je spezifischer die Domäne ist: so wie es im vorliegenden Fall die Augenheilkunde ist. 
 Einträge mittels formaler Begriffe auszudrücken und damit über deren Merkmale prinzipiell übersetzbar zu machen in Sprachen, in denen es die entsprechende Bezeichnung nicht gibt, ist eine Idee, die auf die Arbeit von Janssen, 2002 zurückgeht.  
-Weitere Probleme, die man mit dem vorgestellten Ansatz gut lösen kann, sind die der Homonymie und Synonymie. 
+Weitere Probleme, die man mit dem vorgestellten Ansatz gut lösen kann, sind die der Homonymie\footnote{Verwandt mit der Homonymie ist die Polysemie. Beide bezeichnen Ausdrücke, die mehrere Bedeutungen haben. Die Unterscheidung erfolgt in der Regel anhand der etymologischen Verwandschaft: Homonyme haben verschiedene und Polyseme haben gemeinsame historische Wurzeln. Diese Unterscheidung wird aber kritisch gesehen \parencite{bussmann2002} und es gibt unterschiedliche Vorschläge für alternative Unterscheidungen. Für unsere Zwecke soll es daher genügen weiter nur von Homonymie zu sprechen.} und Synonymie. 
 Ein Satz oder eine Phrase in zwei unterschiedlichen Sprachen hat (im Idealfall) in beiden Sprachen die selbe Bedeutung, verwendet aber andere Wörter um ihn auszudrücken. 
 Für die wortweise Übersetzung zieht man, so vorhanden, ein Wörterbuch heran. 
 Allerdings löst ein Wörterbuch nicht von allein das Problem der Homonymie, also der Frage welcher der Begriffe, die sich eine Bezeichnung teilen, im Kontext verwendet wurde. 
@@ -156,8 +156,7 @@ Teil der Aufgabenstellung war es, die Formale Begriffsanalyse einzusetzen, um ei
 
 Die Formale Begriffsanalyse ist ein Teil der mathematischen Ordnungslehre. 
 Sie wurde in den 1980er Jahren von Rudolf Wille, Bernhard Ganter und Peter Burmeister entwickelt. 
-In der Formalen Begriffsanalyse setzt sich ein Begriff zusammen aus dem Begriffsumfang und dem Begriffsinhalt. 
-Ein formaler Begriff $(A,B)$ hat einen Kontext $(G,M,I)$ bestehend aus einer Menge von Gegenständen $G$, einer Menge von Merkmalen $M$ und einer Inzidenzrelation $I$ als Gegenstand-Merkmal-Beziehung (Ganter \& Wille, 1996, S.58). 
+In der Formalen Begriffsanalyse setzt sich ein Begriff zusammen aus einem  Begriffsumfang $A$ und einem Begriffsinhalt $B$ eines Kontextes $(G,M,I)$, bestehend aus einer Menge von Gegenständen $G$, einer Menge von Merkmalen $M$ und einer Inzidenzrelation $I$ als Gegenstand-Merkmal-Beziehung \parencite[Seiten 18 und 58]{ganter1996}. 
 Diese lässt sich in Form einer Kreuztabelle genannten Darstellung, typischerweise mit den Merkmalen als Spalten und den Gegenständen als Zeilen, anschaulich beschreiben. 
 Die Kreuze in den Zellen dieser Tabelle bedeuten dann das Vorhandensein des Merkmals für den jeweiligen Gegenstand.
 Die nachfolgenden Definitionen sind aus Petersen, 2001. 
@@ -187,10 +186,10 @@ Sind $A$ der Umfang und $B$ der Inhalt, so heißt $(A,B)$ formaler Begriff des K
  $B$, und
 \item
  die Menge $B'$ der gemeinsamen Gegenstände der Merkmale aus $B$ gleich
- $A$.
+ $A$ ist.
 \end{inparaenum}
 
-Die Menge der Begriffe eines Kontextes sind damit alle Begriffe, die sich auf oben beschriebene Weise aus dem Kontext ermitteln lassen. 
+Die Menge aller Begriffe eines Kontextes besteht somit aus allen Begriffen, die sich auf die oben beschriebene Weise aus dem Kontext ermitteln lassen. 
 Ein Unterbegriff ist dann ein Begriff, welcher alle Merkmale eines gegebenen Begriffs teilt und mindestens ein weiteres Merkmal hat. 
 Damit definiert sich eine Ordnung auf der Menge der Begriffe eines gegebenen Kontextes. 
 Dies zusammen nennt man Begriffsverband zu dem Kontext. 
@@ -232,7 +231,7 @@ Auf diese Weise kann überbrückt werden, wenn es kein entsprechendes Lexem in d
 Der Ansatz der Arbeit von Janssen diente unserem Projekt als Ausgangspunkt mit Hilfe der Formalen Begriffsanalyse Zuweisungen innerhalb des \enquote{Wörterbuchs der Augenheilkunde} bewerkstelligen zu können. 
 
 \subsection{Ordnungsdiagramme}
-
+\label{sec:hasse}
 Ordnungsdiagramme sind graphische Darstellungen mathematischer Halbordnungen. 
 Geläufige Namen für Ordnungsdiagramme sind außerdem noch \emph{Liniendiagramm} und \emph{Hasse-Diagramm}.\footnote{Wir halten \emph{Ordnungsdiagramm} für die geeignete Vorzugsbezeichnung und verwenden sie durchgehend.}
 Das Ordnungsdiagramm in Abbildung~\ref{fig:hasse}, Seite~\pageref{fig:hasse} ist eine vollständige Darstellung der Kreuztabelle unter\emph{~\nameref{subsec:fba}} auf Seite~\pageref{subsec:fba}.
@@ -695,6 +694,7 @@ Zu überlegen ist, ob man bei einer Unterschreitung einer Anzahl Ergebniszeilen,
 Allerdings geben die beiden Kategorien hinreichend Information um \enquote{scleral lens} zumindest einordnen zu können. 
 
 \subsubsection{Ergebnisse}
+\label{subsubsec:results}
 
 Insgesamt wurden 1379 Wikipedia-Abstracts analysiert, aus denen 2439 Merkmale extrahiert werden konnten, die in 9797 Fällen entsprechenden Artikeln zugeordnet wurden. 
 Nach Matching der Artikelnamen auf Synsets aus dem Wörterbuch verbleiben (nur) 335 gematchte Synsets, auf die insgesamt 931 Merkmale 2582 mal zugewiesen wurden. 
@@ -704,6 +704,7 @@ Zudem ist der resultierende Kontext deutlich kohärenter als zuvor.
 Damit kann festgehalten werden, dass diese Methode allein keinen hinreichend aussagekräftigen Kontext für das Wörterbuch generiert hat, jedoch als sinnvolle Ergänzung zu den bereits angewandten Methoden gesehen werden kann. 
 
 \section{Visualisierung des Begriffsverbands}
+\label{sec:visualization_0}
 
 Der Aufbau eines formalen Begriffsverbandes für das Wörterbuch hat für die Nutzer nur dann einen Mehrwert, wenn eine geeignete Schnittstelle zur Betrachtung und Steuerung des Verbands vorliegt. 
 % Diesmal Kontext durch Begriffsverband ersetzt
