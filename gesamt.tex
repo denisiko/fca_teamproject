@@ -139,7 +139,7 @@ Für die wortweise Übersetzung zieht man, so vorhanden, ein Wörterbuch heran.
 Allerdings löst ein Wörterbuch nicht von allein das Problem der Homonymie, also der Frage welcher der Begriffe, die sich eine Bezeichnung teilen, im Kontext verwendet wurde. 
 Auch ist nicht zwingend jede Bezeichnung, die für ein und denselben Begriff steht, Bestandteil eines gegebenen Wörterbuchs (Synonymie). 
 In keinem der Fälle lässt sich dann zuverlässig ableiten, welches die korrekte Bezeichnung ist, es sei denn man zieht den Kontext, sofern erkennbar, heran. 
-Formale Begriffe erlauben es, diesen Kontext herzustellen und sprachübergreifend zu verwenden, weil Begriffe dadurch in termini der ihnen zugewiesenen Merkmale ausgedrückt werden. 
+Formale Begriffe erlauben es, diesen Kontext herzustellen und sprachübergreifend zu verwenden, weil Begriffe dadurch in Termini der ihnen zugewiesenen Merkmale ausgedrückt werden. 
 
 Ein weiterer ausschlaggebender Grund für den Einsatz von formalen Begriffen als Repräsentation der Synsets ist die Identifizierung der semantischen Nähe (Bedeutungsähnlichkeit) aller Synsets zueinander anhand gemeinsamer Merkmale. 
 Der Anteil an gemeinsamen Merkmalen in Bezug auf die Gesamtanzahl zweier Synsets kann als Kennwert für ihre semantische Nähe herangezogen werden. 
@@ -179,9 +179,9 @@ Sind $A$ der Umfang und $B$ der Inhalt, so heißt $(A,B)$ formaler Begriff des K
 %\begin{inparaenum}[\itshape i.\upshape)]
 \begin{inparaenum}[\itshape 1.)]
 \item
- $A$ eine echte Teilmenge von $G$, und
+ $A$ eine Teilmenge von $G$, und
 \item
- $B$ eine echte Teilmenge von $M$ ist, und
+ $B$ eine Teilmenge von $M$ ist, und
 \item
  die Menge $A'$ der gemeinsamen Merkmale der Gegenstände aus $A$ gleich
  $B$, und
@@ -192,7 +192,7 @@ Sind $A$ der Umfang und $B$ der Inhalt, so heißt $(A,B)$ formaler Begriff des K
 
 Die Menge der Begriffe eines Kontextes sind damit alle Begriffe, die sich auf oben beschriebene Weise aus dem Kontext ermitteln lassen. 
 Ein Unterbegriff ist dann ein Begriff, welcher alle Merkmale eines gegebenen Begriffs teilt und mindestens ein weiteres Merkmal hat. 
-Damit definiert sich eine Ordnung auf die Menge der Begriffe eines gegebenen Kontextes. 
+Damit definiert sich eine Ordnung auf der Menge der Begriffe eines gegebenen Kontextes. 
 Dies zusammen nennt man Begriffsverband zu dem Kontext. 
 
 \begin{table}[h!]
@@ -235,9 +235,8 @@ Der Ansatz der Arbeit von Janssen diente unserem Projekt als Ausgangspunkt mit H
 
 Ordnungsdiagramme sind graphische Darstellungen mathematischer Halbordnungen. 
 Geläufige Namen für Ordnungsdiagramme sind außerdem noch \emph{Liniendiagramm} und \emph{Hasse-Diagramm}.\footnote{Wir halten \emph{Ordnungsdiagramm} für die geeignete Vorzugsbezeichnung und verwenden sie durchgehend.}
-Das nachfolgende Ordnungsdiagramm ist eine vollständige Darstellung der Kreuztabelle unter\emph{~\nameref{subsec:fba}} auf Seite~\pageref{subsec:fba}.
-Die Ordnung ist aufgebaut auf der Grundlage der Potenzmenge, der Menge aller Teilmengen, der Merkmalsmenge.\footnote{Zu einer gewissen Verwirrung im Umgang mit Ordnungsdiagrammen trägt anfangs bei, dass der graphisch zuunterst liegende Knoten die Menge aller Merkmale repräsentiert (also am spezifischsten ist), aber \emph{obere Schranke} genannt wird, während der zuoberst dargestellte Knoten die leere Menge repräsentiert, aber \emph{untere Schranke} genannt wird. 
-Erschwerend kommt hinzu, dass das hier gezeigte Ordnungsdiagramm keine untere Schranke hat, denn der zuoberst dargestellte Knoten ist repräsentiert durch das Merkmal \emph{pferd}, das allen Objekten des Verbands zugrundeliegt.}
+Das Ordnungsdiagramm in Abbildung~\ref{fig:hasse}, Seite~\pageref{fig:hasse} ist eine vollständige Darstellung der Kreuztabelle unter\emph{~\nameref{subsec:fba}} auf Seite~\pageref{subsec:fba}.
+Die Ordnung ist aufgebaut auf der Grundlage der Potenzmenge, der Menge aller Teilmengen, der Merkmalsmenge.
 Diese Darstellung ist so zu lesen, dass jeder Knoten im Diagramm einem Begriff entspricht.
 Die Merkmale stehen jeweils oberhalb der Knoten, die natürlichsprachigen Entsprechungen bestimmter Begriffe stehen unterhalb mancher Knoten.
 Die Knoten selbst haben keine Beschriftung, sondern sie sind definiert durch die Merkmale, die entlang der Linien zwischen einem gegebenen Knoten und dem Knoten zuoberst stehen.
@@ -248,6 +247,9 @@ Die Knoten selbst haben keine Beschriftung, sondern sie sind definiert durch die
 So ist der Knoten, über dem das Merkmal \emph{weiblich} steht, definiert durch die beiden Merkmale \emph{\{pferd, weiblich\}}.
 Der Knoten unter dem das Wort \textsc{Stute} steht ist definiert durch die Merkmale \emph{\{pferd, weiblich, erwachsen\}}.
 Damit ist auch deutlich, dass der eine Knoten Oberbegriff des anderen Knotens ist, weil sie alle Merkmale bis auf eines teilen.
+Der größte Begriffs eines Begriffsverbandes ist der allgemeinste Begriff des Begriffsverbandes, also jener, der die wenigsten Merkmale umfasst. 
+Der kleinste Begriff eines Begriffsverbandes ist der spezifischste Begriff des Begriffsverbandes, mithin jener, der die meisten Merkmale umfasst. 
+In dem Ordnungsdiagramm ist der größte Begriff der am oberen Ende liegende Knoten und der kleinste Begriff der am unteren Ende liegende Knoten.
 Die Beschriftung unterhalb der Knoten mit den natürlichsprachigen Ausdrücken des jeweiligen Begriffs für die deutsche Sprache, verdeutlicht recht anschaulich das Konzept der Zwischensprache.
 In anderen Sprachen mögen an einigen Knoten keine Worte verfügbar sein, um dem Begriff Ausdruck zu verleihen, die Ordnung in Bezug auf die verwendeten Merkmale ist aber immer gleich.
 
@@ -278,7 +280,7 @@ Wie bereits erläutert sind in der Formalen Begriffsanalyse jedoch keine direkte
 Der Aufbau eines hinreichenden Merkmalsraums erweist sich somit als schwierig, zumal Begriffsordnungen der Formalen Begriffsanalyse für gewöhnlich vollständige mathematische Ordnungen beschreiben (siehe Janssen, 2002). 
 Für Kontexte mit geringer Komplexität und aus Bereichen mit formal eindeutig definierten Problemen -- wie der Mathematik -- ist der Aufbau eines Merkmalsraums einfach, wie beispielsweise bei der Untersuchung der Menge der natürlichen Zahlen daraufhin, ob sie gerade, ungerade und/oder eine Primzahl sind (die entsprechenden Merkmale sind \emph{gerade}, \emph{ungerade} und \emph{Primzahl}). 
 % Satz hinzugefügt
-Auch beim gezeigten Beispiel von Janssen hält sich die Komplexität des Kontextes deutlich in Grenzen, da es sich bei allen Objekten eines Verbandes jeweils um ein Pferd handelt, das sich in maximal 4 Merkmalsausprägungen zu jedem anderen anderen Objekt des Verbandes unterscheidet. 
+Auch beim gezeigten Beispiel von Janssen hält sich die Komplexität des Kontextes deutlich in Grenzen, da es sich bei allen Objekten eines Verbandes jeweils um ein Pferd handelt, das sich in maximal 4 Merkmalsausprägungen zu jedem anderen Objekt des Verbandes unterscheidet. 
 Die Domäne der Augenheilkunde ist jedoch so umfangreich und schwierig zu erfassen, dass eine Festlegung auf eine sowohl minimale als auch vollständige Merkmalsmenge, die die Augenheilkunde abdecken kann nicht so eindeutig lösbar ist, wie bei den natürlichen Zahlen. 
 Um einen dennoch annähernd abdeckenden Merkmalsraum generieren zu können, ist unserer Auffassung nach Domänenwissen erforderlich. 
 Zudem müsste idealerweise vor dem Zuweisen von Merkmalen zu Begriffen aus dem Wörterbuch klar sein, auf welche Abstraktionsebenen und in welche Kategorien die Merkmale einzuorden sind, damit ein vergleichbarer Überblick über die Begriffsordnung gewährleistet ist, wie bei hierarchischen Ordnungen. 
@@ -309,7 +311,7 @@ Ein gegebenes Synset ist dabei die Menge aller im Vorhinein als synonym bestimmt
 
 Zu Beginn stand keine Quelle zur Verfügung aus der sich geeignete Merkmale hätten entlehnen lassen. 
 Eine derart große Menge an Konzepten lässt sich nur mit großem intellektuellen Aufwand erschließen, zumal hierzu ein hohes Maß an vertieftem Domänenwissen innerhalb des Bereichs der Augenheilkunde nötig wäre. 
-Aus diesem Grund erschien die Automatisierung dieses Schrittes als die einzig vielversprechende Methode, Merkmale für formale Begriffsverbände aus den Synsets des Wörterbuchs zu generieren, weshalb diese auch eine der ersten Zielsetzungen für das Projekt darstellte. 
+Aus diesem Grund erschien die Automatisierung dieses Schrittes als die einzig vielversprechende Methode, Merkmale für die Synsets des Wörterbuchs zu generieren, weshalb diese auch eine der ersten Zielsetzungen für das Projekt darstellte. 
 Gerade im Hinblick auf zukünftige Projekte, die sich mit der Anwendung Formaler Begriffsanalyse auf große Begriffsmengen befassen, werden die Erkenntnisse, die bei der Merkmalsextraktion gewonnen wurden, von uns als nützlich eingeschätzt. 
 Wichtig ist hierbei die Wahl geeigneter Wissensquellen, aus denen die Merkmale gewonnen werden, und die Herangehensweise bei der Verwertung der Quellen, also der Art und Weise, wie Merkmale extrahiert werden. 
 Es stellte sich zunächst die Frage, welche Eigenschaften ein Wissensbestand aufweisen sollte, damit er als Quelle für die Merkmalsextraktion in Betracht gezogen werden kann. 
@@ -451,7 +453,7 @@ Zwar sind die Mehrzahl der Einträge im \enquote{Lexikon der Augenheilkunde} sol
 Dies liegt im Wesentlichen in der Art der dort aufgefundenen Information begründet. 
 
 In der ICD-10 beinhaltet die Bezeichnung einer Klasse keine Erklärung für den Begriff. 
-Der Begriff wird nicht in den Kontext anderer vorhandener Klassen gesetzt und es erfolgt keine Umschreibung in termini seiner Ober- oder Unterklassen oder verwandter Begriffe. 
+Der Begriff wird nicht in den Kontext anderer vorhandener Klassen gesetzt und es erfolgt keine Umschreibung in Termini seiner Ober- oder Unterklassen oder verwandter Begriffe. 
 Eine einfache Verschlagwortung mittels eines kontrollierten Vokabulars erzeugte vermutlich mehr Querverweise, die für den Aufbau einer Merkmalsmenge nützlich sein könnten, als die aus der ICD-10 gewonnenen Zuweisungen. 
 Der Grund dafür ist, dass der Zweck einer Klassifikation genau ist, möglichst wenig Kongruenz im Begriffsumfang mit benachbarten, vor allem aber Ober- und Unterbegriffen zu beinhalten. 
 
@@ -542,7 +544,7 @@ Die Ketten sollten aus der Datei nur gut extrahierbar sein und die Datei trotzde
 
 \begin{enumerate}
 \item Unix Shell-Skripte (vor allem mit \emph{sed, awk, Perl}) zur Extraktion der ersten beiden Sätze. 
-Es musste sowohl das Wiki-Markup, als auch Schriftzeichen anderer Sprachen (insbesondere Altgriechisch, Arabisch und Indisch) herausgefiltert werden, zum Teil mit manuellem Eingriff und Korrektur\footnote{Auch hier gilt, was an anderer Stelle schon bemerkt wurde: manche der manuell ausgeführten Arbeiten sind prinzipiell automatisierbar, allerdings erschien zum relevanten Zeitpunkt der Aufwand dafür, gegeben dass es sich um eine einmalige Aufgabe handelte, als nicht geboten. 
+Es musste sowohl das Wiki-Markup, als auch Schriftzeichen anderer Sprachen (insbesondere Altgriechisch und Arabisch) herausgefiltert werden, zum Teil mit manuellem Eingriff und Korrektur\footnote{Auch hier gilt, was an anderer Stelle schon bemerkt wurde: manche der manuell ausgeführten Arbeiten sind prinzipiell automatisierbar, allerdings erschien zum relevanten Zeitpunkt der Aufwand dafür, gegeben dass es sich um eine einmalige Aufgabe handelte, als nicht geboten. 
 In jedem Fall wurde aber darauf geachtet, die Schritte so zu wählen, dass sie automatisierbar sein können.}.
 \item Shell-Skript für den Einsatz des Porter-Stemmers und anschließendes Speichern. 
 Dieser Schritt geht vollautomatisch und bedarf keiner weiteren Überprüfung oder Korrektur.
@@ -710,12 +712,24 @@ Hierzu bietet sich die Verwendung von Ordnungsdiagrammen an.
 
 Unser Script zur Visualisierung eines formalen Kontextes erzeugt mithilfe des Programms \emph{GraphViz} und der Skriptsprache PHP ein Ordnungsdiagramm ausgehend von einem ausgewählten Synset. 
 Der große Vorteil beim Rendern eines Graphen mithilfe von GraphViz ist das Wegfallen eines erheblichen Aufwands beim Platzieren der Knoten und Kanten, da GraphViz dies beim Rendern automatisch übernimmt, ohne jegliche Platzierungsinformationen zu fordern. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Nachfolgender Satz neu, bitte prüfen
+%% Die Menge der dem gewählten Synset zugewiesenen Merkmale bildet den kleinsten Begriff.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Die Menge der dem gewählten Synset zugewiesenen Merkmale bildet die obere Schranke. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Nachfolgender Satz neu, bitte prüfen
+%% Die zugehörige Potenzmenge dieser Menge bildet, wie im Kapitel~\nameref{sec:hasse} beschrieben, alle Knoten des erzeigten Diagramms, einschließlich des größten Begriffs, der hier der leeren Menge entspricht.\footnote{Dies ist nicht immer zwingend der Fall. Der größte Begriff kann ein Merkmal umfassen, das auf alle Gegenstände zutrifft.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Die zugehörige Potenzmenge dieser Menge bildet, wie im Kapitel Ordnungsdiagramme beschrieben, alle Knoten des erzeugten Diagramms, einschließlich der unteren Schranke, die der leeren Menge entspricht. 
 Ein Ordnungsdiagramm wird dadurch lediglich aus einer Teilmenge aller Merkmale des Datenbestandes erzeugt, weil ein aus der kompletten Menge an Merkmalen generiertes Ordnungsdiagramm schlicht viel zu groß und damit zu unübersichtlich wäre, als dass ein Nutzer damit interagieren könnte. 
 Um diese Platzproblematik zu lösen und die Ordnungsdiagramme so klein und übersichtlich wie möglich zu halten, werden zusätzlich alle Teilmengen der Potenzmenge des gewählten Synsets, die dieselbe Menge an Synsets beschreiben, zu einem Knoten zusammengefasst. 
 %Dadurch ist es möglich, dass für einen formalen Kontext ein Diagramm erzeugt wird, dass der Definition eines Ordnungsdiagramms nicht genügt, weil ihm keine vollständige Potenzmenge zugrundeliegt. 
 % Kontext durch Verband ersetzt
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Nachfolgender Satz neu, bitte prüfen
+%% Ebenso wurde in einem späteren Entwicklungsstadium die Darstellung des größten Begriffs abgeschafft, ...
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Ebenso wurde in einem späteren Entwicklungsstadium die Darstellung der unteren Schranke abgeschafft, da sie für jedes erzeugte Diagramm stets gleich ist und keinen Mehrwert zur Exploration des Verbands bietet.
 
 Die erzeugten Darstellungen sind interaktiv gestaltet, indem Knoten des Diagramms klickbar sind. 
@@ -752,7 +766,7 @@ Aus unserer Sicht gab es vor allem zwei Problemstellen.
 \item Die Überdeckung der Wikipedia-Artikel mit den Einträgen des Wörterbuchs der Augenheilkunde. 
 Je mehr Artikel aus der Wikipedia sich zu Einträgen aus dem Wörterbuch finden lassen, desto mehr unmittelbar passende Merkmale lassen sich aus den Artikeln extrahieren. 
 \item Die Anzahl der unmittelbaren Übereinstimmungen in den Begriffen zwischen beiden betrug aber nur 335 Artikel-Eintrag-Kombinationen. 
-Weil die Anzahl der Artikel in der englischsprachigen Wikipedia maximal ist\footnote{Das gilt sowohl absolut als auch unterhalb der Kategorie \enquote{Ophthalmology}.}, verwendeten wir die Einträge daraus. 
+Weil die Anzahl der Artikel in der englischsprachigen Wikipedia am größten ist\footnote{Das gilt sowohl absolut als auch unterhalb der Kategorie \enquote{Ophthalmology}.}, verwendeten wir die Einträge daraus. 
 Da die Auswahl geeigneter Merkmale im Wesentlichen einer Verschlagwortung der untersuchten Domäne gleichkommt, wurden unsere Ergebnisse auch besser, je mehr typische Schritte zur Schlagwortgewinnung wir durchführten (Stemming, Zerlegen in n-Gramme). 
 \end{enumerate}
 
