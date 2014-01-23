@@ -276,7 +276,7 @@ Mit diesen werden Abstraktionen der beschreibenden Merkmale möglich, die das Bi
 Man spricht hierbei von Hospitalität in der Begriffsleiter. 
 
 Wie bereits erläutert sind in der Formalen Begriffsanalyse jedoch keine direkten Auszeichnungen von Beziehungen zwischen Merkmalen möglich, doch selbst wenn dem so wäre müssten diese vor dem Aufbau der Ordnung gesetzt werden. 
-Der Aufbau eines hinreichenden Merkmalsraums erweist sich somit als schwierig, zumal Begriffsordnungen der Formalen Begriffsanalyse für gewöhnlich vollständige mathematische Ordnungen beschreiben (siehe Janssen, 2002). 
+Hier ist der Aufbau des Merkmalsraums schwierig, da die Domäne komplex ist und nicht von vorneherein feststeht, welche Objekte geordnet werden sollen.
 Für Kontexte mit geringer Komplexität und aus Bereichen mit formal eindeutig definierten Problemen -- wie der Mathematik -- ist der Aufbau eines Merkmalsraums einfach, wie beispielsweise bei der Untersuchung der Menge der natürlichen Zahlen daraufhin, ob sie gerade, ungerade und/oder eine Primzahl sind (die entsprechenden Merkmale sind \emph{gerade}, \emph{ungerade} und \emph{Primzahl}). 
 % Satz hinzugefügt
 Auch beim gezeigten Beispiel von Janssen hält sich die Komplexität des Kontextes deutlich in Grenzen, da es sich bei allen Objekten eines Verbandes jeweils um ein Pferd handelt, das sich in maximal 4 Merkmalsausprägungen zu jedem anderen Objekt des Verbandes unterscheidet. 
@@ -316,10 +316,10 @@ Wichtig ist hierbei die Wahl geeigneter Wissensquellen, aus denen die Merkmale g
 Es stellte sich zunächst die Frage, welche Eigenschaften ein Wissensbestand aufweisen sollte, damit er als Quelle für die Merkmalsextraktion in Betracht gezogen werden kann. 
 Im Nachfolgenden werden wir auf die von uns herangezogenen Quellen und deren Erschließung eingehen.
 
-Für einen kompletten formalen Kontext, wie ihn die Formale Begriffsanalyse beschreibt, sind eine Menge an Begriffen und eine Menge an Merkmalen aber nicht ausreichend: der Bezug der Elemente der einen Menge zu den Elementen der anderen Menge fehlt. 
+Für einen kompletten formalen Kontext, wie ihn die Formale Begriffsanalyse beschreibt, sind eine Menge an Objekten und eine Menge an Merkmalen aber nicht ausreichend: der Bezug der Elemente der einen Menge zu den Elementen der anderen Menge fehlt. 
 In der Formalen Begriffsanalyse wird dieser durch eine Relation mit binärem Wertebereich, der Inzidenzrelation, angegeben, welche die Zuweisungen von Merkmalen zu Objekten beschreibt. 
-Ein Merkmal bekommt einen Begriff entweder zugewiesen oder nicht. 
-Diese Beziehung zwischen der Gegenstands- und der Merkmalsmenge bildet die Grundlage der Analyse. 
+Ein Merkmal bekommt ein Objekt entweder zugewiesen oder nicht. 
+Diese Beziehung zwischen der Objekt- und der Merkmalsmenge bildet die Grundlage der Analyse. 
 Die Merkmalszuweisung wird im Zuge der automatisierten Merkmalsextraktion vollzogen, da die untersuchten Synsets ausschließlich auf Eigenschaften hin untersucht werden, die auf zutreffende Merkmale schließen lassen, also auf solche, die dem untersuchten Synset zugewiesen werden können. 
 Diese Methode erschien am leichtesten umsetzbar und ist vergleichbar mit Verschlagwortung, bei der wissensrelevanten Elementen Schlagworte zugewiesen werden, die dieses Element beschreiben. 
 
@@ -424,7 +424,7 @@ Bei diesen Trigrammen handelt es sich um:
 \end{multicols}
 \end{quote}
 
-Anschließend wurde die Liste ausgehend vom am häufigsten vorkommenden n-Gramm bis zu einer Häufigkeit von 6 manuell abgearbeitet und jedes n-Gramm jeweils nach semantischem Inhalt sowie semantischer Eindeutigkeit überprüft.
+Anschließend wurde die Liste ausgehend vom am häufigsten vorkommenden n-Gramm bis zu einem minimalen Vorkommen von 6 manuell abgearbeitet und jedes n-Gramm jeweils nach semantischem Inhalt sowie semantischer Eindeutigkeit überprüft.
 Im medizinischen Kontext muss die Bedeutung des vorliegenden Gramms nicht nur offensichtlich, sondern innerhalb dieses Kontextes auch eindeutig sein, also keine Mehrdeutigkeiten aufweisen. 
 
 Auf diese Weise ausgesuchte n-Gramme qualifizieren sich als Wortteilmuster und werden mit den zugehörigen Merkmalen, die sich aus der Semantik des Musters ergeben, gekennzeichnet. 
@@ -713,18 +713,23 @@ Der Aufbau eines formalen Begriffsverbandes für das Wörterbuch hat für die Nu
 Dazu gehört eine übersichtliche Visualisierung formaler Begriffsverbände, die den Nutzer nicht überfordert und einen guten Überblick über das semantische Umfeld eines gewählten Synsets liefert.
 Hierzu bietet sich die Verwendung von Ordnungsdiagrammen an. 
 
-Unser Script zur Visualisierung eines formalen Kontextes erzeugt mithilfe des Programms \emph{GraphViz} und der Skriptsprache PHP ein Ordnungsdiagramm ausgehend von einem ausgewählten Synset. 
+Unser Script zur Visualisierung eines formalen Kontextes erzeugt mithilfe des Programms \emph{GraphViz} und der Skriptsprache PHP ein Ordnungsdiagramm ausgehend von einem Synset, das der Nutzer explizit ausgewählt hat. 
 Der große Vorteil beim Rendern eines Graphen mithilfe von GraphViz ist das Wegfallen eines erheblichen Aufwands beim Platzieren der Knoten und Kanten, da GraphViz dies beim Rendern automatisch übernimmt, ohne jegliche Platzierungsinformationen zu fordern. 
+
+Auf Grundlage der Merkmale, die auf das vom Nutzer gewählte Synset zutreffen werden alle Synsets ausgewählt, auf die mindestens eines dieser Merkmale zutrifft. 
+Mit dieser Synset- und Merkmalsmenge wird der Begriffsverband aufgebaut, dessen Ordnungsdiagramm dann direkt im Skript visualisiert wird. 
+Der Vorteil dieses Vorgehens ist, dass ausgehend von einem Synset dessen Ober- und Unterbegriffe erkundet werden können. 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Nachfolgender Satz neu, bitte prüfen
 %% Die Menge der dem gewählten Synset zugewiesenen Merkmale bildet den kleinsten Begriff.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Die Menge der dem gewählten Synset zugewiesenen Merkmale bildet die obere Schranke. 
+Die Menge der dem gewählten Synset zugewiesenen Merkmale bildet den kleinsten Begriff. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Nachfolgender Satz neu, bitte prüfen
 %% Die zugehörige Potenzmenge dieser Menge bildet, wie im Kapitel~\nameref{sec:hasse} beschrieben, alle Knoten des erzeigten Diagramms, einschließlich des größten Begriffs, der hier der leeren Menge entspricht.\footnote{Dies ist nicht immer zwingend der Fall. Der größte Begriff kann ein Merkmal umfassen, das auf alle Gegenstände zutrifft.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Die zugehörige Potenzmenge dieser Menge bildet, wie im Kapitel Ordnungsdiagramme beschrieben, alle Knoten des erzeugten Diagramms, einschließlich der unteren Schranke, die der leeren Menge entspricht. 
+Die zugehörige Potenzmenge dieser Menge bildet, wie im Kapitel~\nameref{sec:hasse} beschrieben, alle Knoten des erzeugten Diagramms, einschließlich des größten Begriffs, der hier der leeren Menge entspricht. 
 Ein Ordnungsdiagramm wird dadurch lediglich aus einer Teilmenge aller Merkmale des Datenbestandes erzeugt, weil ein aus der kompletten Menge an Merkmalen generiertes Ordnungsdiagramm schlicht viel zu groß und damit zu unübersichtlich wäre, als dass ein Nutzer damit interagieren könnte. 
 Um diese Platzproblematik zu lösen und die Ordnungsdiagramme so klein und übersichtlich wie möglich zu halten, werden zusätzlich alle Teilmengen der Potenzmenge des gewählten Synsets, die dieselbe Menge an Synsets beschreiben, zu einem Knoten zusammengefasst. 
 %Dadurch ist es möglich, dass für einen formalen Kontext ein Diagramm erzeugt wird, dass der Definition eines Ordnungsdiagramms nicht genügt, weil ihm keine vollständige Potenzmenge zugrundeliegt. 
@@ -733,9 +738,9 @@ Um diese Platzproblematik zu lösen und die Ordnungsdiagramme so klein und über
 %% Nachfolgender Satz neu, bitte prüfen
 %% Ebenso wurde in einem späteren Entwicklungsstadium die Darstellung des größten Begriffs abgeschafft, ...
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Ebenso wurde in einem späteren Entwicklungsstadium die Darstellung der unteren Schranke abgeschafft, da sie für jedes erzeugte Diagramm stets gleich ist und keinen Mehrwert zur Exploration des Verbands bietet.
+Ebenso wurde in einem späteren Entwicklungsstadium auf die Darstellung des größten Begriffs verzichtet, da dessen Merkmalmenge jeweils leer ist und somit keinen Mehrwert zur Exploration des Verbands bietet. 
 
-Die erzeugten Darstellungen sind interaktiv gestaltet, indem Knoten des Diagramms klickbar sind. 
+Die erzeugten Darstellungen sind interaktiv gestaltet, indem Knoten des Diagramms klickbar sind (Abbildungen im Anhang unter \emph{~\nameref{sec:diagrams}} auf Seite~\pageref{sec:diagrams}). 
 Bei Klick auf einen Knoten öffnet sich ein Menü, das sowohl die Merkmale, als auch die Vorzugsbezeichnungen der zugehörigen Synsets anzeigt. 
 Die Synsets sind ebenso klickbar, sodass sich nach einem Klick der entsprechende formale Kontext für das geklickte Synset neu aufbaut, unter Berücksichtigung aller zugewiesenen Merkmale des Synsets. 
 Auf diese Weise ist es möglich, alle Synsets des Wörterbuchs zu erforschen und benachbarte Bedeutungen zu entdecken, vorausgesetzt sie wurden durch Merkmale erschlossen. 
@@ -1083,6 +1088,7 @@ function sameRoute($ebasic, $ecomp) {
 \end{lstlisting}
 
 \section{Beispiele der Visualisierung der Begriffsverbände}
+\label{sec:diagrams}
 
 \fbox{\parbox[t][6cm][c]{14cm}{\textsc{Beispiel 1 Visualisierung mit dem Skript}}}
 
