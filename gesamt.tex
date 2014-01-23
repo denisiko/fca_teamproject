@@ -194,7 +194,7 @@ Ein Unterbegriff ist dann ein Begriff, welcher alle Merkmale eines gegebenen Beg
 Damit definiert sich eine Ordnung auf der Menge der Begriffe eines gegebenen Kontextes. 
 Dies zusammen nennt man Begriffsverband zu dem Kontext. 
 
-\begin{table}[h!]
+\begin{table}[!ht]
 \centering
 \renewcommand{\arraystretch}{2}
 \begin{tabular}{l|G|c|G|c|c}
@@ -263,8 +263,8 @@ Die Formale Begriffsanalyse erzeugt semantische Strukturen ausschließlich auf G
 Naturgemäß ist diese Art der Inhaltserschließung an Grenzen gebunden. 
 Zunächst ist festzuhalten, dass nur binäre Zuweisungen von Merkmalen in der Formalen Begriffsanalyse möglich sind: ein Merkmal ist einem Objekt entweder zugewiesen oder nicht. 
 Größere Wertebereiche können somit nicht abgebildet werden, wie beispielsweise ein gegebener Messwert für den Augeninnendruck von \unit[17]{mmHg}\footnote{Die Maßeinheit \unit[]{mmHg} beschreibt den Druck in Flüssigkeiten in \unit[]{mm} Aufstieg einer Quecksilbersäule.} als Ausprägung des Merkmals Augeninnendruck. 
-Man könnte zwar das Merkmal \unit[17]{mmHg} zuweisen, dies würde jedoch allenfalls Objekte, die mit dem Merkmal \unit[17]{mmHg} versehen wurden, untereinander vergleichbar machen, da es die Formale Begriffsanalyse nicht vorsieht, Beziehungen zwischen Merkmalen zu kennzeichnen oder Merkmale als Zahlenwerte zu interpretieren. 
-Ein Objekt mit dem Merkmal \unit[16]{mmHg} wäre somit genauso wenig bedeutungsgleich zu einem Objekt mit dem Merkmal \unit[17]{mmHg} wie eines mit dem Merkmal \unit[6] {mmHg}, es sei denn die Bedeutungsähnlichkeit würde durch weitere Merkmale deutlich gemacht werden. 
+Man könnte zwar das Merkmal \emph{\unit[17]{mmHg}} zuweisen, dies würde jedoch allenfalls Objekte, die mit dem Merkmal \emph{\unit[17]{mmHg}} versehen wurden, untereinander vergleichbar machen, da es die Formale Begriffsanalyse nicht vorsieht, Beziehungen zwischen Merkmalen zu kennzeichnen oder Merkmale als Zahlenwerte zu interpretieren. 
+Ein Objekt mit dem Merkmal \emph{\unit[16]{mmHg}} wäre somit genauso wenig bedeutungsgleich zu einem Objekt mit dem Merkmal \emph{\unit[17]{mmHg}} wie eines mit dem Merkmal \emph{\unit[6]{mmHg}}, es sei denn die Bedeutungsähnlichkeit würde durch weitere Merkmale deutlich gemacht werden. 
 
 Das eindeutig größere Problem besteht jedoch in der Abhängigkeit vom Merkmalsraum. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -275,7 +275,7 @@ In herkömmlich verwendeten hierarchisch strukturierten Wissensordnungen, wie ei
 Mit diesen werden Abstraktionen der beschreibenden Merkmale möglich, die das Bilden eines hinreichend abdeckenden und trotzdem spezifizierenden Klassensystems ermöglichen, was das Einordnen der zu erschließenden Begriffe in einen Gesamtkontext vereinfacht. 
 Man spricht hierbei von Hospitalität in der Begriffsleiter. 
 
-Wie bereits erläutert sind in der Formalen Begriffsanalyse jedoch keine direkten Auszeichnungen von Beziehungen zwischen Merkmalen möglich, doch selbst wenn dem so wäre müssten diese vor dem Aufbau der Ordnung gesetzt werden. 
+Wie bereits erläutert, sind in der Formalen Begriffsanalyse jedoch keine direkten Auszeichnungen von Beziehungen zwischen Merkmalen möglich, doch selbst wenn dem so wäre, müssten diese vor dem Aufbau der Ordnung gesetzt werden. 
 Hier ist der Aufbau des Merkmalsraums schwierig, da die Domäne komplex ist und nicht von vorneherein feststeht, welche Objekte geordnet werden sollen.
 Für Kontexte mit geringer Komplexität und aus Bereichen mit formal eindeutig definierten Problemen -- wie der Mathematik -- ist der Aufbau eines Merkmalsraums einfach, wie beispielsweise bei der Untersuchung der Menge der natürlichen Zahlen daraufhin, ob sie gerade, ungerade und/oder eine Primzahl sind (die entsprechenden Merkmale sind \emph{gerade}, \emph{ungerade} und \emph{Primzahl}). 
 % Satz hinzugefügt
@@ -287,7 +287,7 @@ Zudem müsste idealerweise vor dem Zuweisen von Merkmalen zu Begriffen aus dem W
 \subsection{Chancen der Formalen Begriffsanalyse}
 
 Neben den geschilderten Nachteilen weist die Formale Begriffsanalyse trotzdem entscheidende Vorteile auf, in denen wir viel Potential für die Erschließung des Wörterbuchs der Augenheilkunde sehen. 
-Der Umstand, dass lediglich geprüft werden muss, ob ein Merkmal einem untersuchten Objekt zugewiesen werden kann oder nicht, bedarf lediglich sehr einfacher Datenstrukturen.
+Der Umstand, dass lediglich geprüft werden muss, ob ein Merkmal einem untersuchten Objekt zugewiesen werden kann oder nicht, bedarf nur sehr einfacher Datenstrukturen.
 Ein Synset erschließt sich daher aus seiner Menge an Merkmalen und die Ähnlichkeit jedes Synsets zu einem anderen beliebigen Synset kann leicht mit der Teilmenge gemeinsamer Merkmale bestimmt werden.
 Die resultierenden Begriffsverbände lassen sich in der Regel gut mit Ordnungsdiagrammen darstellen.
 Einzelne Knoten dieser Diagramme können sowohl Synsets, als auch Mengen von repräsentativen Merkmalen darstellen. 
@@ -383,7 +383,7 @@ Beispiele hierfür sind
  \emph{/retin/} für Retina oder Netzhaut.
 \end{itemize}
 
-Sofern ein Teilmuster Bestandteil eines Begriffes aus dem Wörterbuch ist wird dem zugehörigen Synset das Merkmal zugewiesen, das aus dem identifizierten Wortteilmuster abgeleitet werden kann. 
+Sofern ein Teilmuster Bestandteil eines Begriffes aus dem Wörterbuch ist, wird dem zugehörigen Synset das Merkmal zugewiesen, das aus dem identifizierten Wortteilmuster abgeleitet werden kann. 
 Da keine externen Informationsquellen für diesen Prozess benötigt werden, können die Merkmalszuweisungen direkt auf Datenbankebene per SQL-Befehl ausgeführt werden. 
 Der folgende beispielhafte Programmcode skizziert die Zuweisung des Merkmals mit der ID 101 (Entzündung) an alle Synsets aus dem Wörterbuch, von denen eine ihrer Bezeichnungen den Wortbestandteil \emph{/itis/} enthält: 
 
@@ -405,7 +405,7 @@ Durch automatischen Abgleich der Synonyme in der Datenbank mit den erkannten Tei
 Die Wahl geeigneter Wortmuster durch manuelle Untersuchung der englischen Begriffsliste - der Menge aller englischsprachigen Einträge des Wörterbuchs - ist als zu unvollständig bezüglich der Abdeckung der 2500 Synsets einzustufen, wie die bisherigen Ergebnisse der Wortmusteranalyse zeigen. 
 Eine Verbesserung der Abdeckung könnte zu erreichen sein, indem weitere geeignete Wortteilmuster anhand ihrer absoluten Häufigkeit identifiziert werden. 
 Aus dieser Überlegung entstand die Idee bereits im Vorhinein eine Frequenzliste aller existierenden Zeichen-n-Gramme aus der Menge der Wörter in den Synsets zu generieren.
-Anhand diesen sollten geeignete Wortmuster mit semantischem Inhalt ausgewählt und dann in einem weiteren Durchlauf der Wortmusteranalyse berücksichtigt werden. 
+Anhand dieser sollten geeignete Wortmuster mit semantischem Inhalt ausgewählt und dann in einem weiteren Durchlauf der Wortmusteranalyse berücksichtigt werden. 
 Hierfür musste eine nach Häufigkeiten der vorkommenden n-Gramme sortierte Liste automatisiert erstellt werden. 
 
 N-Gramme wurden erst ab einer Länge von mindestens 4 Zeichen gebildet. 
@@ -456,8 +456,9 @@ Der Begriff wird nicht in den Kontext anderer vorhandener Klassen gesetzt und es
 Eine einfache Verschlagwortung mittels eines kontrollierten Vokabulars erzeugte vermutlich mehr Querverweise, die für den Aufbau einer Merkmalsmenge nützlich sein könnten, als die aus der ICD-10 gewonnenen Zuweisungen. 
 Der Grund dafür ist, dass der Zweck einer Klassifikation genau ist, möglichst wenig Kongruenz im Begriffsumfang mit benachbarten, vor allem aber Ober- und Unterbegriffen zu beinhalten. 
 
-Aufgrund der großen Menge an bereitgestellten Informationen haben wir uns dazu entschieden, die Online-Enzyklopädie Wikipedia als Wissensquelle für das Wörterbuch der Augenheilkunde zu berücksichtigen. 
-Auch wenn anfänglich sowohl die englische, als auch die deutsche Version der Wikipedia für die Informationsextraktion herangezogen wurden, entschied man sich schließlich für die englische Wikipedia als Wissensquelle, um einerseits den Merkmalsraum einsprachig zu halten und andererseits aus dem Grund, dass die englische Wikipedia deutlich mehr Informationen aus dem Bereich der Augenheilkunde enthält, und weil die englische Sprache weniger Flexionen verwendet als die deutsche, was den linguistischen Abgleich von Informationen der Wikipedia mit den Einträgen aus dem Wörterbuch vereinfacht. 
+Aufgrund der großen Menge an bereitgestellten Informationen haben wir uns dazu entschieden, die Online-Enzyklopädie Wikipedia als Wissensquelle für das \enquote{Wörterbuch der Augenheilkunde} zu berücksichtigen. 
+Auch wenn anfänglich sowohl die englische, als auch die deutsche Version der Wikipedia für die Informationsextraktion herangezogen wurden, entschied man sich schließlich für die englische Wikipedia als Wissensquelle, um einerseits den Merkmalsraum einsprachig zu halten und andererseits, weil die englische Wikipedia deutlich mehr Informationen aus dem Bereich der Augenheilkunde enthält.
+Außerdem verwendet die englische Sprache weniger Flexionen als die deutsche, was den linguistischen Abgleich von Informationen der Wikipedia mit den Einträgen aus dem Wörterbuch vereinfacht. 
 
 In der Wikipedia wird durch Zuweisung eines Artikels einer oder mehreren Kategorien eine Klassifikation erzeugt. 
 In erster Linie dient dies dazu, thematische Bereiche zu erstellen und weniger eine Begriffsordnung zu schaffen. 
@@ -499,7 +500,7 @@ Weil damit der wesentliche Vorteil der Verwendung von \emph{xsltproc} entfallen 
 Trotzdem ist für ordentlich strukturierte XML-Daten XSLT immer vorzuziehen, weil die Verarbeitung sehr großer Dateien, selbst im Vergleich zu den eben genannten Programmen, noch einmal erheblich schneller ist und auch dem eigentlichen Zweck der Verwendung von XML zur Datenauszeichnung entspricht. 
 \item In den Abstracts befinden sich die Kategorie-Tags, die wiederum dem Artikelnamen zugewiesen werden. 
 Allerdings fanden sich auch mehrere hundert Kategorien, die lediglich der Verwaltung der Wikipedia dienen, und die vorher nicht aufgefallen waren, weil sie bei der Anzeige im Browser unterdrückt werden. 
-Ein allgemeines Beispiel dafür ist die Kategorie \enquote{Articles needing attention}, die selbst wiederum mehrere hundert Unterkategorien enthält (unter anderem zu jener Zeit sich selbst: \enquote{Medical Articles needing attention}). 
+Ein typisches Beispiel dafür ist die Kategorie \enquote{Articles needing attention}, die selbst wiederum mehrere hundert Unterkategorien enthält (unter anderem zu jener Zeit sich selbst: \enquote{Medical Articles needing attention}). 
 Außerdem gibt es Sammelkategorien der Art \enquote{Accuracy disputes from August 2009}. 
 Je nachdem wie lange der Dissens bezüglich eines Themas schwelt, sind genau so viele Kategorien dieses Typs einem Artikel zugewiesen, wie Monate vergangen sind. 
 Obwohl viele dieser Kategorien, einmal identifiziert, durch reguläre Ausdrücke gut zu filtern waren, war es doch ein erheblicher manueller Aufwand, der aber im Wiederholungsfall automatisierbar ist.
@@ -558,7 +559,7 @@ Dieser Schritt geht vollautomatisch und bedarf keiner weiteren Überprüfung ode
 Das Ergebnis zeigte sich bezüglich der Ausbeute an Merkmalen und der Anzahl an Zuweisungen je Begriff als unbefriedigend. 
 Zwar wurden insgesamt ca. 5000 Merkmale produziert, jedoch befindet sich darunter jede Menge Ballast in Form von irrelevanten oder aus dem Kontext heraus falsch extrahierten Daten (beispielsweise \emph{is a} als Merkmal, welches als Wikipedia-Eintrag vorhanden ist). 
 Zudem ist bei insgesamt ca. 7000 Merkmalszuweisungen jedes Merkmal im Schnitt 1,4 mal zugewiesen worden, was sehr wenig erscheint. 
-Es gibt nur ca. 500 Merkmale, die öfters als dreimal zugewiesen wurden. 
+Es gibt nur ca. 500 Merkmale, die häufiger als dreimal zugewiesen wurden. 
 Auch das Matching der Artikelnamen auf die Synsets bleibt mit einem Wert von 266 erkannten Synsets bei 626 Lexikonartikeln hinter den Erwartungen zurück. 
 
 % Hinzugefügt, dass es bei der Stoppwortfilterung um N-Gramme geht
@@ -614,7 +615,7 @@ Ein Beispiel dafür ist der erste Satz des Artikels \enquote{Hornhaut}:
 Die \textbf{Hornhaut} (lateinisch \textbf{Cornea}, eingedeutscht auch \textbf{Kornea}, griechisch \emph{keras} = Horn, \emph{keratoeides chiton} = Hornhaut) ist der glasklare, von Tränenflüssigkeit benetzte, gewölbte vordere Teil der äußeren Augenhaut. 
 \end{quote}
 
-Da es mit einem Part-of-Speech-Tagger vergleichsweise einfach ist, die entsprechenden Teile zu extrahieren, sollte der Versuch unternommen werden dem Merkmalscharakter möglichst nahe zu kommen, indem einfach die Wörter, die unmittelbar verwendet werden um den in Frage stehenden Begriff zu beschreiben, als Merkmale zu nutzen. 
+Da es mit einem Part-of-Speech-Tagger vergleichsweise einfach ist, die entsprechenden Teile zu extrahieren, sollte der Versuch unternommen werden dem Merkmalscharakter möglichst nahe zu kommen, indem die Wörter, die unmittelbar verwendet werden um den in Frage stehenden Begriff zu beschreiben, als Merkmale zu genutzt werden. 
 Die Wahrscheinlichkeit, einerseits möglichst treffende Begriffe zu finden und andererseits nicht zu viele, nicht in unmittelbaren Zusammenhang stehende Wörter zuzuweisen, erschien durch die Beschränkung auf den ersten Satz eines enzyklopädischen Artikels als maximal. 
 
 \subsubsection{Vorgehensweise}
@@ -633,7 +634,7 @@ Auf diese Weise wurden 118 Kategorien und 2415 von 2841 möglichen Artikeln geho
 Die Abweichung ergibt sich zu etwa zwei Dritteln aus Verbindungsabbrüchen nach fünf Versuchen. 
 Das Programm \emph{wget} hat sehr elaborierte Möglichkeiten, um sein Retrievalverhalten wie das einer natürlichen Person, die mittels Web-Browser die Seiten besucht, aussehen zu lassen. 
 Das ist notwendig, weil auch die Wikipedia-Server zu hochfrequente Verbindungsanfragen drosseln (und bei drastischem Überschreiten IP-Adressen sperren), basierend auf der IP-Adresse und der absoluten Frequenz der Anfragen. 
-Um die Server zu schonen und die Zugriffe nicht so auffällig zu machen, wurden die Zugriffe unter anderem auf einen Zufallswert zwischen einer und 60 Sekunden eingestellt, die Download-Rate auf 5 Kb/s gedrosselt und die Anzahl der Verbindungsversuche je Artikel auf fünf Versuche beschränkt. 
+Um die Server zu schonen und die Zugriffe nicht so auffällig zu machen, wurden die Zugriffe unter anderem auf einen Zufallswert zwischen einer und 60 Sekunden eingestellt, die Download-Rate auf 15 Kb/s gedrosselt und die Anzahl der Verbindungsversuche je Artikel auf fünf Versuche beschränkt. 
 
 Etwa 1300 der 2415 Artikel sind Namen natürlicher Personen. 
 Der Grund dafür ist, dass ein ganzer Bereich unterhalb der Kategorie \enquote{Eye} berühmte Augenärzte und Wissenschaftler der Augenheilkunde beinhaltet.
@@ -662,7 +663,7 @@ Das erste Beispiel ist ein eher erfolgreiches Resultat des Ansatzes, das zweite 
 \end{quote}
 
 \lstset{
-language=Bash
+language=bash
 }
 
 \begin{lstlisting}[caption={Beispiel für eine Ergebnisliste nach Filterung mit Wortartenerkennung. Das in Sternen eingefasste Wort ist die Kategorie.}]
@@ -681,7 +682,7 @@ A \textbf{scleral lens} is a large lens that rests on the sclera and creates a t
 \end{quote}
 
 \lstset{
-language=Bash,
+language=bash,
 }
 
 \begin{lstlisting}[caption={Beispiel für eine Ergebnisliste nach Filterung mit Wortartenerkennung. Die in Sternen eingefassten Wörter sind Kategorien.}]
@@ -740,7 +741,7 @@ Um diese Platzproblematik zu lösen und die Ordnungsdiagramme so klein und über
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Ebenso wurde in einem späteren Entwicklungsstadium auf die Darstellung des größten Begriffs verzichtet, da dessen Merkmalmenge jeweils leer ist und somit keinen Mehrwert zur Exploration des Verbands bietet. 
 
-Die erzeugten Darstellungen sind interaktiv gestaltet, indem Knoten des Diagramms klickbar sind (Abbildungen im Anhang unter \emph{~\nameref{sec:diagrams}} auf Seite~\pageref{sec:diagrams}). 
+Die erzeugten Darstellungen sind interaktiv gestaltet, indem Knoten des Diagramms klickbar sind (Abbildungen im Anhang unter \emph{~\nameref{sec:visualization_01}} auf Seite~\pageref{sec:visualization_01}). 
 Bei Klick auf einen Knoten öffnet sich ein Menü, das sowohl die Merkmale, als auch die Vorzugsbezeichnungen der zugehörigen Synsets anzeigt. 
 Die Synsets sind ebenso klickbar, sodass sich nach einem Klick der entsprechende formale Kontext für das geklickte Synset neu aufbaut, unter Berücksichtigung aller zugewiesenen Merkmale des Synsets. 
 Auf diese Weise ist es möglich, alle Synsets des Wörterbuchs zu erforschen und benachbarte Bedeutungen zu entdecken, vorausgesetzt sie wurden durch Merkmale erschlossen. 
@@ -810,7 +811,8 @@ Er deckt die Artikel der Wikipedia-Extraktion vollständig mit mindestens einem 
 
 Wir halten diese Ansätze für vielversprechend, weil sie erlauben würden zu ermitteln, welche Merkmalsmenge unbedingt notwendig (versus ausreichend versus optimal) ist, um die Domäne für die Formale Begriffsanalyse zu erschließen.
 Darauf aufbauend wäre dann aus unserer Sicht besser zu entscheiden, wie man eine so reduzierte Menge an Merkmalen maschinell erschließt (bzw. ob es überhaupt mit vertretbarem Aufwand möglich ist).
-Im Hinblick auf die praktische Verwendung ist der erstgenannte Ansatz mit dem manuellen Synonymwörterbuch daher nicht geeignet, weil fast alles, was die Formale Begriffsanalyse später überhaupt leistet, im Vorfeld schon manuell erledigt worden ist, indem man die Synonymlisten überhaupt geschaffen hat.
+Im Hinblick auf die praktische Verwendung ist der erstgenannte Ansatz mit dem manuellen Synonymwörterbuch daher nicht geeignet. 
+Fast alles, was die Formale Begriffsanalyse später überhaupt leistet, ist im Vorfeld schon manuell erledigt worden, indem über die Synonymlisten bereits eine Ordnung geschaffen wurde.
 
 \subsection{Vorgeben des Merkmalsraums}
 
@@ -991,7 +993,7 @@ Dadurch ist die Manipulation von SVG-Grafiken auch besonders einfach zu handhabe
 language=C
 }
 
-\begin{lstlisting}[caption={DOT-Syntax für Ordnungsdiagramm des Begriffsverbands für das Synset \emph{Macula}. Vereinfachte Darstellung.}]
+\begin{lstlisting}[caption={DOT-Syntax für das Ordnungsdiagramm des Begriffsverbandes für das Synset \emph{Macula}. Vereinfachte Darstellung. Die URL in den Knoten werden in der resultierenden SVG-Darstellung auf der Seite in Hyperlinks umgewandelt.}]
 strict digraph G {
     0 [ label=190, 
         URL="/visualize_new.php?WID=1895&show=1"];
@@ -1083,8 +1085,7 @@ function sameRoute($ebasic, $ecomp) {
 		
         if (sameRoute($ebasic, $next)) return true; 
     }
-    return false;
-}
+    return false; }
 \end{lstlisting}
 
 \section{Beispiele der Visualisierung der Begriffsverbände}
