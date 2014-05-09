@@ -2,10 +2,20 @@ Abstract
 ================================================================================
 
 Das Wörterbuch der Augenheilkunde ist eine online verfügbare Ressource mit 24.000+ Begriffen aus dem Bereich der Augenheilkunde verteilt auf 13 Sprachen.
+<!-- The Dictionary of Ophthalmology is an online resource containing more than 24.000 terms specific to ophthalmology distributed over 13 languages. -->
+
 Zu jedem Begriff werden neben Bildern, Abkürzungen und weiteren Informationen die verfügbaren Übersetzungen, sowie bekannte Synonyme präsentiert.
+<!-- ----------------------------------------------------------------------------------------- -->
 <!-- Im Konferenz-Abstract Tilburg steht '...arranged by synonymy...': wie beschreibt man das am Besten auf deutsch? -->
 <!-- Vielleicht 'geordnet anhand von Synonymen'? -->
+<!-- ----------------------------------------------------------------------------------------- -->
+<!-- Ich muss gestehen, ich habe das nicht verstanden und daher die Formulierung '...sowie bekannte Synonyme...' gewählt. -->
+<!-- ----------------------------------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------------------------------- -->
+<!-- Each term is presented together with its available translations, synonyms and many are accompanied with images -->
+
 Ziel des Wörterbuchs ist es den Augenarzt im Umgang mit fremdsprachlichen Arztbriefen oder Berichten zu unterstützen. 
+<!-- The Dictionary of Ophthalmology aims to support the practitioner in dealing with medical reports of patients written in foreign languages. -->
 Die Übersetzungen können jedoch auch fehlerhaft sein (Zeitz & Petersen, 2013) und die verfügbaren Übersetzungen sind sehr ungleichmäßig über die Sprachen verteilt.
 Weiterhin existieren bestimmte Begriffe nur in manchen Sprachen als Wort oder Phrase, andere sind weiter verbreitet.
 Es sollen Ansätze und Methoden der Merkmalsextraktion präsentiert werden, um ein solches Wörterbuch halbautomatisch mit den fehlenden Übersetzungen zu ergänzen.
