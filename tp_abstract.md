@@ -16,9 +16,18 @@ Zu jedem Begriff werden neben Bildern, Abkürzungen und weiteren Informationen d
 
 Ziel des Wörterbuchs ist es den Augenarzt im Umgang mit fremdsprachlichen Arztbriefen oder Berichten zu unterstützen. 
 <!-- The Dictionary of Ophthalmology aims to support the practitioner in dealing with medical reports of patients written in foreign languages. -->
+
 Die Übersetzungen können jedoch auch fehlerhaft sein (Zeitz & Petersen, 2013) und die verfügbaren Übersetzungen sind sehr ungleichmäßig über die Sprachen verteilt.
+<!-- But some translations may be erroneous (Zeitz & Petersen, 2013) and the translations available in the dictionary are very unevenly distributed across the 13 languages -->
+
 Weiterhin existieren bestimmte Begriffe nur in manchen Sprachen als Wort oder Phrase, andere sind weiter verbreitet.
+<!-- Furthermore there may be medical terms existing only in some languages as a word or phrase while other terms are commonplace in most languages -->
+
 Es sollen Ansätze und Methoden der Merkmalsextraktion präsentiert werden, um ein solches Wörterbuch halbautomatisch mit den fehlenden Übersetzungen zu ergänzen.
+<!-- Hier habe ich noch das Problem, dass wir von Merkmalen sprechen, aber FCA und Janssen erst danach erwähnt werden. Wir müssten eigentlich explizieren welcher Art die Merkmale sind (lexikalische Merkmale, semantische Merkmale, usw.), oder diesen Satz erst später bringen. -->
+
+<!-- We will present methods for extracting features with which we enrich the dictionary semi-automatically in order to bridge missing or erroneous translations. --> 
+
 <!-- Im folgenden Satz: welche Zuweisungen? -->
 Die Zuweisungen erfolgen über die gemeinsamen Merkmale der Begriffe, um daraus schließlich einen Begriffsverband bilden zu können (Ganter & Wille, 1999).
 Begriffsverbände eignen sich als Zwischensprache, weil angenommen wird, dass die verwendeten Merkmale als Wort in allen Sprachen existieren und mit ihnen ophthalmologische Begriffe als formale Begriffe dargestellt werden können.
