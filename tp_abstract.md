@@ -32,7 +32,9 @@ Es sollen Ansätze und Methoden der Merkmalsextraktion präsentiert werden, um e
 <!-- Im folgenden Satz: welche Zuweisungen? -->
 Die Zuweisungen erfolgen über die gemeinsamen Merkmale der Begriffe, um daraus schließlich einen Begriffsverband bilden zu können (Ganter & Wille, 1999).
 <!-- With the resulting set of keywords and their respective term-assignments we aim to establish a Formal Concept (Ganter & Wille, 1999) in which the extracted keywords serve as features for describing formal objects that represent the dictionary's terms.
+
 Commonly distributed subsets of features point to similar objects within the Formal Concept and shape a semantic network. -->
+<!-- ANMERKUNG zu vorheriger Zeile: ich weiß nicht sicher, was Du mit 'commonly distributed' meinst. Vielleicht so etwas wie 'Subsets that share feature point [...]'? -->
 
 Begriffsverbände eignen sich als Zwischensprache, weil angenommen wird, dass die verwendeten Merkmale als Wort in allen Sprachen existieren und mit ihnen ophthalmologische Begriffe als formale Begriffe dargestellt werden können.
 <!-- A Formal Concept is suitable for describing an Interlingua, because it is assumed that lexical representations of our used features exist in all languages and can therefore be used to constitute opthalmological terms as formal objects. -->
@@ -42,8 +44,24 @@ Damit folgen wir dem Ansatz von Janssen, 2004.
 
 Die für den Aufbau der Begriffsverbände nötigen Merkmale werden aus gegebenen Klassifikationen, aus Wortteilextraktionen und aus einfacher syntaktischer Extraktion durch Wortartenerkennung gewonnen.
 Hierzu wurden die Internationale Klassifikation der Krankheiten (ICD-10), die englischsprachige Wikipedia im Bereich der Augenheilkunde und andere Quellen herangezogen.
+<!-- The data for the extraction of features came from the World Health Organizations International Classfication of Diseases, the english language part of Wikipedia and some additional sources. --> 
+<!-- Using a part-of-speech tagger and distinct word affixes in the field of ophthalmology provided the features necessary to build formal concepts. -->
+<!-- ANMERKUNG zu vorheriger Zeile: ich habe schon wieder vergessen, wie wir 'Begriffsverband/Begriffsverbände' übersetzt haben. -->
+
 Für die Darstellung der Begriffsverbände eignen sich Ordnungsdiagramme.
+<!-- The results are visualized with the help of Hasse-diagrams. -->
+
 Mit einer auf Ordnungsdiagrammen basierenden interaktiven Nutzerschnittstelle versetzen wir Augenärzte in die Lage, weiterführende Begriffe anhand der Bedeutungsähnlichkeit bereits bekannter Begriffe zu erschließen und den kompletten Begriffsverband zu erforschen.
+
+<!-- The nodes in the Hasse-diagrams are hyperlinks and thus provide the means for the practitioner to swiftly navigate related terms. -->
+<!-- ANMERKUNG zu vorheriger Zeile (deutsch): soll man nochmal explizieren, wie die Ähnlichkeit gemessen wird? --> 
+
 Wir diskutieren die verfolgten Ansätze, die entstandenen Probleme, sowie die Eignung der verwendeten Quellen für entsprechende Arten der Extraktion und Möglichkeiten, die Ansätze zu verbessern.
+
+<!-- Finally we discuss the problems encountered with gathering the data and extracting the features. -->
+<!-- We present the different attempts made to overcome these problems and discuss ways to improve on the methods used. -->
+
 Schließlich präsentieren wir die Ergebnisse und die Visualisierung der auf diese Weise erstellten Begriffsverbände.
+<!-- ANMERKUNG zu voheriger Zeile: das wäre dann vermutlich im Umfang ähnlich, wie am Ende des Berichts, also ein, zwei Verbände etc.? -->
+
 
