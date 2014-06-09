@@ -28,6 +28,7 @@ Furthermore there may be medical terms existing only in some languages as a word
 <!-- Folgend habe ich dieses Problem umgangen, indem ich den Begriff descriptive keywords verwende und das Prinzip des Taggings mit reingebracht habe. -->
 
 We will present methods for extracting descriptive keywords from various sources.
+
 In doing so we aim to enrich the dictionary semi-automatically by tagging relating terms with corresponding keywords in order to bridge missing or erroneous translations.
 
 <!-- Im folgenden Satz: welche Zuweisungen? -->
