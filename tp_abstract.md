@@ -46,7 +46,7 @@ Using a part-of-speech tagger and distinct word affixes from the field of ophtha
 <!-- Formal Concepts ;) -->
 
 <!-- Für die Darstellung der Begriffsverbände eignen sich Ordnungsdiagramme. -->
-The results are visualized with the help of interactive Hasse diagrams which serve as user interface for the lattice that is build up from the complete feature-set of one observed formal object.
+The results are visualized with the help of interactive Hasse diagrams which serve as User Interface for the lattice that is build up from the complete feature-set of one observed formal object.
 <!-- Mit einer auf Ordnungsdiagrammen basierenden interaktiven Nutzerschnittstelle versetzen wir Augenärzte in die Lage, weiterführende Begriffe anhand der Bedeutungsähnlichkeit bereits bekannter Begriffe zu erschließen und den kompletten Begriffsverband zu erforschen. -->
 Nodes in the Hasse diagrams are hyperlinked to diagram views where the clicked node resembles the supremum and thus provide the means for the practitioner to swiftly navigate related terms from one perspective to another.
 <!-- ANMERKUNG zu vorheriger Zeile (deutsch): soll man nochmal explizieren, wie die Ähnlichkeit gemessen wird? --> 
